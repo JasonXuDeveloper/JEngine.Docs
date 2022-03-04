@@ -1,0 +1,19 @@
+{
+  "name": "JEngine.Docs",
+  "version": "0.0.1",
+  "description": "Document for JEngine",
+  "main": "index.js",
+  "authors": {
+    "name": "JasonXuDeveloper",
+    "email": "jasonxudeveloper@gmail.com"
+  },
+  "repository": "https://github.com/JasonXuDeveloper/JEngine.Docs/JEngine Docs",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
