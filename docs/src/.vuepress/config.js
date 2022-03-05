@@ -20,7 +20,7 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ["link", {rel: "icon", href: "/logo/favicon.ico"}]
+    ["link", {rel: "icon", href: "/favicon.ico"}]
   ],
 
 
@@ -54,6 +54,7 @@ module.exports = {
     docsBranch: 'main',
     // 默认是 false, 设置为 true 来启用
     editLinks: true,
+    logo: '/logo.png',
     sidebar: sidebar.main,
     locales: {
       '/': {
