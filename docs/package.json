@@ -10,7 +10,7 @@
   "repository": "https://github.com/JasonXuDeveloper/JEngine.Docs/JEngine Docs",
   "scripts": {
     "dev": "vuepress dev src",
-    "sync": "git pull;vuepress dev src",
+    "sync": "git pull;rm -rf /www/wwwroot/GameDocs/docs/src/.vuepress/dist/.user.ini;vuepress build src",
     "build": "rm -rf /www/wwwroot/GameDocs/docs/src/.vuepress/dist/.user.ini;vuepress build src;git add .;git commit -m 'update';git push;"
   },
   "license": "MIT",
