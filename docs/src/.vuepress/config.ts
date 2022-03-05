@@ -46,6 +46,58 @@ var bar = {
       ]
     },
   ],
+  '/zh/documents/0.6/':[
+    {
+      text: 'v0.6.x文档',
+      collapsible: false,
+      children: [
+        {
+          text: '入门教程',
+          collapsible: false,
+          children: [
+            '/zh/documents/0.6/startup',
+            '/zh/documents/0.6/structure',
+            '/zh/documents/0.6/hotupdate',
+            '/zh/documents/0.6/classbind',
+            '/zh/documents/0.6/guide',
+            '/zh/documents/0.6/limits',
+            {text:'ILRuntime文档',link:'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html'},
+          ]
+        },
+        {
+          text: '框架核心',
+          collapsible: false,
+          children: [
+            '/zh/documents/0.6/jbehaviour',
+            '/zh/documents/0.6/jresource',
+            '/zh/documents/0.6/jaction',
+            '/zh/documents/0.6/jsaver',
+            '/zh/documents/0.6/localization',
+            '/zh/documents/0.6/crypto-struct',
+            '对象池教程（待完善）',
+            '/zh/documents/0.6/ilruntime-tools',
+            '/zh/documents/0.6/proto-tools',
+            '/zh/documents/0.6/jengine-panel',
+          ]
+        },
+        {
+          text: 'UI框架',
+          collapsible: false,
+          children: [
+            '/zh/documents/0.6/jui',
+            '/zh/documents/0.6/bindable',
+          ]
+        },
+        {
+          text: '额外插件',
+          collapsible: false,
+          children: [
+            {text:'Unity GUI Redis',link:'https://github.com/JasonXuDeveloper/Unity-GUI-Redis'},
+          ]
+        }
+      ]
+    },
+  ],
 };
 
 export default defineUserConfig<DefaultThemeOptions>({
