@@ -5,11 +5,10 @@ export const themeData = {
   "docsBranch": "main",
   "editLinks": true,
   "logo": "/logo.png",
-  "sidebar": "auto",
   "locales": {
     "/": {
-      "selectText": "Languages",
-      "label": "English",
+      "selectLanguageText": "Languages",
+      "selectLanguageName": "English",
       "ariaLabel": "Languages",
       "editLinkText": "Edit this page on GitHub",
       "serviceWorker": {
@@ -21,61 +20,120 @@ export const themeData = {
       "displayAllHeaders": true,
       "search": true,
       "searchMaxSuggestions": 10,
-      "lastUpdated": "Last Updated",
+      "lastUpdated": true,
+      "lastUpdatedText": "Last Updated",
       "contributors": true,
       "contributorsText": "Document Contributors",
+      "sidebar": {
+        "/documents/": [
+          {
+            "text": "Documentations",
+            "collapsible": false,
+            "children": [
+              "/documents/"
+            ]
+          }
+        ],
+        "/zh/documents/": [
+          {
+            "text": "框架文档",
+            "collapsible": false,
+            "children": [
+              "/documents/"
+            ]
+          }
+        ],
+        "/documents/0.7/": [
+          {
+            "text": "开始使用",
+            "collapsible": false,
+            "children": [
+              "/documents/0.7/",
+              "/documents/features-overview"
+            ]
+          },
+          {
+            "text": "功能指南",
+            "collapsible": false,
+            "children": [
+              "/documents/features/game-launcher.md",
+              "/documents/features/account-switch.md",
+              "/documents/features/mhy-account-switch.md",
+              "/documents/features/unlock-framerate.md",
+              "/documents/features/wish-export.md",
+              "/documents/features/customize-webpage.md"
+            ]
+          },
+          {
+            "text": "常见问题",
+            "collapsible": false,
+            "children": [
+              "/documents/FAQ/Dell-AWCC-error.md",
+              "/documents/FAQ/dotNET-env.md",
+              "/documents/FAQ/how-to-quit-program.md",
+              "/documents/FAQ/launcher-path-error.md",
+              "/documents/FAQ/transfer-from-other-wish-export.md",
+              "/documents/FAQ/WebView2-env.md",
+              "/documents/FAQ/failed-load.md"
+            ]
+          },
+          {
+            "text": "拓展插件",
+            "collapsible": false,
+            "children": [
+              "/documents/extensions/README.md",
+              "/documents/extensions/GamebarWidget.md"
+            ]
+          },
+          {
+            "text": "声明文档",
+            "collapsible": false,
+            "children": [
+              "/documents/statement/user-privacy-notice.md",
+              "/documents/statement/sponsor.md"
+            ]
+          }
+        ],
+        "/development": [
+          {
+            "text": "开发指南",
+            "collapsible": false,
+            "children": [
+              "/development/StandardFormat",
+              "/development/DeveloperGuide",
+              "/development/PluginTutorial"
+            ]
+          }
+        ]
+      },
       "navbar": [
         {
-          "text": "主页",
-          "link": "/zh/"
+          "text": "Home",
+          "link": "/"
         },
         {
-          "text": "使用文档",
-          "link": "/documents/"
-        },
-        {
-          "text": "交流",
+          "text": "Documentations",
+          "link": "/documents/",
           "children": [
             {
-              "text": "JEngine官方QQ群",
-              "children": [
-                {
-                  "text": "921271552",
-                  "link": "https://jq.qq.com/?_wv=1027&k=cF4hODjW"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "text": "下载",
-          "children": [
-            {
-              "text": "国内用户",
-              "children": [
-                {
-                  "text": "腾讯云",
-                  "link": "https://download.snapgenshin.com/latest/Publish.zip"
-                }
-              ]
+              "text": "0.7.x",
+              "link": "/documents/0.7/"
             },
             {
-              "text": "海外用户",
-              "children": [
-                {
-                  "text": "Github",
-                  "link": "https://github.com/DGP-Studio/Snap.Genshin/releases/latest/download/Publish.zip"
-                }
-              ]
+              "text": "0.6.x",
+              "link": "/documents/0.6/"
+            },
+            {
+              "text": "0.5.x",
+              "link": "/documents/0.5/"
             }
           ]
         }
-      ],
-      "selectLanguageName": "English"
+      ]
     },
     "/zh/": {
-      "selectText": "选择语言",
-      "label": "简体中文",
+      "selectLanguageText": "选择语言",
+      "selectLanguageName": "简体中文",
       "editLinkText": "在 GitHub 上编辑此页",
       "serviceWorker": {
         "updatePopup": {
@@ -86,7 +144,8 @@ export const themeData = {
       "displayAllHeaders": true,
       "search": true,
       "searchMaxSuggestions": 10,
-      "lastUpdated": "上次更新时间",
+      "lastUpdated": true,
+      "lastUpdatedText": "上次更新时间",
       "contributors": true,
       "contributorsText": "文档贡献者",
       "tip": "提示",
@@ -96,6 +155,88 @@ export const themeData = {
         "找不到该页面"
       ],
       "backToHome": "返回首页",
+      "sidebar": {
+        "/documents/": [
+          {
+            "text": "Documentations",
+            "collapsible": false,
+            "children": [
+              "/documents/"
+            ]
+          }
+        ],
+        "/zh/documents/": [
+          {
+            "text": "框架文档",
+            "collapsible": false,
+            "children": [
+              "/documents/"
+            ]
+          }
+        ],
+        "/documents/0.7/": [
+          {
+            "text": "开始使用",
+            "collapsible": false,
+            "children": [
+              "/documents/0.7/",
+              "/documents/features-overview"
+            ]
+          },
+          {
+            "text": "功能指南",
+            "collapsible": false,
+            "children": [
+              "/documents/features/game-launcher.md",
+              "/documents/features/account-switch.md",
+              "/documents/features/mhy-account-switch.md",
+              "/documents/features/unlock-framerate.md",
+              "/documents/features/wish-export.md",
+              "/documents/features/customize-webpage.md"
+            ]
+          },
+          {
+            "text": "常见问题",
+            "collapsible": false,
+            "children": [
+              "/documents/FAQ/Dell-AWCC-error.md",
+              "/documents/FAQ/dotNET-env.md",
+              "/documents/FAQ/how-to-quit-program.md",
+              "/documents/FAQ/launcher-path-error.md",
+              "/documents/FAQ/transfer-from-other-wish-export.md",
+              "/documents/FAQ/WebView2-env.md",
+              "/documents/FAQ/failed-load.md"
+            ]
+          },
+          {
+            "text": "拓展插件",
+            "collapsible": false,
+            "children": [
+              "/documents/extensions/README.md",
+              "/documents/extensions/GamebarWidget.md"
+            ]
+          },
+          {
+            "text": "声明文档",
+            "collapsible": false,
+            "children": [
+              "/documents/statement/user-privacy-notice.md",
+              "/documents/statement/sponsor.md"
+            ]
+          }
+        ],
+        "/development": [
+          {
+            "text": "开发指南",
+            "collapsible": false,
+            "children": [
+              "/development/StandardFormat",
+              "/development/DeveloperGuide",
+              "/development/PluginTutorial"
+            ]
+          }
+        ]
+      },
       "navbar": [
         {
           "text": "主页",
@@ -114,29 +255,6 @@ export const themeData = {
                 {
                   "text": "921271552",
                   "link": "https://jq.qq.com/?_wv=1027&k=cF4hODjW"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "text": "下载",
-          "children": [
-            {
-              "text": "国内用户",
-              "children": [
-                {
-                  "text": "腾讯云",
-                  "link": "https://download.snapgenshin.com/latest/Publish.zip"
-                }
-              ]
-            },
-            {
-              "text": "海外用户",
-              "children": [
-                {
-                  "text": "Github",
-                  "link": "https://github.com/DGP-Studio/Snap.Genshin/releases/latest/download/Publish.zip"
                 }
               ]
             }
@@ -149,6 +267,7 @@ export const themeData = {
   "darkMode": true,
   "selectLanguageText": "Languages",
   "selectLanguageAriaLabel": "Select language",
+  "sidebar": "auto",
   "sidebarDepth": 2,
   "editLink": true,
   "editLinkText": "Edit this page",
@@ -166,17 +285,4 @@ export const themeData = {
   "openInNewWindow": "open in new window",
   "toggleDarkMode": "toggle dark mode",
   "toggleSidebar": "toggle sidebar"
-}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updateThemeData) {
-    __VUE_HMR_RUNTIME__.updateThemeData(themeData)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ themeData }) => {
-    __VUE_HMR_RUNTIME__.updateThemeData(themeData)
-  })
 }

@@ -6,7 +6,7 @@ export const data = {
   "frontmatter": {
     "home": true,
     "title": "页面的标题",
-    "heroImage": "https://s4.ax1x.com/2022/01/16/7tP1V1.png",
+    "heroImage": "/logo.png",
     "heroText": "JEngine",
     "tagline": "使Unity开发的游戏支持热更新的解决方案。",
     "actionText": "快速开始 →",
@@ -30,27 +30,14 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": 1646436802000,
+    "updatedTime": 1646448213000,
     "contributors": [
       {
         "name": "root",
         "email": "root@vps-023bdc5d.vps.ovh.ca",
-        "commits": 1
+        "commits": 2
       }
     ]
   },
   "filePathRelative": "zh/README.md"
-}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
 }

@@ -1,18 +1,22 @@
 ---
-title: 12345
+title: JEngine - The solution that allows unity games update in runtime.
 home: true
 lang: en-US
-heroImage: https://s4.ax1x.com/2022/01/16/7tP1V1.png
+heroImage: /logo.png
 heroText: JEngine
 tagline: The solution that allows unity games update in runtime.
+actions:
+  - text: Get Started →
+    link: /documents/
+    type: primary
 actionText: Get Started →
 actionLink: /guide/
 features:
-- title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-- title: Vue驱动
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 高性能
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+- title: OOTB
+  details: An out-of-the-box framework designed for Unity developers instantly allows beginners to create games that can be updated hotly.
+- title: Powerful
+  details: There is no need to explore how hot update works as the framework was well done integrated the corresponding module.
+- title: Lightweight
+  details: Just download the framework and start building your own game with no additional requirements.
 footer: MIT Licensed | Copyright © 2020-present JasonXuDeveloper
 ---

@@ -1,7 +1,7 @@
 ---
 home: true
 title: 页面的标题
-heroImage: https://s4.ax1x.com/2022/01/16/7tP1V1.png
+heroImage: /logo.png
 heroText: JEngine
 tagline: 使Unity开发的游戏支持热更新的解决方案。
 actionText: 快速开始 →
