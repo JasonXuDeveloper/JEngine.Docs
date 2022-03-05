@@ -32,14 +32,27 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1646458754000,
+    "updatedTime": 1646460274000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 1
+        "commits": 2
       }
     ]
   },
   "filePathRelative": "documents/0.6/jbehaviour-v0-6.md"
+}
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
 }

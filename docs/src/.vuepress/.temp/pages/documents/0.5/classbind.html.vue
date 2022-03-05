@@ -1,5 +1,4 @@
-<template><p>{% import &quot;views/_data.njk&quot; as data %}</p>
-<h1 id="挂载代码-v0-5" tabindex="-1"><a class="header-anchor" href="#挂载代码-v0-5" aria-hidden="true">#</a> 挂载代码（v0.5）</h1>
+<template><h1 id="挂载代码" tabindex="-1"><a class="header-anchor" href="#挂载代码" aria-hidden="true">#</a> 挂载代码</h1>
 <p>有的时候，我们会将代码挂到GameObject上，然而，如果一个GameObject会包含很多热更脚本，一个个手动AddComponent太浪费时间，于是就有了自动绑定工具</p>
 <h2 id="挂载步骤" tabindex="-1"><a class="header-anchor" href="#挂载步骤" aria-hidden="true">#</a> 挂载步骤</h2>
 <ol>

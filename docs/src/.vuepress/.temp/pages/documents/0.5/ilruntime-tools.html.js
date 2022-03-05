@@ -1,7 +1,7 @@
 export const data = {
   "key": "v-8707b6c4",
   "path": "/documents/0.5/ilruntime-tools.html",
-  "title": "ILRuntime工具（v0.5）",
+  "title": "ILRuntime工具",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
@@ -34,12 +34,12 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1646458754000,
+    "updatedTime": 1646461086000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 1
+        "commits": 5
       }
     ]
   },

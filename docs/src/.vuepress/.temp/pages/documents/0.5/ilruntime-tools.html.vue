@@ -1,5 +1,4 @@
-<template><p>{% import &quot;views/_data.njk&quot; as data %}</p>
-<h1 id="ilruntime工具-v0-5" tabindex="-1"><a class="header-anchor" href="#ilruntime工具-v0-5" aria-hidden="true">#</a> ILRuntime工具（v0.5）</h1>
+<template><h1 id="ilruntime工具" tabindex="-1"><a class="header-anchor" href="#ilruntime工具" aria-hidden="true">#</a> ILRuntime工具</h1>
 <p>JEngine提供了ILRuntime可视化工具面板</p>
 <h2 id="ilruntime-clr绑定生成" tabindex="-1"><a class="header-anchor" href="#ilruntime-clr绑定生成" aria-hidden="true">#</a> ILRuntime CLR绑定生成</h2>
 <p>IL2CPP出包前，进行该操作可防裁剪</p>
@@ -23,7 +22,7 @@
 <p>在Unity工程，Assets/Scripts/Helpers/RegisterCrossBindingAdaptorHelper.cs里，加入适配器注册到<code>Register(AppDomain appdomain)</code>方法</p>
 </li>
 </ol>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>appdomain<span class="token punctuation">.</span><span class="token function">RegisterCrossBindingAdaptor</span><span class="token punctuation">(</span>new 你的适配器类<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>appdomain<span class="token punctuation">.</span><span class="token function">RegisterCrossBindingAdaptor</span><span class="token punctuation">(</span><span class="token keyword">new</span> 你的适配器类<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div><blockquote>
 <p>下一步，<RouterLink to="/documents/0.5/proto-tools.html">Protobuf工具</RouterLink></p>
 </blockquote>

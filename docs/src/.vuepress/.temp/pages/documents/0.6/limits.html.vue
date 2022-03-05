@@ -1,5 +1,4 @@
-<template><p>{% import &quot;views/_data.njk&quot; as data %}</p>
-<h1 id="ilruntime限制" tabindex="-1"><a class="header-anchor" href="#ilruntime限制" aria-hidden="true">#</a> ILRuntime限制</h1>
+<template><h1 id="ilruntime限制" tabindex="-1"><a class="header-anchor" href="#ilruntime限制" aria-hidden="true">#</a> ILRuntime限制</h1>
 <h2 id="针对ilruntime环境下的建议" tabindex="-1"><a class="header-anchor" href="#针对ilruntime环境下的建议" aria-hidden="true">#</a> 针对ILRuntime环境下的建议</h2>
 <ul>
 <li>
@@ -63,21 +62,21 @@ Delegate<span class="token punctuation">.</span><span class="token function">Inv
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div></li>
 <li>
 <p>跨域继承类型强转限制</p>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code><span class="token comment">/*
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token comment">/*
 * 热更工程
 */</span>
-public interface IClass<span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IClass</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-public class MonoClass<span class="token operator">:</span> MonoBehaviour<span class="token punctuation">,</span> IClass<span class="token punctuation">{</span><span class="token punctuation">}</span>
-public class NormalClass<span class="token operator">:</span> IClass<span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MonoClass</span><span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span><span class="token punctuation">,</span> <span class="token class-name">IClass</span></span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NormalClass</span><span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">IClass</span></span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-public class Program
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
-  public <span class="token keyword">void</span> <span class="token function">RunGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">RunGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
-      List<span class="token operator">&lt;</span>IClass<span class="token operator">></span> lst <span class="token operator">=</span> new List<span class="token operator">&lt;</span>IClass<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      lst<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>new <span class="token function">NormalClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//OK</span>
-      lst<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>new <span class="token function">MonoClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//出错，因为Mono跨域继承了，无法强转类型</span>
+      <span class="token class-name">List<span class="token punctuation">&lt;</span>IClass<span class="token punctuation">></span></span> lst <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span>IClass<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      lst<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">NormalClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//OK</span>
+      lst<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">MonoClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//出错，因为Mono跨域继承了，无法强转类型</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div></li>

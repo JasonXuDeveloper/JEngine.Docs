@@ -67,7 +67,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "可绑定数据（v0.5）",
+    "title": "可绑定数据",
     "headers": [
       {
         "level": 2,
@@ -93,7 +93,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "挂载代码（v0.5）",
+    "title": "挂载代码",
     "headers": [
       {
         "level": 2,
@@ -125,7 +125,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "内存加密结构（v0.5）",
+    "title": "内存加密结构",
     "headers": [
       {
         "level": 2,
@@ -169,7 +169,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "开发须知（v0.5）",
+    "title": "开发须知",
     "headers": [
       {
         "level": 2,
@@ -246,7 +246,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "游戏热更（v0.5）",
+    "title": "游戏热更",
     "headers": [
       {
         "level": 2,
@@ -266,7 +266,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "ILRuntime工具（v0.5）",
+    "title": "ILRuntime工具",
     "headers": [
       {
         "level": 2,
@@ -300,7 +300,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "JAction（v0.5）",
+    "title": "JAction",
     "headers": [
       {
         "level": 2,
@@ -339,7 +339,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "JBehaviour（v0.5）",
+    "title": "JBehaviour",
     "headers": [
       {
         "level": 2,
@@ -371,7 +371,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "热更预制体解决方案 JPrefab（v0.5）",
+    "title": "热更预制体解决方案 JPrefab",
     "headers": [
       {
         "level": 2,
@@ -391,7 +391,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "JResource（v0.5）",
+    "title": "JResource",
     "headers": [
       {
         "level": 2,
@@ -411,7 +411,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "JSaver（v0.5）",
+    "title": "JSaver",
     "headers": [
       {
         "level": 2,
@@ -444,7 +444,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "JEngine.UI (JUI)（v0.5）",
+    "title": "JEngine.UI (JUI)",
     "headers": [
       {
         "level": 2,
@@ -507,7 +507,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Localization（v0.5）",
+    "title": "Localization",
     "headers": [
       {
         "level": 2,
@@ -546,7 +546,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Protobuf 工具（v0.5）",
+    "title": "Protobuf 工具",
     "headers": [
       {
         "level": 2,
@@ -580,7 +580,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "开始使用（v0.5）",
+    "title": "开始使用",
     "headers": [
       {
         "level": 2,
@@ -600,7 +600,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "目录结构（v0.5）",
+    "title": "目录结构",
     "headers": [
       {
         "level": 2,
@@ -639,7 +639,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "可绑定数据（v0.6）",
+    "title": "可绑定数据",
     "headers": [
       {
         "level": 2,
@@ -660,12 +660,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/bindable-v0-6.html",
+    "path": "/documents/0.6/bindable.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "挂载代码（v0.6）",
+    "title": "挂载代码",
     "headers": [
       {
         "level": 2,
@@ -705,12 +705,12 @@ export const searchIndex = [
         ]
       }
     ],
-    "path": "/documents/0.6/classbind-v0-6.html",
+    "path": "/documents/0.6/classbind.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "内存加密结构（v0.6）",
+    "title": "内存加密结构",
     "headers": [
       {
         "level": 2,
@@ -749,12 +749,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/crypto-struct-v0-6.html",
+    "path": "/documents/0.6/crypto-struct.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "开发须知（v0.6）",
+    "title": "开发须知",
     "headers": [
       {
         "level": 2,
@@ -826,12 +826,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/guide-v0-6.html",
+    "path": "/documents/0.6/guide.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "游戏热更（v0.6）",
+    "title": "游戏热更",
     "headers": [
       {
         "level": 2,
@@ -846,12 +846,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/hotupdate-v0-6.html",
+    "path": "/documents/0.6/hotupdate.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "ILRuntime工具（v0.6）",
+    "title": "ILRuntime工具",
     "headers": [
       {
         "level": 2,
@@ -880,12 +880,12 @@ export const searchIndex = [
         ]
       }
     ],
-    "path": "/documents/0.6/ilruntime-tools-v0-6.html",
+    "path": "/documents/0.6/ilruntime-tools.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JAction（v0.6）",
+    "title": "JAction",
     "headers": [
       {
         "level": 2,
@@ -919,12 +919,12 @@ export const searchIndex = [
         ]
       }
     ],
-    "path": "/documents/0.6/jaction-v0-6.html",
+    "path": "/documents/0.6/jaction.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JBehaviour（v0.6）",
+    "title": "JBehaviour",
     "headers": [
       {
         "level": 2,
@@ -951,12 +951,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/jbehaviour-v0-6.html",
+    "path": "/documents/0.6/jbehaviour.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JEngine面板（v0.6）",
+    "title": "JEngine面板",
     "headers": [
       {
         "level": 2,
@@ -1008,12 +1008,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/jengine-panel-v0-6.html",
+    "path": "/documents/0.6/jengine-panel.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JEvent（v0.6）",
+    "title": "JEvent",
     "headers": [
       {
         "level": 2,
@@ -1034,12 +1034,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/jevent-v0-6.html",
+    "path": "/documents/0.6/jevent.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "热更预制体解决方案 JPrefab（v0.6）",
+    "title": "热更预制体解决方案 JPrefab",
     "headers": [
       {
         "level": 2,
@@ -1054,12 +1054,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/jprefab-v0-6.html",
+    "path": "/documents/0.6/jprefab.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JResource（v0.6）",
+    "title": "JResource",
     "headers": [
       {
         "level": 2,
@@ -1074,12 +1074,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/jresource-v0-6.html",
+    "path": "/documents/0.6/jresource.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JSaver（v0.6）",
+    "title": "JSaver",
     "headers": [
       {
         "level": 2,
@@ -1107,12 +1107,12 @@ export const searchIndex = [
         ]
       }
     ],
-    "path": "/documents/0.6/jsaver-v0-6.html",
+    "path": "/documents/0.6/jsaver.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JEngine.UI (JUI)（v0.6）",
+    "title": "JEngine.UI (JUI)",
     "headers": [
       {
         "level": 2,
@@ -1170,12 +1170,12 @@ export const searchIndex = [
         ]
       }
     ],
-    "path": "/documents/0.6/jui-v0-6.html",
+    "path": "/documents/0.6/jui.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JWebSocket（v0.6）",
+    "title": "JWebSocket",
     "headers": [
       {
         "level": 2,
@@ -1209,7 +1209,7 @@ export const searchIndex = [
         ]
       }
     ],
-    "path": "/documents/0.6/jwebsocket-v0-6.html",
+    "path": "/documents/0.6/jwebsocket.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -1234,7 +1234,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Localization（v0.6）",
+    "title": "Localization",
     "headers": [
       {
         "level": 2,
@@ -1268,12 +1268,12 @@ export const searchIndex = [
         ]
       }
     ],
-    "path": "/documents/0.6/localization-v0-6.html",
+    "path": "/documents/0.6/localization.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "Protobuf 工具（v0.6）",
+    "title": "Protobuf 工具",
     "headers": [
       {
         "level": 2,
@@ -1302,12 +1302,12 @@ export const searchIndex = [
         ]
       }
     ],
-    "path": "/documents/0.6/proto-tools-v0-6.html",
+    "path": "/documents/0.6/proto-tools.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "开始使用 （v0.6）",
+    "title": "开始使用",
     "headers": [
       {
         "level": 2,
@@ -1322,12 +1322,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/startup-v0-6.html",
+    "path": "/documents/0.6/startup.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "目录结构（v0.6）",
+    "title": "目录结构",
     "headers": [
       {
         "level": 2,
@@ -1354,12 +1354,12 @@ export const searchIndex = [
         "children": []
       }
     ],
-    "path": "/documents/0.6/structure-v0-6.html",
+    "path": "/documents/0.6/structure.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "JEngine.UI（By L-Fone）（v0.6）",
+    "title": "JEngine.UI（By L-Fone）",
     "headers": [
       {
         "level": 2,
@@ -1469,7 +1469,7 @@ export const searchIndex = [
         ]
       }
     ],
-    "path": "/documents/0.6/ui-framework-v0-6.html",
+    "path": "/documents/0.6/ui-framework.html",
     "pathLocale": "/",
     "extraFields": []
   },

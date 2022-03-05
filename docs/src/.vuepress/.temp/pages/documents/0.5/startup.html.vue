@@ -1,5 +1,4 @@
-<template><p>{% import &quot;views/_data.njk&quot; as data %}</p>
-<h1 id="开始使用-v0-5" tabindex="-1"><a class="header-anchor" href="#开始使用-v0-5" aria-hidden="true">#</a> 开始使用（v0.5）</h1>
+<template><h1 id="开始使用" tabindex="-1"><a class="header-anchor" href="#开始使用" aria-hidden="true">#</a> 开始使用</h1>
 <p>该文章将告诉您如何初步使用JEngine</p>
 <h2 id="开发环境" tabindex="-1"><a class="header-anchor" href="#开发环境" aria-hidden="true">#</a> 开发环境</h2>
 <ul>

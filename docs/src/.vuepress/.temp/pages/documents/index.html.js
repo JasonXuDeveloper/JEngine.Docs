@@ -26,12 +26,12 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1646458016000,
+    "updatedTime": 1646460712000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 1
+        "commits": 3
       },
       {
         "name": "root",

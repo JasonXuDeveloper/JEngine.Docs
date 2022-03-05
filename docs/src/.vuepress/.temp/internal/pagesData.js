@@ -43,48 +43,48 @@ export const pagesData = {
   "v-4bb1e68e": () => import(/* webpackChunkName: "v-4bb1e68e" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.5/structure.html.js").then(({ data }) => data),
   // path: /documents/0.6/
   "v-6f177d32": () => import(/* webpackChunkName: "v-6f177d32" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/index.html.js").then(({ data }) => data),
-  // path: /documents/0.6/bindable-v0-6.html
-  "v-7fc668f2": () => import(/* webpackChunkName: "v-7fc668f2" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/bindable-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/classbind-v0-6.html
-  "v-e462b392": () => import(/* webpackChunkName: "v-e462b392" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/classbind-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/crypto-struct-v0-6.html
-  "v-81ebf93a": () => import(/* webpackChunkName: "v-81ebf93a" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/crypto-struct-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/guide-v0-6.html
-  "v-21d13184": () => import(/* webpackChunkName: "v-21d13184" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/guide-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/hotupdate-v0-6.html
-  "v-b691c2d0": () => import(/* webpackChunkName: "v-b691c2d0" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/hotupdate-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/ilruntime-tools-v0-6.html
-  "v-631293a5": () => import(/* webpackChunkName: "v-631293a5" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/ilruntime-tools-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/jaction-v0-6.html
-  "v-58294c22": () => import(/* webpackChunkName: "v-58294c22" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jaction-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/jbehaviour-v0-6.html
-  "v-175caf43": () => import(/* webpackChunkName: "v-175caf43" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jbehaviour-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/jengine-panel-v0-6.html
-  "v-1a39eea5": () => import(/* webpackChunkName: "v-1a39eea5" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jengine-panel-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/jevent-v0-6.html
-  "v-3a07bf60": () => import(/* webpackChunkName: "v-3a07bf60" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jevent-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/jprefab-v0-6.html
-  "v-659935f0": () => import(/* webpackChunkName: "v-659935f0" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jprefab-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/jresource-v0-6.html
-  "v-0a70373a": () => import(/* webpackChunkName: "v-0a70373a" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jresource-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/jsaver-v0-6.html
-  "v-04813d9b": () => import(/* webpackChunkName: "v-04813d9b" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jsaver-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/jui-v0-6.html
-  "v-ea882f00": () => import(/* webpackChunkName: "v-ea882f00" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jui-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/jwebsocket-v0-6.html
-  "v-230d6dcd": () => import(/* webpackChunkName: "v-230d6dcd" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jwebsocket-v0-6.html.js").then(({ data }) => data),
+  // path: /documents/0.6/bindable.html
+  "v-d86e7bca": () => import(/* webpackChunkName: "v-d86e7bca" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/bindable.html.js").then(({ data }) => data),
+  // path: /documents/0.6/classbind.html
+  "v-12a4f96b": () => import(/* webpackChunkName: "v-12a4f96b" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/classbind.html.js").then(({ data }) => data),
+  // path: /documents/0.6/crypto-struct.html
+  "v-637710bf": () => import(/* webpackChunkName: "v-637710bf" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/crypto-struct.html.js").then(({ data }) => data),
+  // path: /documents/0.6/guide.html
+  "v-7be91ff8": () => import(/* webpackChunkName: "v-7be91ff8" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/guide.html.js").then(({ data }) => data),
+  // path: /documents/0.6/hotupdate.html
+  "v-4f39086a": () => import(/* webpackChunkName: "v-4f39086a" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/hotupdate.html.js").then(({ data }) => data),
+  // path: /documents/0.6/ilruntime-tools.html
+  "v-4301df3d": () => import(/* webpackChunkName: "v-4301df3d" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/ilruntime-tools.html.js").then(({ data }) => data),
+  // path: /documents/0.6/jaction.html
+  "v-fde1e6c0": () => import(/* webpackChunkName: "v-fde1e6c0" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jaction.html.js").then(({ data }) => data),
+  // path: /documents/0.6/jbehaviour.html
+  "v-436078df": () => import(/* webpackChunkName: "v-436078df" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jbehaviour.html.js").then(({ data }) => data),
+  // path: /documents/0.6/jengine-panel.html
+  "v-016da43d": () => import(/* webpackChunkName: "v-016da43d" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jengine-panel.html.js").then(({ data }) => data),
+  // path: /documents/0.6/jevent.html
+  "v-39290aa2": () => import(/* webpackChunkName: "v-39290aa2" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jevent.html.js").then(({ data }) => data),
+  // path: /documents/0.6/jprefab.html
+  "v-abe88bdc": () => import(/* webpackChunkName: "v-abe88bdc" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jprefab.html.js").then(({ data }) => data),
+  // path: /documents/0.6/jresource.html
+  "v-ef90daf0": () => import(/* webpackChunkName: "v-ef90daf0" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jresource.html.js").then(({ data }) => data),
+  // path: /documents/0.6/jsaver.html
+  "v-72025387": () => import(/* webpackChunkName: "v-72025387" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jsaver.html.js").then(({ data }) => data),
+  // path: /documents/0.6/jui.html
+  "v-0287ad82": () => import(/* webpackChunkName: "v-0287ad82" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jui.html.js").then(({ data }) => data),
+  // path: /documents/0.6/jwebsocket.html
+  "v-02614c15": () => import(/* webpackChunkName: "v-02614c15" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/jwebsocket.html.js").then(({ data }) => data),
   // path: /documents/0.6/limits.html
   "v-4e34e80c": () => import(/* webpackChunkName: "v-4e34e80c" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/limits.html.js").then(({ data }) => data),
-  // path: /documents/0.6/localization-v0-6.html
-  "v-46c1cdee": () => import(/* webpackChunkName: "v-46c1cdee" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/localization-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/proto-tools-v0-6.html
-  "v-0597b6b8": () => import(/* webpackChunkName: "v-0597b6b8" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/proto-tools-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/startup-v0-6.html
-  "v-0c17b73f": () => import(/* webpackChunkName: "v-0c17b73f" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/startup-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/structure-v0-6.html
-  "v-5dbf2716": () => import(/* webpackChunkName: "v-5dbf2716" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/structure-v0-6.html.js").then(({ data }) => data),
-  // path: /documents/0.6/ui-framework-v0-6.html
-  "v-1221b575": () => import(/* webpackChunkName: "v-1221b575" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/ui-framework-v0-6.html.js").then(({ data }) => data),
+  // path: /documents/0.6/localization.html
+  "v-82eee94e": () => import(/* webpackChunkName: "v-82eee94e" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/localization.html.js").then(({ data }) => data),
+  // path: /documents/0.6/proto-tools.html
+  "v-4c21dc4a": () => import(/* webpackChunkName: "v-4c21dc4a" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/proto-tools.html.js").then(({ data }) => data),
+  // path: /documents/0.6/startup.html
+  "v-79a76363": () => import(/* webpackChunkName: "v-79a76363" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/startup.html.js").then(({ data }) => data),
+  // path: /documents/0.6/structure.html
+  "v-2d43c46d": () => import(/* webpackChunkName: "v-2d43c46d" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/structure.html.js").then(({ data }) => data),
+  // path: /documents/0.6/ui-framework.html
+  "v-20d8db6d": () => import(/* webpackChunkName: "v-20d8db6d" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/ui-framework.html.js").then(({ data }) => data),
   // path: /documents/0.7/
   "v-6f177cf4": () => import(/* webpackChunkName: "v-6f177cf4" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.7/index.html.js").then(({ data }) => data),
   // path: /zh/documents/

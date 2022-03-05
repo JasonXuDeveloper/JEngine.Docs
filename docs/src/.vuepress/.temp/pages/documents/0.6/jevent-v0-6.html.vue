@@ -13,49 +13,49 @@
 <h2 id="命名空间" tabindex="-1"><a class="header-anchor" href="#命名空间" aria-hidden="true">#</a> 命名空间</h2>
 <ul>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>using JEngine<span class="token punctuation">.</span>Event<span class="token punctuation">;</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token keyword">using</span> <span class="token namespace">JEngine<span class="token punctuation">.</span>Event</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 </ul>
 <h2 id="api" tabindex="-1"><a class="header-anchor" href="#api" aria-hidden="true">#</a> API</h2>
 <ul>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>Register<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span>T val<span class="token punctuation">)</span> <span class="token comment">//从类型中读取需要派发事件的方法\
-</span></code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
-<li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>Unregister<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span>T val<span class="token punctuation">)</span> <span class="token comment">//取消注册某类型中全部被监听方法</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token generic-method"><span class="token function">Register</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>T<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token class-name">T</span> val<span class="token punctuation">)</span> <span class="token comment">//从类型中读取需要派发事件的方法\</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code><span class="token function">Post</span><span class="token punctuation">(</span>params object<span class="token punctuation">[</span><span class="token punctuation">]</span> parameters<span class="token punctuation">)</span> <span class="token comment">//将参数广播到全部监听方法，只有参数类型匹配的方法才会被调用</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token generic-method"><span class="token function">Unregister</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>T<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token class-name">T</span> val<span class="token punctuation">)</span> <span class="token comment">//取消注册某类型中全部被监听方法</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code><span class="token punctuation">[</span>Subscriber<span class="token punctuation">]</span> <span class="token comment">//监听标签，可以打到类上或方法上，无参数默认主线程派发</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token function">Post</span><span class="token punctuation">(</span><span class="token keyword">params</span> <span class="token class-name"><span class="token keyword">object</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> parameters<span class="token punctuation">)</span> <span class="token comment">//将参数广播到全部监听方法，只有参数类型匹配的方法才会被调用</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code><span class="token punctuation">[</span><span class="token function">Subscriber</span><span class="token punctuation">(</span>ThreadMode<span class="token punctuation">.</span>Main<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment">//监听标签，可以打到类上或方法上，Main参数代表主线程派发</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Subscriber</span></span><span class="token punctuation">]</span> <span class="token comment">//监听标签，可以打到类上或方法上，无参数默认主线程派发</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code><span class="token punctuation">[</span><span class="token function">Subscriber</span><span class="token punctuation">(</span>ThreadMode<span class="token punctuation">.</span>Other<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment">//监听标签，可以打到类上或方法上，Other参数代表子线程派发</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Subscriber</span><span class="token attribute-arguments"><span class="token punctuation">(</span>ThreadMode<span class="token punctuation">.</span>Main<span class="token punctuation">)</span></span></span><span class="token punctuation">]</span> <span class="token comment">//监听标签，可以打到类上或方法上，Main参数代表主线程派发</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
+<li>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Subscriber</span><span class="token attribute-arguments"><span class="token punctuation">(</span>ThreadMode<span class="token punctuation">.</span>Other<span class="token punctuation">)</span></span></span><span class="token punctuation">]</span> <span class="token comment">//监听标签，可以打到类上或方法上，Other参数代表子线程派发</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 </ul>
 <h2 id="demo" tabindex="-1"><a class="header-anchor" href="#demo" aria-hidden="true">#</a> Demo</h2>
 <p>参考框架源码的Game场景下，EventDemo的使用，需要搭配ClassBind</p>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>using System<span class="token punctuation">;</span>
-using System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks<span class="token punctuation">;</span>
-using JEngine<span class="token punctuation">.</span>Core<span class="token punctuation">;</span>
-using JEngine<span class="token punctuation">.</span>Event<span class="token punctuation">;</span>
-using UnityEngine<span class="token punctuation">;</span>
-using UnityEngine<span class="token punctuation">.</span>UI<span class="token punctuation">;</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token keyword">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">JEngine<span class="token punctuation">.</span>Core</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">JEngine<span class="token punctuation">.</span>Event</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">UnityEngine<span class="token punctuation">.</span>UI</span><span class="token punctuation">;</span>
 
-namespace JEngine<span class="token punctuation">.</span>Examples
+<span class="token keyword">namespace</span> <span class="token namespace">JEngine<span class="token punctuation">.</span>Examples</span>
 <span class="token punctuation">{</span>
-    public class EventDemo <span class="token operator">:</span> JBehaviour
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EventDemo</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">JBehaviour</span></span>
     <span class="token punctuation">{</span>
-        public UIManager UIManager<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">UIManager</span> UIManager<span class="token punctuation">;</span>
 
-        public override async <span class="token keyword">void</span> <span class="token function">Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">async</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
-            var ExtensionManager <span class="token operator">=</span> new <span class="token function">ExtensionManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            var GMToolsManager <span class="token operator">=</span> new <span class="token function">GMToolsManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">var</span></span> ExtensionManager <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">ExtensionManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">var</span></span> GMToolsManager <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">GMToolsManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
             <span class="token comment">//JEvent.ShowLog = true;//是否显示一些log</span>
 
@@ -64,7 +64,7 @@ namespace JEngine<span class="token punctuation">.</span>Examples
             JEvent<span class="token punctuation">.</span>defaultEvent<span class="token punctuation">.</span><span class="token function">Register</span><span class="token punctuation">(</span>GMToolsManager<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
             <span class="token comment">//先搞一个登录失败数据</span>
-            LoginErrorData d <span class="token operator">=</span> new LoginErrorData
+            <span class="token class-name">LoginErrorData</span> d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">LoginErrorData</span>
             <span class="token punctuation">{</span>
                 username <span class="token operator">=</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
                 errorMsg <span class="token operator">=</span> <span class="token string">"故意让它错误的"</span><span class="token punctuation">,</span>
@@ -76,13 +76,13 @@ namespace JEngine<span class="token punctuation">.</span>Examples
             <span class="token comment">//取消注册ExtensionManager，这样下次不会post到这个实例内的方法</span>
             JEvent<span class="token punctuation">.</span>defaultEvent<span class="token punctuation">.</span><span class="token function">Unregister</span><span class="token punctuation">(</span>ExtensionManager<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            await Task<span class="token punctuation">.</span><span class="token function">Delay</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">await</span> Task<span class="token punctuation">.</span><span class="token function">Delay</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
             <span class="token comment">//创建独立的JEvent</span>
-            JEvent e <span class="token operator">=</span> new <span class="token function">JEvent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">JEvent</span> e <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">JEvent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
             <span class="token comment">//登录成功数据</span>
-            LoginSuccessData dt <span class="token operator">=</span> new LoginSuccessData
+            <span class="token class-name">LoginSuccessData</span> dt <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">LoginSuccessData</span>
             <span class="token punctuation">{</span>
                 username <span class="token operator">=</span> <span class="token string">"杰哥"</span><span class="token punctuation">,</span>
                 money <span class="token operator">=</span> <span class="token number">10000</span>
@@ -96,103 +96,103 @@ namespace JEngine<span class="token punctuation">.</span>Examples
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
-    public class LoginSuccessData
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LoginSuccessData</span>
     <span class="token punctuation">{</span>
-        public string username<span class="token punctuation">;</span>
-        public <span class="token keyword">int</span> money<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">string</span></span> username<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">int</span></span> money<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    public class LoginErrorData
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LoginErrorData</span>
     <span class="token punctuation">{</span>
-        public string username<span class="token punctuation">;</span>
-        public string errorMsg<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">string</span></span> username<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">string</span></span> errorMsg<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token comment">//监听整个类里面的方法，主线程执行，unity方法必须主线程执行，除了Debug.Log外</span>
-    <span class="token punctuation">[</span><span class="token function">Subscriber</span><span class="token punctuation">(</span>ThreadMode<span class="token punctuation">.</span>Main<span class="token punctuation">)</span><span class="token punctuation">]</span>
-    public class UIManager
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Subscriber</span><span class="token attribute-arguments"><span class="token punctuation">(</span>ThreadMode<span class="token punctuation">.</span>Main<span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UIManager</span>
     <span class="token punctuation">{</span>
         <span class="token comment">/*
          * 只要UIManager的实例还在，这些字段就可以用
          */</span>
 
-        public GameObject SuccessPanel<span class="token punctuation">;</span>
-        public GameObject ErrorPanel<span class="token punctuation">;</span>
-        public GameObject GamePanel<span class="token punctuation">;</span>
-        public Text UsernameText<span class="token punctuation">;</span>
-        public Text MoneyText<span class="token punctuation">;</span>
-        public Text ErrorMsgText<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">GameObject</span> SuccessPanel<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">GameObject</span> ErrorPanel<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">GameObject</span> GamePanel<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Text</span> UsernameText<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Text</span> MoneyText<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Text</span> ErrorMsgText<span class="token punctuation">;</span>
 
-        <span class="token comment">/// &lt;summary></span>
-        <span class="token comment">/// 登录成功的时候的UI界面更新</span>
-        <span class="token comment">/// &lt;/summary></span>
-        <span class="token comment">/// &lt;param name="data">&lt;/param></span>
-        public <span class="token keyword">void</span> <span class="token function">OnSuccess</span><span class="token punctuation">(</span>LoginSuccessData data<span class="token punctuation">)</span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">></span></span></span>
+        <span class="token doc-comment comment">/// 登录成功的时候的UI界面更新</span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">></span></span></span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param</span><span class="token punctuation">></span></span></span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">OnSuccess</span><span class="token punctuation">(</span><span class="token class-name">LoginSuccessData</span> data<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
-            SuccessPanel<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span>true<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            new <span class="token function">JAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Delay</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
+            SuccessPanel<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">new</span> <span class="token constructor-invocation class-name">JAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Delay</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
             <span class="token punctuation">{</span>
-                SuccessPanel<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span>false<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                SuccessPanel<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 UsernameText<span class="token punctuation">.</span>text <span class="token operator">=</span> data<span class="token punctuation">.</span>username<span class="token punctuation">;</span>
                 <span class="token comment">//因为在GMTools那边更新了money数据，所以用那边的静态实例数据</span>
                 <span class="token comment">//自己写的时候也要注意，每个方法的data参数哪怕进行了更改也不会影响其他方法内的data</span>
                 <span class="token comment">//必须自己把它单独保存到一个其他方法也能读到的地方，才能在其他方法里同步对数据的修改</span>
                 <span class="token comment">//同时多线程处理数据请自行考虑线程安全，脏数据就得自己处理了</span>
-                MoneyText<span class="token punctuation">.</span>text <span class="token operator">=</span> $<span class="token string">"￥{GMToolsManager.successData.money}"</span><span class="token punctuation">;</span>
-                GamePanel<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span>true<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                MoneyText<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">$"￥</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">GMToolsManager<span class="token punctuation">.</span>successData<span class="token punctuation">.</span>money</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">;</span>
+                GamePanel<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">Delay</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
+            <span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
             <span class="token punctuation">{</span>
-                GamePanel<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>gameObject<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span>false<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Execute</span><span class="token punctuation">(</span>true<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                GamePanel<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>gameObject<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Execute</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
-        <span class="token comment">/// &lt;summary></span>
-        <span class="token comment">/// 登录失败的时候的UI界面更新</span>
-        <span class="token comment">/// &lt;/summary></span>
-        <span class="token comment">/// &lt;param name="data">&lt;/param></span>
-        public <span class="token keyword">void</span> <span class="token function">OnError</span><span class="token punctuation">(</span>LoginErrorData data<span class="token punctuation">)</span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">></span></span></span>
+        <span class="token doc-comment comment">/// 登录失败的时候的UI界面更新</span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">></span></span></span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param</span><span class="token punctuation">></span></span></span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">OnError</span><span class="token punctuation">(</span><span class="token class-name">LoginErrorData</span> data<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
-            ErrorMsgText<span class="token punctuation">.</span>text <span class="token operator">=</span> $<span class="token string">"账号：{data.username}登录失败，{data.errorMsg}"</span><span class="token punctuation">;</span>
-            ErrorPanel<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span>true<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ErrorMsgText<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">$"账号：</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">data<span class="token punctuation">.</span>username</span><span class="token punctuation">}</span></span><span class="token string">登录失败，</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">data<span class="token punctuation">.</span>errorMsg</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">;</span>
+            ErrorPanel<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
     <span class="token comment">//监听整个类里面的方法，子线程执行，不调用unity本身的东西就可以在子线程执行</span>
-    <span class="token punctuation">[</span><span class="token function">Subscriber</span><span class="token punctuation">(</span>ThreadMode<span class="token punctuation">.</span>Other<span class="token punctuation">)</span><span class="token punctuation">]</span>
-    public class ExtensionManager
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Subscriber</span><span class="token attribute-arguments"><span class="token punctuation">(</span>ThreadMode<span class="token punctuation">.</span>Other<span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExtensionManager</span>
     <span class="token punctuation">{</span>
-        <span class="token comment">/// &lt;summary></span>
-        <span class="token comment">/// Log错误信息</span>
-        <span class="token comment">/// &lt;/summary></span>
-        <span class="token comment">/// &lt;param name="data">&lt;/param></span>
-        public <span class="token keyword">void</span> <span class="token function">ProcessErrorMsg</span><span class="token punctuation">(</span>LoginErrorData data<span class="token punctuation">)</span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">></span></span></span>
+        <span class="token doc-comment comment">/// Log错误信息</span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">></span></span></span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param</span><span class="token punctuation">></span></span></span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">ProcessErrorMsg</span><span class="token punctuation">(</span><span class="token class-name">LoginErrorData</span> data<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
             Log<span class="token punctuation">.</span><span class="token function">PrintError</span><span class="token punctuation">(</span><span class="token string">"登录失败："</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>errorMsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
-        <span class="token comment">/// &lt;summary></span>
-        <span class="token comment">/// logcat测试的时候log一下登录成功的账号</span>
-        <span class="token comment">/// &lt;/summary></span>
-        <span class="token comment">/// &lt;param name="data">&lt;/param></span>
-        public <span class="token keyword">void</span> <span class="token function">LogcatSuccessData</span><span class="token punctuation">(</span>LoginSuccessData data<span class="token punctuation">)</span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">></span></span></span>
+        <span class="token doc-comment comment">/// logcat测试的时候log一下登录成功的账号</span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">></span></span></span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param</span><span class="token punctuation">></span></span></span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">LogcatSuccessData</span><span class="token punctuation">(</span><span class="token class-name">LoginSuccessData</span> data<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
-            Log<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span>$<span class="token string">"{data.username}登录成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Log<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">$"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">data<span class="token punctuation">.</span>username</span><span class="token punctuation">}</span></span><span class="token string">登录成功"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
     <span class="token comment">//个别方法被监听</span>
-    public class GMToolsManager
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GMToolsManager</span>
     <span class="token punctuation">{</span>
-        public <span class="token keyword">static</span> LoginSuccessData successData<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">LoginSuccessData</span> successData<span class="token punctuation">;</span>
 
-        <span class="token comment">/// &lt;summary></span>
-        <span class="token comment">/// 让钱翻一百倍</span>
-        <span class="token comment">/// &lt;/summary></span>
-        <span class="token comment">/// &lt;param name="data">&lt;/param></span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">></span></span></span>
+        <span class="token doc-comment comment">/// 让钱翻一百倍</span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">></span></span></span>
+        <span class="token doc-comment comment">/// <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param</span><span class="token punctuation">></span></span></span>
         <span class="token punctuation">[</span><span class="token function">Subscriber</span><span class="token punctuation">(</span>ThreadMode<span class="token punctuation">.</span>Main<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token comment">//跑主线程</span>
-        public <span class="token keyword">void</span> <span class="token function">GetMoreMoney</span><span class="token punctuation">(</span>LoginSuccessData data<span class="token punctuation">)</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">GetMoreMoney</span><span class="token punctuation">(</span><span class="token class-name">LoginSuccessData</span> data<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
             successData <span class="token operator">=</span> data<span class="token punctuation">;</span>
             successData<span class="token punctuation">.</span>money <span class="token operator">*=</span> <span class="token number">100</span><span class="token punctuation">;</span>

@@ -1,5 +1,4 @@
-<template><p>{% import &quot;views/_data.njk&quot; as data %}</p>
-<h1 id="localization-v0-5" tabindex="-1"><a class="header-anchor" href="#localization-v0-5" aria-hidden="true">#</a> Localization（v0.5）</h1>
+<template><h1 id="localization" tabindex="-1"><a class="header-anchor" href="#localization" aria-hidden="true">#</a> Localization</h1>
 <p>JEngine现已支持多语言本地化</p>
 <blockquote>
 <p>Localization能干什么？</p>
@@ -13,10 +12,10 @@
 <h2 id="apis" tabindex="-1"><a class="header-anchor" href="#apis" aria-hidden="true">#</a> APIs</h2>
 <ul>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code><span class="token function">ChangeLanguage</span><span class="token punctuation">(</span>string lang<span class="token punctuation">)</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token function">ChangeLanguage</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> lang<span class="token punctuation">)</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code><span class="token function">GetString</span><span class="token punctuation">(</span>string key<span class="token punctuation">)</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token function">GetString</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> key<span class="token punctuation">)</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 </ul>
 <h2 id="如何使用" tabindex="-1"><a class="header-anchor" href="#如何使用" aria-hidden="true">#</a> 如何使用</h2>
@@ -24,15 +23,15 @@
 <ol>
 <li>
 <p>在您的热更工程里，引入以下命名空间</p>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>using JEngine<span class="token punctuation">.</span>Core<span class="token punctuation">;</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token keyword">using</span> <span class="token namespace">JEngine<span class="token punctuation">.</span>Core</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
 <p>获取字符串</p>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>string val <span class="token operator">=</span> Localization<span class="token punctuation">.</span><span class="token function">GetString</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token class-name"><span class="token keyword">string</span></span> val <span class="token operator">=</span> Localization<span class="token punctuation">.</span><span class="token function">GetString</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
 <p>切换语言</p>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>Localization<span class="token punctuation">.</span><span class="token function">ChangeLanguage</span><span class="token punctuation">(</span><span class="token string">"en-us"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>Localization<span class="token punctuation">.</span><span class="token function">ChangeLanguage</span><span class="token punctuation">(</span><span class="token string">"en-us"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 </ol>
 <h3 id="text绑定多语言" tabindex="-1"><a class="header-anchor" href="#text绑定多语言" aria-hidden="true">#</a> Text绑定多语言</h3>

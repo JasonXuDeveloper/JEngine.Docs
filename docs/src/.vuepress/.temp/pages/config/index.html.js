@@ -22,8 +22,13 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1646433425000,
+    "updatedTime": 1646460712000,
     "contributors": [
+      {
+        "name": "JasonXuDeveloper - 傑",
+        "email": "jasonxudeveloper@gmail.com",
+        "commits": 2
+      },
       {
         "name": "root",
         "email": "root@vps-023bdc5d.vps.ovh.ca",

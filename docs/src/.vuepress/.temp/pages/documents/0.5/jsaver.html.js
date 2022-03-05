@@ -1,7 +1,7 @@
 export const data = {
   "key": "v-f90165f4",
   "path": "/documents/0.5/jsaver.html",
-  "title": "JSaver（v0.5）",
+  "title": "JSaver",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
@@ -33,12 +33,12 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1646458754000,
+    "updatedTime": 1646461086000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 1
+        "commits": 5
       }
     ]
   },

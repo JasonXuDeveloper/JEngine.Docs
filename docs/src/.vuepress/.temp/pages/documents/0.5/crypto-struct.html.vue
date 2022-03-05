@@ -1,5 +1,4 @@
-<template><p>{% import &quot;views/_data.njk&quot; as data %}</p>
-<h1 id="内存加密结构-v0-5" tabindex="-1"><a class="header-anchor" href="#内存加密结构-v0-5" aria-hidden="true">#</a> 内存加密结构（v0.5）</h1>
+<template><h1 id="内存加密结构" tabindex="-1"><a class="header-anchor" href="#内存加密结构" aria-hidden="true">#</a> 内存加密结构</h1>
 <p>JEngine针对特定情况制作了内存加密结构</p>
 <blockquote>
 <p>内存加密结构能干什么？</p>
@@ -20,70 +19,70 @@
 <h2 id="命名空间" tabindex="-1"><a class="header-anchor" href="#命名空间" aria-hidden="true">#</a> 命名空间</h2>
 <ul>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>using JEngine<span class="token punctuation">.</span>AntiCheat<span class="token punctuation">;</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token keyword">using</span> <span class="token namespace">JEngine<span class="token punctuation">.</span>AntiCheat</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 </ul>
 <h2 id="api" tabindex="-1"><a class="header-anchor" href="#api" aria-hidden="true">#</a> API</h2>
 <ul>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>AntiCheatHelper<span class="token punctuation">.</span><span class="token function">OnMemoryCheatDetected</span><span class="token punctuation">(</span>Action toDo<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//如果被发现玩家有修改内存，执行toDo</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>AntiCheatHelper<span class="token punctuation">.</span><span class="token function">OnMemoryCheatDetected</span><span class="token punctuation">(</span><span class="token class-name">Action</span> toDo<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//如果被发现玩家有修改内存，执行toDo</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 </ul>
 <h2 id="请勿调用" tabindex="-1"><a class="header-anchor" href="#请勿调用" aria-hidden="true">#</a> 请勿调用</h2>
 <ul>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>AntiCheatHelper<span class="token punctuation">.</span><span class="token function">OnDetected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//该方法是内部方法，请勿调用！</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>AntiCheatHelper<span class="token punctuation">.</span><span class="token function">OnDetected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//该方法是内部方法，请勿调用！</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 </ul>
 <h2 id="支持类型" tabindex="-1"><a class="header-anchor" href="#支持类型" aria-hidden="true">#</a> 支持类型</h2>
 <ul>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JBool 对应 bool
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JBool 对应 <span class="token keyword">bool</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JChar 对应 <span class="token keyword">char</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JChar 对应 <span class="token keyword">char</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JString 对应 string
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JString 对应 <span class="token keyword">string</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JByte 对应 byte
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JByte 对应 <span class="token keyword">byte</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JSByte 对应 sbyte
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JSByte 对应 <span class="token keyword">sbyte</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JShort 对应 <span class="token keyword">short</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JShort 对应 <span class="token keyword">short</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JUShort 对应 ushort
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JUShort 对应 <span class="token keyword">ushort</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JInt 对应 <span class="token keyword">int</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JInt 对应 <span class="token keyword">int</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JUInt 对应 uint
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JUInt 对应 <span class="token keyword">uint</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JLong 对应 <span class="token keyword">long</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JLong 对应 <span class="token keyword">long</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JULong 对应 ulong
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JULong 对应 <span class="token keyword">ulong</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JFloat 对应 <span class="token keyword">float</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JFloat 对应 <span class="token keyword">float</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JDecimal 对应 decimal
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JDecimal 对应 <span class="token keyword">decimal</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>JDouble 对应 <span class="token keyword">double</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>JDouble 对应 <span class="token keyword">double</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 </ul>
 <h2 id="如何使用" tabindex="-1"><a class="header-anchor" href="#如何使用" aria-hidden="true">#</a> 如何使用</h2>
 <p>和正常数值结构一样，直接使用</p>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-JInt b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token class-name"><span class="token keyword">int</span></span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token class-name">JInt</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 b<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">//b会是2</span>
 b <span class="token operator">*=</span> a<span class="token punctuation">;</span> <span class="token comment">//b会是0</span>
 a<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">//a会是1</span>
@@ -91,26 +90,26 @@ b <span class="token operator">=</span> a<span class="token punctuation">;</span
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>从上面的示范里，可以看到，内存加密数据结构会自动转换为正常结构，进行运算时也是如此</p>
 <h2 id="推荐写法" tabindex="-1"><a class="header-anchor" href="#推荐写法" aria-hidden="true">#</a> 推荐写法</h2>
 <p>最简化JSON和Protobuf序列化的长度</p>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code>    <span class="token punctuation">[</span>ProtoBuf<span class="token punctuation">.</span>ProtoContract<span class="token punctuation">]</span>
-    public class SafeData
+<div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">ProtoBuf<span class="token punctuation">.</span>ProtoContract</span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SafeData</span>
     <span class="token punctuation">{</span>
         <span class="token comment">//Use this format to serialize and deserialize safe data</span>
-        <span class="token punctuation">[</span>global<span class="token operator">::</span>ProtoBuf<span class="token punctuation">.</span><span class="token function">ProtoMember</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-        private <span class="token keyword">float</span> realA<span class="token punctuation">;</span>
-        <span class="token punctuation">[</span>global<span class="token operator">::</span>ProtoBuf<span class="token punctuation">.</span><span class="token function">ProtoMember</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-        private <span class="token keyword">long</span> realB<span class="token punctuation">;</span>
+        <span class="token punctuation">[</span><span class="token keyword">global</span><span class="token punctuation">::</span>ProtoBuf<span class="token punctuation">.</span><span class="token function">ProtoMember</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token keyword">private</span> <span class="token class-name"><span class="token keyword">float</span></span> realA<span class="token punctuation">;</span>
+        <span class="token punctuation">[</span><span class="token keyword">global</span><span class="token punctuation">::</span>ProtoBuf<span class="token punctuation">.</span><span class="token function">ProtoMember</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token keyword">private</span> <span class="token class-name"><span class="token keyword">long</span></span> realB<span class="token punctuation">;</span>
 
         <span class="token comment">//Use this format to declare safe data</span>
-        public JFloat a<span class="token punctuation">;</span>
-        public JLong b<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">JFloat</span> a<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">JLong</span> b<span class="token punctuation">;</span>
 
-        public <span class="token function">SafeData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">public</span> <span class="token function">SafeData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
             a <span class="token operator">=</span> realA<span class="token punctuation">;</span>
             b <span class="token operator">=</span> realB<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
-        public <span class="token keyword">void</span> <span class="token function">BeforeSerialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">BeforeSerialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
             realA <span class="token operator">=</span> a<span class="token punctuation">;</span>
             realB <span class="token operator">=</span> b<span class="token punctuation">;</span>

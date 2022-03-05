@@ -1,5 +1,4 @@
-<template><p>{% import &quot;views/_data.njk&quot; as data %}</p>
-<h1 id="游戏热更-v0-5" tabindex="-1"><a class="header-anchor" href="#游戏热更-v0-5" aria-hidden="true">#</a> 游戏热更（v0.5）</h1>
+<template><h1 id="游戏热更" tabindex="-1"><a class="header-anchor" href="#游戏热更" aria-hidden="true">#</a> 游戏热更</h1>
 <p>该文章将告诉您如何使用JEngine热更游戏</p>
 <h2 id="资源热更" tabindex="-1"><a class="header-anchor" href="#资源热更" aria-hidden="true">#</a> 资源热更</h2>
 <blockquote>

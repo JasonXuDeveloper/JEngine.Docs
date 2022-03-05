@@ -58,11 +58,11 @@ export const themeData = {
             "text": "Documents",
             "collapsible": false,
             "children": [
-              "/documents/0.6/startup-v0-6",
-              "/documents/0.6/structure-v0-6",
-              "/documents/0.6/hotupdate-v0-6",
-              "/documents/0.6/classbind-v0-6",
-              "/documents/0.6/guide-v0-6",
+              "/documents/0.6/startup",
+              "/documents/0.6/structure",
+              "/documents/0.6/hotupdate",
+              "/documents/0.6/classbind",
+              "/documents/0.6/guide",
               "/documents/0.6/limits",
               {
                 "text": "ILRuntime Documentation",
@@ -155,11 +155,11 @@ export const themeData = {
             "text": "Documents",
             "collapsible": false,
             "children": [
-              "/documents/0.6/startup-v0-6",
-              "/documents/0.6/structure-v0-6",
-              "/documents/0.6/hotupdate-v0-6",
-              "/documents/0.6/classbind-v0-6",
-              "/documents/0.6/guide-v0-6",
+              "/documents/0.6/startup",
+              "/documents/0.6/structure",
+              "/documents/0.6/hotupdate",
+              "/documents/0.6/classbind",
+              "/documents/0.6/guide",
               "/documents/0.6/limits",
               {
                 "text": "ILRuntime Documentation",

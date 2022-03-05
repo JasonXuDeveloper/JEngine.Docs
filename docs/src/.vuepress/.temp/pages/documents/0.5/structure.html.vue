@@ -1,5 +1,4 @@
-<template><p>{% import &quot;views/_data.njk&quot; as data %}</p>
-<h1 id="目录结构-v0-5" tabindex="-1"><a class="header-anchor" href="#目录结构-v0-5" aria-hidden="true">#</a> 目录结构（v0.5）</h1>
+<template><h1 id="目录结构" tabindex="-1"><a class="header-anchor" href="#目录结构" aria-hidden="true">#</a> 目录结构</h1>
 <p>该文章将告诉您JEngine的目录结构是什么样子的</p>
 <h2 id="unity工程目录" tabindex="-1"><a class="header-anchor" href="#unity工程目录" aria-hidden="true">#</a> Unity工程目录</h2>
 <ul>

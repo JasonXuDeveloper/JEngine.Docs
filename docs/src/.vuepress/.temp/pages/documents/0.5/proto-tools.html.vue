@@ -1,5 +1,4 @@
-<template><p>{% import &quot;views/_data.njk&quot; as data %}</p>
-<h1 id="protobuf-工具-v0-5" tabindex="-1"><a class="header-anchor" href="#protobuf-工具-v0-5" aria-hidden="true">#</a> Protobuf 工具（v0.5）</h1>
+<template><h1 id="protobuf-工具" tabindex="-1"><a class="header-anchor" href="#protobuf-工具" aria-hidden="true">#</a> Protobuf 工具</h1>
 <p>JEngine提供了C#类型和Proto协议互转的工具</p>
 <h2 id="cs转proto生成" tabindex="-1"><a class="header-anchor" href="#cs转proto生成" aria-hidden="true">#</a> CS转Proto生成</h2>
 <blockquote>

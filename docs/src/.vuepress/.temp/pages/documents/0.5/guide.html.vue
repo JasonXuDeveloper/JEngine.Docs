@@ -1,5 +1,4 @@
-<template><p>{% import &quot;views/_data.njk&quot; as data %}</p>
-<h1 id="开发须知-v0-5" tabindex="-1"><a class="header-anchor" href="#开发须知-v0-5" aria-hidden="true">#</a> 开发须知（v0.5）</h1>
+<template><h1 id="开发须知" tabindex="-1"><a class="header-anchor" href="#开发须知" aria-hidden="true">#</a> 开发须知</h1>
 <p>本文章包含开发过程中需要注意的地方</p>
 <h2 id="开发模式" tabindex="-1"><a class="header-anchor" href="#开发模式" aria-hidden="true">#</a> 开发模式</h2>
 <p>开发模式可以大量提高开发效率，开发时无需一有修改就重新打Bundles</p>

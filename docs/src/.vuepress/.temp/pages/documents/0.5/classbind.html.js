@@ -1,7 +1,7 @@
 export const data = {
   "key": "v-31131b8c",
   "path": "/documents/0.5/classbind.html",
-  "title": "挂载代码（v0.5）",
+  "title": "挂载代码",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
@@ -32,12 +32,12 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1646458754000,
+    "updatedTime": 1646461086000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 1
+        "commits": 4
       }
     ]
   },

@@ -36,17 +36,17 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": 1646457316000,
+    "updatedTime": 1646460712000,
     "contributors": [
+      {
+        "name": "JasonXuDeveloper - 傑",
+        "email": "jasonxudeveloper@gmail.com",
+        "commits": 3
+      },
       {
         "name": "root",
         "email": "root@vps-023bdc5d.vps.ovh.ca",
         "commits": 3
-      },
-      {
-        "name": "JasonXuDeveloper - 傑",
-        "email": "jasonxudeveloper@gmail.com",
-        "commits": 1
       },
       {
         "name": "JasonXuDeveloper",

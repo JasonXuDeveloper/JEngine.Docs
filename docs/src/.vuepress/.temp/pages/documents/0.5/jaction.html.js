@@ -1,7 +1,7 @@
 export const data = {
   "key": "v-c19d79fe",
   "path": "/documents/0.5/jaction.html",
-  "title": "JAction（v0.5）",
+  "title": "JAction",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
@@ -39,12 +39,12 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1646458754000,
+    "updatedTime": 1646461086000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 1
+        "commits": 5
       }
     ]
   },
