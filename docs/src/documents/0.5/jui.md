@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # JEngine.UI (JUI)（v0.5）
 
 JEngine已推出提高UI开发效率的功能(支持操作任何UGUI组件, 例如：Button, Text, Slider,等)

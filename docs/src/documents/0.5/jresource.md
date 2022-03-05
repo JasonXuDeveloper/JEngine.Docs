@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # JResource（v0.5）
 
 JEngine现已支持基于XAsset的资源管理方案

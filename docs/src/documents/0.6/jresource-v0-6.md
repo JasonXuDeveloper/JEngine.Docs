@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # JResource（v0.6）
 
 JEngine现已支持基于XAsset的资源管理方案
@@ -56,5 +58,5 @@ JResource.LoadResAsync<TextAsset>("Text.txt",(txt)=>
 });
 ```
 
-> 下一篇，[队列解决方案JAction教程](jaction.html)
+> 下一篇，[队列解决方案JAction教程](jaction-v0-6.html)
 

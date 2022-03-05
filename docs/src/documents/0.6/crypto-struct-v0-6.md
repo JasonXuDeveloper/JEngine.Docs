@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # 内存加密结构（v0.6）
 
 JEngine针对特定情况制作了内存加密结构
@@ -132,4 +134,4 @@ b = a; //b也会是1
 ```
 需要在序列化前，调用```BeforeSerialize()```，这样一来可以最简化序列化长度。
 
-> 下一篇，[热更预制体JPrefab教程](jprefab.html)
+> 下一篇，[热更预制体JPrefab教程](jprefab-v0-6.html)

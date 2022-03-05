@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # 目录结构（v0.5）
 
 该文章将告诉您JEngine的目录结构是什么样子的

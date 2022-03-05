@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # 游戏热更（v0.5）
 
 该文章将告诉您如何使用JEngine热更游戏

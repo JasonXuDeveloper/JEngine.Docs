@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # JAction（v0.5）
 
 JEngine现已支持JAction，为Action队列扩展

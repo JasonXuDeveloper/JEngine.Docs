@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # 内存加密结构（v0.5）
 
 JEngine针对特定情况制作了内存加密结构

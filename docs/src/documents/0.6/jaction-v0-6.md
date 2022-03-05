@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # JAction（v0.6）
 
 JEngine现已支持JAction，为Action队列扩展
@@ -215,4 +217,4 @@ JEngine现已支持JAction，为Action队列扩展
    }
    ```
 
-> 下一篇，[数据持久化JSaver教程](jsaver.html)
+> 下一篇，[数据持久化JSaver教程](jsaver-v0-6.html)

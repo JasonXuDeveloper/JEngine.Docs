@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # ILRuntime工具（v0.6）
 JEngine提供了ILRuntime可视化工具面板
 
@@ -26,4 +28,4 @@ JEngine现已支持自动生成ILRuntime适配器
 appdomain.RegisterCrossBindingAdaptor(new 你的适配器类());
 ```
 
-> 下一步，[Protobuf工具](proto-tools.html)
+> 下一步，[Protobuf工具](proto-tools-v0-6.html)

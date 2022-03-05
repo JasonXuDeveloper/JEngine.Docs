@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # ILRuntime限制
 
 ## 针对ILRuntime环境下的建议

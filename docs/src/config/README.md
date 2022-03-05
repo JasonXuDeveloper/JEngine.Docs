@@ -1,4 +1,6 @@
----sidebar: auto---
+---
+sidebar: auto
+---
 
 # Config
 

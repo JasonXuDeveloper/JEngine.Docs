@@ -1,3 +1,5 @@
+{% import "views/_data.njk" as data %}
+
 # JWebSocket（v0.6）
 JEngine针对WebSocket服务端编写的网络层
 
@@ -332,4 +334,4 @@ public class JWebSocketDemo
 }
 ```
 
-> 下一篇，[ILRuntime工具](ilruntime-tools.html)
+> 下一篇，[ILRuntime工具](ilruntime-tools-v0-6.html)
