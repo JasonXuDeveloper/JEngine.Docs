@@ -17,7 +17,7 @@ var bar = {
       text:"框架文档",
       collapsible: false,
       children: [
-        '/documents/',
+        '/zh/documents/',
       ]
     }    
   ],

@@ -7,8 +7,14 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": null,
-    "contributors": []
+    "updatedTime": 1646456433000,
+    "contributors": [
+      {
+        "name": "root",
+        "email": "root@vps-023bdc5d.vps.ovh.ca",
+        "commits": 1
+      }
+    ]
   },
   "filePathRelative": "documents/0.7/README.md"
 }

@@ -53,37 +53,24 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Introduction",
-    "headers": [],
-    "path": "/guide/",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Using Vue in Markdown",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Browser API Access Restrictions",
-        "slug": "browser-api-access-restrictions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "",
-        "slug": "",
-        "children": []
-      }
-    ],
-    "path": "/guide/using-vue.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "页面的标题",
+    "title": "JEngine - 使Unity开发的游戏支持热更新的解决方案。",
     "headers": [],
     "path": "/zh/",
     "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "V0.5.x",
+    "headers": [],
+    "path": "/documents/0.5/",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "V0.6.x",
+    "headers": [],
+    "path": "/documents/0.6/",
+    "pathLocale": "/",
     "extraFields": []
   },
   {
@@ -94,29 +81,49 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "介绍",
-    "headers": [],
-    "path": "/zh/guide/",
-    "pathLocale": "/zh/",
-    "extraFields": []
-  },
-  {
-    "title": "使用",
+    "title": "概述",
     "headers": [
       {
         "level": 2,
-        "title": "Browser API Access Restrictions",
-        "slug": "browser-api-access-restrictions",
+        "title": "Latest Version",
+        "slug": "latest-version",
         "children": []
       },
       {
         "level": 2,
-        "title": "",
-        "slug": "",
+        "title": "Version 0.6.x",
+        "slug": "version-0-6-x",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Version 0.5.x",
+        "slug": "version-0-5-x",
         "children": []
       }
     ],
-    "path": "/zh/guide/using-vue.html",
+    "path": "/zh/documents/",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "V0.5.x",
+    "headers": [],
+    "path": "/zh/documents/0.5/",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "V0.6.x",
+    "headers": [],
+    "path": "/zh/documents/0.6/",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "V0.7.x",
+    "headers": [],
+    "path": "/zh/documents/0.7/",
     "pathLocale": "/zh/",
     "extraFields": []
   },

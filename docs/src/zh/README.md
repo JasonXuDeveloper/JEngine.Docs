@@ -6,7 +6,7 @@ heroImage: /logo.png
 heroText: JEngine
 tagline: 使Unity开发的游戏支持热更新的解决方案。
 actions:
-  - text: Get Started →
+  - text: 快速开始 →
     link: /zh/documents/
     type: primary
 features:

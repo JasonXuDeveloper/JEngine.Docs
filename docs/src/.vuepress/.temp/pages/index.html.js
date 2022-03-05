@@ -17,8 +17,6 @@ export const data = {
         "type": "primary"
       }
     ],
-    "actionText": "Get Started →",
-    "actionLink": "/guide/",
     "features": [
       {
         "title": "OOTB",
@@ -38,12 +36,17 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": 1646448213000,
+    "updatedTime": 1646456859000,
     "contributors": [
       {
         "name": "root",
         "email": "root@vps-023bdc5d.vps.ovh.ca",
-        "commits": 2
+        "commits": 3
+      },
+      {
+        "name": "JasonXuDeveloper - 傑",
+        "email": "jasonxudeveloper@gmail.com",
+        "commits": 1
       }
     ]
   },
