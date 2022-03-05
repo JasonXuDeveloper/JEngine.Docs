@@ -18,7 +18,8 @@ module.exports = {
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    ["link", {rel: "icon", href: "/logo/favicon.ico"}]
   ],
 
 
@@ -52,6 +53,7 @@ module.exports = {
     docsBranch: 'main',
     // 默认是 false, 设置为 true 来启用
     editLinks: true,
+    sidebar: sidebar.main,
     locales: {
       '/': {
         selectText: 'Languages',
@@ -68,10 +70,11 @@ module.exports = {
         search: true,
         searchMaxSuggestions: 10,
         lastUpdated: 'Last Updated',
+        contributors: true,
+        contributorsText: 'Document Contributors',
         nav: [
           { text: 'Nested', link: '/nested/', ariaLabel: 'Nested' }
         ],
-        sidebar: "auto"
       },
       '/zh/': {
         // 多语言下拉菜单的标题
@@ -91,10 +94,16 @@ module.exports = {
         search: true,
         searchMaxSuggestions: 10,
         lastUpdated: '上次更新时间',
+        contributors: true,
+        contributorsText: '文档贡献者',
+        tip: '提示',
+        warning: '警告',
+        danger: '危险',
+        notFound: ["找不到该页面"],
+        backToHome: '返回首页',
         nav: [
           { text: '嵌套', link: '/zh/nested/' }
         ],
-        sidebar: "auto"
       }
     }
     // nav: [
@@ -131,6 +140,27 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
+    [
+      '@vuepress/plugin-search',
+      {
+        locales: {
+          '/': {
+            placeholder: 'Search for document',
+            hotKeys: ['/']
+          },
+          '/zh/': {
+            placeholder: '搜索文档',
+            hotKeys: ['/zh/']
+          }
+        }
+      }
+    ],
+    [
+      "vuepress-plugin-clipboard",
+      {
+        align: "top"
+      }
+    ]
   ],
 
 }
