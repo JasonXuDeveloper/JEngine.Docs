@@ -30,6 +30,18 @@ var bar = {
       ]
     },
   ],
+  '/zh/pro/':[
+    {
+      text: 'JEngine Pro',
+      collapsible: false,
+      children: [
+        '/zh/pro/',
+        '/zh/pro/price/',
+        '/zh/pro/purchase/',
+        '/zh/documents/pro/',
+      ]
+    },
+  ],
   '/documents/0.6/':[
     {
       text: 'v0.6.x Documentation',
@@ -371,6 +383,10 @@ export default defineUserConfig<DefaultThemeOptions>({
                 {
                     text: '0.5.x',
                     link: '/zh/documents/0.5/'
+                },
+                {
+                    text: 'Pro',
+                    link: '/zh/documents/pro/'
                 }
             ]
           },
