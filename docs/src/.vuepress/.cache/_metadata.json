@@ -1,0 +1,36 @@
+{
+  "hash": "2af3c1b1",
+  "browserHash": "00ff34fd",
+  "optimized": {
+    "vue": {
+      "file": "/www/wwwroot/GameDocs/docs/src/.vuepress/.cache/vue.js",
+      "src": "/www/wwwroot/GameDocs/docs/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "file": "/www/wwwroot/GameDocs/docs/src/.vuepress/.cache/vue-router.js",
+      "src": "/www/wwwroot/GameDocs/docs/node_modules/vue-router/dist/vue-router.esm-bundler.js",
+      "needsInterop": false
+    },
+    "@vue/devtools-api": {
+      "file": "/www/wwwroot/GameDocs/docs/src/.vuepress/.cache/@vue_devtools-api.js",
+      "src": "/www/wwwroot/GameDocs/docs/node_modules/@vue/devtools-api/lib/esm/index.js",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "file": "/www/wwwroot/GameDocs/docs/src/.vuepress/.cache/@vueuse_core.js",
+      "src": "/www/wwwroot/GameDocs/docs/node_modules/@vueuse/core/index.mjs",
+      "needsInterop": false
+    },
+    "nprogress": {
+      "file": "/www/wwwroot/GameDocs/docs/src/.vuepress/.cache/nprogress.js",
+      "src": "/www/wwwroot/GameDocs/docs/node_modules/nprogress/nprogress.js",
+      "needsInterop": true
+    },
+    "@vuepress/shared": {
+      "file": "/www/wwwroot/GameDocs/docs/src/.vuepress/.cache/@vuepress_shared.js",
+      "src": "/www/wwwroot/GameDocs/docs/node_modules/@vuepress/shared/lib/esm/index.js",
+      "needsInterop": false
+    }
+  }
+}

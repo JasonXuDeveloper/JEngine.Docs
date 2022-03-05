@@ -1,21 +1,6 @@
 const { description } = require('../../package')
-const sidebar = require('vuepress-auto-sidebar')
 
 module.exports = {
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#title
-   */
-  title: 'JEngine Documentation',
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#description
-   */
-  description: description,
-
-  /**
-   * Extra tags to be injected to the page HTML `<head>`
-   *
-   * ref：https://v1.vuepress.vuejs.org/config/#head
-   */
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
@@ -23,19 +8,17 @@ module.exports = {
     ["link", {rel: "icon", href: "/favicon.ico"}]
   ],
 
-
+  title: 'JEngine',
   locales: {
     // 键名是该语言所属的子路径
     // 作为特例，默认语言可以使用 '/' 作为其路径。
     '/': {
       lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
-      title: 'JEngine Documentation',
-      description: 'Documentation for Unity Hot Update Framework JEngine'
+      description: 'The solution that allows unity games update in runtime.'
     },
     '/zh/': {
       lang: 'zh-CN',
-      title: 'JEngine文档',
-      description: 'Unity热更新框架JEngine文档网站'
+      description: '使Unity开发的游戏支持热更新的解决方案。'
     }
   },
   
@@ -45,7 +28,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: 'https://github.com/JasonXuDeveloper/JEngine.Docs',
+    repo: 'https://github.com/JasonXuDeveloper/JEngine',
     // 假如你的文档仓库和项目本身不在一个仓库：
     docsRepo: 'https://github.com/JasonXuDeveloper/JEngine.Docs',
     // 假如文档不是放在仓库的根目录下：
@@ -55,7 +38,7 @@ module.exports = {
     // 默认是 false, 设置为 true 来启用
     editLinks: true,
     logo: '/logo.png',
-    sidebar: sidebar.main,
+    sidebar: "auto",
     locales: {
       '/': {
         selectText: 'Languages',
@@ -74,71 +57,44 @@ module.exports = {
         lastUpdated: 'Last Updated',
         contributors: true,
         contributorsText: 'Document Contributors',
-        nav: [
+        navbar: [
           {
             text: '主页',
-            link: '/home/'
+            link: '/zh/'
           },
           {
-            text: "帮助文档",
-            link: '/documents'
+            text: "使用文档",
+            link: '/documents/'
           },
-          {
-            text: '开发',
-            children: [
-              {
-                text: '统一可交换祈愿记录标准',
-                link: '/development/StandardFormat.md'
-              },
-              {
-                text: '开发人员指南',
-                link: '/development/DeveloperGuide.md'
-              },
-              {
-                text: '插件开发',
-                link: '/development/PluginTutorial.md'
-              },
-            ]
-          },
+        //   {
+        //     text: '开发',
+        //     children: [
+        //       {
+        //         text: '统一可交换祈愿记录标准',
+        //         link: '/development/StandardFormat.md'
+        //       },
+        //       {
+        //         text: '开发人员指南',
+        //         link: '/development/DeveloperGuide.md'
+        //       },
+        //       {
+        //         text: '插件开发',
+        //         link: '/development/PluginTutorial.md'
+        //       },
+        //     ]
+        //   },
           {
             text: '交流',
             children: [
               {
-                text: '问题反馈-主群',
+                text: 'JEngine官方QQ群',
                 children: [
                   {
-                    text: '910780153',
-                    link: 'https://jq.qq.com/?_wv=1027&k=MHLNhhYJ'
+                    text: '921271552',
+                    link: 'https://jq.qq.com/?_wv=1027&k=cF4hODjW'
                   }
                 ]
-              },
-              {
-                text: '游戏交流-二群',
-                children: [
-                  {
-                    text: '547288075',
-                    link: 'https://jq.qq.com/?_wv=1027&k=cgh9S2XW'
-                  },
-                ]
-              },
-              {
-                text: '游戏交流-三群',
-                children: [
-                  {
-                    text: '240095771',
-                    link: 'https://jq.qq.com/?_wv=1027&k=DUkB0Nyx'
-                  },
-                ]
-              },
-              {
-                text: '程序开发',
-                children: [
-                  {
-                    text: '982424236',
-                    link: 'https://jq.qq.com/?_wv=1027&k=pCOEg7fJ'
-                  },
-                ]
-              },
+              }
             ]
           },
           {
@@ -164,10 +120,10 @@ module.exports = {
               },
             ],
           },
-          {
-            text: '赞助项目',
-            link: '/documents/statement/sponsor.md'
-          },
+        //   {
+        //     text: '赞助项目',
+        //     link: '/documents/statement/sponsor.md'
+        //   },
         ],
       },
       '/zh/': {
@@ -195,71 +151,44 @@ module.exports = {
         danger: '危险',
         notFound: ["找不到该页面"],
         backToHome: '返回首页',
-        nav: [
+        navbar: [
           {
             text: '主页',
-            link: '/home/'
+            link: '/zh/'
           },
           {
-            text: "帮助文档",
-            link: '/documents'
+            text: "使用文档",
+            link: '/documents/'
           },
-          {
-            text: '开发',
-            children: [
-              {
-                text: '统一可交换祈愿记录标准',
-                link: '/development/StandardFormat.md'
-              },
-              {
-                text: '开发人员指南',
-                link: '/development/DeveloperGuide.md'
-              },
-              {
-                text: '插件开发',
-                link: '/development/PluginTutorial.md'
-              },
-            ]
-          },
+        //   {
+        //     text: '开发',
+        //     children: [
+        //       {
+        //         text: '统一可交换祈愿记录标准',
+        //         link: '/development/StandardFormat.md'
+        //       },
+        //       {
+        //         text: '开发人员指南',
+        //         link: '/development/DeveloperGuide.md'
+        //       },
+        //       {
+        //         text: '插件开发',
+        //         link: '/development/PluginTutorial.md'
+        //       },
+        //     ]
+        //   },
           {
             text: '交流',
             children: [
               {
-                text: '问题反馈-主群',
+                text: 'JEngine官方QQ群',
                 children: [
                   {
-                    text: '910780153',
-                    link: 'https://jq.qq.com/?_wv=1027&k=MHLNhhYJ'
+                    text: '921271552',
+                    link: 'https://jq.qq.com/?_wv=1027&k=cF4hODjW'
                   }
                 ]
-              },
-              {
-                text: '游戏交流-二群',
-                children: [
-                  {
-                    text: '547288075',
-                    link: 'https://jq.qq.com/?_wv=1027&k=cgh9S2XW'
-                  },
-                ]
-              },
-              {
-                text: '游戏交流-三群',
-                children: [
-                  {
-                    text: '240095771',
-                    link: 'https://jq.qq.com/?_wv=1027&k=DUkB0Nyx'
-                  },
-                ]
-              },
-              {
-                text: '程序开发',
-                children: [
-                  {
-                    text: '982424236',
-                    link: 'https://jq.qq.com/?_wv=1027&k=pCOEg7fJ'
-                  },
-                ]
-              },
+              }
             ]
           },
           {
@@ -285,10 +214,10 @@ module.exports = {
               },
             ],
           },
-          {
-            text: '赞助项目',
-            link: '/documents/statement/sponsor.md'
-          },
+        //   {
+        //     text: '赞助项目',
+        //     link: '/documents/statement/sponsor.md'
+        //   },
         ],
       }
     }
@@ -325,28 +254,7 @@ module.exports = {
    */
   plugins: [
     '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
-    [
-      '@vuepress/plugin-search',
-      {
-        locales: {
-          '/': {
-            placeholder: 'Search for document',
-            hotKeys: ['/']
-          },
-          '/zh/': {
-            placeholder: '搜索文档',
-            hotKeys: ['/zh/']
-          }
-        }
-      }
-    ],
-    [
-      "vuepress-plugin-clipboard",
-      {
-        align: "top"
-      }
-    ]
+    '@vuepress/plugin-medium-zoom'
   ],
 
 }
