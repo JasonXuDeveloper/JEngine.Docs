@@ -9,8 +9,6 @@ actions:
   - text: Get Started →
     link: /documents/
     type: primary
-actionText: Get Started →
-actionLink: /guide/
 features:
 - title: OOTB
   details: An out-of-the-box framework designed for Unity developers instantly allows beginners to create games that can be updated hotly.

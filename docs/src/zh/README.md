@@ -1,17 +1,20 @@
 ---
+title: JEngine - 使Unity开发的游戏支持热更新的解决方案。
 home: true
-title: 页面的标题
+lang: zh-CN
 heroImage: /logo.png
 heroText: JEngine
 tagline: 使Unity开发的游戏支持热更新的解决方案。
-actionText: 快速开始 →
-actionLink: /zh/guide/
+actions:
+  - text: Get Started →
+    link: /zh/documents/
+    type: primary
 features:
-- title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-- title: Vue驱动
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 高性能
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+- title: 易用
+  details: 针对Unity开发者设计的开箱即用的框架，轻松制作可以热更新的游戏。
+- title: 强大
+  details: 框架进行了集成以及完善的封装，无需关注热更原理即可使用强大的功能。
+- title: 轻量
+  details: 仅需下载并打开框架，就可以开始制作自己的可热更新的游戏，无额外硬性要求。
 footer: MIT Licensed | Copyright © 2020-present JasonXuDeveloper
 ---
