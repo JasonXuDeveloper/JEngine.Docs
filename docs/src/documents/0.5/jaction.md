@@ -20,55 +20,55 @@ JEngine现已支持JAction，为Action队列扩展
 
 ## APIs
 
-- ```c#
+- ```csharp
   Do(Action action)
   ```
 
-- ```c#
+- ```csharp
   Delay(float time)
   ```
 
-- ```c#
+- ```csharp
   Until(Func<bool> condition, float frequency = 25, float timeout = -1)
   ```
 
-- ```c#
+- ```csharp
   Repeat(Action action, int counts, float duration = 0)
   ```
 
-- ```c#
+- ```csharp
   RepeatUntil(Action action, Func<bool> condition, float frequency = 25, float timeout = -1)
   ```
 
-- ```c#
+- ```csharp
   RepeatWhen(Action action, Func<bool> condition, float frequency = 25, float timeout = -1)
   ```
 
-- ```c#
+- ```csharp
   Execute(bool onMainThread = false)
   ```
 
-- ```c#
+- ```csharp
   ExecuteAsync(bool onMainThread = false)
   ```
 
-- ```c#
+- ```csharp
   ExecuteAsyncParallel(Action callback = null, bool onMainThread = false)
   ```
 
-- ```c#
+- ```csharp
   OnCancel(Action action)
   ```
 
-- ```c#
+- ```csharp
   Cancel()
   ```
 
-- ```c#
+- ```csharp
   Reset(bool force)
   ```
 
-- ```c#
+- ```csharp
   Dispose()
   ```
 
@@ -78,26 +78,26 @@ JEngine现已支持JAction，为Action队列扩展
 
 1. 在您的热更工程里，引入以下命名空间
 
-   ```c#
+   ```csharp
    using JEngine.Core;
    ```
 
 2. 创建新的**JAction**对象
 
-   ```c#
+   ```csharp
    JAction j = new JAction();
    ```
 
 3. 给JAction分配任务
 
-   ```c#
+   ```csharp
    j.Do(() => Log.Print("Hello from JAction!"))
      .Do(() => Log.Print("Bye from JAction"))
    ```
 
 4. **让JAction执行（必备）**:
 
-   ```c#
+   ```csharp
    j.Execute();
    ```
 
@@ -107,7 +107,7 @@ JEngine现已支持JAction，为Action队列扩展
 
 ### 链式编程：
 
-   ```c#
+   ```csharp
    JAction j = new JAction();
    j.Do(xxx)
      .Repeat(xxx,times,frequecny)
@@ -118,7 +118,7 @@ JEngine现已支持JAction，为Action队列扩展
 
 ### Demo示例（包含90%的API使用）：
 
-   ```c#
+   ```csharp
    public class Example : MonoBehaviour
    {
      public void Start()

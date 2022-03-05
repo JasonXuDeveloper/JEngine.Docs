@@ -15,12 +15,12 @@ JEngine现已支持多语言本地化
 ## APIs
 
 
-- ```c#
+- ```csharp
   ChangeLanguage(string lang)
   ```
 
 
-- ```c#
+- ```csharp
   GetString(string key)
   ```
 
@@ -31,19 +31,19 @@ JEngine现已支持多语言本地化
 
 1. 在您的热更工程里，引入以下命名空间
 
-   ```c#
+   ```csharp
    using JEngine.Core;
    ```
 
 2. 获取字符串
 
-   ```c#
+   ```csharp
    string val = Localization.GetString("key");
    ```
 
 3. 切换语言
 
-   ```c#
+   ```csharp
    Localization.ChangeLanguage("en-us");
    ```
 

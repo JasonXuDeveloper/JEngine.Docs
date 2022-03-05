@@ -9,7 +9,7 @@ JEngine.UI 是一套剥离MonoBehaviour的UGUI框架。其主要设计目的是�
 
 ## 命名空间
 
-```c#
+```csharp
 using JEngine.UI;//大部分是这个命名空间
 using JEngine.UI.UIKit;//UIMgr在这个命名空间（一般不需要使用）
 using JEngine.UI.ResKit;//ResMgr在这个命名空间（一般不需要使用）
@@ -32,7 +32,7 @@ using JEngine.UI.ResKit;//ResMgr在这个命名空间（一般不需要使用）
 
 4. 使用```UIMgr```注册面板
 
-   ```c#
+   ```csharp
    UIMgr.Instance.Register(
      (JTestViewPath, JTestView.Instance),
      (JBtnViewPath, JBtnView.Instance));
@@ -40,19 +40,19 @@ using JEngine.UI.ResKit;//ResMgr在这个命名空间（一般不需要使用）
 
 5. 初始化```UIRoot```
 
-   ```c#
+   ```csharp
    UIRootView.InitUIRoot();
    ```
 
 6. 显示```UIView```
 
-   ```c#
+   ```csharp
    UIMgr.Instance.ShowUI(JTestViewPath);
    ```
 
 7. 例子
 
-   ```c#
+   ```csharp
    public class JumpToUIDemo : JBehaviour
    {
      /// <summary> class binding </summary>
@@ -96,71 +96,71 @@ using JEngine.UI.ResKit;//ResMgr在这个命名空间（一般不需要使用）
 
 - [API] 注册界面相关的一些其他资源
 
-  ```c#
+  ```csharp
   public override void Refer()
   ```
 
 - [API] 打开面板函数
 
-  ```c#
+  ```csharp
   public void ShowUI(string uiName)
   ```
 
-  ```c#
+  ```csharp
   public void ShowUI(string uiName, Action<APanelBase> openCall, Action<APanelBase> closeCall)
   ```
 
 - [API] 预加载界面函数
 
-  ```c#
+  ```csharp
   public virtual void PreLoadUI()
   ```
 
 - [API] 清理界面函数
 
-  ```c#
+  ```csharp
   public virtual void Clear()  
   ```
 
 - [API] 界面的销毁函数    
 
-  ```c#
+  ```csharp
   public virtual void Destroy()  
   ```
 
 - [API] 界面的关闭函数
 
-  ```c#
+  ```csharp
   public virtual void CloseUI()
   ```
 
 - [生命周期函数] 在界面实例化的时候调用一次，类似```Awake```,```Start```
 
-  ```c#
+  ```csharp
   public virtual void Init()
   ```
 
 - [生命周期函数] 界面每次被打开时自动调用，也可以外部调用刷新
 
-  ```c#
+  ```csharp
   public virtual void Refresh()
   ```
 
 - [生命周期函数] 在```Refresh()```后执行，用做清理还原面板上数据
 
-  ```c#
+  ```csharp
   public virtual void ResetUI()
   ```
 
 - [生命周期函数] 界面的帧刷新函数
 
-  ```c#
+  ```csharp
   public virtual void Update()
   ```
 
 - [生命周期函数] 界面的帧刷新函数
 
-  ```c#
+  ```csharp
   public virtual void LateUpdate()
   ```
 
@@ -168,7 +168,7 @@ using JEngine.UI.ResKit;//ResMgr在这个命名空间（一般不需要使用）
 
 - 这个是继承```APanelBase```的```JTestView.cs```的一部分，在JEngineDemo中有完整版
 
-  ```c#
+  ```csharp
   public class JTestView : APanelBase
   {
       //每个界面面板依赖于单例模式
@@ -240,7 +240,7 @@ using JEngine.UI.ResKit;//ResMgr在这个命名空间（一般不需要使用）
 
 - 内部字段
 
-  ````c#
+  ````csharp
   protected internal GameObject m_gameobj = null;
   protected internal Transform Trans = null;
   protected internal RectTransform RectTrans = null;
@@ -248,37 +248,37 @@ using JEngine.UI.ResKit;//ResMgr在这个命名空间（一般不需要使用）
 
 - [生命周期函数] 初始化子部件，只执行一次
 
-  ```c#
+  ```csharp
   public virtual void setObj(GameObject obj)
   ```
 
 - [API] 刷新子部件，注意区分``` Refresh()```
 
-  ```c#
+  ```csharp
   public virtual void Refresh<T>(T data)
   ```
 
 - [API] 刷新子部件，注意区分 ```Refresh<T>(T data)```
 
-  ```c#
+  ```csharp
   public virtual void Refresh() { }
   ```
 
 - [API] 帧刷新，非生命周期
 
-  ```c#
+  ```csharp
   public virtual void Update() { }
   ```
 
 - [API] 清理
 
-  ```c#
+  ```csharp
   public virtual void Clear() { }
   ```
 
 - [属性] 判断子部件是否打开
 
-  ```c#
+  ```csharp
   public virtual bool IsActive
   ```
 
@@ -377,67 +377,67 @@ private void Register<T>(string name, T panel) where T : APanelBase
 
 - [API] 打开界面的统一入口
 
-  ```c#
+  ```csharp
   public void ShowUI(string uibaseName, bool isSaveShow = false, Action<APanelBase> closeCall = null, Action<APanelBase> openCall = null, bool isClearAll = true)
   ```
 
 - [API] 设定打开或者关闭已开UI
 
-  ```c#
+  ```csharp
   public void SetShowAllOpenUI(bool isOpen)
   ```
 
 - [API] 预加载某个面板
 
-  ```c#
+  ```csharp
   public void PreLoadUI(string uibaseName)
   ```
 
 - [API] 获得某个面板
 
-  ```c#
+  ```csharp
   public APanelBase GetUI(string uibaseName)
   ```
 
 - [API] 删除某个面板    
 
-  ```c#
+  ```csharp
   public void DestoryUI(string uibaseName)
   ```
 
 - [API] 关闭并删除某个面板   
 
-  ```c#
+  ```csharp
   public void CloseAndDestoryUI(string uibaseName)
   ```
 
 - [API] 判断面板是否打开
 
-  ```c#
+  ```csharp
   public bool IsOpen(string planeName)
   ```
 
 - [API] 判断面板是否存在
 
-  ```c#
+  ```csharp
   public bool InHavePanel(string planeName)
   ```
 
 - [API] 关闭某个面板
 
-  ```c#
+  ```csharp
   public void CloseUI(string uibaseName)
   ```
 
 - [API] 关闭所有打开面板(排除设置为保持状态的)
 
-  ```c#
+  ```csharp
   public void CloseAllUI(bool isFilm)
   ```
 
 - [API] 帧刷新
 
-  ```c#
+  ```csharp
   public void Update()
   ```
 
@@ -474,13 +474,13 @@ UIMgr.Instance.ShowUI(JTestViewPath,
 
 - 不需要关心层级具体位子，只保证Trans下面有该游戏物体即可
 
-  ```c#
+  ```csharp
   Image img = UIUtility.GetComponent<Image>(Trans, "组件层级名字");
   ```
 
 - 获取游戏物体，只保证 m_gameobj 下面有该游戏物体即可
 
-  ```c#
+  ```csharp
   GameObject obj = UIUtility.Control("游戏物体名", m_gameobj);
   ```
 
@@ -494,43 +494,43 @@ UIMgr.Instance.ShowUI(JTestViewPath,
 
 - 绑定点击事件
 
-  ```c#
+  ```csharp
   GameObject button = UIUtility.BindClickEvent(Trans, "按钮或者图片名称", OnClick);
   ```
 
 - 绑定双击事件
 
-  ```c#
+  ```csharp
   GameObject button = UIUtility.BindDoubleClickEvent(Trans, "目标名称", OnClick);
   ```
 
 - 绑定开始拖拽事件
 
-  ```c#
+  ```csharp
   GameObject button = UIUtility.BindDragBeginEvent(Trans, "目标名称", OnClick);
   ```
 
 - 绑定拖拽事件
 
-  ```c#
+  ```csharp
   GameObject button = UIUtility.BindDragEvent(Trans, "目标名称", OnClick);
   ```
 
 - 绑定结束拖拽事件
 
-  ```c#
+  ```csharp
   GameObject button = UIUtility.BindDragEndEvent(Trans, "目标名称", OnClick);
   ```
 
 - 绑定按下事件
 
-  ```c#
+  ```csharp
   GameObject button = UIUtility.BindPressDownEvent(Trans, "目标名称", OnClick);
   ```
 
 - 绑定抬起事件
 
-  ```c#
+  ```csharp
   GameObject button = UIUtility.BindPressUpEvent(Trans, "目标名称", OnClick);
   ```
 

@@ -5,7 +5,7 @@
 
 ## 创建可绑定数据
 
-   ```c#
+   ```csharp
    public class MyData
    {
      public int a;//Normal data
@@ -15,7 +15,7 @@
 
 ## 获得BindableProperty的值，如何改变
 
-   ```c#
+   ```csharp
    void MyMethod()
    {
      //To get a BindableProperty's value:
@@ -28,7 +28,7 @@
 
 ## 推荐写法，可以最简化JSON和Protobuf序列化的长度
 
-   ```c#
+   ```csharp
     [System.Serializable][global::ProtoBuf.ProtoContract()]
     public class DataClass
     {

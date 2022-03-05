@@ -16,35 +16,35 @@ JEngine已推出提高UI开发效率的功能(支持操作任何UGUI组件, 例�
 
 ## APIs
 
-- ```c#
+- ```csharp
   onInit(Action<JUI> init)
   ```
 
-- ```c#
+- ```csharp
   onRun(Action<JUI> run)
   ```
 
-- ```c#
+- ```csharp
   onLoop(Action<JUI> loop)
   ```
 
-- ```c#
+- ```csharp
   onEnd(Action<JUI> end)
   ```
 
-- ```c#
+- ```csharp
   onMessage(Action<JUI> message)
   ```
 
-- ```c#
+- ```csharp
   Bind<T>(BindableProperty<T> val)
   ```
 
-- ```c#
+- ```csharp
   Element<T>() where T: UIBehaviour
   ```
 
-- ```c#
+- ```csharp
   Activate()
   ```
 
@@ -56,20 +56,20 @@ JEngine已推出提高UI开发效率的功能(支持操作任何UGUI组件, 例�
 
 1. 在您的热更工程里，引入以下命名空间
 
-   ```c#
+   ```csharp
    using JEngine.Core;
    ```
 
 2. 用```JUI.CreateOn(GameObject gameObject)```方法创建JUI
 
-   ```c#
+   ```csharp
    //Here it is an example of adding JUI
    JUI t = JUI.CreateOn(GameObject.Find("Canvas/AnyGameObject"));
    ```
 
 3. 可以对JUI的生命周期进行分配：
 
-   ```c#
+   ```csharp
           //To Init it
           t.onInit(t =>
                    {
@@ -102,7 +102,7 @@ JEngine已推出提高UI开发效率的功能(支持操作任何UGUI组件, 例�
 
 4. **激活JUI（必备）**:
 
-   ```c#
+   ```csharp
    t.Activate();
    ```
 
@@ -114,7 +114,7 @@ JEngine已推出提高UI开发效率的功能(支持操作任何UGUI组件, 例�
 
 ### 链式编程
 
-   ```c#
+   ```csharp
    JUIText t = JUI.CreateOn(GameObject.Find("Canvas/Text"))
                    .onInit(t1 =>
                    {
@@ -136,7 +136,7 @@ JEngine已推出提高UI开发效率的功能(支持操作任何UGUI组件, 例�
 
    #### 使用循环来实现倒计时
 
-   ```c#
+   ```csharp
    public class Example
        {
            public void Start()
@@ -186,7 +186,7 @@ JEngine已推出提高UI开发效率的功能(支持操作任何UGUI组件, 例�
 
    #### 数据绑定
 
-   ```c#
+   ```csharp
     [Serializable]
        public class Data
        {
@@ -293,7 +293,7 @@ JEngine已推出提高UI开发效率的功能(支持操作任何UGUI组件, 例�
 
 ### 如何绑定数据到JUI
 
-   ```c#
+   ```csharp
    void MyJUIExample()
    {
      MyData data;//Create a data
@@ -309,7 +309,7 @@ JEngine已推出提高UI开发效率的功能(支持操作任何UGUI组件, 例�
 
 ### 如何获得JUI组件上的其他UI组件
 
-   ```c#
+   ```csharp
    JUI jui = JUI.CreateOn(GameObject.Find("Canvas/MyUIElement"));//Add JUI to an UI element
    Button btn = jui.Element<Button>();//It is a generic method to get an UI element
    //If you dont have this component on the element, JUI will automatically add one

@@ -19,13 +19,13 @@ JEngine~~现已支持基于MonoBehaviour，却**更强大**的基类~~已经制�
 
 1. 在您的热更工程里，引入以下命名空间：
 
-   ```c#
+   ```csharp
    using JEngine.Core;
    ```
 
 2. 继承**JBehaviour**
 
-   ```c#
+   ```csharp
    namespace HotUpdateScripts
    {
        public class Sample : JBehaviour
@@ -46,7 +46,7 @@ JEngine~~现已支持基于MonoBehaviour，却**更强大**的基类~~已经制�
 
 ## Demo示例（包含90%以上的API使用）
 
-   ```c#
+   ```csharp
    using System;
    using JEngine.Core;
    
@@ -95,7 +95,7 @@ JEngine~~现已支持基于MonoBehaviour，却**更强大**的基类~~已经制�
 
 ## 其他接口
 
-  ```c#
+  ```csharp
 /// <summary>
 /// Total time that this JBehaviour has run
 /// 该JBehaviour运行总时长
@@ -103,7 +103,7 @@ JEngine~~现已支持基于MonoBehaviour，却**更强大**的基类~~已经制�
 public float TotalTime = 0;
 ```
 
-```c#
+```csharp
 /// <summary>
 /// Deltatime of loop
 /// 循环耗时
@@ -111,7 +111,7 @@ public float TotalTime = 0;
 public float LoopDeltaTime = 0;
 ```
 
-```c#
+```csharp
 /// <summary>
 /// Loop counts
 /// 循环次数
@@ -119,7 +119,7 @@ public float LoopDeltaTime = 0;
 public long LoopCounts = 0;
 ```
 
-```c#
+```csharp
 /// <summary>
 /// Time scale
 /// 时间倍速
@@ -127,7 +127,7 @@ public long LoopCounts = 0;
 public float TimeScale = 1;
 ```
 
-```c#
+```csharp
 /// <summary>
 /// Hides the UI gameObject
 /// 隐藏UI对象
@@ -135,7 +135,7 @@ public float TimeScale = 1;
 public JBehaviour Hide()
 ```
 
-```c#
+```csharp
 /// <summary>
 /// Shows the UI gameObject
 /// 显示UI对象
@@ -143,7 +143,7 @@ public JBehaviour Hide()
 public JBehaviour Show()
 ```
 
-```c#
+```csharp
 /// <summary>
 /// Pause the loop
 /// 暂停循环
@@ -151,7 +151,7 @@ public JBehaviour Show()
 public JBehaviour Pause()
 ```
 
-```c#
+```csharp
 /// <summary>
 /// Resume the loop
 /// 恢复循环
@@ -159,7 +159,7 @@ public JBehaviour Pause()
 public JBehaviour Resume()
 ```
 
-```c#
+```csharp
 /// <summary>
 /// Activate the JBehaviour
 /// 激活
@@ -182,7 +182,7 @@ public JBehaviour Activate()
     ```RemoveJBehaviour(JBehaviour jBehaviour)```
   - Demo示范
 
-```c#
+```csharp
 var go = new UnityEngine.GameObject("Test");
 
 //创建实例

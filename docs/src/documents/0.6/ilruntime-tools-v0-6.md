@@ -24,7 +24,7 @@ JEngine现已支持自动生成ILRuntime适配器
 3. 点击生成，会自动创建
 
 4. 在Unity工程，Assets/Scripts/Helpers/RegisterCrossBindingAdaptorHelper.cs里，加入适配器注册到```Register(AppDomain appdomain)```方法
-```c#
+```csharp
 appdomain.RegisterCrossBindingAdaptor(new 你的适配器类());
 ```
 

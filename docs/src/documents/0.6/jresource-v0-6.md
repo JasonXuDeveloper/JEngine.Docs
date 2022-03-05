@@ -14,16 +14,16 @@ JEngine现已支持基于XAsset的资源管理方案
 
 ## APIs
 
-- ```c#
+- ```csharp
   LoadRes<T>(string path, MatchMode mode = MatchMode.AutoMatch) where T : UnityEngine.Object
   ```
 
 
-- ```c#
+- ```csharp
   LoadResAsync<T>(string path, Action<T> callback, MatchMode mode = MatchMode.AutoMatch) where T : UnityEngine.Object
   ```
 
-- ```c#
+- ```csharp
   public enum MatchMode
   {
     AutoMatch = 1,
@@ -44,14 +44,14 @@ JEngine现已支持基于XAsset的资源管理方案
 
 - Sync Method
 
-```c#
+```csharp
 var txt = JResource.LoadRes<TextAsset>("Text.txt");
 Log.Print("Get Resource with Sync method: " + txt.text);
 ```
 
 - Async Parallel Method 
 
-```c#
+```csharp
 JResource.LoadResAsync<TextAsset>("Text.txt",(txt)=>
 {
 	Log.Print("Get Resource with Async method: " + txt.text);

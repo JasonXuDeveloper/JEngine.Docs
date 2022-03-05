@@ -15,66 +15,66 @@ JPrefab是针对热更Prefab制作的类型
 > - 可手动释放
 
 ## 命名空间
-- ```c#
+- ```csharp
   using JEngine.Core;
   ```
 
 ## API
-- ```c#
+- ```csharp
   public JPrefab(string path) //从热更资源里读取prefab
   ```
 
-- ```c#
+- ```csharp
   public bool Loaded; //Prefab是否加载（如果有错误，这里也会是加载）
   ```
 
-- ```c#
+- ```csharp
   public bool Error; //加载时是否有错
   ```
 
-- ```c#
+- ```csharp
   public string ErrorMessage; //错误时的错误信息
   ```
 
-- ```c#
+- ```csharp
   public float Progress; //加载prefab的进度
   ```
 
-- ```c#
+- ```csharp
   public LoadState State; //加载prefab的状态
   ```
 
-- ```c#
+- ```csharp
   public GameObject Instance; //Prefab游戏对象（这个并不在场景中，也没被生成）
   ```
 
-- ```c#
+- ```csharp
   public List<GameObject> InstantiatedGameObjects; //全部被生成到场景中的游戏对象
   ```
 
 - 生成预制体
-  ```c#
+  ```csharp
   public GameObject Instantiate(string name = "")
   ```
 
-  ```c#
+  ```csharp
   public GameObject Instantiate(Transform parent, string name = "")
   ```
 
-  ```c#
+  ```csharp
   public GameObject Instantiate(Transform parent, bool instantiateInWorldSpace, string name = "")
   ```
 
-  ```c#
+  ```csharp
   public GameObject Instantiate(Vector3 position, Quaternion rotation, string name = "")
   ```
 
-  ```c#
+  ```csharp
   public GameObject Instantiate(Vector3 position, Quaternion rotation,Transform parent, string name = "")
   ```
 
 - 释放
-  ```c#
+  ```csharp
   public void Dispose()
   ```
 

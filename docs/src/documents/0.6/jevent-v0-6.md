@@ -11,32 +11,32 @@ JEngine参考Google Java核心库之EventBus编写的事件派发方案
 > - 可控线程
 
 ## 命名空间
-- ```c#
+- ```csharp
   using JEngine.Event;
   ```
 
 ## API
-- ```c#
+- ```csharp
   Register<T>(T val) //从类型中读取需要派发事件的方法\
   ```
   
-- ```c#
+- ```csharp
   Unregister<T>(T val) //取消注册某类型中全部被监听方法
   ```
   
-- ```c#
+- ```csharp
   Post(params object[] parameters) //将参数广播到全部监听方法，只有参数类型匹配的方法才会被调用
   ```
   
-- ```c#
+- ```csharp
   [Subscriber] //监听标签，可以打到类上或方法上，无参数默认主线程派发
   ```
   
-- ```c#
+- ```csharp
   [Subscriber(ThreadMode.Main)] //监听标签，可以打到类上或方法上，Main参数代表主线程派发
   ```
   
-- ```c#
+- ```csharp
   [Subscriber(ThreadMode.Other)] //监听标签，可以打到类上或方法上，Other参数代表子线程派发
   ```
   
@@ -44,7 +44,7 @@ JEngine参考Google Java核心库之EventBus编写的事件派发方案
 
 参考框架源码的Game场景下，EventDemo的使用，需要搭配ClassBind
 
-```c#
+```csharp
 using System;
 using System.Threading.Tasks;
 using JEngine.Core;

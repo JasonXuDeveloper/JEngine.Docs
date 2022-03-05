@@ -17,81 +17,81 @@ JEngine针对特定情况制作了内存加密结构
 ![compare](https://s1.ax1x.com/2020/10/01/0M6fMV.png)
 
 ## 命名空间
-- ```c#
+- ```csharp
   using JEngine.AntiCheat;
   ```
 
 ## API
-- ```c#
+- ```csharp
   AntiCheatHelper.OnMemoryCheatDetected(Action toDo); //如果被发现玩家有修改内存，执行toDo
   ```
 
 ## 请勿调用
-- ```c#
+- ```csharp
   AntiCheatHelper.OnDetected(); //该方法是内部方法，请勿调用！
   ```
 
 ## 支持类型
 
-- ```c#
+- ```csharp
   JBool 对应 bool
   ```
 
-- ```c#
+- ```csharp
   JChar 对应 char
   ```
 
-- ```c#
+- ```csharp
   JString 对应 string
   ```
 
-- ```c#
+- ```csharp
   JByte 对应 byte
   ```
 
-- ```c#
+- ```csharp
   JSByte 对应 sbyte
   ```
 
-- ```c#
+- ```csharp
   JShort 对应 short
   ```
 
-- ```c#
+- ```csharp
   JUShort 对应 ushort
   ```
 
-- ```c#
+- ```csharp
   JInt 对应 int
   ```
 
-- ```c#
+- ```csharp
   JUInt 对应 uint
   ```
 
-- ```c#
+- ```csharp
   JLong 对应 long
   ```
 
-- ```c#
+- ```csharp
   JULong 对应 ulong
   ```
 
-- ```c#
+- ```csharp
   JFloat 对应 float
   ```
 
-- ```c#
+- ```csharp
   JDecimal 对应 decimal
   ```
 
-- ```c#
+- ```csharp
   JDouble 对应 double
   ```
 
 ## 如何使用
 和正常数值结构一样，直接使用
-```c#
+```csharp
 int a = 0;
 JInt b = 1;
 b++; //b会是2
@@ -105,7 +105,7 @@ b = a; //b也会是1
 
 ## 推荐写法
 最简化JSON和Protobuf序列化的长度
-```c#
+```csharp
     [ProtoBuf.ProtoContract]
     public class SafeData
     {

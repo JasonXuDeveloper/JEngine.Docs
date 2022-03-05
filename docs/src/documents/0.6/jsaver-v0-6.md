@@ -16,71 +16,71 @@ JEngine现已支持JSaver，是数据持久化的工具
 
 ## APIs
 
-- ```c#
+- ```csharp
   string SaveAsString<T>(string dataName, T val, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   string SaveAsJSON<T>(string dataName, T val, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   byte[] SaveAsProtobufBytes<T>(string dataName, T val) 
   ```
 
-- ```c#
+- ```csharp
   string GetString(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   int GetInt(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   short GetShort(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   long GetLong(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   decimal GetDecimal(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   double GetDouble(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   float GetFloat(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   bool GetBool(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   T GetObject<T>(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   T GetObjectFromJSON<T>(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   T GetObjectFromProtobuf<T>(string dataName, string encryptKey)
   ```
 
-- ```c#
+- ```csharp
   bool HasData(string dataName)
   ```
 
-- ```c#
+- ```csharp
   DeleteData(string dataName)
   ```
 
-- ```c#
+- ```csharp
   DeleteAll()
   ```
 
@@ -90,25 +90,25 @@ JEngine现已支持JSaver，是数据持久化的工具
 
 1. 在您的热更工程里，引入以下命名空间
 
-   ```c#
+   ```csharp
    using JEngine.Core;
    ```
 
 2. 保存字符串，配置加密密码和数据名称
 
-   ```c#
+   ```csharp
    JSaver.SaveAsString("data to save", "dataName", "1234567890987654");//Set a data to local storage
    ```
 
 3. 可获取返回的加密值
 
-   ```c#
+   ```csharp
    var encryptStr = JSaver.SaveAsString("data to save", "dataName", "1234567890987654");//set and get the encrypted data string
    ```
 
 4. 获取数据:
 
-   ```c#
+   ```csharp
    var decryptStr = JSaver.GetString("dataName", "1234567890987654");
    ```
 
@@ -118,7 +118,7 @@ JEngine现已支持JSaver，是数据持久化的工具
 
 ### Demo示例（包含90%的API使用）：
 
-   ```c#
+   ```csharp
    public class DataClass
    {
      public int id;
