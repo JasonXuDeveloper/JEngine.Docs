@@ -3,7 +3,7 @@ title: JEngine - The solution that allows unity games update in runtime.
 home: true
 lang: en-US
 heroImage: /logo.png
-heroText: JEngine(test)
+heroText: JEngine
 tagline: The solution that allows unity games update in runtime.
 actions:
   - text: Get Started →
