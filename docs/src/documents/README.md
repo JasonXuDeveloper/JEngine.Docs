@@ -15,7 +15,15 @@ There is now more than 30 enterprise using JEngine to build their commercial pro
 
 > Although the documentation supports English, most of the framework components and its integrated demo were still in Chinese.
 
-## [Latest Version](/documents/0.7/) <Badge type="tip" text="v0.7.x" vertical="middle" />
+
+
+## Stable Version
+
+The version JEngine is currently maintaining and updating.
+
+
+
+### [Latest Version](/documents/0.7/) <Badge type="tip" text="v0.7.x" vertical="middle" />
 ::: tip 
 > This version refers to the master branch of JEngine 
 
@@ -36,7 +44,15 @@ The latest version that the developers think can be used normally and will not h
 
 :::
 
-## [Version 0.6.x](/documents/0.6/) <Badge type="warning" text="v0.6.x" vertical="middle" />
+
+
+## Archive Versions
+
+Old JEngine versions, will not be updated or maintained, recommend to use the latest stable version.
+
+
+
+### [Version 0.6.x](/documents/0.6/) <Badge type="warning" text="v0.6.x" vertical="middle" />
 ::: warning
 > This version refers to the branch '0.6.x' of JEngine 
 
@@ -46,7 +62,7 @@ Version 0.6.x is currently in being used by most commercial projects however it 
 
 :::
 
-## [Version 0.5.x](/documents/0.5/) <Badge type="danger" text="v0.5.x" vertical="middle" />
+### [Version 0.5.x](/documents/0.5/) <Badge type="danger" text="v0.5.x" vertical="middle" />
 ::: danger
 > This version refers to the branch '0.5.x' of JEngine 
 
