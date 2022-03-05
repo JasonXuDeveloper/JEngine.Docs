@@ -83,8 +83,8 @@ export const themeData = {
                   "/documents/0.6/jsaver",
                   "/documents/0.6/jevent",
                   "/documents/0.6/localization",
-                  "/documents/0.6/crypto-struct",
                   "/documents/0.5/gameobject-pool",
+                  "/documents/0.6/crypto-struct",
                   "/documents/0.6/ilruntime-tools",
                   "/documents/0.6/proto-tools",
                   "/documents/0.6/jengine-panel"
@@ -142,8 +142,8 @@ export const themeData = {
                   "/zh/documents/0.6/jsaver",
                   "/zh/documents/0.6/jevent",
                   "/zh/documents/0.6/localization",
-                  "/zh/documents/0.6/crypto-struct",
                   "/documents/0.5/gameobject-pool",
+                  "/zh/documents/0.6/crypto-struct",
                   "/zh/documents/0.6/ilruntime-tools",
                   "/zh/documents/0.6/proto-tools",
                   "/zh/documents/0.6/jengine-panel"
@@ -200,8 +200,8 @@ export const themeData = {
                   "/documents/0.5/jaction",
                   "/documents/0.5/jsaver",
                   "/documents/0.5/localization",
-                  "/documents/0.5/crypto-struct",
                   "/documents/0.5/gameobject-pool",
+                  "/documents/0.5/crypto-struct",
                   "/documents/0.5/ilruntime-tools",
                   "/documents/0.5/proto-tools"
                 ]
@@ -257,8 +257,8 @@ export const themeData = {
                   "/documents/0.5/jaction",
                   "/documents/0.5/jsaver",
                   "/documents/0.5/localization",
-                  "/documents/0.5/crypto-struct",
                   "/documents/0.5/gameobject-pool",
+                  "/documents/0.5/crypto-struct",
                   "/documents/0.5/ilruntime-tools",
                   "/documents/0.5/proto-tools"
                 ]
@@ -311,7 +311,7 @@ export const themeData = {
       ]
     },
     "/zh/": {
-      "selectLanguageText": "语言",
+      "selectLanguageText": "多语言",
       "selectLanguageName": "简体中文",
       "editLinkText": "在 GitHub 上编辑此页",
       "serviceWorker": {
@@ -393,8 +393,8 @@ export const themeData = {
                   "/documents/0.6/jsaver",
                   "/documents/0.6/jevent",
                   "/documents/0.6/localization",
-                  "/documents/0.6/crypto-struct",
                   "/documents/0.5/gameobject-pool",
+                  "/documents/0.6/crypto-struct",
                   "/documents/0.6/ilruntime-tools",
                   "/documents/0.6/proto-tools",
                   "/documents/0.6/jengine-panel"
@@ -452,8 +452,8 @@ export const themeData = {
                   "/zh/documents/0.6/jsaver",
                   "/zh/documents/0.6/jevent",
                   "/zh/documents/0.6/localization",
-                  "/zh/documents/0.6/crypto-struct",
                   "/documents/0.5/gameobject-pool",
+                  "/zh/documents/0.6/crypto-struct",
                   "/zh/documents/0.6/ilruntime-tools",
                   "/zh/documents/0.6/proto-tools",
                   "/zh/documents/0.6/jengine-panel"
@@ -510,8 +510,8 @@ export const themeData = {
                   "/documents/0.5/jaction",
                   "/documents/0.5/jsaver",
                   "/documents/0.5/localization",
-                  "/documents/0.5/crypto-struct",
                   "/documents/0.5/gameobject-pool",
+                  "/documents/0.5/crypto-struct",
                   "/documents/0.5/ilruntime-tools",
                   "/documents/0.5/proto-tools"
                 ]
@@ -567,8 +567,8 @@ export const themeData = {
                   "/documents/0.5/jaction",
                   "/documents/0.5/jsaver",
                   "/documents/0.5/localization",
-                  "/documents/0.5/crypto-struct",
                   "/documents/0.5/gameobject-pool",
+                  "/documents/0.5/crypto-struct",
                   "/documents/0.5/ilruntime-tools",
                   "/documents/0.5/proto-tools"
                 ]
@@ -602,7 +602,21 @@ export const themeData = {
         },
         {
           "text": "文档",
-          "link": "/zh/documents/"
+          "link": "/zh/documents/",
+          "children": [
+            {
+              "text": "0.7.x",
+              "link": "/zh/documents/0.7/"
+            },
+            {
+              "text": "0.6.x",
+              "link": "/zh/documents/0.6/"
+            },
+            {
+              "text": "0.5.x",
+              "link": "/zh/documents/0.5/"
+            }
+          ]
         },
         {
           "text": "交流",
@@ -615,6 +629,23 @@ export const themeData = {
                   "link": "https://jq.qq.com/?_wv=1027&k=cF4hODjW"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "text": "订阅版",
+          "children": [
+            {
+              "text": "介绍",
+              "link": "/zh/pro/"
+            },
+            {
+              "text": "定价",
+              "link": "/zh/pro/price/"
+            },
+            {
+              "text": "购买",
+              "link": "/zh/pro/puchase/"
             }
           ]
         }

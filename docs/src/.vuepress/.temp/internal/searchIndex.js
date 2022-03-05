@@ -61,7 +61,14 @@ export const searchIndex = [
   },
   {
     "title": "V0.5.x",
-    "headers": [],
+    "headers": [
+      {
+        "level": 3,
+        "title": "Documentation",
+        "slug": "documentation",
+        "children": []
+      }
+    ],
     "path": "/documents/0.5/",
     "pathLocale": "/",
     "extraFields": []
@@ -653,7 +660,14 @@ export const searchIndex = [
   },
   {
     "title": "V0.6.x",
-    "headers": [],
+    "headers": [
+      {
+        "level": 3,
+        "title": "Documentation",
+        "slug": "documentation",
+        "children": []
+      }
+    ],
     "path": "/documents/0.6/",
     "pathLocale": "/",
     "extraFields": []
@@ -1528,7 +1542,26 @@ export const searchIndex = [
   },
   {
     "title": "V0.5.x",
-    "headers": [],
+    "headers": [
+      {
+        "level": 3,
+        "title": "视频教程",
+        "slug": "视频教程",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "实战项目",
+        "slug": "实战项目",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "文档部分",
+        "slug": "文档部分",
+        "children": []
+      }
+    ],
     "path": "/zh/documents/0.5/",
     "pathLocale": "/zh/",
     "extraFields": []
@@ -2120,7 +2153,20 @@ export const searchIndex = [
   },
   {
     "title": "V0.6.x",
-    "headers": [],
+    "headers": [
+      {
+        "level": 3,
+        "title": "视频教程",
+        "slug": "视频教程",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "文档部分",
+        "slug": "文档部分",
+        "children": []
+      }
+    ],
     "path": "/zh/documents/0.6/",
     "pathLocale": "/zh/",
     "extraFields": []

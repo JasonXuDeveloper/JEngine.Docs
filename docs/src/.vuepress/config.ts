@@ -58,8 +58,8 @@ var bar = {
             '/documents/0.6/jsaver',
             '/documents/0.6/jevent',
             '/documents/0.6/localization',
-            '/documents/0.6/crypto-struct',
             '/documents/0.5/gameobject-pool',
+            '/documents/0.6/crypto-struct',
             '/documents/0.6/ilruntime-tools',
             '/documents/0.6/proto-tools',
             '/documents/0.6/jengine-panel',
@@ -111,8 +111,8 @@ var bar = {
             '/zh/documents/0.6/jsaver',
             '/zh/documents/0.6/jevent',
             '/zh/documents/0.6/localization',
-            '/zh/documents/0.6/crypto-struct',
             '/documents/0.5/gameobject-pool',
+            '/zh/documents/0.6/crypto-struct',
             '/zh/documents/0.6/ilruntime-tools',
             '/zh/documents/0.6/proto-tools',
             '/zh/documents/0.6/jengine-panel',
@@ -163,8 +163,8 @@ var bar = {
             '/documents/0.5/jaction',
             '/documents/0.5/jsaver',
             '/documents/0.5/localization',
-            '/documents/0.5/crypto-struct',
             '/documents/0.5/gameobject-pool',
+            '/documents/0.5/crypto-struct',
             '/documents/0.5/ilruntime-tools',
             '/documents/0.5/proto-tools',
           ]
@@ -214,8 +214,8 @@ var bar = {
             '/documents/0.5/jaction',
             '/documents/0.5/jsaver',
             '/documents/0.5/localization',
-            '/documents/0.5/crypto-struct',
             '/documents/0.5/gameobject-pool',
+            '/documents/0.5/crypto-struct',
             '/documents/0.5/ilruntime-tools',
             '/documents/0.5/proto-tools',
           ]
@@ -326,7 +326,7 @@ export default defineUserConfig<DefaultThemeOptions>({
       },
       '/zh/': {
         // 多语言下拉菜单的标题
-        selectLanguageText: '语言',
+        selectLanguageText: '多语言',
         // 该语言在下拉菜单中的标签
         selectLanguageName: '简体中文',
         // 编辑链接文字
@@ -358,7 +358,21 @@ export default defineUserConfig<DefaultThemeOptions>({
           },
           {
             text: "文档",
-            link: '/zh/documents/'
+            link: '/zh/documents/',
+            children:[
+                {
+                    text: '0.7.x',
+                    link: '/zh/documents/0.7/'
+                },
+                {
+                    text: '0.6.x',
+                    link: '/zh/documents/0.6/'
+                },
+                {
+                    text: '0.5.x',
+                    link: '/zh/documents/0.5/'
+                }
+            ]
           },
           {
             text: '交流',
@@ -372,6 +386,23 @@ export default defineUserConfig<DefaultThemeOptions>({
                   }
                 ]
               }
+            ]
+          },
+          {
+            text: '订阅版',
+            children: [
+              {
+                text: '介绍',
+                link: '/zh/pro/'
+              },
+              {
+                text: '定价',
+                link: '/zh/pro/price/'
+              },
+              {
+                text: '购买',
+                link: '/zh/pro/puchase/'
+              },
             ]
           },
         ],
