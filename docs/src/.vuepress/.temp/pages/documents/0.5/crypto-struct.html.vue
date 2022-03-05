@@ -116,7 +116,4 @@ b <span class="token operator">=</span> a<span class="token punctuation">;</span
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>需要在序列化前，调用<code>BeforeSerialize()</code>，这样一来可以最简化序列化长度。</p>
-<blockquote>
-<p>下一篇，<RouterLink to="/documents/0.5/jprefab.html">热更预制体JPrefab教程</RouterLink></p>
-</blockquote>
 </template>

@@ -57,7 +57,4 @@
 <div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 </ul>
-<blockquote>
-<p>下一篇，<RouterLink to="/documents/0.5/ilruntime-tools.html">ILRuntime工具</RouterLink></p>
-</blockquote>
 </template>

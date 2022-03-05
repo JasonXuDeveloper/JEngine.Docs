@@ -48,7 +48,4 @@
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>下一步，<a href="hotupdate">热更代码</a></p>
-</blockquote>
 </template>

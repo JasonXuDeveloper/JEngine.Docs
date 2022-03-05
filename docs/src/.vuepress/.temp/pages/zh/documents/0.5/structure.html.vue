@@ -48,7 +48,4 @@
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>下一步，<RouterLink to="/zh/documents/0.5/hotupdate.html">热更代码</RouterLink></p>
-</blockquote>
 </template>

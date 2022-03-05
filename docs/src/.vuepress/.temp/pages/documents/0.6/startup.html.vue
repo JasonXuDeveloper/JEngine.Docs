@@ -78,7 +78,4 @@
 <blockquote>
 <p>到这里，您已经完成了热更游戏的第一步，恭喜！</p>
 </blockquote>
-<blockquote>
-<p>下一步，<a href="structure">目录结构</a></p>
-</blockquote>
 </template>

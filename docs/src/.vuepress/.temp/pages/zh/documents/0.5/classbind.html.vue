@@ -127,7 +127,4 @@
 </ol>
 <h2 id="代码绑定面板示例" tabindex="-1"><a class="header-anchor" href="#代码绑定面板示例" aria-hidden="true">#</a> 代码绑定面板示例</h2>
 <img src="https://s1.ax1x.com/2020/09/08/wQk0aj.png" alt="guide1" style="width:50%;margin-left:25%" />
-<blockquote>
-<p>下一步，<RouterLink to="/zh/documents/0.5/guide.html">开发须知</RouterLink></p>
-</blockquote>
 </template>

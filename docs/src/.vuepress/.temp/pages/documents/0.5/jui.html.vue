@@ -271,7 +271,4 @@
 <span class="token class-name">Button</span> btn <span class="token operator">=</span> jui<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Element</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Button<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//It is a generic method to get an UI element</span>
 <span class="token comment">//If you dont have this component on the element, JUI will automatically add one</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="重要-数据绑定和频率循环-只能二选一" tabindex="-1"><a class="header-anchor" href="#重要-数据绑定和频率循环-只能二选一" aria-hidden="true">#</a> <strong>重要：数据绑定和频率循环，只能二选一</strong></h3>
-<blockquote>
-<p>下一篇，<RouterLink to="/documents/0.5/bindable.html">可绑定数据教程</RouterLink></p>
-</blockquote>
 </template>

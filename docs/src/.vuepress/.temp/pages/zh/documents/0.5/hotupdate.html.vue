@@ -15,7 +15,4 @@
 <li>开启开发模式，运行游戏</li>
 <li>您会发现热更代码能够完美运行，恭喜！</li>
 </ol>
-<blockquote>
-<p>下一步，<RouterLink to="/zh/documents/0.5/classbind.html">挂载代码</RouterLink></p>
-</blockquote>
 </template>

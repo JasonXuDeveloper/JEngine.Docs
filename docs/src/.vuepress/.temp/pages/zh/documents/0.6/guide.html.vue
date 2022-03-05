@@ -115,7 +115,4 @@
 <blockquote>
 <p>如果还有其他特殊情况，可以在JEngine群里求助，也可以联系QQ：275757115（L-Fone）</p>
 </blockquote>
-<blockquote>
-<p>下一步，<RouterLink to="/zh/documents/0.6/limits.html">ILRuntime限制</RouterLink></p>
-</blockquote>
 </template>

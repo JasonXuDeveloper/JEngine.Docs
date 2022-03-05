@@ -44,7 +44,4 @@ Log<span class="token punctuation">.</span><span class="token function">Print</s
 <span class="token punctuation">{</span>
 	Log<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token string">"Get Resource with Async method: "</span> <span class="token operator">+</span> txt<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><blockquote>
-<p>下一篇，<RouterLink to="/zh/documents/0.5/jaction.html">队列解决方案JAction教程</RouterLink></p>
-</blockquote>
-</template>
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></template>

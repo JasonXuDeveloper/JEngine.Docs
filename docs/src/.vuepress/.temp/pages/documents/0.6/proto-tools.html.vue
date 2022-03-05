@@ -20,7 +20,4 @@
 <li>会弹出面板，选择Proto文件所在目录，File List中输入需转换文件，或通过点击按钮一键获取</li>
 <li>点击生成，会自动创建</li>
 </ol>
-<blockquote>
-<p>下一篇<a href="jengine-panel">JEngine面板</a></p>
-</blockquote>
 </template>

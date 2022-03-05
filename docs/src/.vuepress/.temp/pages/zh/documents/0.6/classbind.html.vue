@@ -107,7 +107,4 @@
 <li>ClassBind右上角 -&gt; Convert Path to GameObject</li>
 <li>可以把老项目中的路径变可拖拽可视化的场景GameObject，且无需关系路径变更</li>
 </ol>
-<blockquote>
-<p>下一步，<a href="guide">开发须知</a></p>
-</blockquote>
 </template>

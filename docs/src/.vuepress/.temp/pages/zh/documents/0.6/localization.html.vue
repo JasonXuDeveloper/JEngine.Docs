@@ -38,7 +38,4 @@
 <p>给GameObject添加LocalizedText，输入key即可</p>
 <h3 id="配置多语言" tabindex="-1"><a class="header-anchor" href="#配置多语言" aria-hidden="true">#</a> 配置多语言</h3>
 <p>打开HotUpdateResources/TextAsset/Localization.csv即可</p>
-<blockquote>
-<p>下一篇，<a href="crypto-struct">内存加密结构教程</a></p>
-</blockquote>
 </template>

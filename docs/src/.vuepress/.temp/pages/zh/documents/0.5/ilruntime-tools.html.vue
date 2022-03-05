@@ -23,7 +23,4 @@
 </li>
 </ol>
 <div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code>appdomain<span class="token punctuation">.</span><span class="token function">RegisterCrossBindingAdaptor</span><span class="token punctuation">(</span><span class="token keyword">new</span> 你的适配器类<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div><blockquote>
-<p>下一步，<RouterLink to="/zh/documents/0.5/proto-tools.html">Protobuf工具</RouterLink></p>
-</blockquote>
-</template>
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></template>
