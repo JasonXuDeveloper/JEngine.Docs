@@ -32,5 +32,5 @@ jobs:
          # private ssh key registered on the server
          PRIVATE_SSH_KEY: ${{ secrets.SSH_KEY }}
          # command to be executed
-         COMMAND: cd /www/wwwroot/GameDocs/docs;git pull;yarn build;
+         COMMAND: cd /www/wwwroot/GameDocs/docs;yarn sync;
 
