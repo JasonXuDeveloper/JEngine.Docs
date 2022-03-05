@@ -15,6 +15,8 @@ export const pagesData = {
   "v-31131b8c": () => import(/* webpackChunkName: "v-31131b8c" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.5/classbind.html.js").then(({ data }) => data),
   // path: /documents/0.5/crypto-struct.html
   "v-7bd53a60": () => import(/* webpackChunkName: "v-7bd53a60" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.5/crypto-struct.html.js").then(({ data }) => data),
+  // path: /documents/0.5/gameobject-pool.html
+  "v-53ebdb2e": () => import(/* webpackChunkName: "v-53ebdb2e" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.5/gameobject-pool.html.js").then(({ data }) => data),
   // path: /documents/0.5/guide.html
   "v-8b4c6ab6": () => import(/* webpackChunkName: "v-8b4c6ab6" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.5/guide.html.js").then(({ data }) => data),
   // path: /documents/0.5/hotupdate.html
@@ -51,6 +53,8 @@ export const pagesData = {
   "v-12a4f96b": () => import(/* webpackChunkName: "v-12a4f96b" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/classbind.html.js").then(({ data }) => data),
   // path: /documents/0.6/crypto-struct.html
   "v-637710bf": () => import(/* webpackChunkName: "v-637710bf" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/crypto-struct.html.js").then(({ data }) => data),
+  // path: /documents/0.6/gameobject-pool.html
+  "v-5c8fcd08": () => import(/* webpackChunkName: "v-5c8fcd08" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/gameobject-pool.html.js").then(({ data }) => data),
   // path: /documents/0.6/guide.html
   "v-7be91ff8": () => import(/* webpackChunkName: "v-7be91ff8" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.6/guide.html.js").then(({ data }) => data),
   // path: /documents/0.6/hotupdate.html
@@ -99,6 +103,8 @@ export const pagesData = {
   "v-4dd6f13b": () => import(/* webpackChunkName: "v-4dd6f13b" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.5/classbind.html.js").then(({ data }) => data),
   // path: /zh/documents/0.5/crypto-struct.html
   "v-4248a08f": () => import(/* webpackChunkName: "v-4248a08f" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.5/crypto-struct.html.js").then(({ data }) => data),
+  // path: /zh/documents/0.5/gameobject-pool.html
+  "v-6586ae50": () => import(/* webpackChunkName: "v-6586ae50" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.5/gameobject-pool.html.js").then(({ data }) => data),
   // path: /zh/documents/0.5/guide.html
   "v-2a11cfd4": () => import(/* webpackChunkName: "v-2a11cfd4" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.5/guide.html.js").then(({ data }) => data),
   // path: /zh/documents/0.5/hotupdate.html
@@ -135,6 +141,8 @@ export const pagesData = {
   "v-2f68cf1a": () => import(/* webpackChunkName: "v-2f68cf1a" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.6/classbind.html.js").then(({ data }) => data),
   // path: /zh/documents/0.6/crypto-struct.html
   "v-29ea76ee": () => import(/* webpackChunkName: "v-29ea76ee" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.6/crypto-struct.html.js").then(({ data }) => data),
+  // path: /zh/documents/0.6/gameobject-pool.html
+  "v-53c26377": () => import(/* webpackChunkName: "v-53c26377" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.6/gameobject-pool.html.js").then(({ data }) => data),
   // path: /zh/documents/0.6/guide.html
   "v-31c37533": () => import(/* webpackChunkName: "v-31c37533" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.6/guide.html.js").then(({ data }) => data),
   // path: /zh/documents/0.6/hotupdate.html

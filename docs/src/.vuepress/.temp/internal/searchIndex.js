@@ -176,6 +176,13 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "GameObject对象池",
+    "headers": [],
+    "path": "/documents/0.5/gameobject-pool.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "开发须知",
     "headers": [
       {
@@ -784,6 +791,13 @@ export const searchIndex = [
       }
     ],
     "path": "/documents/0.6/crypto-struct.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "GameObject对象池",
+    "headers": [],
+    "path": "/documents/0.6/gameobject-pool.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -1669,6 +1683,13 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "GameObject对象池",
+    "headers": [],
+    "path": "/zh/documents/0.5/gameobject-pool.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
     "title": "开发须知",
     "headers": [
       {
@@ -2283,6 +2304,13 @@ export const searchIndex = [
       }
     ],
     "path": "/zh/documents/0.6/crypto-struct.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "GameObject对象池",
+    "headers": [],
+    "path": "/zh/documents/0.6/gameobject-pool.html",
     "pathLocale": "/zh/",
     "extraFields": []
   },
