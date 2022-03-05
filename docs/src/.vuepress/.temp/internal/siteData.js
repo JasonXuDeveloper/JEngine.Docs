@@ -5,6 +5,13 @@ export const siteData = {
   "description": "",
   "head": [
     [
+      "link",
+      {
+        "rel": "manifest",
+        "href": "/manifest.webmanifest"
+      }
+    ],
+    [
       "meta",
       {
         "name": "theme-color",
@@ -23,13 +30,6 @@ export const siteData = {
       {
         "name": "apple-mobile-web-app-status-bar-style",
         "content": "black"
-      }
-    ],
-    [
-      "link",
-      {
-        "rel": "icon",
-        "href": "/favicon.ico"
       }
     ]
   ],
