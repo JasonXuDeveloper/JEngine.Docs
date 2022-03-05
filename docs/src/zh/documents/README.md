@@ -1,8 +1,8 @@
 # 概述
 
-JEngine is a Unity framework first committed on 15th July 2020. Each new version will be released in approximately one year. 
+JEngine是一个于2020年7月15日初次提交的Unity框架。大约每年会进行一次大版本更新。
 
-There is now more than 30 enterprise using JEngine to build their commercial projects, and over 100 game developers (or studios) are using JEngine to make their indie games.
+目前有超过30家企业使用JEngine制作商业项目，同时有超过100位游戏开发者（或工作室）使用JEngine开发独立游戏。
 
 <ul style="list-style:none;padding:0">
   <li style="display:inline-block">
@@ -12,46 +12,43 @@ There is now more than 30 enterprise using JEngine to build their commercial pro
     <iframe src="https://ghbtns.com/github-btn.html?user=JasonXuDeveloper&amp;repo=JEngine&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="110px" height="21px"></iframe>
   </li>
 </ul>
-
-> Although the documentation supports English, most of the framework components and its integrated demo were still in Chinese.
-
-## [Latest Version](/documents/0.7/) <Badge type="tip" text="v0.7.x" vertical="middle" />
+## [最新版本](/zh/documents/0.7/) <Badge type="tip" text="v0.7.x" vertical="middle" />
 ::: tip 
-> This version refers to the master branch of JEngine 
+> 该版本对应的是JEngine的master分支
 
-The latest version that the developers think can be used normally and will not have too many problems. It is recommended to use the latest version of JEngine as it has the most powerful functions; also, it fixed the bugs that occurred in the old versions.
+最新版本是开发者认为的可以正常使用，不会有太大问题的最新版本，建议使用，功能最为强大，同时修复了0.6和0.5版本的bug。
 
-#### Key Features
-- Extensible Validator <Badge type="tip" text="New Feature" vertical="middle" />
-- UI Extension Tools <Badge type="tip" text="New Feature" vertical="middle" />
-- New Life Cycles <Badge type="tip" text="New Feature" vertical="middle" />
-- Editor procedure  <Badge type="warning" text="Enhanced Feature" vertical="middle" />
-- Framework performance  <Badge type="warning" text="Enhanced Feature" vertical="middle" />
-- JEngine Features Update  <Badge type="warning" text="Enhanced Feature" vertical="middle" />
+#### 核心功能
+- 新增可扩展验证器 <Badge type="tip" text="新功能" vertical="middle" />
+- 新增UI扩展工具 <Badge type="tip" text="新功能" vertical="middle" />
+- 新生命周期 <Badge type="tip" text="新功能" vertical="middle" />
+- 优化编辑器流程  <Badge type="warning" text="优化功能" vertical="middle" />
+- 优化框架性能  <Badge type="warning" text="优化功能" vertical="middle" />
+- JEngine功能更新  <Badge type="warning" text="优化功能" vertical="middle" />
     -  JUI
     -  JAction
     -  JBehaviour
 
-#### [Get Started →](/documents/0.7/)
+#### [快速开始 →](/zh/documents/0.7/)
 
 :::
 
-## [Version 0.6.x](/documents/0.6/) <Badge type="warning" text="v0.6.x" vertical="middle" />
+## [0.6.x版本](/zh/documents/0.6/) <Badge type="warning" text="v0.6.x" vertical="middle" />
 ::: warning
-> This version refers to the branch '0.6.x' of JEngine 
+> 该版本对应的是JEngine的0.6.x分支
 
-Version 0.6.x is currently in being used by most commercial projects however it is no longer a LTS version, it is recommended to use the [Latest Version](/documents/#latest-version) as this version will not be updated or maintained anymore.
+0.6.x版本是目前大部分商业项目正在使用，内容完善，文档视频充足，需要注意这个版本不是LTS版本，不会再进行任何更新或维护，建议使用[最新版本](#最新版本)。
 
-#### [Get Started →](/documents/0.6/)
+#### [快速开始 →](/zh/documents/0.6/)
 
 :::
 
-## [Version 0.5.x](/documents/0.5/) <Badge type="danger" text="v0.5.x" vertical="middle" />
+## [0.5.x版本](/zh/documents/0.5/) <Badge type="danger" text="v0.5.x" vertical="middle" />
 ::: danger
-> This version refers to the branch '0.5.x' of JEngine 
+> 该版本对应的是JEngine的0.5分支
 
-Version 0.5.x is being used by some commercial projects, it is one of the oldest version of JEngine, it is not a LTS version, it is **NOT** recommended to use this version, please consider using the [Latest Version](/documents/#latest-version) due to version 0.5.x will not be updated or maintained anymore (and it may contains some random bugs).
+0.5.x版本有部分商业项目正在使用，这个版本是JEngine保留下来的最老的版本，与0.6.x一样，该版本不是LTS版本，不会再进行更新或维护，建议使用[最新版本](#最新版本)因为这个版本有很大概率会遇到莫名其妙的Bug。
 
-#### [Get Started →](/documents/0.5/)
+#### [快速开始 →](/documents/0.5/)
 
 :::
