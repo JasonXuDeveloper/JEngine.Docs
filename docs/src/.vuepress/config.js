@@ -54,6 +54,7 @@ module.exports = {
     docsBranch: 'main',
     // 默认是 false, 设置为 true 来启用
     editLinks: true,
+    sidebar: sidebar.main,
     locales: {
       '/': {
         selectText: 'Languages',
@@ -167,7 +168,6 @@ module.exports = {
             link: '/documents/statement/sponsor.md'
           },
         ],
-        sidebar: "auto"
       },
       '/zh/': {
         // 多语言下拉菜单的标题
@@ -289,7 +289,6 @@ module.exports = {
             link: '/documents/statement/sponsor.md'
           },
         ],
-        sidebar: "auto"
       }
     }
     // nav: [
