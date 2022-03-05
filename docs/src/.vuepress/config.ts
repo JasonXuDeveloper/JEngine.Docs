@@ -33,16 +33,53 @@ var bar = {
   ],
   '/documents/0.6/':[
     {
-      text: 'Documents',
+      text: 'v0.6.x Documentation',
       collapsible: false,
       children: [
-        '/documents/0.6/startup',
-        '/documents/0.6/structure',
-        '/documents/0.6/hotupdate',
-        '/documents/0.6/classbind',
-        '/documents/0.6/guide',
-        '/documents/0.6/limits',
-        {text:'ILRuntime Documentation',link:'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html'},
+        {
+          text: 'Get Started',
+          collapsible: false,
+          children: [
+            '/documents/0.6/startup',
+            '/documents/0.6/structure',
+            '/documents/0.6/hotupdate',
+            '/documents/0.6/classbind',
+            '/documents/0.6/guide',
+            '/documents/0.6/limits',
+            {text:'ILRuntime Document',link:'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html'},
+          ]
+        },
+        {
+          text: 'Core Features',
+          collapsible: false,
+          children: [
+            '/documents/0.6/jbehaviour',
+            '/documents/0.6/jresource',
+            '/documents/0.6/jaction',
+            '/documents/0.6/jsaver',
+            '/documents/0.6/localization',
+            '/documents/0.6/crypto-struct',
+            '对象池教程（待完善）',
+            '/documents/0.6/ilruntime-tools',
+            '/documents/0.6/proto-tools',
+            '/documents/0.6/jengine-panel',
+          ]
+        },
+        {
+          text: 'UI Components',
+          collapsible: false,
+          children: [
+            '/documents/0.6/jui',
+            '/documents/0.6/bindable',
+          ]
+        },
+        {
+          text: 'Additional Libraries',
+          collapsible: false,
+          children: [
+            {text:'Unity GUI Redis',link:'https://github.com/JasonXuDeveloper/Unity-GUI-Redis'},
+          ]
+        }
       ]
     },
   ],
@@ -186,7 +223,7 @@ export default defineUserConfig<DefaultThemeOptions>({
       },
       '/zh/': {
         // 多语言下拉菜单的标题
-        selectLanguageText: '选择语言',
+        selectLanguageText: '语言',
         // 该语言在下拉菜单中的标签
         selectLanguageName: '简体中文',
         // 编辑链接文字
@@ -217,26 +254,9 @@ export default defineUserConfig<DefaultThemeOptions>({
             link: '/zh/'
           },
           {
-            text: "使用文档",
-            link: '/documents/'
+            text: "文档",
+            link: '/zh/documents/'
           },
-        //   {
-        //     text: '开发',
-        //     children: [
-        //       {
-        //         text: '统一可交换祈愿记录标准',
-        //         link: '/development/StandardFormat.md'
-        //       },
-        //       {
-        //         text: '开发人员指南',
-        //         link: '/development/DeveloperGuide.md'
-        //       },
-        //       {
-        //         text: '插件开发',
-        //         link: '/development/PluginTutorial.md'
-        //       },
-        //     ]
-        //   },
           {
             text: '交流',
             children: [
@@ -251,10 +271,6 @@ export default defineUserConfig<DefaultThemeOptions>({
               }
             ]
           },
-        //   {
-        //     text: '赞助项目',
-        //     link: '/documents/statement/sponsor.md'
-        //   },
         ],
       }
     }

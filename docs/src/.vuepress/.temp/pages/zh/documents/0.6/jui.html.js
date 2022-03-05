@@ -1,8 +1,8 @@
 export const data = {
-  "key": "v-0287ad82",
-  "path": "/documents/0.6/jui.html",
+  "key": "v-1d8d3271",
+  "path": "/zh/documents/0.6/jui.html",
   "title": "JUI",
-  "lang": "en-US",
+  "lang": "zh-CN",
   "frontmatter": {},
   "excerpt": "",
   "headers": [
@@ -63,7 +63,7 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1646461086000,
+    "updatedTime": 1646461514000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
@@ -72,5 +72,5 @@ export const data = {
       }
     ]
   },
-  "filePathRelative": "documents/0.6/jui.md"
+  "filePathRelative": "zh/documents/0.6/jui.md"
 }
