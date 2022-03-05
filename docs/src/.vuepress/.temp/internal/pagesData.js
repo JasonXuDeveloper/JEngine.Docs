@@ -33,6 +33,8 @@ export const pagesData = {
   "v-f90165f4": () => import(/* webpackChunkName: "v-f90165f4" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.5/jsaver.html.js").then(({ data }) => data),
   // path: /documents/0.5/jui.html
   "v-0e3e3c63": () => import(/* webpackChunkName: "v-0e3e3c63" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.5/jui.html.js").then(({ data }) => data),
+  // path: /documents/0.5/limits.html
+  "v-2b3af50e": () => import(/* webpackChunkName: "v-2b3af50e" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.5/limits.html.js").then(({ data }) => data),
   // path: /documents/0.5/localization.html
   "v-1e43acd0": () => import(/* webpackChunkName: "v-1e43acd0" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.5/localization.html.js").then(({ data }) => data),
   // path: /documents/0.5/proto-tools.html
@@ -115,6 +117,8 @@ export const pagesData = {
   "v-0ac7edb7": () => import(/* webpackChunkName: "v-0ac7edb7" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.5/jsaver.html.js").then(({ data }) => data),
   // path: /zh/documents/0.5/jui.html
   "v-2943c152": () => import(/* webpackChunkName: "v-2943c152" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.5/jui.html.js").then(({ data }) => data),
+  // path: /zh/documents/0.5/limits.html
+  "v-71ab262a": () => import(/* webpackChunkName: "v-71ab262a" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.5/limits.html.js").then(({ data }) => data),
   // path: /zh/documents/0.5/localization.html
   "v-5a5dc189": () => import(/* webpackChunkName: "v-5a5dc189" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.5/localization.html.js").then(({ data }) => data),
   // path: /zh/documents/0.5/proto-tools.html

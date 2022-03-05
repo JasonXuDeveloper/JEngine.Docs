@@ -507,6 +507,26 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "ILRuntime限制",
+    "headers": [
+      {
+        "level": 2,
+        "title": "针对ILRuntime环境下的建议",
+        "slug": "针对ilruntime环境下的建议",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "不能进行的骚操作",
+        "slug": "不能进行的骚操作",
+        "children": []
+      }
+    ],
+    "path": "/documents/0.5/limits.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "Localization",
     "headers": [
       {
@@ -1950,6 +1970,26 @@ export const searchIndex = [
       }
     ],
     "path": "/zh/documents/0.5/jui.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "ILRuntime限制",
+    "headers": [
+      {
+        "level": 2,
+        "title": "针对ILRuntime环境下的建议",
+        "slug": "针对ilruntime环境下的建议",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "不能进行的骚操作",
+        "slug": "不能进行的骚操作",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/0.5/limits.html",
     "pathLocale": "/zh/",
     "extraFields": []
   },

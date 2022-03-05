@@ -1,8 +1,8 @@
 export const data = {
-  "key": "v-2b3af50e",
-  "path": "/documents/0.5/limits.html",
+  "key": "v-71ab262a",
+  "path": "/zh/documents/0.5/limits.html",
   "title": "ILRuntime限制",
-  "lang": "en-US",
+  "lang": "zh-CN",
   "frontmatter": {},
   "excerpt": "",
   "headers": [
@@ -25,9 +25,9 @@ export const data = {
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 3
+        "commits": 1
       }
     ]
   },
-  "filePathRelative": "documents/0.5/limits.md"
+  "filePathRelative": "zh/documents/0.5/limits.md"
 }

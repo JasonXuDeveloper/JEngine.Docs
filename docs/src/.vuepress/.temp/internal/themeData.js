@@ -1,7 +1,7 @@
 export const themeData = {
   "repo": "https://github.com/JasonXuDeveloper/JEngine",
   "docsRepo": "https://github.com/JasonXuDeveloper/JEngine.Docs",
-  "docsDir": "docs",
+  "docsDir": "docs/src",
   "docsBranch": "main",
   "editLinks": true,
   "logo": "/logo.png",
@@ -48,8 +48,7 @@ export const themeData = {
             "text": "开始使用",
             "collapsible": false,
             "children": [
-              "/documents/0.7/",
-              "/documents/features-overview"
+              "/documents/0.7/"
             ]
           }
         ],
@@ -82,9 +81,10 @@ export const themeData = {
                   "/documents/0.6/jresource",
                   "/documents/0.6/jaction",
                   "/documents/0.6/jsaver",
+                  "/documents/0.6/jevent",
                   "/documents/0.6/localization",
                   "/documents/0.6/crypto-struct",
-                  "对象池教程（待完善）",
+                  "/documents/0.5/gameobject-pool",
                   "/documents/0.6/ilruntime-tools",
                   "/documents/0.6/proto-tools",
                   "/documents/0.6/jengine-panel"
@@ -140,9 +140,10 @@ export const themeData = {
                   "/zh/documents/0.6/jresource",
                   "/zh/documents/0.6/jaction",
                   "/zh/documents/0.6/jsaver",
+                  "/zh/documents/0.6/jevent",
                   "/zh/documents/0.6/localization",
                   "/zh/documents/0.6/crypto-struct",
-                  "对象池教程（待完善）",
+                  "/documents/0.5/gameobject-pool",
                   "/zh/documents/0.6/ilruntime-tools",
                   "/zh/documents/0.6/proto-tools",
                   "/zh/documents/0.6/jengine-panel"
@@ -154,6 +155,120 @@ export const themeData = {
                 "children": [
                   "/zh/documents/0.6/jui",
                   "/zh/documents/0.6/bindable"
+                ]
+              },
+              {
+                "text": "额外插件",
+                "collapsible": false,
+                "children": [
+                  {
+                    "text": "Unity GUI Redis",
+                    "link": "https://github.com/JasonXuDeveloper/Unity-GUI-Redis"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "/documents/0.5/": [
+          {
+            "text": "v0.5.x Documentation",
+            "collapsible": false,
+            "children": [
+              {
+                "text": "Get Started",
+                "collapsible": false,
+                "children": [
+                  "/documents/0.5/startup",
+                  "/documents/0.5/structure",
+                  "/documents/0.5/hotupdate",
+                  "/documents/0.5/classbind",
+                  "/documents/0.5/guide",
+                  "/documents/0.5/limits",
+                  {
+                    "text": "ILRuntime Document",
+                    "link": "https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html"
+                  }
+                ]
+              },
+              {
+                "text": "Core Features",
+                "collapsible": false,
+                "children": [
+                  "/documents/0.5/jbehaviour",
+                  "/documents/0.5/jresource",
+                  "/documents/0.5/jaction",
+                  "/documents/0.5/jsaver",
+                  "/documents/0.5/localization",
+                  "/documents/0.5/crypto-struct",
+                  "/documents/0.5/gameobject-pool",
+                  "/documents/0.5/ilruntime-tools",
+                  "/documents/0.5/proto-tools"
+                ]
+              },
+              {
+                "text": "UI Components",
+                "collapsible": false,
+                "children": [
+                  "/documents/0.5/jui",
+                  "/documents/0.5/bindable"
+                ]
+              },
+              {
+                "text": "Additional Libraries",
+                "collapsible": false,
+                "children": [
+                  {
+                    "text": "Unity GUI Redis",
+                    "link": "https://github.com/JasonXuDeveloper/Unity-GUI-Redis"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "/zh/documents/0.5/": [
+          {
+            "text": "v0.5.x文档",
+            "collapsible": false,
+            "children": [
+              {
+                "text": "入门教程",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/0.5/startup",
+                  "/zh/documents/0.5/structure",
+                  "/zh/documents/0.5/hotupdate",
+                  "/zh/documents/0.5/classbind",
+                  "/zh/documents/0.5/guide",
+                  "/zh/documents/0.5/limits",
+                  {
+                    "text": "ILRuntime文档",
+                    "link": "https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html"
+                  }
+                ]
+              },
+              {
+                "text": "框架核心",
+                "collapsible": false,
+                "children": [
+                  "/documents/0.5/jbehaviour",
+                  "/documents/0.5/jresource",
+                  "/documents/0.5/jaction",
+                  "/documents/0.5/jsaver",
+                  "/documents/0.5/localization",
+                  "/documents/0.5/crypto-struct",
+                  "/documents/0.5/gameobject-pool",
+                  "/documents/0.5/ilruntime-tools",
+                  "/documents/0.5/proto-tools"
+                ]
+              },
+              {
+                "text": "UI框架",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/0.5/jui",
+                  "/zh/documents/0.5/bindable"
                 ]
               },
               {
@@ -243,8 +358,7 @@ export const themeData = {
             "text": "开始使用",
             "collapsible": false,
             "children": [
-              "/documents/0.7/",
-              "/documents/features-overview"
+              "/documents/0.7/"
             ]
           }
         ],
@@ -277,9 +391,10 @@ export const themeData = {
                   "/documents/0.6/jresource",
                   "/documents/0.6/jaction",
                   "/documents/0.6/jsaver",
+                  "/documents/0.6/jevent",
                   "/documents/0.6/localization",
                   "/documents/0.6/crypto-struct",
-                  "对象池教程（待完善）",
+                  "/documents/0.5/gameobject-pool",
                   "/documents/0.6/ilruntime-tools",
                   "/documents/0.6/proto-tools",
                   "/documents/0.6/jengine-panel"
@@ -335,9 +450,10 @@ export const themeData = {
                   "/zh/documents/0.6/jresource",
                   "/zh/documents/0.6/jaction",
                   "/zh/documents/0.6/jsaver",
+                  "/zh/documents/0.6/jevent",
                   "/zh/documents/0.6/localization",
                   "/zh/documents/0.6/crypto-struct",
-                  "对象池教程（待完善）",
+                  "/documents/0.5/gameobject-pool",
                   "/zh/documents/0.6/ilruntime-tools",
                   "/zh/documents/0.6/proto-tools",
                   "/zh/documents/0.6/jengine-panel"
@@ -349,6 +465,120 @@ export const themeData = {
                 "children": [
                   "/zh/documents/0.6/jui",
                   "/zh/documents/0.6/bindable"
+                ]
+              },
+              {
+                "text": "额外插件",
+                "collapsible": false,
+                "children": [
+                  {
+                    "text": "Unity GUI Redis",
+                    "link": "https://github.com/JasonXuDeveloper/Unity-GUI-Redis"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "/documents/0.5/": [
+          {
+            "text": "v0.5.x Documentation",
+            "collapsible": false,
+            "children": [
+              {
+                "text": "Get Started",
+                "collapsible": false,
+                "children": [
+                  "/documents/0.5/startup",
+                  "/documents/0.5/structure",
+                  "/documents/0.5/hotupdate",
+                  "/documents/0.5/classbind",
+                  "/documents/0.5/guide",
+                  "/documents/0.5/limits",
+                  {
+                    "text": "ILRuntime Document",
+                    "link": "https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html"
+                  }
+                ]
+              },
+              {
+                "text": "Core Features",
+                "collapsible": false,
+                "children": [
+                  "/documents/0.5/jbehaviour",
+                  "/documents/0.5/jresource",
+                  "/documents/0.5/jaction",
+                  "/documents/0.5/jsaver",
+                  "/documents/0.5/localization",
+                  "/documents/0.5/crypto-struct",
+                  "/documents/0.5/gameobject-pool",
+                  "/documents/0.5/ilruntime-tools",
+                  "/documents/0.5/proto-tools"
+                ]
+              },
+              {
+                "text": "UI Components",
+                "collapsible": false,
+                "children": [
+                  "/documents/0.5/jui",
+                  "/documents/0.5/bindable"
+                ]
+              },
+              {
+                "text": "Additional Libraries",
+                "collapsible": false,
+                "children": [
+                  {
+                    "text": "Unity GUI Redis",
+                    "link": "https://github.com/JasonXuDeveloper/Unity-GUI-Redis"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "/zh/documents/0.5/": [
+          {
+            "text": "v0.5.x文档",
+            "collapsible": false,
+            "children": [
+              {
+                "text": "入门教程",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/0.5/startup",
+                  "/zh/documents/0.5/structure",
+                  "/zh/documents/0.5/hotupdate",
+                  "/zh/documents/0.5/classbind",
+                  "/zh/documents/0.5/guide",
+                  "/zh/documents/0.5/limits",
+                  {
+                    "text": "ILRuntime文档",
+                    "link": "https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html"
+                  }
+                ]
+              },
+              {
+                "text": "框架核心",
+                "collapsible": false,
+                "children": [
+                  "/documents/0.5/jbehaviour",
+                  "/documents/0.5/jresource",
+                  "/documents/0.5/jaction",
+                  "/documents/0.5/jsaver",
+                  "/documents/0.5/localization",
+                  "/documents/0.5/crypto-struct",
+                  "/documents/0.5/gameobject-pool",
+                  "/documents/0.5/ilruntime-tools",
+                  "/documents/0.5/proto-tools"
+                ]
+              },
+              {
+                "text": "UI框架",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/0.5/jui",
+                  "/zh/documents/0.5/bindable"
                 ]
               },
               {
