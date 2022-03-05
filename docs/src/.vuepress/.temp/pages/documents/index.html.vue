@@ -1,5 +1,5 @@
 <template><h1 id="overview" tabindex="-1"><a class="header-anchor" href="#overview" aria-hidden="true">#</a> Overview</h1>
-<p>JEngine is a Unity framework first committed on 15th July 2020. Each new version will be released in approximately one year.</p>
+<p>JEngine is a Unity framework first committed on 15th July 2020. Each big version will be released in approximately one year.</p>
 <p>There is now more than 30 enterprise using JEngine to build their commercial projects, and over 100 game developers (or studios) are using JEngine to make their indie games.</p>
 <ul style="list-style:none;padding:0">
   <li style="display:inline-block">

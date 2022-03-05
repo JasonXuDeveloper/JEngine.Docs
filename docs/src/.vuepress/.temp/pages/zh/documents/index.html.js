@@ -8,28 +8,33 @@ export const data = {
   "headers": [
     {
       "level": 2,
-      "title": "Latest Version",
-      "slug": "latest-version",
+      "title": "最新版本",
+      "slug": "最新版本",
       "children": []
     },
     {
       "level": 2,
-      "title": "Version 0.6.x",
-      "slug": "version-0-6-x",
+      "title": "0.6.x版本",
+      "slug": "_0-6-x版本",
       "children": []
     },
     {
       "level": 2,
-      "title": "Version 0.5.x",
-      "slug": "version-0-5-x",
+      "title": "0.5.x版本",
+      "slug": "_0-5-x版本",
       "children": []
     }
   ],
   "git": {
-    "updatedTime": 1646456859000,
+    "updatedTime": 1646458016000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
+        "email": "jasonxudeveloper@gmail.com",
+        "commits": 2
+      },
+      {
+        "name": "JasonXuDeveloper",
         "email": "jasonxudeveloper@gmail.com",
         "commits": 1
       }

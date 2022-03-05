@@ -85,20 +85,20 @@ export const searchIndex = [
     "headers": [
       {
         "level": 2,
-        "title": "Latest Version",
-        "slug": "latest-version",
+        "title": "最新版本",
+        "slug": "最新版本",
         "children": []
       },
       {
         "level": 2,
-        "title": "Version 0.6.x",
-        "slug": "version-0-6-x",
+        "title": "0.6.x版本",
+        "slug": "_0-6-x版本",
         "children": []
       },
       {
         "level": 2,
-        "title": "Version 0.5.x",
-        "slug": "version-0-5-x",
+        "title": "0.5.x版本",
+        "slug": "_0-5-x版本",
         "children": []
       }
     ],
