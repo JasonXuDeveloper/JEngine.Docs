@@ -53,4 +53,3 @@ JEngine现已支持多语言本地化
 
    打开HotUpdateResources/TextAsset/Localization.csv即可
 
-> 下一篇，[内存加密结构教程](crypto-struct.html)

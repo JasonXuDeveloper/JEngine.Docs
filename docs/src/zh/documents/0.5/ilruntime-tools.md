@@ -26,4 +26,3 @@ JEngine现已支持自动生成ILRuntime适配器
 appdomain.RegisterCrossBindingAdaptor(new 你的适配器类());
 ```
 
-> 下一步，[Protobuf工具](proto-tools.html)

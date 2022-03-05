@@ -56,5 +56,4 @@ JResource.LoadResAsync<TextAsset>("Text.txt",(txt)=>
 });
 ```
 
-> 下一篇，[队列解决方案JAction教程](jaction.html)
 

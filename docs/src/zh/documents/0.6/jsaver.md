@@ -160,4 +160,3 @@ JEngine现已支持JSaver，是数据持久化的工具
    }
    ```
 
-> 下一篇，[多语言本地化Localization教程](localization)

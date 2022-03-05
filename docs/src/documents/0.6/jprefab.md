@@ -77,4 +77,3 @@ JPrefab是针对热更Prefab制作的类型
   ```
 
 
-> 下一篇，[事件派发JEvent教程](jevent)

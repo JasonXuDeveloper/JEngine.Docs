@@ -213,4 +213,3 @@ Log.Print($"Test go has {allJbsOnGO.Length} JBehaviours, " +
 JBehaviour.RemoveJBehaviour(jb1);
 ```
 
-> 下一篇，[资源加载JResource教程](jresource.html)
