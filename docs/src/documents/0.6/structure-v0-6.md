@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # 目录结构（v0.6）
 
 该文章将告诉您JEngine的目录结构是什么样子的
@@ -37,4 +35,4 @@
   - **JEngine** - **请勿删除**，JEngine部分源码在里面，**每次更新覆盖该目录**
   - **Examples** - JEngine的Demo源码
 
-> 下一步，[热更代码](hotupdate-v0-6.html)
+> 下一步，[热更代码](hotupdate.html)

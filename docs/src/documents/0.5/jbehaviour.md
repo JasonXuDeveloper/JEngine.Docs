@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # JBehaviour（v0.5）
 
 JEngine~~现已支持基于MonoBehaviour，却**更强大**的基类~~已经制作了比使用MonoBehaviour更优化性能的基类，JBehaviour已经不基于MonoBehaviour了

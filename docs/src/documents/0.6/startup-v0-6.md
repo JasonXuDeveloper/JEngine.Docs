@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # 开始使用 （v0.6）
 
 该文章将告诉您如何初步使用JEngine
@@ -65,4 +63,4 @@
    > 到这里，您已经完成了热更游戏的第一步，恭喜！
 
 
-> 下一步，[目录结构](structure-v0-6.html)
+> 下一步，[目录结构](structure.html)

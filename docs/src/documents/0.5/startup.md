@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # 开始使用（v0.5）
 
 该文章将告诉您如何初步使用JEngine

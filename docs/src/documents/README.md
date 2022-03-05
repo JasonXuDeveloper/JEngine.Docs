@@ -1,6 +1,4 @@
-# Overview
-
-JEngine is a Unity framework first committed on 15th July 2020. Each big version will be released in approximately one year. 
+# OverviewJEngine is a Unity framework first committed on 15th July 2020. Each big version will be released in approximately one year. 
 
 There is now more than 30 enterprise using JEngine to build their commercial projects, and over 100 game developers (or studios) are using JEngine to make their indie games.
 

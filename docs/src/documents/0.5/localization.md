@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # Localization（v0.5）
 
 JEngine现已支持多语言本地化

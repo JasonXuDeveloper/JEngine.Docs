@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # Protobuf 工具（v0.5）
 JEngine提供了C#类型和Proto协议互转的工具
 

@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # JSaver（v0.6）
 
 JEngine现已支持JSaver，是数据持久化的工具
@@ -162,4 +160,4 @@ JEngine现已支持JSaver，是数据持久化的工具
    }
    ```
 
-> 下一篇，[多语言本地化Localization教程](localization-v0-6.html)
+> 下一篇，[多语言本地化Localization教程](localization.html)

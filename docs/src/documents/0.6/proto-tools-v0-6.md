@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # Protobuf 工具（v0.6）
 JEngine提供了C#类型和Proto协议互转的工具
 
@@ -23,4 +21,4 @@ JEngine提供了C#类型和Proto协议互转的工具
 2. 会弹出面板，选择Proto文件所在目录，File List中输入需转换文件，或通过点击按钮一键获取
 3. 点击生成，会自动创建
 
-> 下一篇[JEngine面板](jengine-panel-v0-6.html)
+> 下一篇[JEngine面板](jengine-panel.html)

@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # ILRuntime工具（v0.5）
 JEngine提供了ILRuntime可视化工具面板
 

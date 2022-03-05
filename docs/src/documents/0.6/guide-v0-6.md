@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # 开发须知（v0.6）
 本文章包含开发过程中需要注意的地方
 

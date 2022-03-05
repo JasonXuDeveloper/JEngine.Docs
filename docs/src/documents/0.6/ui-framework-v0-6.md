@@ -1,5 +1,3 @@
-{% import "views/_data.njk" as data %}
-
 # JEngine.UI（By L-Fone）（v0.6）
 已剔除！请忽略本文！
 
@@ -637,4 +635,4 @@ public class JTestItem : AItemBase
 ```
 
 
-> 下一篇，[UI解决方案JUI教程](jui-v0-6.html)
+> 下一篇，[UI解决方案JUI教程](jui.html)
