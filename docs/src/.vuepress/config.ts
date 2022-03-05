@@ -30,63 +30,21 @@ var bar = {
         '/documents/features-overview',
       ]
     },
-
-    {
-      text: '功能指南',
-      collapsible: false,
-      children: [
-        '/documents/features/game-launcher.md',
-        '/documents/features/account-switch.md',
-        '/documents/features/mhy-account-switch.md',
-        '/documents/features/unlock-framerate.md',
-        '/documents/features/wish-export.md',
-        '/documents/features/customize-webpage.md'
-      ],
-    },
-
-    {
-      text: '常见问题',
-      collapsible: false,
-      children: [
-        '/documents/FAQ/Dell-AWCC-error.md',
-        '/documents/FAQ/dotNET-env.md',
-        '/documents/FAQ/how-to-quit-program.md',
-        '/documents/FAQ/launcher-path-error.md',
-        '/documents/FAQ/transfer-from-other-wish-export.md',
-        '/documents/FAQ/WebView2-env.md',
-        '/documents/FAQ/failed-load.md',
-      ],
-    },
-	
-	{
-      text: '拓展插件',
-      collapsible: false,
-      children: [
-        '/documents/extensions/README.md',
-		'/documents/extensions/GamebarWidget.md',
-      ],
-    },
-
-    {
-      text: '声明文档',
-      collapsible: false,
-      children: [
-        '/documents/statement/user-privacy-notice.md',
-        '/documents/statement/sponsor.md',
-      ],
-    }
   ],
-  
-  '/development': [
+  '/documents/0.6/':[
     {
-      text: "开发指南",
+      text: 'Documents',
       collapsible: false,
       children: [
-        '/development/StandardFormat',
-        '/development/DeveloperGuide',
-        '/development/PluginTutorial',
+        '/documents/0.6/startup-v0-6',
+        '/documents/0.6/structure-v0-6',
+        '/documents/0.6/hotupdate-v0-6',
+        '/documents/0.6/classbind-v0-6',
+        '/documents/0.6/guide-v0-6',
+        '/documents/0.6/limits',
+        'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html',
       ]
-    }
+    },
   ],
 };
 
