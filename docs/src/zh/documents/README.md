@@ -52,7 +52,7 @@ JEngine目前正在维护的版本
 
 > 该版本对应的是JEngine Pro的master分支
 
-专业版是针对JEngine开源版设计的加强版吧，[点击了解详情](/zh/pro/)
+专业版是针对JEngine开源版设计的加强版本，[点击了解详情](/zh/pro/)
 
 #### 本次更新
 
