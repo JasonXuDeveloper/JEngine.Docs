@@ -1,6 +1,4 @@
-{% import "views/_data.njk" as data %}
-
-# 热更预制体解决方案 JPrefab（v0.6）
+# 热更预制体解决方案 JPrefab
 
 JPrefab是针对热更Prefab制作的类型
 
@@ -79,4 +77,4 @@ JPrefab是针对热更Prefab制作的类型
   ```
 
 
-> 下一篇，[事件派发JEvent教程](jevent-v0-6.html)
+> 下一篇，[事件派发JEvent教程](jevent)

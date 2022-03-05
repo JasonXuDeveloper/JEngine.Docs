@@ -1,6 +1,4 @@
-{% import "views/_data.njk" as data %}
-
-# 挂载代码（v0.6）
+# 挂载代码
 有的时候，我们会将代码挂到GameObject上，然而，如果一个GameObject会包含很多热更脚本，一个个手动AddComponent太浪费时间，于是就有了自动绑定工具
 
 > 注意，主工程Instantiate一个带有ClassBind的prefab的时候一定要去手动调用该prefab上的ClassBind的BindSelf方法，否则ClassBind无法激活
@@ -81,4 +79,4 @@
 2. 可以把老项目中的路径变可拖拽可视化的场景GameObject，且无需关系路径变更
 
 
-> 下一步，[开发须知](guide-v0-6.html)
+> 下一步，[开发须知](guide)

@@ -1,6 +1,4 @@
-{% import "views/_data.njk" as data %}
-
-# JEvent（v0.6）
+# JEvent
 JEngine参考Google Java核心库之EventBus编写的事件派发方案
 
 > JEvent能干什么？
@@ -207,4 +205,4 @@ namespace JEngine.Examples
 }
 ```
 
-> 下一篇[网络层JWebSocket教程](jwebsocket-v0-6.html)
+> 下一篇[网络层JWebSocket教程](jwebsocket)

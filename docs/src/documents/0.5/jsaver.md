@@ -1,6 +1,4 @@
-{% import "views/_data.njk" as data %}
-
-# JSaver（v0.5）
+# JSaver
 
 JEngine现已支持JSaver，是数据持久化的工具
 

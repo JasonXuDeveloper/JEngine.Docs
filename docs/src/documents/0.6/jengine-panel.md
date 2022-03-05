@@ -1,6 +1,4 @@
-{% import "views/_data.njk" as data %}
-
-# JEngine面板（v0.6）
+# JEngine面板
 JEngine为Unity开发设计的面板
 
 ## 功能

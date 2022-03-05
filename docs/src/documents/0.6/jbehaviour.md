@@ -1,6 +1,4 @@
-{% import "views/_data.njk" as data %}
-
-# JBehaviour（v0.6）
+# JBehaviour
 
 JEngine~~现已支持基于MonoBehaviour，却**更强大**的基类~~已经制作了比使用MonoBehaviour更优化性能的基类，JBehaviour已经不基于MonoBehaviour了
 
@@ -216,4 +214,4 @@ Log.Print($"Test go has {allJbsOnGO.Length} JBehaviours, " +
 JBehaviour.RemoveJBehaviour(jb1);
 ```
 
-> 下一篇，[资源加载JResource教程](jresource-v0-6.html)
+> 下一篇，[资源加载JResource教程](jresource)

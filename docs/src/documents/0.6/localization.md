@@ -1,6 +1,4 @@
-{% import "views/_data.njk" as data %}
-
-# Localization（v0.6）
+# Localization
 
 JEngine现已支持多语言本地化
 
@@ -55,4 +53,4 @@ JEngine现已支持多语言本地化
 
    打开HotUpdateResources/TextAsset/Localization.csv即可
 
-> 下一篇，[内存加密结构教程](crypto-struct-v0-6.html)
+> 下一篇，[内存加密结构教程](crypto-struct)

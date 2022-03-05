@@ -1,6 +1,4 @@
-{% import "views/_data.njk" as data %}
-
-# ILRuntime工具（v0.5）
+# ILRuntime工具
 JEngine提供了ILRuntime可视化工具面板
 
 ## ILRuntime CLR绑定生成

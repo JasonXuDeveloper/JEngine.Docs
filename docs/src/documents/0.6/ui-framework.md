@@ -1,6 +1,4 @@
-{% import "views/_data.njk" as data %}
-
-# JEngine.UI（By L-Fone）（v0.6）
+# JEngine.UI（By L-Fone）
 已剔除！请忽略本文！
 
 JEngine.UI 是一套剥离MonoBehaviour的UGUI框架。其主要设计目的是让UI界面开发逻辑更为便捷。
@@ -637,4 +635,4 @@ public class JTestItem : AItemBase
 ```
 
 
-> 下一篇，[UI解决方案JUI教程](jui-v0-6.html)
+> 下一篇，[UI解决方案JUI教程](jui)
