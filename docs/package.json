@@ -21,6 +21,7 @@
     "vuepress-vite": "^2.0.0-beta.36"
   },
   "dependencies": {
-    "vuepress-auto-sidebar": "^1.1.1"
+    "vuepress-auto-sidebar": "^1.1.1",
+    "vuepress-plugin-shiki": "^0.10.1"
   }
 }

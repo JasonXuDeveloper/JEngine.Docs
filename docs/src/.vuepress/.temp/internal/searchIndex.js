@@ -507,26 +507,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "ILRuntime限制",
-    "headers": [
-      {
-        "level": 2,
-        "title": "针对ILRuntime环境下的建议",
-        "slug": "针对ilruntime环境下的建议",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "不能进行的骚操作",
-        "slug": "不能进行的骚操作",
-        "children": []
-      }
-    ],
-    "path": "/documents/0.5/limits.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "Localization（v0.5）",
     "headers": [
       {
@@ -1230,6 +1210,26 @@ export const searchIndex = [
       }
     ],
     "path": "/documents/0.6/jwebsocket-v0-6.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "ILRuntime限制",
+    "headers": [
+      {
+        "level": 2,
+        "title": "针对ILRuntime环境下的建议",
+        "slug": "针对ilruntime环境下的建议",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "不能进行的骚操作",
+        "slug": "不能进行的骚操作",
+        "children": []
+      }
+    ],
+    "path": "/documents/0.6/limits.html",
     "pathLocale": "/",
     "extraFields": []
   },

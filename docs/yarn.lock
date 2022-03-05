@@ -1608,7 +1608,7 @@
   "resolved" "https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz"
   "version" "3.0.0"
 
-"shiki@^0.10.0":
+"shiki@^0.10.0", "shiki@^0.10.1":
   "integrity" "sha512-VsY7QJVzU51j5o1+DguUd+6vmCmZ5v/6gYu4vyYAhzjuNQU6P/vmSy4uQaOhvje031qQMiW0d2BwgMH52vqMng=="
   "resolved" "https://registry.npmjs.org/shiki/-/shiki-0.10.1.tgz"
   "version" "0.10.1"
@@ -1822,6 +1822,13 @@
   "integrity" "sha512-9mPCHqsbNd5rW1+8qeteCINuNr0BfhKYZk1hjGwplNxbDGEFYEIt6q2Nj8CQBPI+qkvKH5rwwVavycfbVf5/tw=="
   "resolved" "https://registry.npmjs.org/vuepress-auto-sidebar/-/vuepress-auto-sidebar-1.1.1.tgz"
   "version" "1.1.1"
+
+"vuepress-plugin-shiki@^0.10.1":
+  "integrity" "sha512-1VI2JBRII9Fcg1PL4SI9inSvM7jDOrwF6/v7I5/cf3zLR3KBkKnZgmniKQnTzgwLJ2+y5hci5JDkGoXqoFSLUQ=="
+  "resolved" "https://registry.npmjs.org/vuepress-plugin-shiki/-/vuepress-plugin-shiki-0.10.1.tgz"
+  "version" "0.10.1"
+  dependencies:
+    "shiki" "^0.10.1"
 
 "vuepress-vite@^2.0.0-beta.36", "vuepress-vite@2.0.0-beta.36":
   "integrity" "sha512-KbN7HDhaCLVB7/YmJDydQClUjMBybLtBpB376mi5fD16RFBzHwMGI7zopb4lu7Nmj2BnvLI9kpottv9zuOJYLQ=="

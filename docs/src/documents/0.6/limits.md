@@ -20,26 +20,26 @@
 
 - ~~不能使用可空类型修饰符(?)~~
 
-  ```c#
+  ```csharp
   int? a = null;//这种在热更里已经支持了
   ```
   
 - 不能使用```volatile```关键词
 
-  ```c#
+  ```csharp
   volatile int number;//这种在热更里也不行
   ```
   
 - 委托只能调用```Invoke```方法
 
-  ```c#
+  ```csharp
   Delegate.BeginInvoke();//会出错
   Delegate.Invoke();//可以
   ```
   
 - ~~LitJson反序列化限制~~（已经在v0.6.2修复并支持了）
 
-  ```c#
+  ```csharp
   #region 本地工程
   public class Generic<T>{}
   public class Data{}
