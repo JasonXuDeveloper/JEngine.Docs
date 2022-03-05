@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Build Pipeline
 
 # Controls when the workflow will run
 on:
@@ -28,7 +28,7 @@ jobs:
          # hostname / IP of the server
          HOST: ${{ secrets.SSH_HOST }}
          # user of the server
-         USER: ${{ secrets.H_USERNAME }}
+         USER: ${{ secrets.SSH_USERNAME }}
          # private ssh key registered on the server
          PRIVATE_SSH_KEY: ${{ secrets.SSH_KEY }}
          # command to be executed
