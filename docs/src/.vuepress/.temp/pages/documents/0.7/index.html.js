@@ -7,8 +7,13 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": 1646456433000,
+    "updatedTime": 1646469954000,
     "contributors": [
+      {
+        "name": "JasonXuDeveloper - 傑",
+        "email": "jasonxudeveloper@gmail.com",
+        "commits": 1
+      },
       {
         "name": "root",
         "email": "root@vps-023bdc5d.vps.ovh.ca",
