@@ -8,7 +8,7 @@ export const data = {
     "home": true,
     "lang": "en-US",
     "heroImage": "/logo.png",
-    "heroText": "JEngine",
+    "heroText": "JEngine(test)",
     "tagline": "The solution that allows unity games update in runtime.",
     "actions": [
       {
@@ -36,12 +36,12 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": 1646460712000,
+    "updatedTime": 1646473794000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 3
+        "commits": 4
       },
       {
         "name": "root",

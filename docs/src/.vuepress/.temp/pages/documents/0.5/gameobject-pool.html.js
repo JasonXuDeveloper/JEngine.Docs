@@ -7,8 +7,14 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": null,
-    "contributors": []
+    "updatedTime": 1646472211000,
+    "contributors": [
+      {
+        "name": "JasonXuDeveloper - 傑",
+        "email": "jasonxudeveloper@gmail.com",
+        "commits": 1
+      }
+    ]
   },
   "filePathRelative": "documents/0.5/gameobject-pool.md"
 }
