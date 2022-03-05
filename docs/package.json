@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "vuepress dev src",
     "sync": "git pull;rm -rf /www/wwwroot/GameDocs/docs/src/.vuepress/dist/.user.ini;vuepress dev src",
-    "build": "rm -rf /www/wwwroot/GameDocs/docs/src/.vuepress/dist/.user.ini;vuepress build src;git add .;git commit -m 'update';git push;"
+    "build": "rm -rf /www/wwwroot/GameDocs/docs/src/.vuepress/dist/.user.ini;vuepress build src;git add .;git commit -m 'update';git push;",
     "git-build":"rm -rf /www/wwwroot/GameDocs/docs/src/.vuepress/dist/.user.ini;vuepress build src;"
   },
   "license": "MIT",
