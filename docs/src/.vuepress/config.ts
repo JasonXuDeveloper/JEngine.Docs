@@ -340,7 +340,7 @@ export default defineUserConfig < DefaultThemeOptions > ({
       logo: '/logo.png',
       locales: {
           '/': {
-              selectLanguageText: 'Languages',
+              selectLanguageText: '切换语言',
               selectLanguageName: 'English',
               ariaLabel: 'Languages',
               editLinkText: 'Edit this page on GitHub',
@@ -389,7 +389,7 @@ export default defineUserConfig < DefaultThemeOptions > ({
           },
           '/zh/': {
               // 多语言下拉菜单的标题
-              selectLanguageText: '多语言',
+              selectLanguageText: 'Languages',
               // 该语言在下拉菜单中的标签
               selectLanguageName: '简体中文',
               // 编辑链接文字
