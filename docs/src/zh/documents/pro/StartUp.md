@@ -27,6 +27,24 @@
 
 
 
+### 更新
+
+::: warning
+
+因为更新比较复杂，建议用版本控制工具保存项目，这样如果修改过源码，更新后也不怕遗漏
+
+:::
+
+更新需要替换以下内容：
+
+- ```UnityProject/Assets/Dependencies```全部内容
+- ```UnityProject/Assets/Scripts/InitJEngine.cs```、```UnityProject/Assets/Scripts/Updater.cs```、```UnityProject/Assets/Scripts/LoadILRuntime.cs```、```UnityProject/Assets/Scripts/UI```、```UnityProject/Assets/Scripts/Helpers```
+- ```UnityProject/HotUpdateScripts/JEngine```
+
+> 其中替换```UnityProject/Assets/Scripts/Helpers```时需注意保留自己之前注册过的代码，覆盖更新后记得重新注册回去
+
+
+
 ### 使用
 
 1. [下载](#下载)完成后，使用Unity打开UnityProject
