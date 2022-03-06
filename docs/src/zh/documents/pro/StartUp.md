@@ -82,11 +82,11 @@ Updater有5个字段需要在编辑器下配置（Init场景），分别是：
   | onLoadSceneFinished | 场景加载完毕回调                                             |
 
   ```csharp
-  UpdatePackage(string bundlePackageName, IUpdater updater, string key = null, string nextScene = null)
+  Updater.UpdatePackage(string bundlePackageName, IUpdater updater, string key = null, string nextScene = null)
   ```
 
   ```csharp
-  UpdatePackage(string bundlePackageName, IUpdater updater, UpdateBundleDataInfo package = null, string key = null, string nextScene = null)
+  Updater.UpdatePackage(string bundlePackageName, IUpdater updater, UpdateBundleDataInfo package = null, string key = null, string nextScene = null)
   ```
 
   ```csharp
