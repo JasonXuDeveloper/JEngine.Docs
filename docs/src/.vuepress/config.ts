@@ -46,6 +46,15 @@ var bar = {
     children: [
       '/zh/documents/pro/',
       {
+        text: '快速上手',
+        collapsible: false,
+        children: [
+            '/zh/documents/pro/StartUp',
+            '/zh/documents/pro/BuildAB',
+            '/zh/documents/pro/FAQ',
+        ]
+      },
+      {
         text: '功能列表',
         collapsible: false,
         children: [
