@@ -83,7 +83,7 @@ JEngine自带的Demo可以用3种模式跑：开发模式，离线模式，真�
 
       - 资源服务器上创建的目录名字可以随意，但是```Updater```的```baseURL```的地址必须是服务器上创建的文件夹的名字结尾
 
-      - 不论资源服务器上创建的目录是什么名字，都应该根据是否使用加密将```UnityProject/DLC```或```UnityProject/EncryptAssets```下的文件上传上去
+      - 不论资源服务器上创建的目录是什么名字，打包热更资源后都应该根据是否使用加密将```UnityProject/DLC```或```UnityProject/EncryptAssets```下的文件上传上去
 
       :::
 
