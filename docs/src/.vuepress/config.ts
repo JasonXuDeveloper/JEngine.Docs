@@ -35,15 +35,34 @@ var bar = {
       collapsible: false,
       children: [
           '/zh/pro/',
-          '/zh/pro/price/',
-          '/zh/pro/purchase/',
+          '/zh/pro/price',
+          '/zh/pro/purchase',
           '/zh/documents/pro/',
       ]
   }, ],
+  '/zh/documents/pro/': [{
+    text: 'Pro最新版文档',
+    collapsible: false,
+    children: [
+      '/zh/documents/pro/',
+      {
+        text: '功能列表',
+        collapsible: false,
+        children: [
+            '/zh/documents/HotReload',
+            '/zh/pro/ClassBind',
+            '/zh/pro/ClassBindDependentEditor',
+            '/zh/pro/CustomRuntimeSerialization',
+        ]
+      }
+    ]
+}, ],
   '/documents/0.6/': [{
       text: 'v0.6.x Documentation',
       collapsible: false,
-      children: [{
+      children: [
+          '/documents/0.6/',
+          {
               text: 'Get Started',
               collapsible: false,
               children: [
@@ -97,7 +116,9 @@ var bar = {
   '/zh/documents/0.6/': [{
       text: 'v0.6.x文档',
       collapsible: false,
-      children: [{
+      children: [
+          '/zh/documents/0.6/',
+          {
               text: '入门教程',
               collapsible: false,
               children: [
@@ -151,7 +172,9 @@ var bar = {
   '/documents/0.5/': [{
       text: 'v0.5.x Documentation',
       collapsible: false,
-      children: [{
+      children: [
+          '/documents/0.5/',
+          {
               text: 'Get Started',
               collapsible: false,
               children: [
@@ -203,7 +226,9 @@ var bar = {
   '/zh/documents/0.5/': [{
       text: 'v0.5.x文档',
       collapsible: false,
-      children: [{
+      children: [
+          '/zh/documents/0.5/',
+          {
               text: '入门教程',
               collapsible: false,
               children: [
