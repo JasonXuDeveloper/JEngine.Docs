@@ -32,11 +32,11 @@
 1. [下载](#下载)完成后，使用Unity打开UnityProject
 2. 这个时候应该会有很多报错，深吸一口气，不要慌，调整心态
 3. 导入Odin Inspector（自备unitypackage或从Asset Store导入）
-4. 导入后不应该有报错，如果还有报错，请看[常见问题](/zh/documents/pro/FAQ)
+4. 导入后不应该有报错，如果还有报错，请看[常见问题](/zh/documents/pro/FAQ/)
 5. 这个时候就可以打开热更工程了，也就是```path/to/JEngine-Pro/UnityProject/HotUpdateScripts```目录，用IDE（推荐vs或rider，因为vscode需要自己配dotnet build来编译）打开里面的sln文件
 6. 尝试跑[Demo](#Demo)
 7. 修改热更工程，例如在```Program.cs```的```RunGame```方法内加个Log
-8. 编译热更工程，如果出现问题（例如跳过），请看[常见问题](/zh/documents/pro/FAQ)
+8. 编译热更工程，如果出现问题（例如跳过），请看[常见问题](/zh/documents/pro/FAQ/)
 
 
 
