@@ -72,6 +72,7 @@ Updater有5个字段需要在编辑器下配置（Init场景），分别是：
   | ------------------- | ------------------------------------------------------------ |
   | bundlePackageName   | 分包名                                                       |
   | updater             | IUpdater对象，可以给UI界面控制脚本继承IUpdater后注册对应事件，或创建BaseUpdater对象并注册事件回调 |
+  | package             | 分包信息，可以通过CheckPackage获取，也可以留空自动根据分包名获取 |
   | key                 | 分包加密密钥，没加密就留空或写null，或者不写该参数           |
   | nextScene           | 分包下载完毕后跳转到的分包内的场景，需要全路径，留空或null就不跳转 |
   | onMessage           | 文本提示回调                                                 |
@@ -81,7 +82,11 @@ Updater有5个字段需要在编辑器下配置（Init场景），分别是：
   | onLoadSceneFinished | 场景加载完毕回调                                             |
 
   ```csharp
-  Updater.UpdatePackage(string bundlePackageName, IUpdater updater, string key = null, string nextScene = null)
+  UpdatePackage(string bundlePackageName, IUpdater updater, string key = null, string nextScene = null)
+  ```
+
+  ```csharp
+  UpdatePackage(string bundlePackageName, IUpdater updater, UpdateBundleDataInfo package = null, string key = null, string nextScene = null)
   ```
 
   ```csharp
