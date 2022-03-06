@@ -5,6 +5,14 @@
 :::
 
 
+
+### 仓库
+
+[在GitHub查看 →](https://github.com/JasonXuDeveloper/JEngine/tree/0.5.x)
+
+
+
+
 ### 视频教程
 
 > 从零开始学习使用JEngine，包含v0.5系列大部分功能讲解、示范及使用

@@ -5,6 +5,16 @@
 :::
 
 
+
+### 仓库
+
+[在GitHub查看 →](https://github.com/JasonXuDeveloper/JEngine/tree/0.6.x)
+
+
+
+
+
+
 ### 视频教程
 
 > 深度讲解JEngine功能，内容丰富干货多

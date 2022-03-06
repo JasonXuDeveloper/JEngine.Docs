@@ -331,10 +331,7 @@ export default defineUserConfig < DefaultThemeOptions > ({
                   {
                       text: "Documentations",
                       link: '/documents/',
-                      children: [{
-                              text: 'Overview',
-                              link: '/documents/'
-                          },
+                      children: [
                           {
                               text: '0.7.x',
                               link: '/documents/0.7/'
@@ -386,10 +383,7 @@ export default defineUserConfig < DefaultThemeOptions > ({
                   {
                       text: "文档",
                       link: '/zh/documents/',
-                      children: [{
-                              text: '概述',
-                              link: '/zh/documents/'
-                          },
+                      children: [
                           {
                               text: '0.7.x',
                               link: '/zh/documents/0.7/'
@@ -430,7 +424,7 @@ export default defineUserConfig < DefaultThemeOptions > ({
                           },
                           {
                               text: '购买',
-                              link: '/zh/pro/puchase/'
+                              link: '/zh/pro/purchase/'
                           },
                       ]
                   },
