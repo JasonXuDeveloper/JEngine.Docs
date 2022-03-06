@@ -50,12 +50,13 @@ JEngine在Init场景下有2个脚本决定了游戏的热更新，分别是**Upd
 
 :::
 
-Updater有5个字段需要在编辑器下配置（Init场景），分别是：
+Updater有6个字段需要在编辑器下配置（Init场景），分别是：
 
 - Base URL，即资源下载地址，请确保部署热更资源后```BaseUrl/资源分包/VersionLog.txt```等文件可以访问
 - Game Scene，即热更资源更新成功后跳转的场景，这个场景必须打在主包内（即```Assets/HotUpdateResources/Scene```下），该字段需要输入全路径（Assets开头），建议在Unity的Project窗口下选中对应场景然后右键```Copy Path```然后黏贴到这个字段里
 - Main Package Name，即热更主包名称，默认是Main，如果没改过热更资源配置，就不需要修改
 - Main Package Key，即热更主包加密秘钥，默认是空的，如果没改过热更资源配置或没有为热更主包配置密码，留空即可
+- Main Package Check CRC，即热更主包是否需要CRC校验，默认开启，不开启的话初始化热更资源更快，但是不能确保热更资源有没有被篡改
 - Mode，即运行模式，Develop代表开发模式，Local代表离线模式，Build代表真机模式（即下载模式）
 
 同时Updater也是一个用于管理热更资源的脚本，集成了以下功能：
@@ -63,7 +64,7 @@ Updater有5个字段需要在编辑器下配置（Init场景），分别是：
 - 获取分包信息
 
   ```csharp
-  var info = await Updater.CheckPackage(包名字符串);
+  var info = await Updater.CheckPackage(包名字符串, 是否校验CRC);
   ```
 
 - 更新指定分包
@@ -72,6 +73,7 @@ Updater有5个字段需要在编辑器下配置（Init场景），分别是：
   | ------------------- | ------------------------------------------------------------ |
   | bundlePackageName   | 分包名                                                       |
   | updater             | IUpdater对象，可以给UI界面控制脚本继承IUpdater后注册对应事件，或创建BaseUpdater对象并注册事件回调 |
+  | checkCRC            | 校验CRC，默认true，开启后可防止用户篡改本地热更资源，但是会影响初始化速度 |
   | package             | 分包信息，可以通过CheckPackage获取，也可以留空自动根据分包名获取 |
   | key                 | 分包加密密钥，没加密就留空或写null，或者不写该参数           |
   | nextScene           | 分包下载完毕后跳转到的分包内的场景，需要全路径，留空或null就不跳转 |
@@ -82,15 +84,20 @@ Updater有5个字段需要在编辑器下配置（Init场景），分别是：
   | onLoadSceneFinished | 场景加载完毕回调                                             |
 
   ```csharp
-  Updater.UpdatePackage(string bundlePackageName, IUpdater updater, string key = null, string nextScene = null)
+  Updater.UpdatePackage(string bundlePackageName, IUpdater updater, bool checkCRC = true,
+          UpdateBundleDataInfo package = null, string key = null, string nextScene = null)
   ```
 
   ```csharp
-  Updater.UpdatePackage(string bundlePackageName, IUpdater updater, UpdateBundleDataInfo package = null, string key = null, string nextScene = null)
+  Updater.UpdatePackage(string bundlePackageName, IUpdater updater, bool checkCRC = true,
+          string key = null,
+          string nextScene = null)
   ```
 
   ```csharp
-  Updater.UpdatePackage(string bundlePackageName, string key = null, string nextScene = null,
+  Updater.UpdatePackage(string bundlePackageName, bool checkCRC = true,
+          UpdateBundleDataInfo package = null, string key = null,
+          string nextScene = null,
           Action<string> onMessage = null, Action<float> onProgress = null, Action<string> onVersion = null,
           Action<float> onLoadSceneProgress = null, Action onLoadSceneFinished = null)
   ```
