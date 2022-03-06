@@ -49,10 +49,10 @@ var bar = {
         text: '功能列表',
         collapsible: false,
         children: [
-            '/zh/documents/HotReload',
-            '/zh/pro/ClassBind',
-            '/zh/pro/ClassBindDependentEditor',
-            '/zh/pro/CustomRuntimeSerialization',
+            '/zh/documents/pro/HotReload',
+            '/zh/documents/pro/ClassBind',
+            '/zh/documents/pro/ClassBindDependentEditor',
+            '/zh/documents/pro/CustomRuntimeSerialization',
         ]
       }
     ]
