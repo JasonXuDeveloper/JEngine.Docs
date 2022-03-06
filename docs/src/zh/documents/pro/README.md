@@ -1,5 +1,14 @@
 # Pro文档
 
 ::: tip
-待完善
+Pro版本需要订阅后才能获取仓库权限
 :::
+
+
+
+### 仓库
+
+[在GitHub查看 →](https://github.com/JasonXuDeveloper/JEngine-Pro)
+
+
+
