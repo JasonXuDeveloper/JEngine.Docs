@@ -15,4 +15,4 @@ This version will no longer be updated or maintained, if any bug exists, please 
 
 ### Documentation
 
-[Get Started →](./startup)
+[Get Started →](./startup/)
