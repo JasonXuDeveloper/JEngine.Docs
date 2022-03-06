@@ -333,6 +333,10 @@ export default defineUserConfig < DefaultThemeOptions > ({
                       link: '/documents/',
                       children: [
                           {
+                              text: 'Docs',
+                              link: '/documents/'
+                          },
+                          {
                               text: '0.7.x',
                               link: '/documents/0.7/'
                           },
@@ -385,6 +389,10 @@ export default defineUserConfig < DefaultThemeOptions > ({
                       link: '/zh/documents/',
                       children: [
                           {
+                              text: 'Docs',
+                              link: '/zh/documents/'
+                          },
+                          {
                               text: '0.7.x',
                               link: '/zh/documents/0.7/'
                           },
@@ -415,16 +423,16 @@ export default defineUserConfig < DefaultThemeOptions > ({
                   {
                       text: '订阅版',
                       children: [{
-                              text: '介绍',
+                              text: 'Pro',
                               link: '/zh/pro/'
                           },
                           {
                               text: '定价',
-                              link: '/zh/pro/price/'
+                              link: '/zh/pro/price'
                           },
                           {
                               text: '购买',
-                              link: '/zh/pro/purchase/'
+                              link: '/zh/pro/purchase'
                           },
                       ]
                   },
