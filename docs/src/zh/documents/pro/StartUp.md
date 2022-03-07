@@ -202,9 +202,9 @@ JEngine可以使用三种模式运行游戏，分别是：开发模式，离线�
 
       ::: tip
 
-      - 资源服务器上创建的目录名字可以随意，但是```Updater```的```BaseURL```的地址必须是服务器上创建的文件夹的名字结尾
-   - 不论资源服务器上创建的目录是什么名字，打包热更资源后都应该根据是否使用加密将```UnityProject/DLC```或```UnityProject/EncryptAssets```下的文件上传上去
-      - 如果打了AB后通过菜单栏工具将其复制到了```StreamingAssets```，那么真机模式下会基于```StreamingAssets```内的资源进行增量热更
+    - 资源服务器上创建的目录名字可以随意，但是```Updater```的```BaseURL```的地址必须是服务器上创建的文件夹的名字结尾
+    - 不论资源服务器上创建的目录是什么名字，打包热更资源后都应该根据是否使用加密将```UnityProject/DLC```或```UnityProject/EncryptAssets```下的文件上传上去
+    - 如果打了AB后通过菜单栏工具将其复制到了```StreamingAssets```，那么真机模式下会基于```StreamingAssets```内的资源进行增量热更
 
       :::
 
