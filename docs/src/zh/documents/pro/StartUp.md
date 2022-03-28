@@ -158,6 +158,13 @@ Updater有6个字段需要在编辑器下配置（Init场景），分别是：
   var remoteVer = await Updater.GetRemotePackageVersion(包名字符串, 分包信息);
   ```
 
+  
+
+- 删除指定分包的缓存
+
+  ```csharp
+  ClearPackage(包名字符串);
+  ```
 
 
 ### InitJEngine使用
