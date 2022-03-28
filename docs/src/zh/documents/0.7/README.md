@@ -3,7 +3,7 @@
 ::: tip
 待完善（预计4月之前完成）
 
-目前0.7版本的打包部分及接口可以参考[Pro文档部分内容](/zh/documents/pro/StartUp)
+目前0.7版本的打包部分及接口可以参考[Pro文档部分内容](/zh/documents/pro/StartUp/)
 :::
 
 ### 仓库
