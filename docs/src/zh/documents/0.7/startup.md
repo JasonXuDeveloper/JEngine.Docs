@@ -100,6 +100,7 @@
 
 1. **[下载](#下载方式-非常重要)该项目**
 2. 将项目的**UnityProject目录用Unity打开**
+2. 首次打开会生成个**lock文件**到Assets目录下，**请勿删除**，同时还会有个提示
 3. 找到**HotUpdateResources/Scene**, 确保你能找到**Game.unity**，并且**HotUpdateResources/DLL/~Hidden文件夹中有生成的DLL文件（这个文件夹Unity内看不见）**
 4. 导入后不应该有报错，如果还有报错，请看[常见问题](./FAQ.md)
 5. 无需进行任何修改，尝试在[不同的模式](#运行模式)运行自带的Demo，注意留意控制台

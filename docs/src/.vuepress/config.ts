@@ -42,6 +42,7 @@ var bar = {
                 '/zh/documents/0.7/startup',
                 '/zh/documents/0.7/BuildAB',
                 '/zh/documents/0.7/Updater',
+                '/zh/documents/0.7/InitJEngine',
                 '/zh/documents/0.7/FAQ',
                 '/zh/documents/0.7/guide',
                 '/zh/documents/0.7/limits',
