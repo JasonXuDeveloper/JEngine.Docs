@@ -36,13 +36,17 @@ JEngine是用Mac开发的，Win下用VS打开可能会出现这个问题
 
 ::: tip
 
+> 内容提供者：清行
+
 #### 原因
 
 JEngine是用Mac开发的，Win下编译DLL有可能需要重新配置
 
 #### 解决方法
 
-VS打开热更工程后找到配置管理器，指定平台后记得勾上生成
+方法一：VS打开热更工程后找到配置管理器，指定平台后记得勾上生成
+
+方法二：删除```Assets/HotUpdateResources/Dlls/Hidden~```文件夹，然后再进一下Unity，会自动重新生成文件夹，然后再生成解决
 
 :::
 
@@ -66,6 +70,116 @@ VS打开热更工程后找到配置管理器，指定平台后记得勾上生成
 :::
 
 
+
+
+
+### 热更工程没办法使用```ScriptableObject```
+
+::: tip
+
+#### 原因
+
+ScriptableObject需要在主工程定义，里面的字段无法热更，只能热更生成的数据配置（.asset文件）
+
+#### 解决方案
+
+在主工程定义ScriptableObject，或在热更工程用其他的代替
+
+:::
+
+
+
+
+
+
+
+### 热更工程没办法继承```IPointerXXXX```
+
+::: tip
+
+#### 原因
+
+首先，跨域继承需要适配器，参考ILRuntime文档，其次，跨域不支持多继承，即不能同时在热更工程继承```MonoBehaviour```和```IPointerXXX```等接口
+
+#### 解决方案
+
+在主工程定义个类，继承这些需要继承的东西，然后用框架的ILRuntime跨域继承适配器生成器，生成该类的适配器，然后在热更工程继承该类
+
+:::
+
+
+
+
+
+
+
+### 热更工程没办法使用编辑器代码或使用了不生效
+
+::: tip
+
+#### 原因
+
+热更工程是运行时环境，没必要使用，使用了也没效果
+
+#### 解决方案
+
+热更工程去掉编辑器代码
+
+:::
+
+
+
+
+
+### 热更工程没办法使用主工程Plugins内的代码
+
+::: tip
+
+#### 原因
+
+没在热更工程引用对应代码
+
+#### 解决方案
+
+热更工程引用```UnityProject/Library/ScriptAssemblies/Assembly-CSharp-Firstpass.dll```
+
+:::
+
+
+
+
+
+### 热更工程没办法使用主工程内的代码
+
+::: tip
+
+#### 原因
+
+没在热更工程引用对应代码
+
+#### 解决方案
+
+热更工程引用```UnityProject/Library/ScriptAssemblies/Assembly-CSharp.dll```
+
+:::
+
+
+
+
+
+### 热更工程没办法使用主工程Asmdef内的代码
+
+::: tip
+
+#### 原因
+
+没在热更工程引用对应代码
+
+#### 解决方案
+
+热更工程引用```UnityProject/Library/ScriptAssemblies/Asmdef的名字.dll```
+
+:::
 
 
 
@@ -97,6 +211,8 @@ VS打开热更工程后找到配置管理器，指定平台后记得勾上生成
 
 ::: tip
 
+> 内容提供者：清行
+
 #### 原因
 
 不同电脑有不同的```.net framework```版本，需要在VS内配置对应版本
@@ -104,5 +220,62 @@ VS打开热更工程后找到配置管理器，指定平台后记得勾上生成
 #### 解决方案
 
 右键 -> 解决方案 -> 属性 -> 应用程序 : 目标框架 选择对应的版本，需要```4.x```版本
+
+:::
+
+
+
+### DOTween无法使用
+
+::: tip
+
+> 内容提供者：L-fone
+
+#### 原因
+
+需要以正确的姿势去使用
+
+#### 解决方案
+
+**1、导入DoTween**
+
+[<img src="https://s1.ax1x.com/2020/11/07/BINzo6.png" alt="BINzo6.png" style="zoom:50%;" />](https://imgchr.com/i/BINzo6)
+
+**2、拷贝Dll文件到HotFix的Dlls目录下**
+
+[<img src="https://s1.ax1x.com/2020/11/07/BIwh1U.png" alt="BIwh1U.png" style="zoom:50%;" />](https://imgchr.com/i/BIwh1U)
+
+[<img src="https://s1.ax1x.com/2020/11/07/BIwonJ.png" alt="BIwonJ.png" style="zoom:50%;" />](https://imgchr.com/i/BIwonJ)
+
+[<img src="https://s1.ax1x.com/2020/11/07/BIwLh6.png" alt="BIwLh6.png" style="zoom:50%;" />](https://imgchr.com/i/BIwLh6)
+
+[<img src="https://s1.ax1x.com/2020/11/07/BIwX9K.png" alt="BIwX9K.png" style="zoom:50%;" />](https://imgchr.com/i/BIwX9K)
+
+[<img src="https://s1.ax1x.com/2020/11/07/BIwj1O.png" alt="BIwj1O.png" style="zoom:50%;" />](https://imgchr.com/i/BIwj1O)
+
+[<img src="https://s1.ax1x.com/2020/11/07/BIwvcD.png" alt="BIwvcD.png" style="zoom:50%;" />](https://imgchr.com/i/BIwvcD)
+
+**3、引入dll文件到HotFix工程中**
+
+[<img src="https://s1.ax1x.com/2020/11/07/BIwTB9.png" alt="BIwTB9.png" style="zoom:50%;" />](https://imgchr.com/i/BIwTB9)
+
+[<img src="https://s1.ax1x.com/2020/11/07/BIwqtx.png" alt="BIwqtx.png" style="zoom:50%;" />](https://imgchr.com/i/BIwqtx)
+
+[<img src="https://s1.ax1x.com/2020/11/07/BI0SnH.png" alt="BI0SnH.png" style="zoom:50%;" />](https://imgchr.com/i/BI0SnH)
+
+[<img src="https://s1.ax1x.com/2020/11/07/BIwxje.png" alt="BIwxje.png" style="zoom:50%;" />](https://imgchr.com/i/BIwxje)
+
+[<img src="https://s1.ax1x.com/2020/11/07/BI0pBd.png" alt="BI0pBd.png" style="zoom:50%;" />](https://imgchr.com/i/BI0pBd)
+
+**4、使用DoTween**
+
+[<img src="https://s1.ax1x.com/2020/11/07/BI09HA.png" alt="BI09HA.png" style="zoom:50%;" />](https://imgchr.com/i/BI09HA)
+
+[<img src="https://s1.ax1x.com/2020/11/07/BI0PAI.png" alt="BI0PAI.png" style="zoom:50%;" />](https://imgchr.com/i/BI0PAI)
+
+
+> 如果还有其他特殊情况，可以在JEngine群里求助，也可以联系QQ：275757115（L-Fone）
+
+
 
 :::
