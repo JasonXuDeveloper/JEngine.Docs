@@ -44,7 +44,6 @@ var bar = {
                 '/zh/documents/0.7/Updater',
                 '/zh/documents/0.7/InitJEngine',
                 '/zh/documents/0.7/FAQ',
-                '/zh/documents/0.7/guide',
                 '/zh/documents/0.7/limits',
                 {
                     text: 'ILRuntime文档',
@@ -56,6 +55,7 @@ var bar = {
             text: '框架核心',
             collapsible: false,
             children: [
+                '/zh/documents/0.6/classbind',
                 '/zh/documents/0.6/jbehaviour',
                 '/zh/documents/0.6/jresource',
                 '/zh/documents/0.6/jaction',
