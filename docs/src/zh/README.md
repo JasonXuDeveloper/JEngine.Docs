@@ -1,10 +1,10 @@
 ---
-title: JEngine - 使Unity开发的游戏支持热更新的解决方案。
+title: JEngine - 使Unity开发的游戏支持热更新的解决方案
 home: true
 lang: zh-CN
 heroImage: /logo.png
 heroText: JEngine
-tagline: 使Unity开发的游戏支持热更新的解决方案。
+tagline: 使Unity开发的游戏支持热更新的解决方案
 actions:
   - text: 快速开始 →
     link: /zh/documents/
