@@ -68,6 +68,7 @@ var bar = {
                 '/zh/documents/0.6/ilruntime-tools',
                 '/zh/documents/0.6/proto-tools',
                 '/zh/documents/0.6/jengine-panel',
+                '/zh/documents/0.6/bindable',
             ]
         },
         {
@@ -75,7 +76,10 @@ var bar = {
             collapsible: false,
             children: [
                 '/zh/documents/0.6/jui',
-                '/zh/documents/0.6/bindable',
+                {
+                    text: 'MetaJUI',
+                    link: 'https://github.com/Meta404Dev/MetaJUI'
+                },
             ]
         },
         {
