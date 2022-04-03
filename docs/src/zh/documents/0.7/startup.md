@@ -35,7 +35,7 @@
    git submodule update
    ```
 
-3. 方法三，git clone的时候顺带安装子模块**（推荐）**
+3. 方法三，git clone的时候顺带安装子模块   ----   **推荐**
 
    ```bash
    git clone git@github.com:JasonXuDeveloper/JEngine.git --recursive
