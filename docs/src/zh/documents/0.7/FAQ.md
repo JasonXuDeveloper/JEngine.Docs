@@ -71,6 +71,44 @@ JEngine是用Mac开发的，Win下编译DLL有可能需要重新配置
 
 
 
+### Cannot find XXX for: **YYY**
+
+::: tip
+
+#### 原因
+
+ILRuntime需要对委托、匿名函数等生成代码
+
+#### 解决方案
+
+- 如果是需要生成Adapter，代表用到了跨域继承，请参考ILRuntime跨域继承文档，搭配JEngine提供的ILRuntime跨域继承适配器生成器去生成适配器
+
+- 如果是需要生成其他的东西，在报错内会有个Please Add Following Code，复制里面的内容，黏贴到对应文件即可
+
+  <img src="https://s1.ax1x.com/2020/07/14/Ut2RoD.png" alt="guide5" style="width:50%;margin-left:25%" />
+
+  例如这里是```Cannot find Delegate Adapter```，那么只需要复制下面的代码，找到```Scripts/Helpers/RegisterDelegateAdapterHelper.cs```，将代码黏贴进去就好
+
+  > 有的时候自动生成的代码，需要手动修改
+
+:::
+
+
+
+### 生成的适配器有报错
+
+::: tip
+
+#### 原因
+
+如果继承了```MonoBehaviour```或其他Unity类型，生成的适配器可能会出现重复定义的方法
+
+#### 解决方案
+
+手动删除重复定义的方法即可（如同方法生成了2次，那么删除任意一个即可，需要保留一份）
+
+:::
+
 
 
 ### 热更工程没办法使用```ScriptableObject```
