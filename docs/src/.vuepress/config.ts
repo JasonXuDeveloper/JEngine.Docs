@@ -30,6 +30,62 @@ var bar = {
           '/documents/0.7/',
       ]
   }, ],
+  '/zh/documents/0.7/': [{
+    text: 'v0.7.x文档',
+    collapsible: false,
+    children: [
+        '/zh/documents/0.7/',
+        {
+            text: '入门教程',
+            collapsible: false,
+            children: [
+                '/zh/documents/0.7/startup',
+                '/zh/documents/0.7/BuildAB',
+                '/zh/documents/0.7/Updater',
+                '/zh/documents/0.7/FAQ',
+                '/zh/documents/0.7/guide',
+                '/zh/documents/0.7/limits',
+                {
+                    text: 'ILRuntime文档',
+                    link: 'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html'
+                },
+            ]
+        },
+        {
+            text: '框架核心',
+            collapsible: false,
+            children: [
+                '/zh/documents/0.6/jbehaviour',
+                '/zh/documents/0.6/jresource',
+                '/zh/documents/0.6/jaction',
+                '/zh/documents/0.6/jsaver',
+                '/zh/documents/0.6/jevent',
+                '/zh/documents/0.6/localization',
+                '/zh/documents/0.6/crypto-struct',
+                '/documents/0.6/gameobject-pool',
+                '/zh/documents/0.6/ilruntime-tools',
+                '/zh/documents/0.6/proto-tools',
+                '/zh/documents/0.6/jengine-panel',
+            ]
+        },
+        {
+            text: 'UI框架',
+            collapsible: false,
+            children: [
+                '/zh/documents/0.6/jui',
+                '/zh/documents/0.6/bindable',
+            ]
+        },
+        {
+            text: '额外插件',
+            collapsible: false,
+            children: [{
+                text: 'Unity GUI Redis',
+                link: 'https://github.com/JasonXuDeveloper/Unity-GUI-Redis'
+            }, ]
+        }
+    ]
+}, ],
   '/zh/pro/': [{
       text: 'JEngine Pro',
       collapsible: false,
