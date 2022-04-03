@@ -55,7 +55,8 @@ var bar = {
             text: '框架核心',
             collapsible: false,
             children: [
-                '/zh/documents/0.7/classbind',
+                '/zh/documents/0.7/ClassBind',
+                '/zh/documents/0.7/AssetMgr',
                 '/zh/documents/0.6/jbehaviour',
                 '/zh/documents/0.6/jresource',
                 '/zh/documents/0.6/jaction',
