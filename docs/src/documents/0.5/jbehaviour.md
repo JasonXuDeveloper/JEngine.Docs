@@ -99,7 +99,7 @@ JEngine~~现已支持基于MonoBehaviour，却**更强大**的基类~~已经制�
 /// 该JBehaviour运行总时长
 /// </summary>
 public float TotalTime = 0;
-```
+  ```
 
 ```csharp
 /// <summary>
@@ -169,7 +169,7 @@ public JBehaviour Activate()
 ## 实例化
 
   - 创建实例（3种方法）
-    1. 直接在编辑器内使用ClassBind挂载脚本[参考这里](classbind.html)
+    1. 直接在编辑器内使用ClassBind挂载脚本[参考这里](./classbind.md)
     2. 使用JBehaviour的创造方法```JBehaviour.CreateOn<T>(GameObject gameObject, bool activeAfter = true) where T : JBehaviour```
     3. 直接```new()```，会创建以唯一实例ID命名的GameObject，并挂上该JBehaviour
   - 获取实例
