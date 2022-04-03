@@ -17,7 +17,7 @@ JEngine修改了Bundle Master的代码，使其变得更简单易用，
 - 在```Assets/HotUpdateResources/AddOns```内可以创建新文件夹，用来存放新分包内容，同时创建分包配置后将其资源路径指向创建到AddOns下的新分包资源目录
 - 热更DLL会被加密，**首次打AB包会有个弹窗要求输入16位DLL加密密钥**，后续打包时的加密密钥可以在JEngine面板配置，同时Init场景下InitJEngine的加密密钥记得与打包时加密DLL的密码一致
 - **加密DLL的秘钥和加密热更包的秘钥可以不一样**
-- 首包开启加密后，首包加密秘钥请输入到Updater，参考[Updater使用](./Updater/)
+- 首包开启加密后，首包加密秘钥请输入到Updater，参考[Updater使用](./Updater.md)
 - 创建分包后，加载该分包资源时，需要传入资源全路径以及分包名（如果是主包资源，不需要填分包名，或者填写主包名称都可以）
 
 

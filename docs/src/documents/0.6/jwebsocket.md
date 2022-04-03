@@ -27,7 +27,7 @@ JEngine针对WebSocket服务端编写的网络层
 - ```csharp
   new JWebSocket($"ws://ip:port/demo", null, (sender,eventArgs)=>{}); //使用默认配置连接非基于socket-io（非nodeJS）实现的服务端，需要自己实现接收方法
   ```
-    
+  
 - ```csharp
   JSocketConfig config = JSocketConfig.Default();
   config.debug = true;
@@ -36,112 +36,112 @@ JEngine针对WebSocket服务端编写的网络层
   
 - ```csharp
   Connect() //连接服务器，此方法不阻塞
-  ``` 
-   
+  ```
+  
 - ```csharp
   OnOpen(Action<SocketIOEvent> socketIOEvent) //websocket通道开启事件
   ```
-   
+  
 - ```csharp
   OnConnect(Action<SocketIOEvent> socketIOEvent) //连上websocket服务器事件
   ```
-   
+  
 - ```csharp
   OnReconnect(Action socketIOEvent) //重连事件
   ```
-   
+  
 - ```csharp
   OnDisconnect(Action<SocketIOEvent> socketIOEvent) //断开连接事件
   ```
-   
+  
 - ```csharp
   OnClose(Action<SocketIOEvent> socketIOEvent) //websocket通道关闭事件
   ```
-   
+  
 - ```csharp
   OnError(Action<SocketIOEvent> socketIOEvent) //websocket错误事件
   ```
-   
+  
 - ```csharp
   SocketIO_On(string eventName, Action<SocketIOEvent> socketIOEvent) //【socket-io服务端专属】事件监听
   ```
-   
+  
 - ```csharp
   SocketIO_Off(string eventName, Action<SocketIOEvent> socketIOEvent) //【socket-io服务端专属】关闭事件监听
   ```
-   
+  
 - ```csharp
   SendToServer(string Data) //发送字符串到服务端
   ```
-   
+  
 - ```csharp
   SendToServerAsJson<T>(T Data) //发送JSON字符串到服务端
   ```
-   
+  
 - ```csharp
   SendToServerAsProtobuf<T>(T Data) //发送ProtoBuf二进制到服务端
   ```
-   
+  
 - ```csharp
   SendToServer(byte[] Data) //发送二进制到服务端
   ```
-   
+  
 - ```csharp
   EmitToSocketIOServer(string ev) //【socket-io服务端专属】调用服务端事件
   ```
-   
+  
 - ```csharp
   EmitToSocketIOServerAsync(string ev, Action<bool> onComplete) //【socket-io服务端专属】调用服务端事件，异步并行，带发送结果回调
   ```
-   
+  
 - ```csharp
   async Task<bool> EmitToSocketIOServerAsync(string ev) //【socket-io服务端专属】调用服务端事件，纯异步，返回发送结果bool
   ```
-   
+  
 - ```csharp
   EmitToSocketIOServer(string ev, Action<JSONObject> action) //【socket-io服务端专属】调用服务端事件，并包含一个回调
   ```
-   
+  
 - ```csharp
   EmitToSocketIOServerAsync(string ev, Action<JSONObject> action, Action<bool> onComplete) //【socket-io服务端专属】调用服务端事件，并包含一个回调，异步并行，带发送结果回调
   ```
-   
+  
 - ```csharp
   async Task<bool> EmitToSocketIOServerAsync(string ev, Action<JSONObject> action) //【socket-io服务端专属】调用服务端事件，包含一个回调，纯异步，返回发送结果bool
   ```
-   
+  
 - ```csharp
   EmitToSocketIOServer(string ev, string str) //【socket-io服务端专属】调用服务端事件，并发送个字符串
   ```
-   
+  
 - ```csharp
   EmitToSocketIOServerAsync(string ev, string str, Action<bool> onComplete) //【socket-io服务端专属】调用服务端事件，并发送个字符串，异步并行，带发送结果回调
   ```
-   
+  
 - ```csharp
   async Task<bool> EmitToSocketIOServerAsync(string ev, string str) //【socket-io服务端专属】调用服务端事件，并发送个字符串，纯异步，返回发送结果bool
   ```
-   
+  
 - ```csharp
   EmitToSocketIOServer(string ev, JSONObject data) //【socket-io服务端专属】调用服务端事件，并发送个JSON数据
   ```
-   
+  
 - ```csharp
   EmitToSocketIOServerAsync(string ev, JSONObject data, Action<bool> onComplete) //【socket-io服务端专属】调用服务端事件，并发送个JSON数据，异步并行，带发送结果回调
   ```
-   
+  
 - ```csharp
   async Task<bool> EmitToSocketIOServerAsync(string ev, JSONObject data) //【socket-io服务端专属】调用服务端事件，并发送个JSON数据，纯异步，返回发送结果bool
   ```
-   
+  
 - ```csharp
   EmitToSocketIOServer(string ev, JSONObject data, Action<JSONObject> action) //【socket-io服务端专属】调用服务端事件，发送JSON数据且包含回调
   ```
-   
+  
 - ```csharp
   EmitToSocketIOServerAsync(string ev, JSONObject data, Action<JSONObject> action, Action<bool> onComplete) //【socket-io服务端专属】调用服务端事件，发送JSON数据且包含回调，异步并行，带发送结果回调
   ```
-   
+  
 - ```csharp
   async Task<bool> EmitToSocketIOServerAsync(string ev, JSONObject data, Action<JSONObject> action) //【socket-io服务端专属】调用服务端事件，发送JSON数据且包含回调，纯异步，返回发送结果bool
   ```
@@ -149,7 +149,7 @@ JEngine针对WebSocket服务端编写的网络层
 ## Demo
 
 ### 服务端C#及SNodeJS的Demo
-[下载页面](sdk_down.html)，进去后选择下载服务端Demo即可
+[点击跳转](https://github.com/JasonXuDeveloper/JEngine-WebSocket-Server-Demo)
 
 ### Unity客户端使用Demo（热更工程）
 ```csharp

@@ -39,7 +39,7 @@ JEngine~~现已支持基于MonoBehaviour，却**更强大**的基类~~已经制�
    - ```Run``` => Init之后，参考```Start```
    - ```Loop``` => 频率循环事件，参考```Update```
    - ```End``` => 当脚本被销毁，参考```OnDestory```
-    
+   
 4. 注意：JBehaviour不推荐用gameObject.GetComponent获取，因为JBehaviour原理的缘故，真机这么操作无效，所以建议就用gameObject.GetJBehaviour获取
 
 
@@ -100,7 +100,7 @@ JEngine~~现已支持基于MonoBehaviour，却**更强大**的基类~~已经制�
 /// 该JBehaviour运行总时长
 /// </summary>
 public float TotalTime = 0;
-```
+  ```
 
 ```csharp
 /// <summary>
@@ -170,7 +170,7 @@ public JBehaviour Activate()
 ## 实例化
 
   - 创建实例（3种方法）
-    1. 直接在编辑器内使用ClassBind挂载脚本[参考这里](classbind.html)
+    1. 直接在编辑器内使用ClassBind挂载脚本[参考这里](./classbind.md)
     2. 使用JBehaviour的创造方法```JBehaviour.CreateOn<T>(GameObject gameObject, bool activeAfter = true) where T : JBehaviour```
     3. 直接```new()```，会创建以唯一实例ID命名的GameObject，并挂上该JBehaviour
   - 获取实例

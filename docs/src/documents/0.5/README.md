@@ -15,4 +15,4 @@ This version is no longer recommended, please use [other version](../)
 
 
 ### Documentation
-[Get Started →](./startup/)
+[Get Started →](./startup.md)

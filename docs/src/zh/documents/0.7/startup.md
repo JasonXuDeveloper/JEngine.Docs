@@ -43,6 +43,53 @@
 
 
 
+## 目录结构
+
+> 该结构是UnityProject目录内的结构
+
+#### Unity工程
+
+- **Assets** - Unity工程根目录
+  - **Dependencies** - JEngine用到的一些第三方插件，更新时替换该目录内相关的插件
+  - **HotUpdateResources** - 所有热更资源将存放在这里
+    - **AddOns** - 分包
+      - **AddOn1** - 分包1
+    - **Controller** - 动画
+    - **Dll** - 该目录存放热更代码
+    - **Material** - 材质
+    - **Prefab** - 预制体
+    - **Scene** - 场景
+    - **ScriptableObject** - Unity的可程序化物件
+    - **TextAsset** - 文本资源
+    - **UI** - 图片资源
+    - **Other** - 其他任意东西，只要能被加载的都可以丢在这里
+  - **Scripts** - 无法热更新的代码
+    - **InitJEngine.cs&LoadILRuntime.cs** - **十分重要**的文件，用于启动游戏，每次更新必须替换该2个文件
+    - **Helpers** - 助手类文件夹，包含ILRuntime注册代码
+    - **Adapters** - 适配器类文件夹，生成ILRuntime适配器后会创建此文件夹，包含ILRuntime的适配器，用于热更工程继承本地接口和类
+    - **APIs** - 往该文件夹里放您的代码
+  - **Init.unity** - 启动游戏的场景
+
+#### 生成目录
+
+- **Builds** - 生成的客户端可以放在这里
+
+#### 热更资源生成目录
+
+- **DLC** - 热更资源导出目录
+- **EncryptsAssets** - 加密热更资源导出目录
+
+#### 热更代码目录
+
+- **HotUpdateScripts** - 热更代码项目
+  - **Program.cs** - 启动游戏的代码, **你可以更改里面的东西，但请不要删除或更改该脚本的SetupGame和RunGame方法**
+  - **JEngine** - **请勿删除**，JEngine部分源码在里面，**每次更新覆盖该目录**
+    - **Examples** - JEngine的Demo源码
+
+
+
+
+
 ## 快速开始
 
 > 请按照以下顺序进行操作
@@ -50,18 +97,24 @@
 1. **[下载](#下载方式（非常重要）)该项目**
 2. 将项目的**UnityProject目录用Unity打开**
 3. 找到**HotUpdateResources/Scene**, 确保你能找到**Game.unity**，并且**HotUpdateResources/DLL/~Hidden文件夹中有生成的DLL文件（这个文件夹Unity内看不见）**
-4. 导入后不应该有报错，如果还有报错，请看[常见问题](./FAQ/)
+4. 导入后不应该有报错，如果还有报错，请看[常见问题](./FAQ.md)
 5. 无需进行任何修改，尝试在[不同的模式](#运行模式)运行自带的Demo，注意留意控制台
 6. 这个时候就可以打开热更工程了，也就是```path/to/JEngine/UnityProject/HotUpdateScripts```目录，用IDE（推荐vs或rider，因为vscode需要自己配dotnet build来编译）打开里面的sln文件
 7. 修改热更工程，例如在```Program.cs```的```RunGame```方法内加个Log
-8. 编译热更工程，如果出现问题（例如跳过），请看[常见问题](./FAQ/)
-9. 尝试[打包热更资源](./BuildAB/)
-10. 尝试打包游戏（APK、EXE等）
+8. 编译热更工程，如果出现问题（例如跳过），请看[常见问题](./FAQ.md)
+9. 尝试[打包热更资源](./BuildAB.md)
+10. 尝试打包游戏（APK、EXE等），注意[打包事项](#打包事项)
 11. **现在，运行游戏，即可体验热更功能！**
 
    > 到这里，您已经完成了热更游戏的第一步，恭喜！
 
 
+
+## 打包事项
+
+生成项目的时候，**为了避免冗余，请手动删除热更场景**（开发模式会自动将热更场景加入Build Settings）
+
+<img src="https://s1.ax1x.com/2020/07/20/Uhxcuj.jpg" alt="guide4" style="width:50%;margin-left:25%" />
 
 
 
@@ -80,7 +133,7 @@ JEngine可以使用三种模式运行游戏，分别是：开发模式，离线�
 
 2. 离线模式
 
-   1. 参考[打包热更资源](./BuildAB/)打出AB包
+   1. 参考[打包热更资源](./BuildAB.md)打出AB包
    2. 在Unity编辑器菜单栏选择Tools/BuildAsset/Copy资源到StreamingAssets
    3. 控制台输出复制成功后，进入Init场景，将```Updater```的```Mode```设置为```Local```
    4. 尝试运行游戏
@@ -88,7 +141,7 @@ JEngine可以使用三种模式运行游戏，分别是：开发模式，离线�
 
 3. 真机模式
 
-   1. 参考[打包热更资源](./BuildAB/)打出AB包
+   1. 参考[打包热更资源](./BuildAB.md)打出AB包
 
    2. 在资源服务器上创建DLC目录
 
