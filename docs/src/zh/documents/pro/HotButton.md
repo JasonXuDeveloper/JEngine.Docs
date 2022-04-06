@@ -8,6 +8,10 @@ JEngine Pro对Button做了扩充，使其支持在编辑器下添加热更事件
 2. 顶部菜单栏，```Component/Change To Hot Button```
 3. 完成
 
+## 给GameObject添加热更按钮
+
+照常在AddComponent的地方添加Button即可
+
 
 
 ## 编辑器截图
