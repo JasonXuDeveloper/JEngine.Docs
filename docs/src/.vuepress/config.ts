@@ -122,6 +122,7 @@ var bar = {
         children: [
             '/zh/documents/pro/HotReload',
             '/zh/documents/pro/ClassBind',
+            '/zh/documents/pro/HotButton',
             '/zh/documents/pro/ClassBindDependentEditor',
             '/zh/documents/pro/CustomRuntimeSerialization',
         ]
