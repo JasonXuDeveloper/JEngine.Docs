@@ -1,48 +1,55 @@
-# 编辑器下Button添加热更事件
+# Button热更事件
 
-ClassBind是JEngine的核心功能之一，在Pro版本内，框架对该功能做了巨大优化。
+JEngine Pro对Button做了扩充，使其支持在编辑器下添加热更事件，不需要通过代码注册。
 
-## 编辑器
+## 切换至热更按钮
 
-与开源版本的该功能进行对比，新的面板更加简洁便捷，大幅度提高了开发效率
-
-[<img src="https://z3.ax1x.com/2021/08/01/WxBqVf.png" alt="WxBqVf.png" style="zoom: 67%;" />](https://imgtu.com/i/WxBqVf)
-
-
-
-## 支持类型
-
-新的ClassBind，不仅包含了开源版所支持的类型，还包含了数组类型：
-
-- **Primitive Type List** 是基元类型的数组（或列表），泛指数字类型、字符串类型和布尔值类型
-- **Unity Object Type List** 是Unity类型的数组（或列表），泛指GameObject、Transform、主工程的MonoBehaviour脚本等基于UnityEngine.Object的类型实例。但与此同时，该类型也支持往其中拖拽使用ClassBind创建的非UnityEngine.Object的实例，拖入对应ClassBind的gameObject即可，底层会自动进行获取处理
-
-与此同时，需要注意的是Unity Component类型也可以获取ClassBind创建的非UnityEngine.Object的实例，底层会自动处理
+1. Unity编辑器下选中带有Button的GameObject
+2. 顶部菜单栏，```Component/Change To Hot Button```
+3. 完成
 
 
 
-## 自动匹配gameObject
+## 编辑器截图
 
-在Pro版本内，当fieldType为GameObject或UnityComponent时，可以一键自动匹配字段名所对应的gameObject，而无需手动拖拽。
-
-需要注意以下几点：
-
-- 只能自动匹配挂了ClassBind脚本的这个gameObject的子对象
-- 默认的正则匹配规则是_，例如Canvas挂了ClassBind，字段名是a_b，那么会自动匹配Canvas/a/b这个gameObject，该正则规则可以更改，在JEngine面板内可以进行更改
-- 框架提供了下划线和驼峰的匹配模式正则，只需要在面板对应部分进行填写即可，需要匹配规则和替换规则（不懂的就老老实实用框架提供的）
-- 如果正则匹配不成功，没有匹配到东西，就会进行递归子对象，若是匹配到与fieldName相等的子对象名称，则结束递归，给这个字段赋值该子对象
-
-该功能可以在2个地方调用：
-
-- ClassBind面板最底部
-- JEngine面板的ClassBind工具处
+[![qvJCa4.png](https://s1.ax1x.com/2022/04/06/qvJCa4.png)](https://imgtu.com/i/qvJCa4)
 
 
 
-## 运行时
+## 使用 
 
-对比开源版，运行时现在也支持序列化数组（或列表）了。
+- 非热更的按钮点击事件与常规Button一样，在OnClick下添加事件即可
+- 若要添加热更对象的方法作为点击事件，需要在下方HotEvents内新增一个元素，然后进行赋值
+  - ClassBind参数为创建热更对象的ClassBind脚本，想要给按钮添加热更对象的点击事件，该对象必须使用ClassBind创建
+  - ClassName为热更对象的类型，当为ClassBind参数赋值后，会弹出该ClassBind会创建的全部热更类型，选择需要进行调用方法的热更类型即可
+  - MethodName为该热更类型下的全部可以调用的方法，选择需要添加到点击事件的即可
+  - Parameters为调用该方法时传的参数（支持传多个），只支持非UnityObject类型（即支持bool/number/string）
 
-但需要注意的是，热更类型的数组（或列表），只支持序列化到面板，但不能通过拖拽等方式对其值进行修改（以后可能会支持拖拽用ClassBind创建热更实例的热更实例来更新数组/列表）
+## 参数类型
 
-[![WxDhwV.jpg](https://z3.ax1x.com/2021/08/01/WxDhwV.jpg)](https://imgtu.com/i/WxDhwV)
+- 数字类型直接写数字
+- 字符串类型直接写字符串
+- 布尔值写true或其他（不是true的情况下都当做false）
+- 其他类型暂不支持
+
+
+
+## 注意事项
+
+- 获取热更按钮可以使用```gameObject.GetComponent<Button>()```，这里的```Button```可以是```UnityEngine.UI.Button```也可以是```JEngine.Pro.Runtime.UI.Button```，没有区别
+
+- 方法参数需要按定义的顺序排序
+
+- 如果需要对方法传参，并且参数有默认值，需要分情况
+
+  ```csharp
+  public void Test(int a=10){/*...*/}
+  ```
+
+  这个情况下，可以不在编辑器面板下创建方法参数
+
+  ```csharp
+  public void Test(int a, string b = "111"){/*...*/}
+  ```
+
+  这个情况下，a必须传参，b可以不传参
