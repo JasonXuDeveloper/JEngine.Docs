@@ -51,7 +51,8 @@
 
 ## 生命周期
 
-```flow
+@flowstart
+
 st=>start: Start
 op=>operation: Your Operation
 cond=>condition: Yes or No?1
@@ -60,9 +61,8 @@ e=>end
 st->op->cond
 cond(yes)->e
 cond(no)->op
-```
 
-
+@flowend
 
 ## 目录结构
 
