@@ -47,34 +47,6 @@
 
 
 
-
-
-## 生命周期
-
-```flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?1
-e=>end
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
-
-```mermaid
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?1
-e=>end
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
-
-
-
 ## 目录结构
 
 > 该结构是UnityProject目录内的结构，非热更工程的目录结构都可以凭个人喜好决定是否遵守
