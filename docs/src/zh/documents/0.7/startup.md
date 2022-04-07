@@ -51,7 +51,6 @@
 
 ## 生命周期
 
-~~~gfm
 ```flow
 st=>start: Start
 op=>operation: Your Operation
@@ -62,7 +61,6 @@ st->op->cond
 cond(yes)->e
 cond(no)->op
 ```
-~~~
 
 
 
