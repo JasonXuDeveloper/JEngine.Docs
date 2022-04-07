@@ -541,11 +541,11 @@ export default defineUserConfig < DefaultThemeOptions > ({
   plugins: [
       '@vuepress/plugin-back-to-top',
       '@vuepress/plugin-medium-zoom',
-      "md-enhance",
-      {
-        flowchart: true,
-      },
       [
+            "md-enhance",
+            {
+            flowchart: true,
+            },
           '@vuepress/plugin-search',
           {
               locales: {
