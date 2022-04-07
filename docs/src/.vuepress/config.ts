@@ -542,12 +542,6 @@ export default defineUserConfig < DefaultThemeOptions > ({
       '@vuepress/plugin-back-to-top',
       '@vuepress/plugin-medium-zoom',
       [
-        "md-enhance",
-        {
-            flowchart: true,
-        },
-      ],
-      [
           '@vuepress/plugin-search',
           {
               locales: {
@@ -559,7 +553,13 @@ export default defineUserConfig < DefaultThemeOptions > ({
                   },
               },
           },
-      ]
+      ],
+      [
+        "md-enhance",
+        {
+            flowchart: true,
+        },
+      ],
   ],
 
 })
