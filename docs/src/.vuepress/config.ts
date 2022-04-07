@@ -541,7 +541,10 @@ export default defineUserConfig < DefaultThemeOptions > ({
   plugins: [
       '@vuepress/plugin-back-to-top',
       '@vuepress/plugin-medium-zoom',
-      '@vuepress/plugin-flowchart',
+      "md-enhance",
+      {
+        flowchart: true,
+      },
       [
           '@vuepress/plugin-search',
           {
