@@ -558,6 +558,38 @@ export default defineUserConfig < DefaultThemeOptions > ({
         "md-enhance",
         {
             flowchart: true,
+            locales:
+            {
+                /**
+                 * Default Title text for info block
+                 */
+                info: "",
+
+                /**
+                 * Default Title text for note block
+                 */
+                note: "",
+
+                /**
+                 * Default Title text for tip block
+                 */
+                tip: "",
+
+                /**
+                 * Default Title text for warning block
+                 */
+                warning: "",
+
+                /**
+                 * Default Title text for danger block
+                 */
+                danger: "",
+
+                /**
+                 * Default Title text for details block
+                 */
+                details: "",
+            }
         },
       ],
   ],
