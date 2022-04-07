@@ -544,10 +544,10 @@ export default defineUserConfig < DefaultThemeOptions > ({
       [
         '@maginapp/vuepress-plugin-flowchart',
         {
-          openMarker: '```flow',
-          closeMarker: '```',
-          scondMarker: 'flowchat',
-          ignoreSecondLine: false
+        //   openMarker: '```flow',
+        //   closeMarker: '```',
+        //   scondMarker: 'flowchat',
+        //   ignoreSecondLine: false
         }
       ],
       [
