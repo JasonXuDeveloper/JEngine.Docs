@@ -112,8 +112,6 @@ var bar = {
         collapsible: false,
         children: [
             '/zh/documents/pro/StartUp',
-            '/zh/documents/pro/BuildAB',
-            '/zh/documents/pro/FAQ',
         ]
       },
       {

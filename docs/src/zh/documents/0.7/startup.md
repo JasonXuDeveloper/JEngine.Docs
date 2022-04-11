@@ -47,6 +47,12 @@
 
 
 
+## 修改.Net版本
+
+在Unity的PlayerSetting下，将```API Compatibility Level``` 修改为```.NET 4.X ```即可
+
+
+
 ## 目录结构
 
 > 该结构是UnityProject目录内的结构，非热更工程的目录结构都可以凭个人喜好决定是否遵守
