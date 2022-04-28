@@ -540,28 +540,19 @@ export default defineUserConfig < DefaultThemeOptions > ({
   plugins: [
       '@vuepress/plugin-back-to-top',
       '@vuepress/plugin-medium-zoom',
-      [
-        '@maginapp/vuepress-plugin-flowchart',
-        {
-        //   openMarker: '```flow',
-        //   closeMarker: '```',
-        //   scondMarker: 'flowchat',
-        //   ignoreSecondLine: false
-        }
-      ],
-      [
-          '@vuepress/plugin-search',
-          {
-              locales: {
-                  '/': {
-                      placeholder: 'Search',
-                  },
-                  '/zh/': {
-                      placeholder: '搜索',
-                  },
-              },
-          },
-      ],
+    //   [
+    //       '@vuepress/plugin-search',
+    //       {
+    //           locales: {
+    //               '/': {
+    //                   placeholder: 'Search',
+    //               },
+    //               '/zh/': {
+    //                   placeholder: '搜索',
+    //               },
+    //           },
+    //       },
+    //   ],
       docsearchPlugin(
         {
             appId: 'JBM26KEULR',
