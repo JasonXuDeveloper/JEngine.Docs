@@ -1,6 +1,7 @@
 const {
   description
 } = require('../../package')
+const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
 import {
   defineUserConfig
 } from 'vuepress'
@@ -561,8 +562,7 @@ export default defineUserConfig < DefaultThemeOptions > ({
               },
           },
       ],
-      [
-        '@vuepress/plugin-docsearch',
+      docsearchPlugin(
         {
             appId: 'JBM26KEULR',
             apiKey: '50021a9511cb4aaf30ecbbb54de14f26',
@@ -585,8 +585,7 @@ export default defineUserConfig < DefaultThemeOptions > ({
                 },
                 },
             },
-        },
-      ],
+        }),
     ],
 
 })
