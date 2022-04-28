@@ -1,4 +1,4 @@
-import { Vuepress } from '@vuepress/client/lib/components/Vuepress'
+import { Vuepress } from '@vuepress/client'
 
 const routeItems = [
   ["v-8daa1a0e","/",{"title":"JEngine - The solution that allows unity games update in runtime."},["/index.html","/README.md"]],
@@ -131,8 +131,8 @@ export const pagesRoutes = routeItems.reduce(
   },
   [
     {
-      name: "404",
-      path: "/:catchAll(.*)",
+      name: '404',
+      path: '/:catchAll(.*)',
       component: Vuepress,
     }
   ]

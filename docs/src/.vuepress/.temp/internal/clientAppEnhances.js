@@ -2,8 +2,8 @@ import clientAppEnhance0 from '/www/wwwroot/GameDocs/docs/node_modules/@vuepress
 import clientAppEnhance1 from '/www/wwwroot/GameDocs/docs/node_modules/@vuepress/plugin-theme-data/lib/client/clientAppEnhance.js'
 import clientAppEnhance2 from '/www/wwwroot/GameDocs/docs/node_modules/@vuepress/theme-default/lib/client/clientAppEnhance.js'
 import clientAppEnhance3 from '/www/wwwroot/GameDocs/docs/node_modules/@vuepress/plugin-medium-zoom/lib/client/clientAppEnhance.js'
-import clientAppEnhance4 from '/www/wwwroot/GameDocs/docs/node_modules/@vuepress/plugin-search/lib/client/clientAppEnhance.js'
-import clientAppEnhance5 from '/www/wwwroot/GameDocs/docs/node_modules/@vuepress/plugin-docsearch/lib/client/clientAppEnhance.js'
+import clientAppEnhance4 from '/www/wwwroot/GameDocs/docs/node_modules/@vuepress/plugin-docsearch/lib/client/clientAppEnhance.js'
+import clientAppEnhance5 from '/www/wwwroot/GameDocs/docs/src/.vuepress/clientAppEnhance.js'
 
 export const clientAppEnhances = [
   clientAppEnhance0,

@@ -1,13 +1,11 @@
 const {
   description
 } = require('../../package')
+import { defineUserConfig } from 'vuepress'
 const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
-import {
-  defineUserConfig
-} from 'vuepress'
-import type {
-  DefaultThemeOptions
-} from 'vuepress'
+const { backToTopPlugin } = require('@vuepress/plugin-back-to-top')
+const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
+const { defaultTheme } = require('@vuepress/theme-default')
 
 var bar = {
   '/documents/': [{
@@ -350,7 +348,7 @@ var bar = {
   }, ],
 };
 
-export default defineUserConfig < DefaultThemeOptions > ({
+export default defineUserConfig  ({
   head: [
       ['link', {
           rel: 'manifest',
@@ -384,12 +382,7 @@ export default defineUserConfig < DefaultThemeOptions > ({
       }
   },
 
-  /**
-   * Theme configuration, here is the default theme configuration for VuePress.
-   *
-   * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-   */
-  themeConfig: {
+theme: defaultTheme({
       repo: 'https://github.com/JasonXuDeveloper/JEngine',
       // 假如你的文档仓库和项目本身不在一个仓库：
       docsRepo: 'https://github.com/JasonXuDeveloper/JEngine.Docs',
@@ -535,24 +528,13 @@ export default defineUserConfig < DefaultThemeOptions > ({
               ],
           }
       }
-  },
+  }),
 
   plugins: [
-      '@vuepress/plugin-back-to-top',
-      '@vuepress/plugin-medium-zoom',
-    //   [
-    //       '@vuepress/plugin-search',
-    //       {
-    //           locales: {
-    //               '/': {
-    //                   placeholder: 'Search',
-    //               },
-    //               '/zh/': {
-    //                   placeholder: '搜索',
-    //               },
-    //           },
-    //       },
-    //   ],
+      backToTopPlugin(),
+      mediumZoomPlugin({
+          // options
+        }),
       docsearchPlugin(
         {
             appId: 'JBM26KEULR',

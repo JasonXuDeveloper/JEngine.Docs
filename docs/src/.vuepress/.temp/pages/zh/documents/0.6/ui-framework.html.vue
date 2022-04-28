@@ -15,7 +15,7 @@
 </li>
 <li>
 <p>定义Prefab路径</p>
-<div class="language-C ext-C line-numbers-mode"><pre v-pre class="language-C"><code>public static string JTestViewPath = &quot;uiview_testView&quot;;
+<div class="language-C# ext-C# line-numbers-mode"><pre v-pre class="language-C#"><code>public static string JTestViewPath = &quot;uiview_testView&quot;;
 public static string JBtnViewPath = &quot;uiview_btnview&quot;;
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li>
 <li>
@@ -381,7 +381,7 @@ UIMgr<span class="token punctuation">.</span>Instance<span class="token punctuat
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 <li>
 <p>获取变换组件</p>
-<div class="language-C ext-C line-numbers-mode"><pre v-pre class="language-C"><code>RectTransform transform = UIUtility.Control(&quot;rect&quot;, Trans);
+<div class="language-C# ext-C# line-numbers-mode"><pre v-pre class="language-C#"><code>RectTransform transform = UIUtility.Control(&quot;rect&quot;, Trans);
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div></li>
 </ul>
 <h3 id="_2、绑定事件" tabindex="-1"><a class="header-anchor" href="#_2、绑定事件" aria-hidden="true">#</a> 2、绑定事件</h3>

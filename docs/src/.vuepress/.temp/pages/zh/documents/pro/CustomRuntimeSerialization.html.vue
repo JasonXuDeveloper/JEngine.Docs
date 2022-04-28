@@ -40,34 +40,34 @@
 </li>
 <li>
 <p>这里用序列化JsonData的例子来讲解</p>
-<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code><span class="token punctuation">[</span><span class="token function">SerializeTypeMethod</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-public <span class="token keyword">static</span> bool <span class="token function">SerializeJsonDataType</span><span class="token punctuation">(</span>AnimBool fadeGroup<span class="token punctuation">,</span> Type cType<span class="token punctuation">,</span> IType type<span class="token punctuation">,</span> ILTypeInstance instance<span class="token punctuation">,</span> string name<span class="token punctuation">,</span> object val<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>cType <span class="token operator">==</span> <span class="token keyword">typeof</span><span class="token punctuation">(</span>JsonData<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//可以折叠显示Json数据</span>
-  <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">!=</span> null<span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-      fadeGroup<span class="token punctuation">.</span>target <span class="token operator">=</span> EditorGUILayout<span class="token punctuation">.</span><span class="token function">Foldout</span><span class="token punctuation">(</span>fadeGroup<span class="token punctuation">.</span>target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> true<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>EditorGUILayout<span class="token punctuation">.</span><span class="token function">BeginFadeGroup</span><span class="token punctuation">(</span>fadeGroup<span class="token punctuation">.</span>faded<span class="token punctuation">)</span><span class="token punctuation">)</span>
-      <span class="token punctuation">{</span>
-        val <span class="token operator">=</span> EditorGUILayout<span class="token punctuation">.</span><span class="token function">TextArea</span><span class="token punctuation">(</span>
-          <span class="token punctuation">(</span><span class="token punctuation">(</span>JsonData<span class="token punctuation">)</span> val<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
+<div class="language-c# ext-c# line-numbers-mode"><pre v-pre class="language-c#"><code>[SerializeTypeMethod(4)]
+public static bool SerializeJsonDataType(AnimBool fadeGroup, Type cType, IType type, ILTypeInstance instance, string name, object val)
+{
+  if (cType == typeof(JsonData)) //可以折叠显示Json数据
+  {
+    if (val != null)
+    {
+      fadeGroup.target = EditorGUILayout.Foldout(fadeGroup.target, name, true);
+      if (EditorGUILayout.BeginFadeGroup(fadeGroup.faded))
+      {
+        val = EditorGUILayout.TextArea(
+          ((JsonData) val).ToString()
+        );
+      }
 
-      EditorGUILayout<span class="token punctuation">.</span><span class="token function">EndFadeGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      EditorGUILayout<span class="token punctuation">.</span><span class="token function">Space</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span>
-    <span class="token punctuation">{</span>
-      EditorGUILayout<span class="token punctuation">.</span><span class="token function">LabelField</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">"暂无值的JsonData"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+      EditorGUILayout.EndFadeGroup();
+      EditorGUILayout.Space();
+    }
+    else
+    {
+      EditorGUILayout.LabelField(name, &quot;暂无值的JsonData&quot;);
+    }
 
-    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+    return true;
+  }
 
-  <span class="token keyword">return</span> false<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+  return false;
+}
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div></li>
 <li>
 <p>这里序列化JsonData的权重是4，也就是说这个方法会在倒数第四次尝试序列化的时候被调用（就是说如果有个权重为5的方法成功序列化了该字段，那么就不会继续尝试序列化，意味着这个权重为4的方法不会被执行到）</p>
