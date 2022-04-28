@@ -7,7 +7,7 @@ export const themeData = {
   "logo": "/logo.png",
   "locales": {
     "/": {
-      "selectLanguageText": "Languages",
+      "selectLanguageText": "切换语言",
       "selectLanguageName": "English",
       "ariaLabel": "Languages",
       "editLinkText": "Edit this page on GitHub",
@@ -52,11 +52,117 @@ export const themeData = {
             ]
           }
         ],
+        "/zh/documents/0.7/": [
+          {
+            "text": "v0.7.x文档",
+            "collapsible": false,
+            "children": [
+              "/zh/documents/0.7/",
+              {
+                "text": "入门教程",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/0.7/startup",
+                  "/zh/documents/0.7/BuildAB",
+                  "/zh/documents/0.7/Updater",
+                  "/zh/documents/0.7/InitJEngine",
+                  "/zh/documents/0.7/FAQ",
+                  "/zh/documents/0.7/limits",
+                  {
+                    "text": "ILRuntime文档",
+                    "link": "https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html"
+                  }
+                ]
+              },
+              {
+                "text": "框架核心",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/0.7/ClassBind",
+                  "/zh/documents/0.7/AssetMgr",
+                  "/zh/documents/0.6/jbehaviour",
+                  "/zh/documents/0.6/jresource",
+                  "/zh/documents/0.6/jaction",
+                  "/zh/documents/0.6/jsaver",
+                  "/zh/documents/0.6/jevent",
+                  "/zh/documents/0.6/localization",
+                  "/zh/documents/0.6/crypto-struct",
+                  "/documents/0.6/gameobject-pool",
+                  "/zh/documents/0.6/ilruntime-tools",
+                  "/zh/documents/0.6/proto-tools",
+                  "/zh/documents/0.6/jengine-panel",
+                  "/zh/documents/0.6/bindable"
+                ]
+              },
+              {
+                "text": "UI框架",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/0.6/jui",
+                  {
+                    "text": "MetaJUI",
+                    "link": "https://github.com/Meta404Dev/MetaJUI"
+                  }
+                ]
+              },
+              {
+                "text": "额外插件",
+                "collapsible": false,
+                "children": [
+                  {
+                    "text": "Unity GUI Redis",
+                    "link": "https://github.com/JasonXuDeveloper/Unity-GUI-Redis"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "/zh/pro/": [
+          {
+            "text": "JEngine Pro",
+            "collapsible": false,
+            "children": [
+              "/zh/pro/",
+              "/zh/pro/price",
+              "/zh/pro/purchase",
+              "/zh/documents/pro/"
+            ]
+          }
+        ],
+        "/zh/documents/pro/": [
+          {
+            "text": "Pro最新版文档",
+            "collapsible": false,
+            "children": [
+              "/zh/documents/pro/",
+              {
+                "text": "快速上手",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/pro/StartUp"
+                ]
+              },
+              {
+                "text": "功能列表",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/pro/HotReload",
+                  "/zh/documents/pro/ClassBind",
+                  "/zh/documents/pro/HotButton",
+                  "/zh/documents/pro/ClassBindDependentEditor",
+                  "/zh/documents/pro/CustomRuntimeSerialization"
+                ]
+              }
+            ]
+          }
+        ],
         "/documents/0.6/": [
           {
             "text": "v0.6.x Documentation",
             "collapsible": false,
             "children": [
+              "/documents/0.6/",
               {
                 "text": "Get Started",
                 "collapsible": false,
@@ -116,6 +222,7 @@ export const themeData = {
             "text": "v0.6.x文档",
             "collapsible": false,
             "children": [
+              "/zh/documents/0.6/",
               {
                 "text": "入门教程",
                 "collapsible": false,
@@ -175,6 +282,7 @@ export const themeData = {
             "text": "v0.5.x Documentation",
             "collapsible": false,
             "children": [
+              "/documents/0.5/",
               {
                 "text": "Get Started",
                 "collapsible": false,
@@ -232,6 +340,7 @@ export const themeData = {
             "text": "v0.5.x文档",
             "collapsible": false,
             "children": [
+              "/zh/documents/0.5/",
               {
                 "text": "入门教程",
                 "collapsible": false,
@@ -295,6 +404,10 @@ export const themeData = {
           "link": "/documents/",
           "children": [
             {
+              "text": "Docs",
+              "link": "/documents/"
+            },
+            {
               "text": "0.7.x",
               "link": "/documents/0.7/"
             },
@@ -311,7 +424,7 @@ export const themeData = {
       ]
     },
     "/zh/": {
-      "selectLanguageText": "多语言",
+      "selectLanguageText": "Languages",
       "selectLanguageName": "简体中文",
       "editLinkText": "在 GitHub 上编辑此页",
       "serviceWorker": {
@@ -362,11 +475,117 @@ export const themeData = {
             ]
           }
         ],
+        "/zh/documents/0.7/": [
+          {
+            "text": "v0.7.x文档",
+            "collapsible": false,
+            "children": [
+              "/zh/documents/0.7/",
+              {
+                "text": "入门教程",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/0.7/startup",
+                  "/zh/documents/0.7/BuildAB",
+                  "/zh/documents/0.7/Updater",
+                  "/zh/documents/0.7/InitJEngine",
+                  "/zh/documents/0.7/FAQ",
+                  "/zh/documents/0.7/limits",
+                  {
+                    "text": "ILRuntime文档",
+                    "link": "https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html"
+                  }
+                ]
+              },
+              {
+                "text": "框架核心",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/0.7/ClassBind",
+                  "/zh/documents/0.7/AssetMgr",
+                  "/zh/documents/0.6/jbehaviour",
+                  "/zh/documents/0.6/jresource",
+                  "/zh/documents/0.6/jaction",
+                  "/zh/documents/0.6/jsaver",
+                  "/zh/documents/0.6/jevent",
+                  "/zh/documents/0.6/localization",
+                  "/zh/documents/0.6/crypto-struct",
+                  "/documents/0.6/gameobject-pool",
+                  "/zh/documents/0.6/ilruntime-tools",
+                  "/zh/documents/0.6/proto-tools",
+                  "/zh/documents/0.6/jengine-panel",
+                  "/zh/documents/0.6/bindable"
+                ]
+              },
+              {
+                "text": "UI框架",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/0.6/jui",
+                  {
+                    "text": "MetaJUI",
+                    "link": "https://github.com/Meta404Dev/MetaJUI"
+                  }
+                ]
+              },
+              {
+                "text": "额外插件",
+                "collapsible": false,
+                "children": [
+                  {
+                    "text": "Unity GUI Redis",
+                    "link": "https://github.com/JasonXuDeveloper/Unity-GUI-Redis"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "/zh/pro/": [
+          {
+            "text": "JEngine Pro",
+            "collapsible": false,
+            "children": [
+              "/zh/pro/",
+              "/zh/pro/price",
+              "/zh/pro/purchase",
+              "/zh/documents/pro/"
+            ]
+          }
+        ],
+        "/zh/documents/pro/": [
+          {
+            "text": "Pro最新版文档",
+            "collapsible": false,
+            "children": [
+              "/zh/documents/pro/",
+              {
+                "text": "快速上手",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/pro/StartUp"
+                ]
+              },
+              {
+                "text": "功能列表",
+                "collapsible": false,
+                "children": [
+                  "/zh/documents/pro/HotReload",
+                  "/zh/documents/pro/ClassBind",
+                  "/zh/documents/pro/HotButton",
+                  "/zh/documents/pro/ClassBindDependentEditor",
+                  "/zh/documents/pro/CustomRuntimeSerialization"
+                ]
+              }
+            ]
+          }
+        ],
         "/documents/0.6/": [
           {
             "text": "v0.6.x Documentation",
             "collapsible": false,
             "children": [
+              "/documents/0.6/",
               {
                 "text": "Get Started",
                 "collapsible": false,
@@ -426,6 +645,7 @@ export const themeData = {
             "text": "v0.6.x文档",
             "collapsible": false,
             "children": [
+              "/zh/documents/0.6/",
               {
                 "text": "入门教程",
                 "collapsible": false,
@@ -485,6 +705,7 @@ export const themeData = {
             "text": "v0.5.x Documentation",
             "collapsible": false,
             "children": [
+              "/documents/0.5/",
               {
                 "text": "Get Started",
                 "collapsible": false,
@@ -542,6 +763,7 @@ export const themeData = {
             "text": "v0.5.x文档",
             "collapsible": false,
             "children": [
+              "/zh/documents/0.5/",
               {
                 "text": "入门教程",
                 "collapsible": false,
@@ -605,6 +827,10 @@ export const themeData = {
           "link": "/zh/documents/",
           "children": [
             {
+              "text": "Docs",
+              "link": "/zh/documents/"
+            },
+            {
               "text": "0.7.x",
               "link": "/zh/documents/0.7/"
             },
@@ -615,6 +841,10 @@ export const themeData = {
             {
               "text": "0.5.x",
               "link": "/zh/documents/0.5/"
+            },
+            {
+              "text": "Pro",
+              "link": "/zh/documents/pro/"
             }
           ]
         },
@@ -636,16 +866,16 @@ export const themeData = {
           "text": "订阅版",
           "children": [
             {
-              "text": "介绍",
+              "text": "Pro",
               "link": "/zh/pro/"
             },
             {
               "text": "定价",
-              "link": "/zh/pro/price/"
+              "link": "/zh/pro/price"
             },
             {
               "text": "购买",
-              "link": "/zh/pro/puchase/"
+              "link": "/zh/pro/purchase"
             }
           ]
         }

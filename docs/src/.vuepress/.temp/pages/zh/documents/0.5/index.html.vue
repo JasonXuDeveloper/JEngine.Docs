@@ -1,7 +1,9 @@
-<template><h1 id="v0-5-x" tabindex="-1"><a class="header-anchor" href="#v0-5-x" aria-hidden="true">#</a> V0.5.x</h1>
+<template><h1 id="v0-5-x" tabindex="-1"><a class="header-anchor" href="#v0-5-x" aria-hidden="true">#</a> v0.5.x</h1>
 <div class="custom-container danger"><p class="custom-container-title">危险</p>
 <p>已不推荐使用该版本，建议使用<RouterLink to="/zh/documents/">其他版本</RouterLink></p>
 </div>
+<h3 id="仓库" tabindex="-1"><a class="header-anchor" href="#仓库" aria-hidden="true">#</a> 仓库</h3>
+<p><a href="https://github.com/JasonXuDeveloper/JEngine/tree/0.5.x" target="_blank" rel="noopener noreferrer">在GitHub查看 →<ExternalLinkIcon/></a></p>
 <h3 id="视频教程" tabindex="-1"><a class="header-anchor" href="#视频教程" aria-hidden="true">#</a> 视频教程</h3>
 <blockquote>
 <p>从零开始学习使用JEngine，包含v0.5系列大部分功能讲解、示范及使用</p>
@@ -83,5 +85,5 @@
 </tbody>
 </table>
 <h3 id="文档部分" tabindex="-1"><a class="header-anchor" href="#文档部分" aria-hidden="true">#</a> 文档部分</h3>
-<p><a href="./startup">开始阅读 →</a></p>
+<p><RouterLink to="/zh/documents/0.5/startup.html">开始阅读 →</RouterLink></p>
 </template>

@@ -1,15 +1,15 @@
 export const data = {
   "key": "v-2d0ad528",
   "path": "/zh/",
-  "title": "JEngine - 使Unity开发的游戏支持热更新的解决方案。",
+  "title": "JEngine - 使Unity开发的游戏支持热更新的解决方案",
   "lang": "zh-CN",
   "frontmatter": {
-    "title": "JEngine - 使Unity开发的游戏支持热更新的解决方案。",
+    "title": "JEngine - 使Unity开发的游戏支持热更新的解决方案",
     "home": true,
     "lang": "zh-CN",
     "heroImage": "/logo.png",
     "heroText": "JEngine",
-    "tagline": "使Unity开发的游戏支持热更新的解决方案。",
+    "tagline": "使Unity开发的游戏支持热更新的解决方案",
     "actions": [
       {
         "text": "快速开始 →",
@@ -20,7 +20,7 @@ export const data = {
     "features": [
       {
         "title": "易用",
-        "details": "针对Unity开发者设计的开箱即用的框架，轻松制作可以热更新的游戏。"
+        "details": "仅需下载并打开框架，就可以开始制作可热更新的游戏，无额外硬性要求。"
       },
       {
         "title": "强大",
@@ -28,7 +28,7 @@ export const data = {
       },
       {
         "title": "轻量",
-        "details": "仅需下载并打开框架，就可以开始制作自己的可热更新的游戏，无额外硬性要求。"
+        "details": "麻雀虽小五脏俱全，框架只有基础流程需强制遵循，其他功能可按需使用。"
       }
     ],
     "footer": "MIT Licensed | Copyright © 2020-present JasonXuDeveloper"
@@ -36,12 +36,12 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": 1646460712000,
+    "updatedTime": 1649679886000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 3
+        "commits": 6
       },
       {
         "name": "root",

@@ -120,7 +120,7 @@ config<span class="token punctuation">.</span>debug <span class="token operator"
 </ul>
 <h2 id="demo" tabindex="-1"><a class="header-anchor" href="#demo" aria-hidden="true">#</a> Demo</h2>
 <h3 id="服务端c-及snodejs的demo" tabindex="-1"><a class="header-anchor" href="#服务端c-及snodejs的demo" aria-hidden="true">#</a> 服务端C#及SNodeJS的Demo</h3>
-<p><RouterLink to="/documents/0.6/sdk_down.html">下载页面</RouterLink>，进去后选择下载服务端Demo即可</p>
+<p><a href="https://github.com/JasonXuDeveloper/JEngine-WebSocket-Server-Demo" target="_blank" rel="noopener noreferrer">点击跳转<ExternalLinkIcon/></a></p>
 <h3 id="unity客户端使用demo-热更工程" tabindex="-1"><a class="header-anchor" href="#unity客户端使用demo-热更工程" aria-hidden="true">#</a> Unity客户端使用Demo（热更工程）</h3>
 <div class="language-csharp ext-cs line-numbers-mode"><pre v-pre class="language-csharp"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JWebSocketDemo</span>
 <span class="token punctuation">{</span>

@@ -1,11 +1,17 @@
 export const data = {
   "key": "v-6f177d32",
   "path": "/documents/0.6/",
-  "title": "V0.6.x",
+  "title": "v0.6.x",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
   "headers": [
+    {
+      "level": 3,
+      "title": "Repo",
+      "slug": "repo",
+      "children": []
+    },
     {
       "level": 3,
       "title": "Documentation",
@@ -14,12 +20,12 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1646469954000,
+    "updatedTime": 1648950785000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 2
+        "commits": 6
       }
     ]
   },

@@ -97,6 +97,12 @@ export const pagesComponents = {
   "v-6f177cf4": defineAsyncComponent(() => import(/* webpackChunkName: "v-6f177cf4" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/documents/0.7/index.html.vue")),
   // path: /zh/documents/
   "v-446d879f": defineAsyncComponent(() => import(/* webpackChunkName: "v-446d879f" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/index.html.vue")),
+  // path: /zh/pro/
+  "v-5400a44a": defineAsyncComponent(() => import(/* webpackChunkName: "v-5400a44a" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/pro/index.html.vue")),
+  // path: /zh/pro/price.html
+  "v-f29d760c": defineAsyncComponent(() => import(/* webpackChunkName: "v-f29d760c" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/pro/price.html.vue")),
+  // path: /zh/pro/purchase.html
+  "v-39a6586e": defineAsyncComponent(() => import(/* webpackChunkName: "v-39a6586e" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/pro/purchase.html.vue")),
   // path: /zh/documents/0.5/
   "v-85adb592": defineAsyncComponent(() => import(/* webpackChunkName: "v-85adb592" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.5/index.html.vue")),
   // path: /zh/documents/0.5/bindable.html
@@ -181,8 +187,38 @@ export const pagesComponents = {
   "v-4a079a1c": defineAsyncComponent(() => import(/* webpackChunkName: "v-4a079a1c" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.6/structure.html.vue")),
   // path: /zh/documents/0.6/ui-framework.html
   "v-eb4f1944": defineAsyncComponent(() => import(/* webpackChunkName: "v-eb4f1944" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.6/ui-framework.html.vue")),
+  // path: /zh/documents/0.7/AssetMgr.html
+  "v-8d3f4d48": defineAsyncComponent(() => import(/* webpackChunkName: "v-8d3f4d48" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.7/AssetMgr.html.vue")),
+  // path: /zh/documents/0.7/BuildAB.html
+  "v-768fd93f": defineAsyncComponent(() => import(/* webpackChunkName: "v-768fd93f" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.7/BuildAB.html.vue")),
+  // path: /zh/documents/0.7/FAQ.html
+  "v-e31807d0": defineAsyncComponent(() => import(/* webpackChunkName: "v-e31807d0" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.7/FAQ.html.vue")),
+  // path: /zh/documents/0.7/InitJEngine.html
+  "v-5b8901d2": defineAsyncComponent(() => import(/* webpackChunkName: "v-5b8901d2" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.7/InitJEngine.html.vue")),
   // path: /zh/documents/0.7/
   "v-85adb516": defineAsyncComponent(() => import(/* webpackChunkName: "v-85adb516" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.7/index.html.vue")),
+  // path: /zh/documents/0.7/Updater.html
+  "v-3c4367c5": defineAsyncComponent(() => import(/* webpackChunkName: "v-3c4367c5" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.7/Updater.html.vue")),
+  // path: /zh/documents/0.7/classbind.html
+  "v-10faacf9": defineAsyncComponent(() => import(/* webpackChunkName: "v-10faacf9" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.7/classbind.html.vue")),
+  // path: /zh/documents/0.7/limits.html
+  "v-4eb1332c": defineAsyncComponent(() => import(/* webpackChunkName: "v-4eb1332c" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.7/limits.html.vue")),
+  // path: /zh/documents/0.7/startup.html
+  "v-855ebb1e": defineAsyncComponent(() => import(/* webpackChunkName: "v-855ebb1e" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/0.7/startup.html.vue")),
+  // path: /zh/documents/pro/ClassBind.html
+  "v-3633a1c5": defineAsyncComponent(() => import(/* webpackChunkName: "v-3633a1c5" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/pro/ClassBind.html.vue")),
+  // path: /zh/documents/pro/ClassBindDependentEditor.html
+  "v-e39c1e7e": defineAsyncComponent(() => import(/* webpackChunkName: "v-e39c1e7e" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/pro/ClassBindDependentEditor.html.vue")),
+  // path: /zh/documents/pro/CustomRuntimeSerialization.html
+  "v-26c802ef": defineAsyncComponent(() => import(/* webpackChunkName: "v-26c802ef" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/pro/CustomRuntimeSerialization.html.vue")),
+  // path: /zh/documents/pro/HotButton.html
+  "v-180ee3fb": defineAsyncComponent(() => import(/* webpackChunkName: "v-180ee3fb" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/pro/HotButton.html.vue")),
+  // path: /zh/documents/pro/HotReload.html
+  "v-fadc1c18": defineAsyncComponent(() => import(/* webpackChunkName: "v-fadc1c18" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/pro/HotReload.html.vue")),
+  // path: /zh/documents/pro/
+  "v-8571797e": defineAsyncComponent(() => import(/* webpackChunkName: "v-8571797e" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/pro/index.html.vue")),
+  // path: /zh/documents/pro/StartUp.html
+  "v-54cf4b86": defineAsyncComponent(() => import(/* webpackChunkName: "v-54cf4b86" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/zh/documents/pro/StartUp.html.vue")),
   // path: /404.html
   "v-3706649a": defineAsyncComponent(() => import(/* webpackChunkName: "v-3706649a" */"/www/wwwroot/GameDocs/docs/src/.vuepress/.temp/pages/404.html.vue")),
 }

@@ -8,30 +8,44 @@ export const data = {
   "headers": [
     {
       "level": 2,
-      "title": "Latest Version",
-      "slug": "latest-version",
-      "children": []
+      "title": "Stable Version",
+      "slug": "stable-version",
+      "children": [
+        {
+          "level": 3,
+          "title": "Latest Version",
+          "slug": "latest-version",
+          "children": []
+        }
+      ]
     },
     {
       "level": 2,
-      "title": "Version 0.6.x",
-      "slug": "version-0-6-x",
-      "children": []
-    },
-    {
-      "level": 2,
-      "title": "Version 0.5.x",
-      "slug": "version-0-5-x",
-      "children": []
+      "title": "Archive Versions",
+      "slug": "archive-versions",
+      "children": [
+        {
+          "level": 3,
+          "title": "Version 0.6.x",
+          "slug": "version-0-6-x",
+          "children": []
+        },
+        {
+          "level": 3,
+          "title": "Version 0.5.x",
+          "slug": "version-0-5-x",
+          "children": []
+        }
+      ]
     }
   ],
   "git": {
-    "updatedTime": 1646460712000,
+    "updatedTime": 1646524419000,
     "contributors": [
       {
         "name": "JasonXuDeveloper - 傑",
         "email": "jasonxudeveloper@gmail.com",
-        "commits": 3
+        "commits": 4
       },
       {
         "name": "root",

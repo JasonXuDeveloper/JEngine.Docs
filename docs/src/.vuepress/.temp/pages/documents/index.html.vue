@@ -12,7 +12,9 @@
 <blockquote>
 <p>Although the documentation supports English, most of the framework components and its integrated demo were still in Chinese.</p>
 </blockquote>
-<h2 id="latest-version" tabindex="-1"><a class="header-anchor" href="#latest-version" aria-hidden="true">#</a> <RouterLink to="/documents/0.7/">Latest Version</RouterLink> <Badge type="tip" text="v0.7.x" vertical="middle" /></h2>
+<h2 id="stable-version" tabindex="-1"><a class="header-anchor" href="#stable-version" aria-hidden="true">#</a> Stable Version</h2>
+<p>The version JEngine is currently maintaining and updating.</p>
+<h3 id="latest-version" tabindex="-1"><a class="header-anchor" href="#latest-version" aria-hidden="true">#</a> <RouterLink to="/documents/0.7/">Latest Version</RouterLink> <Badge type="tip" text="v0.7.x" vertical="middle" /></h3>
 <div class="custom-container tip"><p class="custom-container-title">TIP</p>
 <blockquote>
 <p>This version refers to the master branch of JEngine</p>
@@ -35,7 +37,9 @@
 </ul>
 <h4 id="get-started-→" tabindex="-1"><a class="header-anchor" href="#get-started-→" aria-hidden="true">#</a> <RouterLink to="/documents/0.7/">Get Started →</RouterLink></h4>
 </div>
-<h2 id="version-0-6-x" tabindex="-1"><a class="header-anchor" href="#version-0-6-x" aria-hidden="true">#</a> <RouterLink to="/documents/0.6/">Version 0.6.x</RouterLink> <Badge type="warning" text="v0.6.x" vertical="middle" /></h2>
+<h2 id="archive-versions" tabindex="-1"><a class="header-anchor" href="#archive-versions" aria-hidden="true">#</a> Archive Versions</h2>
+<p>Old JEngine versions, will not be updated or maintained, recommend to use the latest stable version.</p>
+<h3 id="version-0-6-x" tabindex="-1"><a class="header-anchor" href="#version-0-6-x" aria-hidden="true">#</a> <RouterLink to="/documents/0.6/">Version 0.6.x</RouterLink> <Badge type="warning" text="v0.6.x" vertical="middle" /></h3>
 <div class="custom-container warning"><p class="custom-container-title">WARNING</p>
 <blockquote>
 <p>This version refers to the branch '0.6.x' of JEngine</p>
@@ -43,7 +47,7 @@
 <p>Version 0.6.x is currently in being used by most commercial projects however it is no longer a LTS version, it is recommended to use the <RouterLink to="/documents/#latest-version">Latest Version</RouterLink> as this version will not be updated or maintained anymore.</p>
 <h4 id="get-started-→-1" tabindex="-1"><a class="header-anchor" href="#get-started-→-1" aria-hidden="true">#</a> <RouterLink to="/documents/0.6/">Get Started →</RouterLink></h4>
 </div>
-<h2 id="version-0-5-x" tabindex="-1"><a class="header-anchor" href="#version-0-5-x" aria-hidden="true">#</a> <RouterLink to="/documents/0.5/">Version 0.5.x</RouterLink> <Badge type="danger" text="v0.5.x" vertical="middle" /></h2>
+<h3 id="version-0-5-x" tabindex="-1"><a class="header-anchor" href="#version-0-5-x" aria-hidden="true">#</a> <RouterLink to="/documents/0.5/">Version 0.5.x</RouterLink> <Badge type="danger" text="v0.5.x" vertical="middle" /></h3>
 <div class="custom-container danger"><p class="custom-container-title">DANGER</p>
 <blockquote>
 <p>This version refers to the branch '0.5.x' of JEngine</p>

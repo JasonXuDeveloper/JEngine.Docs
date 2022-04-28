@@ -31,21 +31,35 @@ export const searchIndex = [
     "headers": [
       {
         "level": 2,
-        "title": "Latest Version",
-        "slug": "latest-version",
-        "children": []
+        "title": "Stable Version",
+        "slug": "stable-version",
+        "children": [
+          {
+            "level": 3,
+            "title": "Latest Version",
+            "slug": "latest-version",
+            "children": []
+          }
+        ]
       },
       {
         "level": 2,
-        "title": "Version 0.6.x",
-        "slug": "version-0-6-x",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Version 0.5.x",
-        "slug": "version-0-5-x",
-        "children": []
+        "title": "Archive Versions",
+        "slug": "archive-versions",
+        "children": [
+          {
+            "level": 3,
+            "title": "Version 0.6.x",
+            "slug": "version-0-6-x",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Version 0.5.x",
+            "slug": "version-0-5-x",
+            "children": []
+          }
+        ]
       }
     ],
     "path": "/documents/",
@@ -53,15 +67,21 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "JEngine - 使Unity开发的游戏支持热更新的解决方案。",
+    "title": "JEngine - 使Unity开发的游戏支持热更新的解决方案",
     "headers": [],
     "path": "/zh/",
     "pathLocale": "/zh/",
     "extraFields": []
   },
   {
-    "title": "V0.5.x",
+    "title": "v0.5.x",
     "headers": [
+      {
+        "level": 3,
+        "title": "Repo",
+        "slug": "repo",
+        "children": []
+      },
       {
         "level": 3,
         "title": "Documentation",
@@ -176,8 +196,27 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "GameObject对象池",
-    "headers": [],
+    "title": "JGameObject对象池",
+    "headers": [
+      {
+        "level": 2,
+        "title": "命名空间",
+        "slug": "命名空间",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "使用",
+        "slug": "使用",
+        "children": []
+      }
+    ],
     "path": "/documents/0.5/gameobject-pool.html",
     "pathLocale": "/",
     "extraFields": []
@@ -666,8 +705,14 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "V0.6.x",
+    "title": "v0.6.x",
     "headers": [
+      {
+        "level": 3,
+        "title": "Repo",
+        "slug": "repo",
+        "children": []
+      },
       {
         "level": 3,
         "title": "Documentation",
@@ -795,8 +840,27 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "GameObject对象池",
-    "headers": [],
+    "title": "JGameObject对象池",
+    "headers": [
+      {
+        "level": 2,
+        "title": "命名空间",
+        "slug": "命名空间",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "使用",
+        "slug": "使用",
+        "children": []
+      }
+    ],
     "path": "/documents/0.6/gameobject-pool.html",
     "pathLocale": "/",
     "extraFields": []
@@ -1522,8 +1586,15 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "V0.7.x",
-    "headers": [],
+    "title": "v0.7.x",
+    "headers": [
+      {
+        "level": 3,
+        "title": "Repo",
+        "slug": "repo",
+        "children": []
+      }
+    ],
     "path": "/documents/0.7/",
     "pathLocale": "/",
     "extraFields": []
@@ -1533,21 +1604,41 @@ export const searchIndex = [
     "headers": [
       {
         "level": 2,
-        "title": "最新版本",
-        "slug": "最新版本",
-        "children": []
+        "title": "稳定版本",
+        "slug": "稳定版本",
+        "children": [
+          {
+            "level": 3,
+            "title": "最新版本",
+            "slug": "最新版本",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "专业版本",
+            "slug": "专业版本",
+            "children": []
+          }
+        ]
       },
       {
         "level": 2,
-        "title": "0.6.x版本",
-        "slug": "_0-6-x版本",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "0.5.x版本",
-        "slug": "_0-5-x版本",
-        "children": []
+        "title": "历史版本",
+        "slug": "历史版本",
+        "children": [
+          {
+            "level": 3,
+            "title": "0.6.x版本",
+            "slug": "_0-6-x版本",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "0.5.x版本",
+            "slug": "_0-5-x版本",
+            "children": []
+          }
+        ]
       }
     ],
     "path": "/zh/documents/",
@@ -1555,8 +1646,48 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "V0.5.x",
+    "title": "JEngine Pro",
     "headers": [
+      {
+        "level": 3,
+        "title": "服务内容",
+        "slug": "服务内容",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "购买须知",
+        "slug": "购买须知",
+        "children": []
+      }
+    ],
+    "path": "/zh/pro/",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "定价",
+    "headers": [],
+    "path": "/zh/pro/price.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "购买",
+    "headers": [],
+    "path": "/zh/pro/purchase.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "v0.5.x",
+    "headers": [
+      {
+        "level": 3,
+        "title": "仓库",
+        "slug": "仓库",
+        "children": []
+      },
       {
         "level": 3,
         "title": "视频教程",
@@ -1683,8 +1814,27 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "GameObject对象池",
-    "headers": [],
+    "title": "JGameObject对象池",
+    "headers": [
+      {
+        "level": 2,
+        "title": "命名空间",
+        "slug": "命名空间",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "使用",
+        "slug": "使用",
+        "children": []
+      }
+    ],
     "path": "/zh/documents/0.5/gameobject-pool.html",
     "pathLocale": "/zh/",
     "extraFields": []
@@ -2173,8 +2323,14 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "V0.6.x",
+    "title": "v0.6.x",
     "headers": [
+      {
+        "level": 3,
+        "title": "仓库",
+        "slug": "仓库",
+        "children": []
+      },
       {
         "level": 3,
         "title": "视频教程",
@@ -2308,8 +2464,27 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "GameObject对象池",
-    "headers": [],
+    "title": "JGameObject对象池",
+    "headers": [
+      {
+        "level": 2,
+        "title": "命名空间",
+        "slug": "命名空间",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "使用",
+        "slug": "使用",
+        "children": []
+      }
+    ],
     "path": "/zh/documents/0.6/gameobject-pool.html",
     "pathLocale": "/zh/",
     "extraFields": []
@@ -3035,9 +3210,544 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "V0.7.x",
-    "headers": [],
+    "title": "AssetMgr",
+    "headers": [
+      {
+        "level": 3,
+        "title": "使用接口",
+        "slug": "使用接口",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "BPath",
+        "slug": "bpath",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/0.7/AssetMgr.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "打包热更资源",
+    "headers": [
+      {
+        "level": 3,
+        "title": "开始之前",
+        "slug": "开始之前",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "创建分包",
+        "slug": "创建分包",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "配置打包",
+        "slug": "配置打包",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "打包资源",
+        "slug": "打包资源",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "其他工具",
+        "slug": "其他工具",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/0.7/BuildAB.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "常见问题一览",
+    "headers": [
+      {
+        "level": 3,
+        "title": "热更工程无法打开",
+        "slug": "热更工程无法打开",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "生成热更工程DLL跳过",
+        "slug": "生成热更工程dll跳过",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "生成热更工程后游戏没热更",
+        "slug": "生成热更工程后游戏没热更",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "Cannot find XXX for: YYY",
+        "slug": "cannot-find-xxx-for-yyy",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "没找到这个资源的handler",
+        "slug": "没找到这个资源的handler",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "生成的适配器有报错",
+        "slug": "生成的适配器有报错",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "热更工程没办法使用ScriptableObject",
+        "slug": "热更工程没办法使用scriptableobject",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "热更工程没办法继承IPointerXXXX",
+        "slug": "热更工程没办法继承ipointerxxxx",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "热更工程没办法使用编辑器代码或使用了不生效",
+        "slug": "热更工程没办法使用编辑器代码或使用了不生效",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "热更工程没办法使用主工程Plugins内的代码",
+        "slug": "热更工程没办法使用主工程plugins内的代码",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "热更工程没办法使用主工程内的代码",
+        "slug": "热更工程没办法使用主工程内的代码",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "热更工程没办法使用主工程Asmdef内的代码",
+        "slug": "热更工程没办法使用主工程asmdef内的代码",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "热更工程部分Unity类型不存在",
+        "slug": "热更工程部分unity类型不存在",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": ".Net Framework4.6.1 安装不上",
+        "slug": "net-framework4-6-1-安装不上",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "DOTween无法使用",
+        "slug": "dotween无法使用",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/0.7/FAQ.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "InitJEngine使用",
+    "headers": [
+      {
+        "level": 3,
+        "title": "编辑器配置",
+        "slug": "编辑器配置",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/0.7/InitJEngine.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "v0.7.x",
+    "headers": [
+      {
+        "level": 3,
+        "title": "仓库",
+        "slug": "仓库",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "更新须知",
+        "slug": "更新须知",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "文档部分",
+        "slug": "文档部分",
+        "children": []
+      }
+    ],
     "path": "/zh/documents/0.7/",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "Updater使用",
+    "headers": [
+      {
+        "level": 3,
+        "title": "编辑器下配置",
+        "slug": "编辑器下配置",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "使用",
+        "slug": "使用",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "接口",
+        "slug": "接口",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/0.7/Updater.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "ClassBind",
+    "headers": [
+      {
+        "level": 2,
+        "title": "强大之处",
+        "slug": "强大之处",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "应用场景",
+        "slug": "应用场景",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "使用方法",
+        "slug": "使用方法",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参数介绍",
+        "slug": "参数介绍",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小工具",
+        "slug": "小工具",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "注意事项",
+        "slug": "注意事项",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/0.7/classbind.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "ILRuntime限制",
+    "headers": [
+      {
+        "level": 2,
+        "title": "针对ILRuntime环境下的建议",
+        "slug": "针对ilruntime环境下的建议",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "不能进行的骚操作",
+        "slug": "不能进行的骚操作",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/0.7/limits.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "开始使用",
+    "headers": [
+      {
+        "level": 2,
+        "title": "开发环境",
+        "slug": "开发环境",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "下载方式-非常重要",
+        "slug": "下载方式-非常重要",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "修改.Net版本",
+        "slug": "修改-net版本",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "目录结构",
+        "slug": "目录结构",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "快速开始",
+        "slug": "快速开始",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "打包事项",
+        "slug": "打包事项",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "运行模式",
+        "slug": "运行模式",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/0.7/startup.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "新ClassBind",
+    "headers": [
+      {
+        "level": 2,
+        "title": "编辑器",
+        "slug": "编辑器",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "支持类型",
+        "slug": "支持类型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "自动匹配gameObject",
+        "slug": "自动匹配gameobject",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "运行时",
+        "slug": "运行时",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/pro/ClassBind.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "ClassBind依赖编辑器",
+    "headers": [
+      {
+        "level": 2,
+        "title": "打开面板",
+        "slug": "打开面板",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "分析依赖",
+        "slug": "分析依赖",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/pro/ClassBindDependentEditor.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "自定义热更类型运行时面板序列化",
+    "headers": [
+      {
+        "level": 2,
+        "title": "运行时面板",
+        "slug": "运行时面板",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "编写扩展序列化方法",
+        "slug": "编写扩展序列化方法",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "忠告",
+        "slug": "忠告",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/pro/CustomRuntimeSerialization.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "Button热更事件",
+    "headers": [
+      {
+        "level": 2,
+        "title": "切换至热更按钮",
+        "slug": "切换至热更按钮",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "给GameObject添加热更按钮",
+        "slug": "给gameobject添加热更按钮",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "编辑器截图",
+        "slug": "编辑器截图",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "使用",
+        "slug": "使用",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参数类型",
+        "slug": "参数类型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "注意事项",
+        "slug": "注意事项",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/pro/HotButton.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "热重载",
+    "headers": [
+      {
+        "level": 2,
+        "title": "概念",
+        "slug": "概念",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "使用",
+        "slug": "使用",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/pro/HotReload.html",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "Pro v1.2",
+    "headers": [
+      {
+        "level": 3,
+        "title": "介绍",
+        "slug": "介绍",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "仓库",
+        "slug": "仓库",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "开始使用",
+        "slug": "开始使用",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/pro/",
+    "pathLocale": "/zh/",
+    "extraFields": []
+  },
+  {
+    "title": "开始使用",
+    "headers": [
+      {
+        "level": 3,
+        "title": "要求",
+        "slug": "要求",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "下载",
+        "slug": "下载",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "更新",
+        "slug": "更新",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "使用",
+        "slug": "使用",
+        "children": []
+      },
+      {
+        "level": 3,
+        "title": "加载热更资源",
+        "slug": "加载热更资源",
+        "children": []
+      }
+    ],
+    "path": "/zh/documents/pro/StartUp.html",
     "pathLocale": "/zh/",
     "extraFields": []
   },
