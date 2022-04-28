@@ -561,6 +561,32 @@ export default defineUserConfig < DefaultThemeOptions > ({
               },
           },
       ],
+      [
+        '@vuepress/plugin-docsearch',
+        {
+            appId: 'JBM26KEULR',
+            apiKey: '50021a9511cb4aaf30ecbbb54de14f26',
+            indexName: 'xgamedev',
+            locales: {
+                '/': {
+                placeholder: 'Search Documentation',
+                translations: {
+                    button: {
+                    buttonText: 'Search Documentation',
+                    },
+                },
+                },
+                '/zh/': {
+                placeholder: '搜索文档',
+                translations: {
+                    button: {
+                    buttonText: '搜索文档',
+                    },
+                },
+                },
+            },
+        },
+      ],
     ],
 
 })
