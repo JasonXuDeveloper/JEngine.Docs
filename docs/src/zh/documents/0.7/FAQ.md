@@ -71,6 +71,26 @@ JEngine是用Mac开发的，Win下编译DLL有可能需要重新配置
 
 
 
+### 热更场景光照贴图丢失
+
+::: tip
+
+#### 原因
+
+Unity把光照贴图用到的Shader变体给裁了
+
+#### 解决方案
+
+Project Setting -> Graphics -> Shader Stripping -> Lightmap Modes
+
+选择Custom，全打钩，打ab，出包，解决。
+
+![OJkfdH.png](https://s1.ax1x.com/2022/05/09/OJkfdH.png)
+
+:::
+
+
+
 ### Cannot find XXX for: **YYY**
 
 ::: tip
@@ -293,39 +313,39 @@ ScriptableObject需要在主工程定义，里面的字段无法热更，只能�
 
 **1、导入DoTween**
 
-[<img src="https://s1.ax1x.com/2020/11/07/BINzo6.png" alt="BINzo6.png" style="zoom:50%;" />](https://imgchr.com/i/BINzo6)
+<img src="https://s1.ax1x.com/2020/11/07/BINzo6.png" alt="BINzo6.png" style="zoom:50%;" />
 
 **2、拷贝Dll文件到HotFix的Dlls目录下**
 
-[<img src="https://s1.ax1x.com/2020/11/07/BIwh1U.png" alt="BIwh1U.png" style="zoom:50%;" />](https://imgchr.com/i/BIwh1U)
+<img src="https://s1.ax1x.com/2020/11/07/BIwh1U.png" alt="BIwh1U.png" style="zoom:50%;" />
 
-[<img src="https://s1.ax1x.com/2020/11/07/BIwonJ.png" alt="BIwonJ.png" style="zoom:50%;" />](https://imgchr.com/i/BIwonJ)
+<img src="https://s1.ax1x.com/2020/11/07/BIwonJ.png" alt="BIwonJ.png" style="zoom:50%;" />
 
-[<img src="https://s1.ax1x.com/2020/11/07/BIwLh6.png" alt="BIwLh6.png" style="zoom:50%;" />](https://imgchr.com/i/BIwLh6)
+<img src="https://s1.ax1x.com/2020/11/07/BIwLh6.png" alt="BIwLh6.png" style="zoom:50%;" />
 
-[<img src="https://s1.ax1x.com/2020/11/07/BIwX9K.png" alt="BIwX9K.png" style="zoom:50%;" />](https://imgchr.com/i/BIwX9K)
+<img src="https://s1.ax1x.com/2020/11/07/BIwX9K.png" alt="BIwX9K.png" style="zoom:50%;" />
 
-[<img src="https://s1.ax1x.com/2020/11/07/BIwj1O.png" alt="BIwj1O.png" style="zoom:50%;" />](https://imgchr.com/i/BIwj1O)
+<img src="https://s1.ax1x.com/2020/11/07/BIwj1O.png" alt="BIwj1O.png" style="zoom:50%;" />
 
-[<img src="https://s1.ax1x.com/2020/11/07/BIwvcD.png" alt="BIwvcD.png" style="zoom:50%;" />](https://imgchr.com/i/BIwvcD)
+<img src="https://s1.ax1x.com/2020/11/07/BIwvcD.png" alt="BIwvcD.png" style="zoom:50%;" />
 
 **3、引入dll文件到HotFix工程中**
 
-[<img src="https://s1.ax1x.com/2020/11/07/BIwTB9.png" alt="BIwTB9.png" style="zoom:50%;" />](https://imgchr.com/i/BIwTB9)
+<img src="https://s1.ax1x.com/2020/11/07/BIwTB9.png" alt="BIwTB9.png" style="zoom:50%;" />
 
-[<img src="https://s1.ax1x.com/2020/11/07/BIwqtx.png" alt="BIwqtx.png" style="zoom:50%;" />](https://imgchr.com/i/BIwqtx)
+<img src="https://s1.ax1x.com/2020/11/07/BIwqtx.png" alt="BIwqtx.png" style="zoom:50%;" />
 
-[<img src="https://s1.ax1x.com/2020/11/07/BI0SnH.png" alt="BI0SnH.png" style="zoom:50%;" />](https://imgchr.com/i/BI0SnH)
+<img src="https://s1.ax1x.com/2020/11/07/BI0SnH.png" alt="BI0SnH.png" style="zoom:50%;" />
 
-[<img src="https://s1.ax1x.com/2020/11/07/BIwxje.png" alt="BIwxje.png" style="zoom:50%;" />](https://imgchr.com/i/BIwxje)
+<img src="https://s1.ax1x.com/2020/11/07/BIwxje.png" alt="BIwxje.png" style="zoom:50%;" />
 
-[<img src="https://s1.ax1x.com/2020/11/07/BI0pBd.png" alt="BI0pBd.png" style="zoom:50%;" />](https://imgchr.com/i/BI0pBd)
+<img src="https://s1.ax1x.com/2020/11/07/BI0pBd.png" alt="BI0pBd.png" style="zoom:50%;" />
 
 **4、使用DoTween**
 
-[<img src="https://s1.ax1x.com/2020/11/07/BI09HA.png" alt="BI09HA.png" style="zoom:50%;" />](https://imgchr.com/i/BI09HA)
+<img src="https://s1.ax1x.com/2020/11/07/BI09HA.png" alt="BI09HA.png" style="zoom:50%;" />
 
-[<img src="https://s1.ax1x.com/2020/11/07/BI0PAI.png" alt="BI0PAI.png" style="zoom:50%;" />](https://imgchr.com/i/BI0PAI)
+<img src="https://s1.ax1x.com/2020/11/07/BI0PAI.png" alt="BI0PAI.png" style="zoom:50%;" />
 
 
 > 如果还有其他特殊情况，可以在JEngine群里求助，也可以联系QQ：275757115（L-Fone）
