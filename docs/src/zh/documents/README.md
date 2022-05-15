@@ -40,6 +40,19 @@ JEngine目前正在维护的版本
   -  JAction
   -  JBehaviour
 
+#### V0.7.2更新日志
+
+- Bug**修复**
+- **优化**底层
+- **优化**周期
+- **更新**ETTask
+- **优化**JAction
+- **优化**JBehaviour
+- **优化**Unity**报错堆栈**
+- **热更**包支持**黑名单**功能
+- 新Protobuf**序列化Demo**
+- **更新**Protobuf-net魔改版**插件**
+
 #### [快速开始 →](/zh/documents/0.7/)
 
 :::
