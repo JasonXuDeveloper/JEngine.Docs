@@ -39,6 +39,7 @@ var bar = {
             collapsible: false,
             children: [
                 '/zh/documents/0.7/startup',
+                '/zh/documents/0.7/Update',
                 '/zh/documents/0.7/BuildAB',
                 '/zh/documents/0.7/Updater',
                 '/zh/documents/0.7/InitJEngine',
