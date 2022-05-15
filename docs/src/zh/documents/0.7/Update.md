@@ -8,6 +8,18 @@
 
 
 
+#### 注意事项
+
+::: danger
+
+记得做好备份再更新，以便出现问题的时候还原
+
+如果修改过框架源码，推荐使用GitHub之类的来管理，可以直接看到文件差异
+
+:::
+
+
+
 #### 框架源码
 
 建议直接把```JEngine/UnityProject/Assets/Dependencies/```内全部子目录替换为同路径目录
@@ -29,3 +41,4 @@
 #### 热更代码
 
 建议直接把```JEngine/UnityProject/HotUpdateScripts/JEngine/```目录替换为最新的同路径目录
+
