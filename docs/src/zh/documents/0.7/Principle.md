@@ -271,7 +271,7 @@ private void SetStackTracesString(Exception exception, string value)
 
 使用ILRuntime库对DLL内的IL指令进行解释执行，实现代码热更
 
-#### 创建沙盒Appdomain
+#### 进入热更代码
 
 1. 根据是否使用JIT（参考ILRuntime文档），实例化了ILRuntime的AppDomain
 2. 获取dll和pdb（如果有的话）的二进制
@@ -280,25 +280,24 @@ private void SetStackTracesString(Exception exception, string value)
 5. 根据是否有pdb去让ILRuntime的AppDomain来LoadAssembly（加载程序集）
 6. 如果加载失败，并且开了pdb，大概率是没pdb（或不合法pdb）导致的，所以讲使用pdb选项关了后从步骤1重新开始
 
-#### 初始化AppDomain
+1. 初始化AppDomain
+2. 编辑器下开启调试服务
+3. 对这个AppDomain进行各种注册，使得匿名委托等功能能正常使用：
 
-1. 编辑器下开启调试服务
+```csharp
+RegisterCrossBindingAdaptorHelper.HelperRegister(appdomain);
+RegisterCLRMethodRedirectionHelper.HelperRegister(appdomain);
+RegisterMethodDelegateHelper.HelperRegister(appdomain);
+RegisterFunctionDelegateHelper.HelperRegister(appdomain);
+RegisterDelegateConvertorHelper.HelperRegister(appdomain);
+RegisterLitJsonHelper.HelperRegister(appdomain);
+RegisterValueTypeBinderHelper.HelperRegister(appdomain);
+```
 
-2. 对这个AppDomain进行各种注册，使得匿名委托等功能能正常使用：
+4. 注册第三方序列化库的重定向，使这些库能正常运行
 
-   ```csharp
-   RegisterCrossBindingAdaptorHelper.HelperRegister(appdomain);
-   RegisterCLRMethodRedirectionHelper.HelperRegister(appdomain);
-   RegisterMethodDelegateHelper.HelperRegister(appdomain);
-   RegisterFunctionDelegateHelper.HelperRegister(appdomain);
-   RegisterDelegateConvertorHelper.HelperRegister(appdomain);
-   RegisterLitJsonHelper.HelperRegister(appdomain);
-   RegisterValueTypeBinderHelper.HelperRegister(appdomain);
-   ```
-
-3. 注册第三方序列化库的重定向，使这些库能正常运行
-
-4. 注册CLR绑定（如果有生成的话）
-
-
-
+5. 注册CLR绑定（如果有生成的话）
+6. 调用热更工程SetUpGame周期（用于初始化数据之类的，考虑到ClassBind创建的对象的Awake等函数可能会调用一些数据，这个周期就是用于提前生成数据让ClassBind对象创建后能正常访问这些数据用的）
+7. 激活场景内全部ClassBind（使用ClassBindMgr进行全局ClassBind的对象创建、赋值、调用Awake）
+8. 调用热更工程RunGame周期（ClassBind周期后，用于开始游戏，如打开初始化模块、登录面板等操作）
+9. 调用主工程HotUpdateLoadedHelper.Init周期（如果需要反射访问热更工程的类、方法等，这个周期是最合适的）
