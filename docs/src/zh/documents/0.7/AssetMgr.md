@@ -1,4 +1,6 @@
-# AssetMgr
+# 资源（场景）加载助手
+
+## AssetMgr
 
 AssetMgr是JEngine封装的加载热更资源/场景的工具
 

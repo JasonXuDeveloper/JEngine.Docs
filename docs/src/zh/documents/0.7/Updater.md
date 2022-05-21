@@ -1,4 +1,6 @@
-# Updater使用
+# 游戏内容热更工具
+
+## Updater使用
 
 ::: tip
 

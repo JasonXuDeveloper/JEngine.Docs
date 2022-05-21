@@ -1,4 +1,6 @@
-# ClassBind
+# 对象绑定工具
+
+## ClassBind
 
 有的时候，我们会将代码挂到GameObject上（包括Prefab），然而，如果一个GameObject会包含很多热更脚本，一个个手动AddComponent再去赋值太浪费时间，于是就有了自动绑定工具
 
