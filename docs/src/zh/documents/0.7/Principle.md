@@ -119,3 +119,186 @@ AssetBundle的平台若于运行平台不对应，可能会造成Shader丢失（
 非开发模式时请确保出包（例如打APK时），BuildSetting内不包含热更场景，不然会导致被打入游戏主包的场景无法热更
 
 :::
+
+
+
+### 热更功能初始化
+
+在进入热更场景后，会初始化热更相关的代码
+
+#### 初始化堆栈定位模块
+
+通过重写了Unity的Debug部分的Logger，将报错时Unity会打印报错到Console的方法进行了替换，替换后，实现了：
+
+- 能定位到热更代码报错的堆栈（包括异步）
+- 精简化堆栈信息（使用Ben.Demystifier库）
+
+具体实现参考如下：
+
+```csharp
+public void LogException(Exception exception, Object context)
+{
+  if (logEnabled)
+  {
+    exception = exception.Demystify();
+    var d = exception.Data["StackTrace"];
+    if (d != null)
+    {
+      string s = GetAllExceptionStackTrace(exception);
+      //能反射就反射
+      if (_stackTraceString != null)
+      {
+        SetStackTracesString(exception,
+                             $"==========ILRuntime StackTrace==========\n{s}\n\n==========Normal StackTrace=========\n{exception.StackTrace}");
+      }
+      //不能反射就额外打个Log
+      else
+      {
+        Debug.LogError($"下面的报错的额外信息：\n==========ILRuntime StackTrace==========\n{s}");
+      }
+    }
+    logHandler.LogException(exception, context);
+  }
+}
+
+/// <summary>
+/// 获取全部堆栈信息
+/// </summary>
+/// <param name="exception"></param>
+/// <returns></returns>
+private string GetAllExceptionStackTrace(Exception exception)
+{
+  Exception temp = exception;
+  List<Exception> all = new List<Exception>();
+  int depth = 20;//深度20层
+  while (depth-- > 0 && temp != null && temp.Data["StackTrace"] != null)
+  {
+    all.Add(temp);
+    temp = temp != exception.InnerException ? exception.InnerException : null;//inner是自己就好退出了
+  }
+  //把最底层的放最外面
+  all.Reverse();
+  return string.Join("\n\n", all.Select(e => e.Data["StackTrace"]).ToList().FindAll(s => s != null));
+}
+        
+private readonly FieldInfo _stackTraceString = typeof (Exception).GetField("_stackTraceString", BindingFlags.Instance | BindingFlags.NonPublic);
+
+private void SetStackTracesString(Exception exception, string value)
+{
+  if (_stackTraceString != null)
+  {
+    _stackTraceString.SetValue((object)exception, (object)value);
+  }
+}
+```
+
+#### 给ETTask注册报错回调
+
+> 本框架使用了ET框架的ETTask作为一个依赖库（资源管理库依赖）
+
+为了让ETTask的内部报错准确定位，将ETTask的报错注册了```UnityEngine.Debug.LogException```事件，实际上因为上面已经替换了```UnityEngine.Debug.LogException```，所以实际上是定位到了重新实现的精确定位堆栈的方法内
+
+
+
+### 初始化生命周期管理器
+
+::: tip
+
+自0.7.2版本后，JEngine推出了LifeCycleMgr这一利器用于统一管理/优化全部热更的MonoBehaviour/JBehaviour/通过ClassBind创建的一切对象，的生命周期
+
+:::
+
+#### 优势
+
+- 统一管理事件，并且严格遵循Unity生命周期
+
+  - 如果对象A注册了Awake、Start、OnEnble、Update、LateUpdate事件，对象B注册了Start、FixedUpdate、Update事件，则：
+
+    第一帧的时候会调用A的Awake，不会调用B的任何事件（因为这里B其实注册了一个空的Awake事件）
+
+    第二帧的时候会调用A的OnEnable，不会调用B的任何事件（因为B这里也默认注册了空的OnEnable，这样才能让它继续等）
+
+    第三帧的时候会调用A和B的Start，因为它俩都注册了这个周期
+
+    第四帧的时候回调用B的FixedUpdate，不会调用A的任何事件（与上面提到的同理，A默认注册了空的FixedUpdate用于占位）
+
+    第五帧的时候调用A和B的Update，因为他俩都注册了这个事件
+
+    第六帧的时候调用B的LateUpdate，不会调用A的任何事件（理由如上）
+
+    > 综上所述，LifeCycleMgr严格无误的遵循了Unity的生命周期
+
+- 高性能
+
+  - 如果有1000个MonoBehaviour或ClassBind创建的对象，则会造成Unity底层要调用1000个不同MonoBehaviour的对应方法，造成大量性能浪费（可以自行搜索相关研究，这也是为什么要大量对象的时候推荐用ECS的原因）
+  - 但是通过将全部事件在Awake时注册到LifeCycleMgr，不去定义这些多余的方法（```Start```、```OnEnable```、```FixedUpdate```、```Update```、```LateUpdate```），就可以避免Unity底层去调用这些方法，而一并在LifeCycleMgr内进行调用派发
+  - LifeCycleMgr内有很多个```HashSet```，用于管理每个需要派发的方法，在FixedUpdate内进行判断去进行统一事件管理（如上所述），本质上Unity底层只需要调用LifeCycleMgr，就能调用到全部注册到其内部的事件，性能可以大幅度提升（相当于ECS架构的System的对应事件被统一管理调用）
+
+- 无侵入
+
+  - 因为是通过结合ILRuntime底层（适配器）原理实现的，热更工程内可以照常继承MonoBehaviour，无需任何修改，在运行时会自动进行这种性能优化
+  - ClassBind创建的对象同理，照常在热更工程写代码，创建出来后如果需要Awake也会通过LifeCycleMgr进行统一管理
+
+#### 如何实现的
+
+因为ILRuntime跨域继承在适配器内需要通过反射去反射热更工程定义的派生类的对应方法，于是LifeCycleMgr在这些对象的Awake事件的时候收集了这些MethodInfo及其实例进行了统一派发：
+
+- MonoBehaviour派生类
+  - 通过JEngine工具生成的适配器内部会把```Awake```、```Start```、```OnEnable```、```FixedUpdate```、```Update```、```LateUpdate```方法注册到LifeCycleMgr内
+- ClassBind创建的非MonoBehaviour对象
+  - 非JBehaviour
+    - 通过```ClassBindNonMonoBehaviourAdapter```创建挂到GameObject上的适配器，内含创建的热更对象的实例，并且根据ClassBind上是否勾选Awake，去判断是否把该热更对象内部定义的```Awake```方法注册到LifeCycleMgr内
+  - JBehaviour
+    - 通过```ClassBindNonMonoBehaviourAdapter```创建挂到GameObject上的适配器，内含创建的热更对象的实例，并且根据ClassBind上是否勾选Awake，去判断是否把该热更对象内部定义的```Awake```方法注册到LifeCycleMgr内
+    - 同时还会调用其内部定义的```Check```方法用于初始化该对象
+    - 最后还会为该对象注册```OnEnable```和```OnStart```事件到LifeCycleMgr
+
+派发时，会在LifeCycleMgr的FixedUpdate内进行判断：
+
+- 遵循Unity的生命周期顺序（```Awake```、```Start```、```OnEnable```、```FixedUpdate```、```Update```、```LateUpdate```）进行调用
+- 如果一个实例在同一帧执行过其他周期（哪怕是空的占位周期），则跳过在本帧调用该实例其他周期
+- 如果一个实例在同一帧没有执行过任何更提前的周期了，则调用这个MethodInfo（如果是空的占位周期则跳过）
+
+#### 注意事项
+
+不建议自行对LifeCycleMgr的接口进行任何调用（即自行注册各种函数）
+
+如果一定需要这么做，请确保不要被重复注册，并且需要用反射取MethodInfo
+
+
+
+### 加载热更DLL
+
+使用ILRuntime库对DLL内的IL指令进行解释执行，实现代码热更
+
+#### 创建沙盒Appdomain
+
+1. 根据是否使用JIT（参考ILRuntime文档），实例化了ILRuntime的AppDomain
+2. 获取dll和pdb（如果有的话）的二进制
+3. 将dll的二进制转JStream，实现分块解密执行，高性能高安全级别防DLL的源码被盗
+4. 将pdb的二进制转MemoryStream
+5. 根据是否有pdb去让ILRuntime的AppDomain来LoadAssembly（加载程序集）
+6. 如果加载失败，并且开了pdb，大概率是没pdb（或不合法pdb）导致的，所以讲使用pdb选项关了后从步骤1重新开始
+
+#### 初始化AppDomain
+
+1. 编辑器下开启调试服务
+
+2. 对这个AppDomain进行各种注册，使得匿名委托等功能能正常使用：
+
+   ```csharp
+   RegisterCrossBindingAdaptorHelper.HelperRegister(appdomain);
+   RegisterCLRMethodRedirectionHelper.HelperRegister(appdomain);
+   RegisterMethodDelegateHelper.HelperRegister(appdomain);
+   RegisterFunctionDelegateHelper.HelperRegister(appdomain);
+   RegisterDelegateConvertorHelper.HelperRegister(appdomain);
+   RegisterLitJsonHelper.HelperRegister(appdomain);
+   RegisterValueTypeBinderHelper.HelperRegister(appdomain);
+   ```
+
+3. 注册第三方序列化库的重定向，使这些库能正常运行
+
+4. 注册CLR绑定（如果有生成的话）
+
+
+
