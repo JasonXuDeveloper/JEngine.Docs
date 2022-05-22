@@ -57,6 +57,7 @@ var bar = {
             collapsible: false,
             children: [
                 '/zh/documents/0.7/JEnginePanel',
+                '/zh/documents/0.7/JValidation',
                 '/zh/documents/0.7/CryptoStruct',
                 '/zh/documents/0.7/Extension',
                 '/zh/documents/0.7/ClassBind',
@@ -65,12 +66,12 @@ var bar = {
                 '/zh/documents/0.7/JBehaviour',
                 '/zh/documents/0.7/JSaver',
                 '/zh/documents/0.6/jevent',
-                '/zh/documents/0.6/localization',
                 '/zh/documents/0.6/ilruntime-tools',
                 '/zh/documents/0.6/proto-tools',
                 '/zh/documents/0.6/bindable',
                 '/zh/documents/0.7/JPrefab',
                 '/zh/documents/0.7/JGameObjectPool',
+                '/zh/documents/0.7/Localization',
             ]
         },
         {
