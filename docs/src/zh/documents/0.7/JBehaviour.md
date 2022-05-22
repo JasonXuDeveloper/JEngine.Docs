@@ -70,12 +70,11 @@ JBehaviour有以下优势：
 
 ### 创建JBehaviour
 
-有4种方法：
+有3种方法：
 
 1. 直接在编辑器内使用ClassBind挂载脚本[参考这里](./ClassBind.md)
 2. 使用JBehaviour的创造方法```JBehaviour.CreateOn<T>(GameObject gameObject, bool activeAfter = true) where T : JBehaviour```
 3. 直接使用[扩展方法](./Extension.md)创建：```gameObject.CreateJBehaviour<T>()```
-4. 直接```new()```，会创建以唯一实例ID命名的GameObject，并挂上该JBehaviour
 
 ### 获取JBehaviour
 
@@ -237,5 +236,45 @@ public JBehaviour Resume()
 /// </summary>
 /// <returns></returns>
 public JBehaviour Activate()
+```
+
+
+
+### 使用示范
+
+```csharp
+public static void RunGame()
+{
+  new GameObject("JBehaviourTest").CreateJBehaviour<Demo>();
+}
+
+public class Demo : JBehaviour
+{
+  public override void Init()
+  {
+    Log.Print("Inited");
+    gameObject.SetActive(true);
+  }
+  public override void OnShow()
+  {
+    Log.Print("Show");
+  }
+  public override void OnHide()
+  {
+    Log.Print("Hide");
+    gameObject.SetActive(true);
+  }
+  public override void Run()
+  {
+    Log.Print("Run");
+    gameObject.SetActive(false);
+    Frequency = 100;
+    FrameMode = true;
+  }
+  public override void Loop()
+  {
+    Log.Print($"Loop {LoopCounts} times, last time took {LoopDeltaTime}ms");
+  }
+}
 ```
 
