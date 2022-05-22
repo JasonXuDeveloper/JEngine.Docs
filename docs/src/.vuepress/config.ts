@@ -86,7 +86,7 @@ var bar = {
             text: 'UI框架',
             collapsible: false,
             children: [
-                '/zh/documents/0.6/jui',
+                '/zh/documents/0.7/Jui',
                 {
                     text: 'MetaJUI',
                     link: 'https://github.com/Meta404Dev/MetaJUI'
