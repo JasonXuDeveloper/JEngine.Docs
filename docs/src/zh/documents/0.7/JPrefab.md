@@ -218,15 +218,22 @@ public void Dispose()
 ### 使用示范
 
 ```csharp
-var prefab = new JPrefab("Assets/HotUpdateResources/Prefab/InstantiateDemo.prefab", true);
-await prefab.WaitForAsyncLoading();
-prefab.Instantiate("demo1");
-var prefab2 = new JPrefab("Assets/HotUpdateResources/Prefab/InstantiateDemo.prefab", (result, prefab)=>{
-  if(!result){
-    Debug.Log("资源没出来");
-    return;
-  }
-  prefab.Instantiate("demo2");
-});
+public async static void RunGame()
+{
+  var prefab = new JPrefab("Assets/HotUpdateResources/Prefab/InstantiateDemo.prefab", true);
+  await prefab.WaitForAsyncLoading();
+  prefab.Instantiate("demo1");
+  var prefab2 = new JPrefab("Assets/HotUpdateResources/Prefab/InstantiateDemo.prefab", (result, prefab2) => {
+    if (!result)
+    {
+      Debug.Log("资源没出来");
+      return;
+    }
+    prefab2.Instantiate("demo2");
+    Debug.Log(string.Join(",", prefab2.InstantiatedGameObjects.Select(go => go.name)));
+    prefab.Dispose();
+    prefab2.DestroyAllInstantiatedObjects();
+  });
+}
 ```
 
