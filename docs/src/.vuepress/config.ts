@@ -66,10 +66,10 @@ var bar = {
                 '/zh/documents/0.6/jsaver',
                 '/zh/documents/0.6/jevent',
                 '/zh/documents/0.6/localization',
-                '/documents/0.6/gameobject-pool',
                 '/zh/documents/0.6/ilruntime-tools',
                 '/zh/documents/0.6/proto-tools',
                 '/zh/documents/0.6/bindable',
+                '/documents/0.7/JGameObjectPool',
             ]
         },
         {
