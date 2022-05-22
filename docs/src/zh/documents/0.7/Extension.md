@@ -1,4 +1,4 @@
-# 扩展工具
+# 扩展方法工具
 
 JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngine/Core/Tool```，热更工程```HotUpdateScripts/JEngine/UI/JUIExtensions.cs```内，以及热更工程```HotUpdateScripts/JEngine/Core/JExtensions.cs```内
 
@@ -325,7 +325,6 @@ JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngi
   public static Outline outline(this Transform x, string name)
   ```
 
-  
 - 获取transform的Shadow组件
 
   ```csharp
@@ -338,7 +337,6 @@ JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngi
   public static Shadow shadow(this Transform x, string name)
   ```
 
-  
 - 获取transform的Image组件
 
   ```csharp
@@ -364,7 +362,6 @@ JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngi
   public static RectTransform rect(this Transform x, string name)
   ```
 
-  
 - 获取transform的RawImage组件
 
   ```csharp
@@ -377,7 +374,6 @@ JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngi
   public static RawImage rawImg(this Transform x, string name)
   ```
 
-  
 - 获取transform的Slider组件
 
   ```csharp
@@ -390,7 +386,6 @@ JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngi
   public static Slider slider(this Transform x, string name)
   ```
 
-  
 - 获取transform的Toggle组件
 
   ```csharp
@@ -403,7 +398,6 @@ JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngi
   public static Toggle toggle(this Transform x, string name)
   ```
 
-  
 - 获取transform的Scrollbar组件
 
   ```csharp
@@ -416,7 +410,6 @@ JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngi
   public static Scrollbar scrollbar(this Transform x, string name)
   ```
 
-  
 - 获取transform的Dropdown组件
 
   ```csharp
@@ -429,7 +422,6 @@ JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngi
   public static Dropdown dropdown(this Transform x, string name)
   ```
 
-  
 - 获取transform的InputField组件
 
   ```csharp
@@ -442,7 +434,6 @@ JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngi
   public static InputField input(this Transform x, string name)
   ```
 
-  
 - 获取transform的Canvas组件
 
   ```csharp

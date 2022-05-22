@@ -12,7 +12,7 @@
 
 ### 更新须知
 
-- 从```0.7.1```开始，```JResource```已被剔除，老项目升级后请在热更工程批量将```JResource.XXX```提交为```AssetMgr.XXX```使用
+- 从```0.7.1```开始，```JResource```已被剔除，老项目升级后请在热更工程批量将```JResource.XXX```替换为```AssetMgr.XXX```使用
 
 
 

@@ -2,7 +2,7 @@
 
 JEngine是一个于2020年7月15日初次提交的Unity框架。大约每年会进行一次大版本更新。
 
-目前有超过30家企业使用JEngine制作商业项目，同时有数百位游戏开发者（或工作室）使用JEngine开发独立游戏。
+目前有超过50家企业使用JEngine制作商业项目，同时有数百位游戏开发者（或工作室）使用JEngine开发独立游戏。
 
 <ul style="list-style:none;padding:0">
   <li style="display:inline-block">

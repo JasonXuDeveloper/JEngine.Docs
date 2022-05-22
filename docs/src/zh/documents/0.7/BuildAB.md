@@ -50,6 +50,35 @@ JEngine修改了Bundle Master的代码，使其变得更简单易用，
 
 
 
+### 场景资源
+
+::: tip
+
+需要在```Assets/Dependencies/BundleMaster/Editor/BundleMasterEditor/BuildSettings```内找到```AssetLoadSetting```进行配置
+
+:::
+
+1. 把需要自动收集的场景的根目录配进去就好，打热更包时会自动查找根目录内全部场景资源
+
+
+
+
+
+### 黑名单
+
+::: tip
+
+需要在```Assets/Dependencies/BundleMaster/Editor/BundleMasterEditor/BuildSettings```内找到```AssetLoadSetting```进行配置
+
+:::
+
+1. 黑名单文件是一个列表，可以把需要屏蔽的文件名写进去，打热更包时会自动忽略这些文件
+2. 黑名单后缀是一个列表，可以把需要屏蔽的后缀名写进去，打热更包时会自动忽略这些后缀的文件
+
+
+
+
+
 ### 打包资源
 
 请在Unity菜单栏选择：
