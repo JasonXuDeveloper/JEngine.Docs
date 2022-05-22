@@ -77,6 +77,8 @@ public JPrefab(string path, Action<bool, JPrefab> complete = null)
 public JPrefab(string path,string package, Action<bool, JPrefab> complete = null)
 ```
 
+这里默认都是异步的
+
 path是资源路径，需要全路径，可以不带.prefab后缀
 
 package是热更资源所属的分包，传null就是主包，或者传其他包的包名

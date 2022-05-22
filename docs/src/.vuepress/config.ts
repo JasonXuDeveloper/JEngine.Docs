@@ -63,7 +63,7 @@ var bar = {
                 '/zh/documents/0.7/AssetMgr',
                 '/zh/documents/0.7/Jaction',
                 '/zh/documents/0.7/JBehaviour',
-                '/zh/documents/0.6/jsaver',
+                '/zh/documents/0.7/JSaver',
                 '/zh/documents/0.6/jevent',
                 '/zh/documents/0.6/localization',
                 '/zh/documents/0.6/ilruntime-tools',
