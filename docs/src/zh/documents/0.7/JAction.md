@@ -8,7 +8,7 @@ JAction是一个队列任务解决方案，可以更好的对队列任务进行�
 
 比如想要某个函数一直等待到角色死亡，然后显示保存数据，等待2秒后再更新UI，常规写法：
 
-```c#
+```csharp
 while(!player.dead)
 {
   await Task.Delay(1000);//或者yield return new WaitForSecond(1)等做法等待
