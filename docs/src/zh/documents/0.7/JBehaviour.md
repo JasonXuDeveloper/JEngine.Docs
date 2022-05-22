@@ -4,6 +4,8 @@
 
 JBehaviour是MonoBehaviour的平替方案，如果只需要在固定频率循环执行某件事情，完全可以使用继承JBehaviour代替继承MonoBehaviour
 
+::: tip
+
 JBehaviour有以下优势：
 
 - 主线程执行
@@ -12,6 +14,8 @@ JBehaviour有以下优势：
 - 以异步代替Update，节约开销
 - 更可控的循环，可以调整循环模式和频率
 - 对比热更内继承MonoBehaviour，更少GC，性能更强，执行更快
+
+:::
 
 
 

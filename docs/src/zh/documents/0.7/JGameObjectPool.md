@@ -4,11 +4,15 @@
 
 JGameObjectPool是一个GameObject对象池
 
-> JGameObjectPool能干什么？
->
-> - 创建GameObject
-> - 从池内取GameObject
-> - 灵活使用优化性能
+::: tip
+
+JGameObjectPool能干什么？
+
+- 创建GameObject
+- 从池内取GameObject
+- 灵活使用优化性能
+
+:::
 
 
 
