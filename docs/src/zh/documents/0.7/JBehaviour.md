@@ -25,7 +25,7 @@ JBehaviour有以下优势：
 
 ### 使用
 
-1. 在您的热更工程里，引入以下命名空间：
+1. 引入以下命名空间：
 
    ```csharp
    using JEngine.Core;
