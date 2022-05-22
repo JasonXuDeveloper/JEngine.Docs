@@ -1,6 +1,6 @@
 # 扩展工具
 
-JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngine/Core/Tool```以及热更工程```HotUpdateScripts/JEngine/Core/JExtensions.cs```内
+JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngine/Core/Tool```，热更工程```HotUpdateScripts/JEngine/UI/JUIExtensions.cs```内，以及热更工程```HotUpdateScripts/JEngine/Core/JExtensions.cs```内
 
 [[toc]]
 
@@ -276,6 +276,183 @@ JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngi
 
   ```csharp
   public static void Remove(this JUI jUI)
+  ```
+
+  
+
+## UI扩展工具
+
+- 颜色hex编码转颜色类
+
+  ```csharp
+  public static Color ToColor(this string hex)
+  ```
+
+- 获取transform的Text组件
+
+  ```csharp
+  public static Text txt(this Transform x)
+  ```
+
+- 获取transfrom指定路径的Text组件
+
+  ```csharp
+  public static Text txt(this Transform x, string name)
+  ```
+
+
+- 获取transform的Button组件
+
+  ```csharp
+  public static Button btn(this Transform x)
+  ```
+
+- 获取transfrom指定路径的Button组件
+
+  ```csharp
+  public static Button btn(this Transform x, string name)
+  ```
+
+- 获取transform的Outline组件
+
+  ```csharp
+  public static Outline outline(this Transform x)
+  ```
+
+- 获取transfrom指定路径的Outline组件
+
+  ```csharp
+  public static Outline outline(this Transform x, string name)
+  ```
+
+  
+- 获取transform的Shadow组件
+
+  ```csharp
+  public static Shadow shadow(this Transform x)
+  ```
+
+- 获取transfrom指定路径的Shadow组件
+
+  ```csharp
+  public static Shadow shadow(this Transform x, string name)
+  ```
+
+  
+- 获取transform的Image组件
+
+  ```csharp
+  public static Image img(this Transform x)
+  ```
+
+- 获取transfrom指定路径的Image组件
+
+  ```csharp
+  public static Image img(this Transform x, string name)
+  ```
+
+
+- 获取transform的RectTransform组件
+
+  ```csharp
+  public static RectTransform rect(this Transform x)
+  ```
+
+- 获取transfrom指定路径的RectTransform组件
+
+  ```csharp
+  public static RectTransform rect(this Transform x, string name)
+  ```
+
+  
+- 获取transform的RawImage组件
+
+  ```csharp
+  public static RawImage rawImg(this Transform x)
+  ```
+
+- 获取transfrom指定路径的RawImage组件
+
+  ```csharp
+  public static RawImage rawImg(this Transform x, string name)
+  ```
+
+  
+- 获取transform的Slider组件
+
+  ```csharp
+  public static Slider slider(this Transform x)
+  ```
+
+- 获取transfrom指定路径的Slider组件
+
+  ```csharp
+  public static Slider slider(this Transform x, string name)
+  ```
+
+  
+- 获取transform的Toggle组件
+
+  ```csharp
+  public static Toggle toggle(this Transform x)
+  ```
+
+- 获取transfrom指定路径的Toggle组件
+
+  ```csharp
+  public static Toggle toggle(this Transform x, string name)
+  ```
+
+  
+- 获取transform的Scrollbar组件
+
+  ```csharp
+  public static Scrollbar scrollbar(this Transform x)
+  ```
+
+- 获取transfrom指定路径的Scrollbar组件
+
+  ```csharp
+  public static Scrollbar scrollbar(this Transform x, string name)
+  ```
+
+  
+- 获取transform的Dropdown组件
+
+  ```csharp
+  public static Dropdown dropdown(this Transform x)
+  ```
+
+- 获取transfrom指定路径的Dropdown组件
+
+  ```csharp
+  public static Dropdown dropdown(this Transform x, string name)
+  ```
+
+  
+- 获取transform的InputField组件
+
+  ```csharp
+  public static InputField input(this Transform x)
+  ```
+
+- 获取transfrom指定路径的InputField组件
+
+  ```csharp
+  public static InputField input(this Transform x, string name)
+  ```
+
+  
+- 获取transform的Canvas组件
+
+  ```csharp
+  public static Canvas canvas(this Transform x)
+  ```
+
+- 获取transfrom指定路径的Canvas组件
+
+  ```csharp
+  public static Canvas canvas(this Transform x, string name)
   ```
 
   
