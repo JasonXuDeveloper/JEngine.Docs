@@ -228,7 +228,7 @@ JUIText t = JUI.CreateOn(GameObject.Find("Canvas/Text"))
 
 ::: tip
 
-也可以直接参考JEngine自带的JUI Demo
+也可以直接参考JEngine自带的JUIExample
 
 :::
 
