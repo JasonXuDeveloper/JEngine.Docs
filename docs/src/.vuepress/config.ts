@@ -72,6 +72,7 @@ var bar = {
                 '/zh/documents/0.7/StringifyHelper',
                 '/zh/documents/0.7/JGameObjectPool',
                 '/zh/documents/0.7/Localization',
+                '/zh/documents/0.7/JWebSocket',
             ]
         },
         {
@@ -83,7 +84,7 @@ var bar = {
             ]
         },
         {
-            text: 'UI框架',
+            text: 'UI功能',
             collapsible: false,
             children: [
                 '/zh/documents/0.7/Jui',
