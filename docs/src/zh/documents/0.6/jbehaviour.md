@@ -33,7 +33,7 @@ JEngine~~现已支持基于MonoBehaviour，却**更强大**的基类~~已经制�
    }
    ```
 
-3. **JBehaviour**有四个可overrdie方法
+3. **JBehaviour**有四个可override方法
 
    - ```Init``` => 当类被添加到GameObject，可以参考```Awake```
    - ```Run``` => Init之后，参考```Start```

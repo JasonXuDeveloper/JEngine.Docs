@@ -12,15 +12,15 @@
 
 [[toc]]
 
-### 流程图
+## 流程图
 
 ![flowchart](https://s1.ax1x.com/2022/05/21/OvnMVJ.png)
 
-### 初始化热更资源
+## 初始化热更资源
 
 在游戏启动后，需要初始化热更资源才能进入游戏
 
-#### 使用编辑器资源
+### 使用编辑器资源
 
 在开发模式下，全部的资源会通过Unity的
 
@@ -78,7 +78,7 @@ AssetDatabase.LoadAssetAtPath<T>(assetPath);
 
 
 
-#### 使用StreamingAssets内热更资源
+### 使用StreamingAssets内热更资源
 
 在本地模式下，只要StreamingAssets内有打包好的热更资源，那么就会直接读取这些资源（不会访问资源服），同时这里面的资源不会被解压到persistentPath
 
@@ -94,7 +94,7 @@ AssetBundle的平台若于运行平台不对应，可能会造成Shader丢失（
 
 
 
-#### 同步资源服上最新的资源
+### 同步资源服上最新的资源
 
 在真机模式下，会请求资源服的```FileLogs.txt```、```VersionLogs.txt```等文件与本地已存在的资源进行对比（还可选crc校验），然后进行增量更新
 
@@ -110,7 +110,7 @@ AssetBundle的平台若于运行平台不对应，可能会造成Shader丢失（
 
 
 
-#### 进入热更场景
+### 进入热更场景
 
 请确保加载热更场景时使用了[AssetMgr](./AssetMgr.md)的相关接口，不然会导致无法进入热更场景
 
@@ -122,11 +122,11 @@ AssetBundle的平台若于运行平台不对应，可能会造成Shader丢失（
 
 
 
-### 热更功能初始化
+## 热更功能初始化
 
 在进入热更场景后，会初始化热更相关的代码
 
-#### 初始化堆栈定位模块
+### 初始化堆栈定位模块
 
 通过重写了Unity的Debug部分的Logger，将报错时Unity会打印报错到Console的方法进行了替换，替换后，实现了：
 
@@ -192,7 +192,7 @@ private void SetStackTracesString(Exception exception, string value)
 }
 ```
 
-#### 给ETTask注册报错回调
+### 给ETTask注册报错回调
 
 > 本框架使用了ET框架的ETTask作为一个依赖库（资源管理库依赖）
 
@@ -200,7 +200,7 @@ private void SetStackTracesString(Exception exception, string value)
 
 
 
-### 初始化生命周期管理器
+## 初始化生命周期管理器
 
 ::: tip
 
@@ -208,7 +208,7 @@ private void SetStackTracesString(Exception exception, string value)
 
 :::
 
-#### 优势
+### 优势
 
 - 统一管理事件，并且严格遵循Unity生命周期
 
@@ -239,7 +239,7 @@ private void SetStackTracesString(Exception exception, string value)
   - 因为是通过结合ILRuntime底层（适配器）原理实现的，热更工程内可以照常继承MonoBehaviour，无需任何修改，在运行时会自动进行这种性能优化
   - ClassBind创建的对象同理，照常在热更工程写代码，创建出来后如果需要Awake也会通过LifeCycleMgr进行统一管理
 
-#### 如何实现的
+### 实现原理
 
 因为ILRuntime跨域继承在适配器内需要通过反射去反射热更工程定义的派生类的对应方法，于是LifeCycleMgr在这些对象的Awake事件的时候收集了这些MethodInfo及其实例进行了统一派发：
 
@@ -259,7 +259,7 @@ private void SetStackTracesString(Exception exception, string value)
 - 如果一个实例在同一帧执行过其他周期（哪怕是空的占位周期），则跳过在本帧调用该实例其他周期
 - 如果一个实例在同一帧没有执行过任何更提前的周期了，则调用这个MethodInfo（如果是空的占位周期则跳过）
 
-#### 注意事项
+### 注意事项
 
 不建议自行对LifeCycleMgr的接口进行任何调用（即自行注册各种函数）
 
@@ -267,11 +267,11 @@ private void SetStackTracesString(Exception exception, string value)
 
 
 
-### 加载热更DLL
+## 加载热更DLL
 
 使用ILRuntime库对DLL内的IL指令进行解释执行，实现代码热更
 
-#### 进入热更代码
+### 进入热更代码
 
 1. 根据是否使用JIT（参考ILRuntime文档），实例化了ILRuntime的AppDomain
 2. 获取dll和pdb（如果有的话）的二进制
@@ -302,7 +302,7 @@ RegisterValueTypeBinderHelper.HelperRegister(appdomain);
 8. 调用热更工程RunGame周期（ClassBind周期后，用于开始游戏，如打开初始化模块、登录面板等操作）
 9. 调用主工程HotUpdateLoadedHelper.Init周期（如果需要反射访问热更工程的类、方法等，这个周期是最合适的）
 
-#### CLR重定向
+### CLR重定向
 
 JEngine框架提供了一系列CLR重定向用于解决正常使用Unity方法，主要有：
 
@@ -313,9 +313,9 @@ JEngine框架提供了一系列CLR重定向用于解决正常使用Unity方法�
 - FindObject(s)OfType
 - Instantiate
 
-#### ClassBind原理
+### ClassBind原理
 
-##### 创建
+#### 创建
 
 通过创建一个MonoBehaviour适配器，内部有一个ILTypeInstance字段，而这个字段可以是任何热更类型实例
 
@@ -329,11 +329,11 @@ JEngine框架提供了一系列CLR重定向用于解决正常使用Unity方法�
 
 同时通过结合适配器和上面提到的LifeCycleMgr管理周期，杜绝了大部分性能浪费
 
-##### 赋值
+#### 赋值
 
 通过反射对字段进行赋值
 
-##### 激活
+#### 激活
 
 通过反射直接调用Awake方法激活
 

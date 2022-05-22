@@ -59,7 +59,7 @@ var bar = {
                 '/zh/documents/0.7/Extension',
                 '/zh/documents/0.7/ClassBind',
                 '/zh/documents/0.7/AssetMgr',
-                '/zh/documents/0.6/jbehaviour',
+                '/zh/documents/0.7/JBehaviour',
                 '/zh/documents/0.6/jresource',
                 '/zh/documents/0.6/jaction',
                 '/zh/documents/0.6/jsaver',
