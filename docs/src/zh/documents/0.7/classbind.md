@@ -112,6 +112,18 @@
 
 
 
+
+
+::: warning
+
+需要注意的是如果一个字段定义的Type是GameObject/AudioClip等，自动匹配/自动矫正type时会产生歧义，因为这个字段可以是热更资源也可以是UnityComponent来拖拽赋值，所以出现这种情况的时候Console会有提示，请自己检查一下，看看是不是自己需要的type
+
+:::
+
+
+
+
+
 ## 注意事项
 
 - 主工程Instantiate一个带有ClassBind的prefab的时候一定要去手动调用该prefab上的ClassBind的BindSelf方法，否则ClassBind无法激活
