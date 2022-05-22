@@ -301,3 +301,39 @@ RegisterValueTypeBinderHelper.HelperRegister(appdomain);
 7. 激活场景内全部ClassBind（使用ClassBindMgr进行全局ClassBind的对象创建、赋值、调用Awake）
 8. 调用热更工程RunGame周期（ClassBind周期后，用于开始游戏，如打开初始化模块、登录面板等操作）
 9. 调用主工程HotUpdateLoadedHelper.Init周期（如果需要反射访问热更工程的类、方法等，这个周期是最合适的）
+
+#### CLR重定向
+
+JEngine框架提供了一系列CLR重定向用于解决正常使用Unity方法，主要有：
+
+- SendMessage(Upwards)、BroadcastMessage
+- Invoke(Repeating)、CancelInvoke
+- AddComponent(s)、GetComponent(s)、AddComponent(s)InChildren、GetComponent(s)InChildren
+- Debug.Log、Log.Print
+- FindObject(s)OfType
+- Instantiate
+
+#### ClassBind原理
+
+##### 创建
+
+通过创建一个MonoBehaviour适配器，内部有一个ILTypeInstance字段，而这个字段可以是任何热更类型实例
+
+通过判断是否跨域继承MonoBehaviour来创建ILTypeInstance，简单来说就是如果继承了MonoBehaviour，就用不指定CLRInstance的方法创建对象（并且不会调用构造函数），反之用CLRInstance指向本身的方法创建对象（并且会调用其构造函数）
+
+如果这个热更对象跨域继承了MonoBehaviour，则创建一个MonoBehaviour适配器，同时将其CLRInstance指向适配器，完成跨域绑定
+
+如果这个热更对象没跨域继承MonoBehaviour，则创建一个```DO_NOT_USE.ClassBindNonMonoBehaviourAdapter```适配器用于存这个热更对象，这个ILTypeInstance不会进行任何额外操作
+
+最后如果继承了MonoBehaviour，就会补充调用这个热更对象的构造函数（用反射方法，防止不让调用MonoBehaviour构造函数而引起报错）
+
+同时通过结合适配器和上面提到的LifeCycleMgr管理周期，杜绝了大部分性能浪费
+
+##### 赋值
+
+通过反射对字段进行赋值
+
+##### 激活
+
+通过反射直接调用Awake方法激活
+
