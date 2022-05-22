@@ -56,6 +56,7 @@ var bar = {
             text: '框架核心',
             collapsible: false,
             children: [
+                '/zh/documents/0.7/JEnginePanel',
                 '/zh/documents/0.7/Extension',
                 '/zh/documents/0.7/ClassBind',
                 '/zh/documents/0.7/AssetMgr',
@@ -68,7 +69,6 @@ var bar = {
                 '/documents/0.6/gameobject-pool',
                 '/zh/documents/0.6/ilruntime-tools',
                 '/zh/documents/0.6/proto-tools',
-                '/zh/documents/0.6/jengine-panel',
                 '/zh/documents/0.6/bindable',
             ]
         },
