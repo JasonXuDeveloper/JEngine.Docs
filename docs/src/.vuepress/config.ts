@@ -60,6 +60,7 @@ var bar = {
                 '/zh/documents/0.7/AssetMgr',
                 '/zh/documents/0.7/ClassBind',
                 '/zh/documents/0.7/Extension',
+                '/zh/documents/0.7/StringifyHelper',
                 '/zh/documents/0.7/CryptoStruct',
                 '/zh/documents/0.7/JAction',
                 '/zh/documents/0.7/JBehaviour',
