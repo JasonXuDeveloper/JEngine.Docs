@@ -36,7 +36,7 @@ var bar = {
         '/zh/documents/0.7/',
         {
             text: '入门教程',
-            collapsible: false,
+            collapsible: true,
             children: [
                 '/zh/documents/0.7/startup',
                 '/zh/documents/0.7/Update',
@@ -54,7 +54,7 @@ var bar = {
         },
         {
             text: '框架核心',
-            collapsible: false,
+            collapsible: true,
             children: [
                 '/zh/documents/0.7/JEnginePanel',
                 '/zh/documents/0.7/AssetMgr',
@@ -72,8 +72,14 @@ var bar = {
                 '/zh/documents/0.7/StringifyHelper',
                 '/zh/documents/0.7/JGameObjectPool',
                 '/zh/documents/0.7/Localization',
-                '/zh/documents/0.6/ilruntime-tools',
-                '/zh/documents/0.6/proto-tools',
+            ]
+        },
+        {
+            text: '框架工具',
+            collapsible: false,
+            children: [
+                '/zh/documents/0.7/ILRuntimeTools',
+                '/zh/documents/0.7/ProtoTools',
             ]
         },
         {
