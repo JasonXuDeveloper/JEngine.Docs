@@ -1,6 +1,6 @@
 # JEngine面板
 
-JEngine为Unity开发设计的面板
+JEngine为Unity开发设计的面板，位于菜单栏```JEnigine/Setting```
 
 [[toc]]
 

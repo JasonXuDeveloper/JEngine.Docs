@@ -56,7 +56,6 @@ var bar = {
             text: '框架核心',
             collapsible: false,
             children: [
-                '/zh/documents/0.7/JEnginePanel',
                 '/zh/documents/0.7/AssetMgr',
                 '/zh/documents/0.7/ClassBind',
                 '/zh/documents/0.7/Extension',
@@ -76,9 +75,10 @@ var bar = {
             ]
         },
         {
-            text: '框架工具',
+            text: '编辑器工具',
             collapsible: false,
             children: [
+                '/zh/documents/0.7/JEnginePanel',
                 '/zh/documents/0.7/ILRuntimeTools',
                 '/zh/documents/0.7/ProtoTools',
             ]

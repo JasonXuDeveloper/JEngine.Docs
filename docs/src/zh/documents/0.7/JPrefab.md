@@ -232,7 +232,10 @@ public async static void RunGame()
       return;
     }
     prefab2.Instantiate("demo2");
-    Debug.Log(string.Join(",", prefab2.InstantiatedGameObjects.Select(go => go.name)));
+    foreach(var g in prefab2.InstantiatedGameObjects)
+    {
+      Debug.Log(g.name);
+    }
     prefab.Dispose();
     prefab2.DestroyAllInstantiatedObjects();
   });
