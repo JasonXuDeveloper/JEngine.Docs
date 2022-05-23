@@ -36,7 +36,7 @@ var bar = {
         '/zh/documents/0.7/',
         {
             text: '入门教程',
-            collapsible: true,
+            collapsible: false,
             children: [
                 '/zh/documents/0.7/startup',
                 '/zh/documents/0.7/Update',
@@ -54,7 +54,7 @@ var bar = {
         },
         {
             text: '框架核心',
-            collapsible: true,
+            collapsible: false,
             children: [
                 '/zh/documents/0.7/JEnginePanel',
                 '/zh/documents/0.7/AssetMgr',
