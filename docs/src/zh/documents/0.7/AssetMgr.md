@@ -4,7 +4,11 @@
 
 AssetMgr是JEngine封装的加载热更资源/场景的工具
 
-AssetMgr需要先初始化分包才可使用，需要参考[Updater使用](./Updater.md)，要先UpdatePackage
+AssetMgr需要先初始化分包才可使用，需要参考[Updater使用](./Updater.md)，要先调用UpdatePackage接口
+
+::: tip
+从Init场景进入游戏时底层会自动调用这个接口实现初始化主包，也就是说想使用其他包的资源必须先调用UpdatePackage接口去更新分包内容并初始化，然后再使用AssetMgr接口加载之类的
+:::
 
 [[toc]]
 
