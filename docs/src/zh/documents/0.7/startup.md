@@ -27,6 +27,7 @@
 1. 方法一，**直接下载**
 
    直接**在GitHub主页（或Release的地方）下载zip**，下载**完成后进入UnityProject/Assets/Dependencies**，**解压里面的zip**（zip下载必看）
+
    或通过```git clone```直接**克隆的（不是方法三，没最后那个参数的）**，也需要在克隆**完成后进入UnityProject/Assets/Dependencies**，**解压里面的zip**（zip下载必看）
 
 2. 方法二，先```git clone```再**安装子模块**
