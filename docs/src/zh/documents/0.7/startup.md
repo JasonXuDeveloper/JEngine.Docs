@@ -24,7 +24,10 @@
 
 > 因为JEngine使用了Git的Submodule模块来安装子模块，下载本框架源码不推荐直接从网站下载zip，目前有3种下载方式：
 
-1. 方法一，直接**下载zip**，然后进入UnityProject/Assets/Dependencies，解压里面的zip（zip下载必看）
+1. 方法一，**直接下载**
+
+   直接**在GitHub主页（或Release的地方）下载zip**，下载**完成后进入UnityProject/Assets/Dependencies**，**解压里面的zip**（zip下载必看）
+   或通过```git clone```直接**克隆的（不是方法三，没最后那个参数的）**，也需要在克隆**完成后进入UnityProject/Assets/Dependencies**，**解压里面的zip**（zip下载必看）
 
 2. 方法二，先```git clone```再**安装子模块**
 
