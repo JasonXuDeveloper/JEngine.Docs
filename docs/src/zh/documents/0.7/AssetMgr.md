@@ -102,9 +102,50 @@ AssetMgr是JEngine封装的加载热更资源/场景的工具
   AssetMgr.RemoveUnusedAssets()
   ```
 
-  
 
 
+
+
+
+### 注意事项
+
+- 进入热更场景必须用上面提到的接口，不然可能会导致无法进入，同时热更场景若被打入游戏包（如APK）内，则该场景无法被热更
+- 文本文件建议改.txt后缀打入热更包，不然unity可能会屏蔽（.json是可以的，其他的自己试试）
+- 二进制文件建议改.bytes后缀打入热更包，不然unity可能会屏蔽（.mp3，.wav是可以的，其他的自己试试）
+
+
+
+### 使用示范
+
+::: tip
+
+此示范只演示同步或异步加载不同资源，以及该用啥类型，不演示其它接口
+
+其它接口直接调用就好，然后根据参数进行传参
+
+:::
+
+
+
+- 加载预制体
+
+  ```csharp
+  GameObject prefab = AssetMgr.Load<GameObject>("预制体全路径.prefab");//同步加载主包的预制体
+  GameObject prefab2 = await AssetMgr.LoadAsync<GameObject>("预制体全路径.prefab");//异步加载主包的预制体
+  ```
+
+- 加载文本或二进制文件
+
+  ```csharp
+  TextAsset txt = AssetMgr.Load<TextAsset>("文本文件全路径.txt");//同步加载主包的txt文本文件
+  TextAsset bin = await AssetMgr.LoadAsync<TextAsset>("二进制文件全路径.bytes");//异步加载主包的bytes二进制文件
+  ```
+
+- 加载音频
+
+  ```csharp
+  AudioClip clip = AssetMgr.Load<AudioClip>("音频文件全路径.wav");//同步加载主包的wav音频文件
+  ```
 
 
 
