@@ -99,6 +99,8 @@ Project Setting -> Graphics -> Shader Stripping -> Lightmap Modes
 
 ILRuntime需要对委托、匿名函数等生成代码
 
+> 注意，如果是Cannot find method，那就是被裁减了，要做CLR绑定（菜单栏，```JEngine/ILRuntime/CLR Bind```）
+
 #### 解决方案
 
 - 如果是需要生成Adapter，代表用到了跨域继承，请参考ILRuntime跨域继承文档，搭配JEngine提供的ILRuntime跨域继承适配器生成器去生成适配器
