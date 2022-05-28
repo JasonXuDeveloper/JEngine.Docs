@@ -367,9 +367,6 @@ public async static void RunGame()
   j8.OnCancel(() =>
               {
                 Log.Print("[j8] has been cancelled!");
-
-                //Reset a JAction
-                j8.Reset();
               });
 
   JAction j9 = new JAction();
@@ -377,6 +374,8 @@ public async static void RunGame()
     .Do(() =>
         {
           j8.Cancel();
+          //Reset a JAction
+          j8.Reset();
           Log.Print("[j9] cancelled j8");
         })
     .Execute();
