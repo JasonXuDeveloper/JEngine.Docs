@@ -1,4 +1,4 @@
-# ClassBind依赖编辑器
+# ClassBind可视化管理面板
 
 该工具用于查看ClassBind在当前场景中被依赖的情况
 
