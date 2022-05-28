@@ -135,6 +135,7 @@ var bar = {
             '/zh/documents/pro/HotButton',
             '/zh/documents/pro/ClassBindDependentEditor',
             '/zh/documents/pro/CustomRuntimeSerialization',
+            '/zh/documents/pro/JActionMonitorEditor',
         ]
       }
     ]
