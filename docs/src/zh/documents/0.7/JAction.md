@@ -70,6 +70,8 @@ JAction能干什么？
    JAction j = new JAction();
    ```
 
+   > 开源版v0.7.3或Pro1.3后也可以使用```JAction j = new JAction("任务名");```，来给JAction起名
+
 3. 给JAction分配任务
 
    ```csharp
@@ -285,6 +287,113 @@ public void Dispose()
 ```
 
 ### 使用示范
+
+#### v0.7.3或Pro1.3及以后
+
+```csharp
+public async static void RunGame()
+{
+  /*
+            * ====================================
+            *           JAction EXAMPLE
+            * ====================================
+            */
+
+  //for(int i = 0; i < 100; i++)
+  //{
+  //    new JAction();
+  //}
+
+  int num = 0;
+  int repeatCounts = 3;
+  float repeatDuration = 0.5f;
+  float timeout = 10f;
+
+  //Simple use
+  JAction j = new JAction("j0测试");
+  j.Do(() => Log.Print("[j] Hello from JAction!"))
+    .Execute();
+
+  //Until
+  JAction j1 = new JAction("j1测试");
+  j1.Until(() => true)
+    .Do(() => Log.Print("[j1] until condition has done"))
+    .Execute();
+
+  //Repeat
+  JAction j2 = new JAction("j2测试");
+  j2.Repeat(() =>
+            {
+              num++;
+              Log.Print($"[j2] num is: {num}");
+            }, repeatCounts, repeatDuration)
+    .Execute();
+
+  //Repeat when
+  JAction j3 = new JAction("j3测试");
+  j3.RepeatWhen(() =>
+                {
+                  Log.Print($"[j3] num is more than 0, num--");
+                  num--;
+                }, () => num > 0, repeatDuration, timeout)
+    .Execute();
+
+  //Repeat until
+  JAction j4 = new JAction("j4测试");
+  j4.RepeatUntil(() =>
+                 {
+                   Log.Print($"[j4] num is less than 3, num++");
+                   num++;
+                 }, () => num < 3, repeatDuration, timeout)
+    .Execute(true);
+
+  //Delay
+  JAction j5 = new JAction("j5测试");
+  j5.Do(() => Log.Print("[j5] JAction will do something else in 3 seconds"))
+    .Delay(3.0f)
+    .Do(() => Log.Print("[j5] Bye from JAction"))
+    .Execute();
+
+  //Execute Async
+  JAction j6 = new JAction("j6测试");
+  j6.Do(() => Log.Print("[j6] This is an async JAction"))
+    .ExecuteAsyncParallel(() =>
+                          {
+                            Log.Print("[j6] on complete callback");
+                            //dispose JAction
+                            j6.Dispose();
+                          });
+
+  //Execute Async Parallel
+  JAction j7 = new JAction();
+  await j7.Do(() => Log.Print("[j7] This is an async JAction but runs parallel, callback will be called after it has done"))
+    .ExecuteAsync();
+
+  //Cancel a JAction
+  JAction j8 = new JAction();
+  j8.RepeatWhen(() => Log.Print("[j8] I am repeating!!!"), () => true, 1, timeout)
+    .ExecuteAsync().Coroutine();
+  //You can either add a cancel callback
+  j8.OnCancel(() =>
+              {
+                Log.Print("[j8] has been cancelled!");
+
+                //Reset a JAction
+                //j8.Reset();
+              });
+
+  JAction j9 = new JAction();
+  j9.Delay(5)
+    .Do(() =>
+        {
+          j8.Cancel();
+          Log.Print("[j9] cancelled j8");
+        })
+    .Execute();
+}
+```
+
+#### 开源版v0.7.2或Pro1.2及以前
 
 ```csharp
 public async static void RunGame()
