@@ -16,6 +16,7 @@
 
 - 选中GameObject后按下option(alt)- shift-c；或者：
 - 在菜单栏选择JEngine/Pro/ClassBind依赖面板，然后对ClassBind赋值（拖拽或用下拉框赋值都可以）
+- 或者打开JEngine/Pro/Pro工具面板后选择ClassBund可视化管理面板
 
 
 

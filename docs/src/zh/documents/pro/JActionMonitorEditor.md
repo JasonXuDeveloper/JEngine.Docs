@@ -11,6 +11,7 @@
 ## 打开面板
 
 - 在菜单栏选择JEngine/Pro/JAction分析面板
+- 或者打开JEngine/Pro/Pro工具面板后选择JAction运行时监控面板
 
 
 
