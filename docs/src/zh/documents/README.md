@@ -59,7 +59,7 @@ JEngine目前正在维护的版本
 
 
 
-### [专业版本](/zh/documents/pro/) <Badge type="tip" text="PRO v1.2" vertical="middle" />
+### [专业版本](/zh/documents/pro/) <Badge type="tip" text="PRO v1.3" vertical="middle" />
 
 ::: tip 
 
@@ -69,18 +69,17 @@ JEngine目前正在维护的版本
 
 #### 本次更新
 
-- 【新增】ClassBind依赖管理面板 <Badge type="tip" text="新功能" vertical="middle" />
-- 【新增】ClassBind对象智能检测（类型不存在时自动提示） <Badge type="tip" text="新功能" vertical="middle" />
-- 【新增】将Button替换为可拖拽热更事件的Button的方法 <Badge type="tip" text="新功能" vertical="middle" />
-  - 选中带Button的gameObject后按下快捷键shift alt r进行替换，替换后依然可以用`GetComponent<UnityEngine.UI.Button>()`获取
-- 【新增】支持在Inspector下对Button添加热更事件 <Badge type="tip" text="新功能" vertical="middle" />
-- 【新增】支持ClassBind直接选择命名空间和类名，无需输入 <Badge type="tip" text="新功能" vertical="middle" />
-- 【新增】Vecotr2/3/4类型在ClassBind和运行时Inspector的支持 <Badge type="tip" text="新功能" vertical="middle" />
-- 【同步】开源版从10月16日至2月5日全部更新 <Badge type="warning" text="同步功能" vertical="middle" />
-- 【修复】ClassBind排序工具删不干净的问题<Badge type="danger" text="修复功能" vertical="middle" />
-- 【修复】ClassBind中如果有字段的类型是Transfrom，但赋值的gameObject是个RectTransform，会获取异常<Badge type="danger" text="修复功能" vertical="middle" />
-- 【修复】ClassBind依赖分析热更Button的漏洞<Badge type="danger" text="修复功能" vertical="middle" />
-- 【修改】ClassBind编辑器（默认展开）<Badge type="danger" text="微调功能" vertical="middle" />
+- 【同步】开源版从2月5日至5月27日全部更新
+- 【优化】运行时inspector支持嵌套序列化
+- 【优化】ILRuntime适配器生成面板
+- 【新增】热更按钮参数支持复杂类型
+- 【新增】JAction运行时监控面板
+- 【新增】独立Pro工具面板
+- 【优化】ClassBind支持：
+  - Quaternion
+  - Matrix4x4
+  - LayerMask
+  - Rect
 
 #### [快速开始 →](/zh/documents/pro/)
 
