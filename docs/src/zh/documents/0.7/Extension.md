@@ -239,7 +239,7 @@ using JEngine.UI;
   public static T[] GetHotClassesInChildren<T>(this GameObject gameObject) where T : class
   ```
 
-  这些方法能获取gameObject自身或自身和以及子物体上全部的T类型的热更对象，这些热更对象必须是ClassBind创建的，或者是动态创建的MonoBehaviour和JBehaviour
+  这些方法能获取gameObject自身或自身和以及子物体上全部的T类型的热更对象，这些热更对象必须是ClassBind创建的，或者是动态创建的MonoBehaviour和用ClassBind创建的JBehaviour（非ClassBind创建的JBehaviour在真机下无法用这个获取，建议用GetJBehaviour接口获取GameObject上的JBehaviour）
 
 - 在GameObject上创建JBehaviour
 
