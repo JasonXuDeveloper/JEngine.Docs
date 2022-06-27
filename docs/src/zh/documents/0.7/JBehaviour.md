@@ -69,6 +69,7 @@ JBehaviour有以下优势：
 
 1. 目前JBehaviour在隐藏gameObject后也会执行Loop，建议在OnHidden方法内调用Pause来暂停Loop，以及在OnShow内调用Resume来恢复Loop
 2. JBehaviour不能跨域继承任何接口
+2. 挂载JBehaviour的GameObject一旦隐藏（即触发OnHidden），JBehaviour就不会继续执行Loop，显示后（即触发OnShow）才能继续执行Loop
 
 
 
@@ -80,7 +81,7 @@ JBehaviour有以下优势：
 2. 使用JBehaviour的创造方法```JBehaviour.CreateOn<T>(GameObject gameObject, bool activeAfter = true) where T : JBehaviour```
 3. 直接使用[扩展方法](./Extension.md)创建：```gameObject.CreateJBehaviour<T>()```
 
-### 获取JBehaviour
+### 获取指定ID或gameObject上的JBehaviour
 
 有4种方法：
 
@@ -88,6 +89,38 @@ JBehaviour有以下优势：
 2. 获取单个实例```T GetJBehaviour<T>(string instanceID) where T : JBehaviour```
 3. 获取某GameObject上多个实例```T[] GetJBehaviours<T>(GameObject gameObject) where T : JBehaviour```
 4. 使用[扩展方法](./Extension.md)
+
+### 获取指定Type的JBehaviour
+
+有2个静态方法，都在JBehaviour类下，可以根据情况调用
+
+::: warning
+
+这两个接口会比较慢，并且会造成GC，建议少用
+
+:::
+
+```csharp
+/// <summary>
+/// Find a JBehaviour that is the given type
+/// 通过指定类型寻找一个JBehaviour
+/// </summary>
+/// <typeparam name="T"></typeparam>
+/// <returns></returns>
+public static T FindJBehaviourOfType<T>() where T: JBehaviour
+```
+
+```csharp
+/// <summary>
+/// Find all JBehaviours that are the given type
+/// 通过指定类型寻找全部JBehaviour
+/// </summary>
+/// <typeparam name="T"></typeparam>
+/// <returns></returns>
+public static T[] FindJBehavioursOfType<T>() where T : JBehaviour
+```
+
+
 
 ### 销毁JBehaviour
 
