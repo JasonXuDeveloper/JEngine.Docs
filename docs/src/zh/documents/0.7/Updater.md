@@ -58,6 +58,7 @@ Updater是一个用于管理热更资源的脚本，集成了以下功能：
   | onVersion           | 版本提示回调                                                 |
   | onLoadSceneProgress | 场景跳转回调                                                 |
   | onLoadSceneFinished | 场景加载完毕回调                                             |
+  | onUpdateFailed      | 更新失败回调                                                 |
 
   ```csharp
   Updater.UpdatePackage(string bundlePackageName, IUpdater updater, bool checkCRC = true,
@@ -75,7 +76,7 @@ Updater是一个用于管理热更资源的脚本，集成了以下功能：
           UpdateBundleDataInfo package = null, string key = null,
           string nextScene = null,
           Action<string> onMessage = null, Action<float> onProgress = null, Action<string> onVersion = null,
-          Action<float> onLoadSceneProgress = null, Action onLoadSceneFinished = null)
+          Action<float> onLoadSceneProgress = null, Action onLoadSceneFinished = null, Action onUpdateFailed = null)
   ```
 
   
