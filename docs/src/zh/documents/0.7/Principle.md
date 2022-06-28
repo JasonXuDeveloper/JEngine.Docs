@@ -214,35 +214,47 @@ private void SetStackTracesString(Exception exception, string value)
 
   - 如果**同一帧内**对象A注册了Awake、Start、OnEnble、Update、LateUpdate事件，对象B注册了Start、FixedUpdate、Update事件，则：
 
-    第一帧的时候会调用A的Awake，不会调用B的任何事件（因为这里B其实注册了一个空的Awake事件）
+    第1帧的时候会调用A的Awake，A的OnEnable（因为Unity的Awake和OnEnable是连着的），不会调用B的任何事件（因为这里B其实注册了一个空的Awake事件，同时B这里也默认注册了空的OnEnable，这样才能让它继续等）
 
-    第二帧的时候会调用A的OnEnable，不会调用B的任何事件（因为B这里也默认注册了空的OnEnable，这样才能让它继续等）
+    第2帧的时候会调用A和B的Start，因为它俩都注册了这个周期
 
-    第三帧的时候会调用A和B的Start，因为它俩都注册了这个周期
+    ::: warning
 
-    第四帧的时候会调用B的FixedUpdate，不会调用A的任何事件（与上面提到的同理，A默认注册了空的FixedUpdate用于占位）
+    如果正好触发了Time.fixedTimestep的频率，第3帧会调用B的FixedUpdate，不会调用A的任何事件（与上面提到的同理，A默认注册了空的FixedUpdate用于占位）
 
-    第五帧的时候会调用A和B的Update，因为他俩都注册了这个事件
+    第3帧的时候会调用A和B的Update，因为他俩都注册了这个事件
 
-    第六帧的时候会调用B的LateUpdate，不会调用A的任何事件（理由如上）
+    第3帧的时候会调用B的LateUpdate，不会调用A的任何事件（理由如上）
+
+    Update和LateUpdate会一直循环下去，而FixedUpdate只会在Time.fixedTimestep的固定频率下被调用
+
+    :::
+
+    ::: warning
+
+    如果没有触发Time.fixedTimestep的频率，第3帧会调用A和B的Update，因为他俩都注册了这个事件
+
+    第3帧的时候会调用B的LateUpdate，不会调用A的任何事件（理由如上）
+
+    Update和LateUpdate会一直循环下去，而FixedUpdate只会在Time.fixedTimestep的固定频率下被调用
+
+    :::
+
+    
 
   - 如果**不在同一帧**创建了A和B，先创建B后创建A（提前1帧创建的B），注册的事件与上面一致，则：
 
-    第一帧的时候什么也没发生（因为A没创建，B没Awake但是有个占位）
+    第1帧的时候会调用B的OnEnable（因为A没创建，B没Awake但是有个占位，但是OnEnable和Awake是同一帧的）
 
-    第二帧的时候会调用B的OnEnable，还会调用A的Awake（因为B的每个周期都应该比A早一帧）
+    第2帧的时候会调用B的Start，还会调用A的Awake和OnEnable（B的每个周期都应该比A早一帧，同时Awake和OnEnable是同一帧的）
 
-    第三帧的时候会调用B的Start，还会调用A的OnEnable（理由同第二帧）
+    第3帧的时候可能（参考上面对于FixedUpdate的说明）会调用B的FixedUpdate，会调用B的Update，还会调用A的Start，（理由同第二帧）
 
-    第四帧的时候会调用B的FixedUpdate，还会调用A的Start，（理由同第二帧）
+    第4帧的时候会调用B的Update（因为B没注册LateUpdate），也会调用A的Update和LateUpdate（因为A没注册FixedUpdate但是注册了LateUpdate）
 
-    第五帧的时候会调用B的Update，不会调用A的任何事件（因为A没注册FixedUpdate）
+    FixedUpdate会在Time.fixedTimestep频率下被调用
 
-    第六帧的时候会调用A的Update，不会调用B的任何时间（因为B没注册LateUpdate）
-
-    第七帧的时候调用A的LateUpdate，还会调用B的FixedUpdate（因为对于B而言，LateUpdate之后应该执行FixedUpdate，对于A而言，Update后应该LateUpdate）
-
-    至此，B的每个周期都会比A早1帧，因为B比A早创建
+    至此，B在开始Update前的每个周期都会比A早1帧，因为B比A早创建1帧
 
   > 综上所述，LifeCycleMgr严格无误的遵循了Unity的生命周期
 
