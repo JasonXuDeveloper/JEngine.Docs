@@ -34,6 +34,25 @@ JEngine修改了Bundle Master的代码，使其变得更简单易用，
 
 
 
+
+
+### 粒度管理
+
+::: tip
+
+合理的粒度管理可以减少生成出来的文件的数量
+
+粒度管理的意思就是把指定目录内的全部资源生成为一个AssetBundle，而不是每个文件单独一个AssetBundle
+
+JEngine默认将整个UI目录变为了”一组资源“，即全部UI目录下的资源进入一个AssetBundle，同理，若是这个目录内有资源发生了变动，用户需要更新完整UI目录大小的资源
+
+:::
+
+1. 找到创建的普通AssetBundle分包
+2. 在一组资源路径里，写入你想要打为一个AssetBundle的资源（注意，该路径不能和资源路径内的路径重复，同时该路径可以是资源路径和一组资源路径内某个路径的子目录）
+
+
+
 ### 创建原生资源分包
 
 1. 进入```Assets/Dependencies/BundleMaster/Editor/BundleMasterEditor/BuildSettings/```
