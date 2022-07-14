@@ -22,15 +22,25 @@ JEngine修改了Bundle Master的代码，使其变得更简单易用，
 
 
 
-### 创建分包
+### 创建分包（普通AssetBundle分包）
 
 1. 进入```Assets/Dependencies/BundleMaster/Editor/BundleMasterEditor/BuildSettings/```
 2. 右键，```Create/BuildAssets/创建分包配置文件```
-3. 给新建的文件改个名
+3. 给新建的文件改个名（不然下次没办法继续创建）
 4. 在Unity的Inspector下进行配置
 5. 基础使用只需要配置分包名，资源路径和场景资源即可，参考Main分包和AddOn1分包的配置
 6. 建议启用hash，压缩模式建议```Chunk Based Compression```
 7. 如果需要加密，则需要勾上加密资源，并输入秘钥（长度不限）
+
+
+
+### 创建原生资源分包
+
+1. 进入```Assets/Dependencies/BundleMaster/Editor/BundleMasterEditor/BuildSettings/```
+2. 右键，```Create/BuildAssets/创建原生资源分包配置文件```
+3. 给新建的文件改个名（不然下次没办法继续创建）
+4. 在Unity的Inspector下进行配置
+5. 基本就是配置个不重复的分包名，然后配置一下这个分包收集哪个目录下的资源即可，该目录下的资源会原封不动的被打包（不会变成AssetBundle，就是文件的原格式）
 
 
 
@@ -45,7 +55,7 @@ JEngine修改了Bundle Master的代码，使其变得更简单易用，
 
 1. 进入```Assets/Dependencies/BundleMaster/Editor/BundleMasterEditor/BuildSettings/```
 2. 找到```AssetLoadTable```，在Unity的Inspector下开始配置
-3. 将所有需要打包的分包写入```Assets Load Setting```即可
+3. 将所有需要打包的分包写入```Assets Settings```即可，可以包含正常的分包以及原生资源分包
 4. 建议不要使用绝对路径，建议生成路径代码，不建议修改除了步骤3提到的字段以外的内容
 
 
@@ -54,7 +64,7 @@ JEngine修改了Bundle Master的代码，使其变得更简单易用，
 
 ::: tip
 
-需要在```Assets/Dependencies/BundleMaster/Editor/BundleMasterEditor/BuildSettings```内找到```AssetLoadSetting```进行配置
+需要在```Assets/Dependencies/BundleMaster/Editor/BundleMasterEditor/BuildSettings```内找到```AssetLoadSetting```（普通分包配置文件）进行配置
 
 :::
 
@@ -68,7 +78,7 @@ JEngine修改了Bundle Master的代码，使其变得更简单易用，
 
 ::: tip
 
-需要在```Assets/Dependencies/BundleMaster/Editor/BundleMasterEditor/BuildSettings```内找到```AssetLoadSetting```进行配置
+需要在```Assets/Dependencies/BundleMaster/Editor/BundleMasterEditor/BuildSettings```内找到```AssetLoadSetting```（普通分包配置文件）进行配置
 
 :::
 
