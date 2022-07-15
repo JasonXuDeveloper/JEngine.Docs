@@ -69,11 +69,16 @@ JEngine目前正在维护的版本
 
 #### 本次更新
 
-- 【同步】开源版从5月27日至7月15日全部更新（preview1）
+- 【同步】开源版从5月27日至7月15日全部更新
 - 【新增】将Slider替换为可拖拽热更事件的Slider的方法
-  - 选中带Button的gameObject后按下快捷键shift alt s进行替换，替换后依然可以用```GetComponent<UnityEngine.UI.Slider>()```获取
+  - 选中带Slider的gameObject后按下快捷键shift alt s进行替换，替换后依然可以用```GetComponent<UnityEngine.UI.Slider>()```获取
 - 【新增】支持在Inspector下对Slider添加热更事件
-- 【修复】JBehaviour漏洞/Release DLL漏洞
+- 【新增】将InputField替换为可拖拽热更事件的InputField的方法
+  - 选中带InputField的gameObject后按下快捷键shift alt i进行替换，替换后依然可以用```GetComponent<UnityEngine.UI.InputField>()```获取
+- 【新增】支持在Inspector下对InputField添加热更事件
+- 【修复】JBehaviour漏洞
+- 【修复】JAction漏洞
+- 【修复】Release模式漏洞
 - 【优化】优化ClassBind依赖管理界面
 
 #### [快速开始 →](/zh/documents/pro/)
