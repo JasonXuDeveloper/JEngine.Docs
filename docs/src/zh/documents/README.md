@@ -40,18 +40,18 @@ JEngine目前正在维护的版本
   -  JAction
   -  JBehaviour
 
-#### V0.7.2更新日志
+#### V0.7.3更新日志
 
 - Bug**修复**
-- **优化**底层
-- **优化**周期
-- **更新**ETTask
-- **优化**JAction
-- **优化**JBehaviour
-- **优化**Unity**报错堆栈**
-- **热更**包支持**黑名单**功能
-- 新Protobuf**序列化Demo**
-- **更新**Protobuf-net魔改版**插件**
+- **更新**ILRuntime
+
+- **更新**Bundle Master
+
+- **优化**JBehaviour性能
+
+- **优化**ClassBind运行性能
+
+- **几乎无GC的**异步延时等待
 
 #### [快速开始 →](/zh/documents/0.7/)
 
@@ -59,7 +59,7 @@ JEngine目前正在维护的版本
 
 
 
-### [专业版本](/zh/documents/pro/) <Badge type="tip" text="PRO v1.3" vertical="middle" />
+### [专业版本](/zh/documents/pro/) <Badge type="tip" text="PRO v1.4" vertical="middle" />
 
 ::: tip 
 
@@ -69,18 +69,12 @@ JEngine目前正在维护的版本
 
 #### 本次更新
 
-- 【同步】开源版从2月5日至5月27日全部更新
-- 【优化】运行时inspector支持嵌套序列化
-- 【优化】运行时inspector支持更多类型
-- 【新增】热更按钮参数支持复杂类型
-- 【优化】ILRuntime适配器生成面板
-- 【新增】JAction运行时监控面板
-- 【新增】独立Pro工具面板
-- 【优化】ClassBind支持：
-  - Quaternion
-  - Matrix4x4
-  - LayerMask
-  - Rect
+- 【同步】开源版从5月27日至7月15日全部更新（preview1）
+- 【新增】将Slider替换为可拖拽热更事件的Slider的方法
+  - 选中带Button的gameObject后按下快捷键shift alt s进行替换，替换后依然可以用```GetComponent<UnityEngine.UI.Slider>()```获取
+- 【新增】支持在Inspector下对Slider添加热更事件
+- 【修复】JBehaviour漏洞/Release DLL漏洞
+- 【优化】优化ClassBind依赖管理界面
 
 #### [快速开始 →](/zh/documents/pro/)
 
