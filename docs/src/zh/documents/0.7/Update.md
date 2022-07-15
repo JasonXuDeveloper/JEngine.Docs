@@ -28,6 +28,12 @@
 
 建议直接把```JEngine/UnityProject/Assets/Dependencies/```内全部子目录替换为同路径目录
 
+::: tip
+
+有可能需要重新解压Dependencies目录内的zip文件
+
+:::
+
 
 
 ### 启动代码
