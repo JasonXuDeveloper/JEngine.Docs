@@ -76,6 +76,15 @@ JEngine目前正在维护的版本
 - 【新增】将InputField替换为可拖拽热更事件的InputField的方法
   - 选中带InputField的gameObject后按下快捷键shift alt i进行替换，替换后依然可以用```GetComponent<UnityEngine.UI.InputField>()```获取
 - 【新增】支持在Inspector下对InputField添加热更事件
+- 【新增】将Dropdown替换为可拖拽热更事件的Dropdown的方法
+  - 选中带Dropdown的gameObject后按下快捷键shift alt k进行替换，替换后依然可以用```GetComponent<UnityEngine.UI.Dropdown>()```获取
+- 【新增】支持在Inspector下对Dropdown添加热更事件
+- 【新增】将Toggle替换为可拖拽热更事件的Toggle的方法
+  - 选中带Toggle的gameObject后按下快捷键shift alt l进行替换，替换后依然可以用```GetComponent<UnityEngine.UI.Toggle>()```获取
+- 【新增】支持在Inspector下对Toggle添加热更事件
+- 【新增】将EventTrigger替换为可拖拽热更事件的EventTrigger的方法
+  - 选中带EventTrigger的gameObject后按下快捷键shift alt O进行替换，替换后依然可以用```GetComponent<UnityEngine.EventSystems.EventTrigger>()```获取
+- 【新增】支持在Inspector下对EventTrigger添加热更事件
 - 【修复】JBehaviour漏洞
 - 【修复】JAction漏洞
 - 【修复】Release模式漏洞

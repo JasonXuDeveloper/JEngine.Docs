@@ -1,11 +1,11 @@
-# Button热更事件
+# 编辑器下热更Button
 
 JEngine Pro对Button做了扩充，使其支持在编辑器下添加热更事件，不需要通过代码注册。
 
 ## 切换至热更按钮
 
 1. Unity编辑器下选中带有Button的GameObject
-2. 顶部菜单栏，```Component/Change To Hot Button```
+2. 顶部菜单栏，```Component/Change To Hot Button```，或者用快捷键```Shift Alt/Option R```
 3. 完成
 
 ## 给GameObject添加热更按钮
