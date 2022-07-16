@@ -24,10 +24,10 @@
 
 ## 分析依赖
 
-[![H7Svhn.png](https://s4.ax1x.com/2022/02/18/H7Svhn.png)](https://imgtu.com/i/H7Svhn)
+![img](https://s1.ax1x.com/2022/07/16/j42H56.png)
 
 - 选好ClassBind后，选择该ClassBind挂的类型
 - 会自动在该场景内搜索全部引用该类型的字段
-- 会自动在该场景内搜索全部引用给类型的热更按钮事件
+- 会自动在该场景内搜索全部引用该类型的热更事件
 - 可以点击查看此ClassBind的引用关系，打开对应ClassBind的依赖关系
-- 可以点击查看此Button，打开对应按钮的Inspector面板
+- 可以点击查看此对象，打开对应拖拽了该热更类型事件的控件的Inspector面板
