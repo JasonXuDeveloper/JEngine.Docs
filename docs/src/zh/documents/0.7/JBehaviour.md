@@ -67,9 +67,9 @@ JBehaviour有以下优势：
 
 ### 注意事项
 
-1. 目前JBehaviour在隐藏gameObject后也会执行Loop，建议在OnHidden方法内调用Pause来暂停Loop，以及在OnShow内调用Resume来恢复Loop
+1. ~~目前JBehaviour在隐藏gameObject后也会执行Loop，建议在OnHidden方法内调用Pause来暂停Loop，以及在OnShow内调用Resume来恢复Loop~~（0.7.3开始不存在这个问题）
 2. JBehaviour不能跨域继承任何接口
-2. 挂载JBehaviour的GameObject一旦隐藏（即触发OnHidden），JBehaviour就不会继续执行Loop，显示后（即触发OnShow）才能继续执行Loop
+2. 挂载JBehaviour的GameObject一旦隐藏（即触发OnHidden），JBehaviour就不会继续执行Loop，显示后（即触发OnShow）才能继续执行Loop（0.7.3开始才能这样）
 
 
 
