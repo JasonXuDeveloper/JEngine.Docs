@@ -40,6 +40,8 @@
 
 建议把```JEngine/UnityProject/Assets/Scripts/```目录下除了```Helpers```以外的子目录和文件替换为最新的同路径目录和同路径文件
 
+> 注意，0.7.3开始，InitJEngine/Updater/LoadILRuntime文件全部进入了Assets/Scripts/Core目录内，老版本升级后请把Scripts目录下的这三个文件删了，只保留Scripts/Core内的文件
+
 
 
 ### CLR重定向代码

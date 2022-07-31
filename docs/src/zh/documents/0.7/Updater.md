@@ -103,3 +103,12 @@ Updater是一个用于管理热更资源的脚本，集成了以下功能：
   var remoteVer = await Updater.GetRemotePackageVersion(包名字符串, 分包信息);
   ```
 
+
+
+- 删除分包在本地的缓存
+
+  ```csharp
+  Updater.ClearPackage(包名字符串);
+  ```
+
+  
