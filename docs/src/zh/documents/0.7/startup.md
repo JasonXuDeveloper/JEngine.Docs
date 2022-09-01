@@ -55,6 +55,8 @@
 
 在Unity的PlayerSetting下，将```API Compatibility Level``` 修改为```.NET 4.X ```即可
 
+> 注意，Unity 2021开始，```API Compatibility Level```选项只有```Net Standard 2.0```以及```Net Framework```，选择后者即可，只要不是```Net Standard 2.x```就行
+
 
 
 ## 目录结构
@@ -108,17 +110,17 @@
 
 > 请按照以下顺序进行操作
 
-1. **[下载](#下载方式-非常重要)该项目**
+1. **[下载](#下载方式-非常重要)该项目**，记得有可能需要解压文件，不然会报错
 2. 将项目的**UnityProject目录用Unity打开**
-2. 首次打开会生成个**lock文件**到Assets目录下，**请勿删除**，同时还会有个提示
+2. 首次打开会生成个**lock文件**到Assets目录下，**请勿删除**，同时还会弹出来一个提示，这个提示记得读一下
 3. 找到**HotUpdateResources/Scene**, 确保你能找到**Game.unity**，并且**HotUpdateResources/DLL/~Hidden文件夹中有生成的DLL文件（这个文件夹Unity内看不见）**
 4. 导入后不应该有报错，如果还有报错，请看[常见问题](./FAQ.md)
 5. 无需进行任何修改，尝试在[不同的模式](#运行模式)运行自带的Demo，注意留意控制台
 6. 这个时候就可以打开热更工程了，也就是```path/to/JEngine/UnityProject/HotUpdateScripts```目录，用IDE（推荐vs或rider，因为vscode需要自己配dotnet build来编译）打开里面的sln文件
 7. 修改热更工程，例如在```Program.cs```的```RunGame```方法内加个Log
 8. 编译热更工程，如果出现问题（例如跳过），请看[常见问题](./FAQ.md)
-9. 尝试[打包热更资源](./BuildAB.md)
-9. 执行CLR绑定（菜单栏，```JEngine/ILRuntime/CLR Bind```）
+9. 尝试[打包热更资源](./BuildAB.md)，记得部署资源
+9. 执行CLR绑定（菜单栏，```JEngine/ILRuntime/CLR Bind```），这一步不做的话在IL2CPP出包后必定出问题
 10. 尝试打包游戏（APK、EXE等），注意[打包事项](#打包事项)
 11. **现在，运行游戏，即可体验热更功能！**
 

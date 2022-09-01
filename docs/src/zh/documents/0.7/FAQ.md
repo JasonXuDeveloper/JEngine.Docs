@@ -71,6 +71,24 @@ JEngine是用Mac开发的，Win下编译DLL有可能需要重新配置
 
 
 
+### 如何调试热更工程（或ILRuntime调试器无效）
+
+::: tip
+
+#### 原因
+
+VS2019开始，或ILRuntime2.0开始，就可以用新版调试器了，旧版的容易无效
+
+#### 解决方案
+
+直接在Visual Studio (Windows), VS Code (Windows + MacOS), Rider (Windows + MacOS) 插件市场搜索ILRuntime即可，然后安装对应的调试插件，接着运行游戏，进入热更场景后，回到IDE，然后附加到ILRuntime调试器插件即可
+
+:::
+
+
+
+
+
 ### 热更场景光照贴图丢失
 
 ::: tip
