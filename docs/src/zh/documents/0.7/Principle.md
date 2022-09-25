@@ -288,11 +288,19 @@ private void SetStackTracesString(Exception exception, string value)
 - 如果一个实例在同一帧执行过其他周期（哪怕是空的占位周期），则跳过在本帧调用该实例其他周期
 - 如果一个实例在同一帧没有执行过任何更提前的周期了，则调用这个MethodInfo（如果是空的占位周期则跳过）
 
-### 注意事项
+### 注册在主线程执行的循环
 
-不建议自行对LifeCycleMgr的接口进行任何调用（即自行注册各种函数）
+```Loom```和```JBehaviour```都通过```LifeCycleMgr```实现了需要在主线程循环执行的功能，比如```Loom```在主线程会循环进行匿名委托的派发，```JBehaviour```会在主线程循环检查每个```JBehvaiour```对象的状态
 
-如果一定需要这么做，请确保不要被重复注册，并且需要用反射取MethodInfo
+只需要用```LifeCycleMgr.Instance.AddUpdateTask```注册事件就好，还可以传一个循环条件，当条件满足时才循环
+
+注册事件后会返回一个GUID，后续可以用这个GUID来取消该循环事件
+
+
+
+> 通过LifeCycleMgr，我们可以大幅度优化热更工程的MonoBehaviour/JBehaviour/ClassBind对象的性能，
+>
+> 同时我们还可以给自定义的需要在主线程循环执行的事件轻松的添加上来，无需再创建一个MonoBehaviour去管理
 
 
 
