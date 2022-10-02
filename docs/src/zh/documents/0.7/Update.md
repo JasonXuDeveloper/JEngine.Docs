@@ -41,12 +41,16 @@
 建议把```JEngine/UnityProject/Assets/Scripts/```目录下除了```Helpers```以外的子目录和文件替换为最新的同路径目录和同路径文件
 
 > 注意，0.7.3开始，InitJEngine/Updater/LoadILRuntime文件全部进入了Assets/Scripts/Core目录内，老版本升级后请把Scripts目录下的这三个文件删了，只保留Scripts/Core内的文件
+>
+> 从0.7.5开始，只需要更新```Scripts```目录下的```Adapters/LoadILRuntime.cs```、```Adapters/LoadILRuntime.cs```，以及```Core```目录了，Helpers目录不需要更新（前提是先同步到0.7.5的Helpers目录内的文件结构），以后只需要把自己项目需要注册的代码注册到Helpers目录的对应文件就好，更新框架的时候也不会有手滑把这个目录覆盖了的风险了
 
 
 
 ### CLR重定向代码
 
 建议把```JEngine/UnityProject/Assets/Scripts/Helpers/RegisterCLRMethodRedirctionHelper.cs```替换为最新的同路径文件
+
+> 注意，从0.7.5开始就不用管这个了
 
 
 

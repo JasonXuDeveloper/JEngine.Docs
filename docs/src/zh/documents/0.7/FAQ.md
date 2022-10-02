@@ -173,6 +173,8 @@ ILRuntime需要对委托、匿名函数等生成代码
 
   例如这里是```Cannot find Delegate Adapter```，那么只需要复制下面的代码，找到```Scripts/Helpers/RegisterDelegateAdapterHelper.cs```，将代码黏贴进去就好
 
+  > 针对0.7.5及以上：Helpers目录下每个文件里都有注释和例子，看看自己的报错内的代码和哪个文件给的例子一样，注册进去就好
+  
   > 有的时候自动生成的代码，需要手动修改
 
 :::
