@@ -40,28 +40,25 @@ JEngine目前正在维护的版本
   -  JAction
   -  JBehaviour
 
-#### V0.7.5beta1更新日志
+#### V0.7.5更新日志
+
+- **更新**ILRuntimev2.1.0
+
+- **优化**适配代码注册流程
 
 - **优化**JStream缓冲池策略
+
 - **优化**ClassBind性能及GC
+
 - **优化**框架初始化流程及性能
+
 - **优化**LifeCycleMgr性能及GC
+
 - **优化**```FindObjectsOfType```性能及GC
+
 - **优化**JBehaviour性能及GC，取消其对```MonoBehaviour```的依赖性
+
 - **优化**Loom（主线程执行Actions）性能及GC，取消其对```MonoBehaviour```的依赖性
-
-#### V0.7.4更新日志
-
-- Bug**修复**
-- **更新**ILRuntime
-
-- **接入**高性能C#库Nino
-
-- **优化**JBehaviour性能及GC
-
-- **优化**MonoBehaviour循环逻辑及GC
-
-- **优化**分块解密解释执行所占用的内存及产生的GC
 
 #### [快速开始 →](/zh/documents/0.7/)
 
