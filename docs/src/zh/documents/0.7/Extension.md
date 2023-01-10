@@ -2,6 +2,16 @@
 
 JEngine提供了众多扩展方法，位于主工程```Assets/Dependencies/JEngine/Core/Tool```，热更工程```HotUpdateScripts/JEngine/UI/JUIExtensions.cs```内，以及热更工程```HotUpdateScripts/JEngine/Core/JExtensions.cs```内
 
+
+
+::: warning
+
+注意，本文全部提到的**字符串**```typeName```皆指类型全名（```命名空间.类名```）
+
+:::
+
+
+
 [[toc]]
 
 
