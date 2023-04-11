@@ -124,6 +124,7 @@ var bar = {
                 '/zh/documents/0.8/ab',
                 '/zh/documents/0.8/deploy',
                 '/zh/documents/0.8/updater',
+                '/zh/documents/0.8/FAQ',
                 {
                     text: 'YooAsset文档',
                     link: 'https://www.yooasset.com/'
