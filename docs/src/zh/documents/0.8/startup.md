@@ -89,8 +89,9 @@
 7. 这个时候就可以**打开热更工程**了，也就是```path/to/JEngine/UnityProject/HotUpdateScripts```目录，用IDE（推荐vs或rider，因为vscode需要自己配dotnet build来编译）打开里面的sln文件
 8. **修改热更工程**，例如在```Program.cs```的```RunGame```方法内加个Log
 9. **编译热更工程**，如果出现问题（例如跳过），请看[常见问题](./FAQ.md)
-10. （可选）若有需求，可以编辑一下```HotUpdateResources/Main/Scene/Game.unity```场景
-11. **编辑器下再次运行游戏**，修改的热更代码应该会自动生效
+10. 第一次编译热更工程后，回到Unity会有个弹窗输入加密密码，这个密码是用来加密Dll的，输入16个字符串即可，后续可以在JEngine面板修改
+11. （可选）若有需求，可以编辑一下```HotUpdateResources/Main/Scene/Game.unity```场景
+12. **编辑器下再次运行游戏**，修改的热更代码应该会自动生效
 
    > 到这里，您已经完成了在编辑器下开发可热更新游戏的第一步了，恭喜！
 

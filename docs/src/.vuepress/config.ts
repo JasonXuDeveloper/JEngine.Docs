@@ -123,10 +123,22 @@ var bar = {
                 '/zh/documents/0.8/startup',
                 '/zh/documents/0.8/ab',
                 '/zh/documents/0.8/deploy',
+                '/zh/documents/0.8/updater',
+                {
+                    text: 'YooAsset文档',
+                    link: 'https://www.yooasset.com/'
+                },
                 {
                     text: 'ILRuntime文档',
                     link: 'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html'
                 },
+            ]
+        },
+        {
+            text: '升级指南',
+            collapsible: false,
+            children: [
+                '/zh/documents/0.8/migrate',
             ]
         },
     ]
