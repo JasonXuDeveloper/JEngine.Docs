@@ -20,6 +20,10 @@
 
 
 
+## 开启Unsafe
+
+在Unity的PlayerSetting下，找到```Allow Unsafe Code```并启用（勾选）即可
+
 ## 修改.Net版本
 
 在Unity的PlayerSetting下，将```API Compatibility Level``` 修改为```.NET 4.X ```即可

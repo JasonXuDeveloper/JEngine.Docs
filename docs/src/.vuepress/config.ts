@@ -122,6 +122,7 @@ var bar = {
             children: [
                 '/zh/documents/0.8/startup',
                 '/zh/documents/0.8/ab',
+                '/zh/documents/0.8/deploy',
                 {
                     text: 'ILRuntime文档',
                     link: 'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html'
