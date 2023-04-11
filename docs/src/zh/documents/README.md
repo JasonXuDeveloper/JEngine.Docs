@@ -20,47 +20,49 @@ JEngine目前正在维护的版本
 
 
 
-### [最新版本](/zh/documents/0.7/) <Badge type="tip" text="v0.7.x" vertical="middle" />
+### [最新版本](/zh/documents/0.7/) <Badge type="tip" text="v0.8.x" vertical="middle" />
 
 ::: tip 
 
 > 该版本对应的是JEngine的master分支
 
-最新版本是开发者认为的可以正常使用，不会有太大问题的最新版本，建议使用，功能最为强大，同时修复了0.6和0.5版本的bug。
+最新版本是开发者认为的可以正常使用，不会有太大问题的最新版本，建议使用，功能最为强大，同时修复了老版本的bug。
 
-#### 核心功能
+#### V0.8.0更新日志
 
-- 新增可扩展验证器 <Badge type="tip" text="新功能" vertical="middle" />
-- 新增UI扩展工具 <Badge type="tip" text="新功能" vertical="middle" />
-- 新生命周期 <Badge type="tip" text="新功能" vertical="middle" />
-- 优化编辑器流程  <Badge type="warning" text="优化功能" vertical="middle" />
-- 优化框架性能  <Badge type="warning" text="优化功能" vertical="middle" />
-- JEngine功能更新  <Badge type="warning" text="优化功能" vertical="middle" />
-  -  JUI
-  -  JAction
-  -  JBehaviour
+- **支持** WebGL
 
-#### V0.7.5更新日志
+- **移除** JUI（过段时间会重构）
 
-- **更新**ILRuntimev2.1.0
+- **优化** LifeCycleMgr 性能
 
-- **优化**适配代码注册流程
+- **优化** ThreadMgr 功能
 
-- **优化**JStream缓冲池策略
+- **优化** JStream 性能
 
-- **优化**ClassBind性能及GC
+- **优化** JBehaviour 性能
 
-- **优化**框架初始化流程及性能
+- **优化** MonoBehaviour 性能
 
-- **优化**LifeCycleMgr性能及GC
+- **优化** FpsMonitor 性能
 
-- **优化**```FindObjectsOfType```性能及GC
+- **优化** CryptoMgr 接口
 
-- **优化**JBehaviour性能及GC，取消其对```MonoBehaviour```的依赖性
+- **优化** JBehaviour/ClassBind Object/MonoBehaviour GC
 
-- **优化**Loom（主线程执行Actions）性能及GC，取消其对```MonoBehaviour```的依赖性
+- **优化** GetComponent(s)/FindObject(s)OfType 性能
 
-#### [快速开始 →](/zh/documents/0.7/)
+- **切换** 到 YooAsset作为热更资源管理 (弃用Bundle Master)
+
+- **新功能** UnsafeMgr 提供不安全（用于性能优化）功能
+
+- **新功能** UnmanagedMemoryPool 提供非托管内存池功能
+
+- **新功能** CoroutineMgr提供在非MonoBehaviour类型内使用携程的功能
+
+- **新架构** 将JEngine源码分成不同的模块，核心代码更轻量！
+
+#### [快速开始 →](/zh/documents/0.8/)
 
 :::
 
@@ -95,11 +97,23 @@ JEngine历史版本，不再维护，使用需谨慎，建议更新到稳定版�
 
 
 
+### [0.7.x版本](/zh/documents/0.7/) <Badge type="warning" text="v0.7.x" vertical="middle" />
+
+::: warning
+
+> 该版本对应的是JEngine的0.7.x分支
+
+0.7.x版本目前大部分商业项目都在使用，该版本是2022年最热门的版本，附带强大可靠的功能，包含完善的文档，但是没有任何官方视频教程，且不会再更新或维护，建议使用[最新版本](#最新版本)。
+
+#### [快速开始 →](/zh/documents/0.6/)
+
+:::
+
 ### [0.6.x版本](/zh/documents/0.6/) <Badge type="warning" text="v0.6.x" vertical="middle" />
 ::: warning
 > 该版本对应的是JEngine的0.6.x分支
 
-0.6.x版本是目前大部分商业项目正在使用，内容完善，文档视频充足，需要注意这个版本不是LTS版本，不会再进行任何更新或维护，建议使用[最新版本](#最新版本)。
+0.6.x版本目前部分商业项目正在使用，内容完善，文档视频充足，需要注意这个版本不是LTS版本，不会再进行任何更新或维护，建议使用[最新版本](#最新版本)。
 
 #### [快速开始 →](/zh/documents/0.6/)
 

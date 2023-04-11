@@ -104,6 +104,31 @@ var bar = {
         }
     ]
 }, ],
+  '/documents/0.8/': [{
+      text: '开始使用',
+      collapsible: false,
+      children: [
+          '/documents/0.7/',
+      ]
+  }, ],
+  '/zh/documents/0.8/': [{
+    text: 'v0.8.x文档',
+    collapsible: false,
+    children: [
+        '/zh/documents/0.8/',
+        {
+            text: '入门教程',
+            collapsible: false,
+            children: [
+                '/zh/documents/0.7/startup',
+                {
+                    text: 'ILRuntime文档',
+                    link: 'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html'
+                },
+            ]
+        },
+    ]
+}, ],
   '/zh/pro/': [{
       text: 'JEngine Pro',
       collapsible: false,
@@ -446,6 +471,10 @@ theme: defaultTheme({
                               link: '/documents/'
                           },
                           {
+                              text: '0.8.x',
+                              link: '/documents/0.8/'
+                          },
+                          {
                               text: '0.7.x',
                               link: '/documents/0.7/'
                           },
@@ -500,6 +529,10 @@ theme: defaultTheme({
                           {
                               text: 'Docs',
                               link: '/zh/documents/'
+                          },
+                          {
+                              text: '0.8.x',
+                              link: '/zh/documents/0.8/'
                           },
                           {
                               text: '0.7.x',
