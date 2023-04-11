@@ -108,7 +108,7 @@ var bar = {
       text: '开始使用',
       collapsible: false,
       children: [
-          '/documents/0.7/',
+          '/documents/0.8/',
       ]
   }, ],
   '/zh/documents/0.8/': [{
@@ -120,7 +120,8 @@ var bar = {
             text: '入门教程',
             collapsible: false,
             children: [
-                '/zh/documents/0.7/startup',
+                '/zh/documents/0.8/startup',
+                '/zh/documents/0.8/ab',
                 {
                     text: 'ILRuntime文档',
                     link: 'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html'
