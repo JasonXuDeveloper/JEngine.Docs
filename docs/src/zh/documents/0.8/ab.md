@@ -48,8 +48,8 @@ JEngine支持以下运行模式：
 ## 打包热更资源
 
 - 打开**菜单栏**：```YooAsset/AssetBundle Builder```
-- **```Build Package```**选择需要打包热更资源的分包，一般选```Main```就是更新主分包（热更代码就在这个分包内）
-- 如果需要以**本地模式**运行，**```Copy Bundle File Option```**选择```Only Copy All```或```Clear And Copy All```即可
+- ```Build Package```选择需要打包热更资源的分包，一般选```Main```就是更新主分包（热更代码就在这个分包内）
+- 如果需要以**本地模式**运行，```Copy Bundle File Option```选择```Only Copy All```或```Clear And Copy All```即可
 - **其他配置**可以**参考YooAsset文档**
 - **点击构建（绿色按钮）即可打包资源**
 
@@ -58,3 +58,4 @@ JEngine支持以下运行模式：
 ## 其他功能
 
 **资源包报告工具**和**资源包调试工具参考YooAsset文档**
+

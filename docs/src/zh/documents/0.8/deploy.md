@@ -29,7 +29,7 @@
   - WebGL
     - Main
     - AddOn1
-  - iOS
+  - IOS
     - Main
     - AddOn1
   - ...
@@ -49,7 +49,7 @@
 - 二级目录以平台命名，例如：
 
   - Android
-  - iOS
+  - IOS
   - WebGL
   - Mac
   - Windows
@@ -63,7 +63,7 @@
 
 ## 资源上传
 
-打包出来的资源应该在**```UnityProject/Bundles/平台/```**下，进入该目录后**选择**你需要部署资源的**分包**的目录，把**最新打包**出来**的资源复制**到**资源结构**里**对应平台对应分包的资源目录**即可
+打包出来的资源应该在```UnityProject/Bundles/平台/```下，进入该目录后**选择**你需要部署资源的**分包**的目录，把**最新打包**出来**的资源复制**到**资源结构**里**对应平台对应分包的资源目录**即可
 
 例如：
 
@@ -73,7 +73,7 @@
 
 ::: tip
 
-静态资源服务器可以用nginx/apache/tomcat部署，也可以用python的simple http server部署，
+静态资源服务器可以用nginx/apache/tomcat部署，也可以用python的simple http server等其他的方式部署，
 
 把Bundles放到网页根目录下即可，
 

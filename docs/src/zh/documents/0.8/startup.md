@@ -39,7 +39,7 @@
 #### Unity工程
 
 - **Assets** - Unity工程根目录
-  - **Dependencies** - 各种模块，内置ILRuntime/YooAsset/JEngine.Core模块
+  - **Dependencies** - 各种模块，内置ILRuntime/YooAsset/JEngine.Core模块，每次更新覆盖该目录内的对应模块即可
   - **HotUpdateResources** - 所有热更资源将存放在这里
     - **AddOn1** - 分包1
       - Other - 其他资源
