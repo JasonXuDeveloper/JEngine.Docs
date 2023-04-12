@@ -16,3 +16,5 @@
 - AseetMgr部分接口参数有更改
 - 更新分包的接口有更改
 - 若要兼容WebGL，请勿使用任何同步加载资源
+- 热更工程需要重新引用`Libray/ScriptAssemblies/Assembly-CSharp.dll`，还需要引用`Libray/ScriptAssemblies/YooAsset.dll`
+- 热更工程项目输出地址要从`Assets/HotUpdateResources/Dll/Hidden~`改到`Assets/HotUpdateResources/Main/Dll/Hidden~`
