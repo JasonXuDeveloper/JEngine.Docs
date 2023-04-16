@@ -20,7 +20,7 @@ JEngine目前正在维护的版本
 
 
 
-### [最新版本](/zh/documents/0.7/) <Badge type="tip" text="v0.8.x" vertical="middle" />
+### [最新版本](/zh/documents/0.8/) <Badge type="tip" text="v0.8.x" vertical="middle" />
 
 ::: tip 
 
