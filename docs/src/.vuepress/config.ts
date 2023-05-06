@@ -142,6 +142,13 @@ var bar = {
                 '/zh/documents/0.8/migrate',
             ]
         },
+        {
+            text: '核心功能',
+            collapsible: false,
+            children: [
+                '/zh/documents/0.8/assetmgr',
+            ]
+        },
     ]
 }, ],
   '/zh/pro/': [{
