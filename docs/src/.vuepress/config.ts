@@ -147,6 +147,7 @@ var bar = {
             collapsible: false,
             children: [
                 '/zh/documents/0.8/assetmgr',
+                '/zh/documents/0.8/coroutinemgr',
             ]
         },
     ]
