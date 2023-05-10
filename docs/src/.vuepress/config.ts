@@ -148,7 +148,7 @@ var bar = {
             children: [
                 '/zh/documents/0.8/assetmgr',
                 '/zh/documents/0.8/coroutinemgr',
-                '/zh/documents/0.8/cyptomgr',
+                '/zh/documents/0.8/cryptomgr',
             ]
         },
     ]
