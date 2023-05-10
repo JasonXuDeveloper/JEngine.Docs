@@ -1,6 +1,6 @@
 # CoroutineMgr
 
-CoroutinetMgr是在JEngine热更工程使用Unity协程的助手（针对非继承MonoBehaviour使用协程的助手）
+CoroutineMgr是在JEngine热更工程使用Unity协程的助手（针对非继承MonoBehaviour使用协程的助手）
 
 [[toc]]
 
