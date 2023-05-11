@@ -149,6 +149,7 @@ var bar = {
                 '/zh/documents/0.8/assetmgr',
                 '/zh/documents/0.8/coroutinemgr',
                 '/zh/documents/0.8/cryptomgr',
+                '/zh/documents/0.8/lifecyclemgr',
             ]
         },
     ]
