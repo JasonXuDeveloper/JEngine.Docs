@@ -68,7 +68,7 @@ JEngine目前正在维护的版本
 
 
 
-### [专业版本](/zh/documents/pro/) <Badge type="tip" text="PRO v1.5" vertical="middle" />
+### [专业版本](/zh/documents/pro/) <Badge type="tip" text="PRO v1.6" vertical="middle" />
 
 ::: tip 
 
@@ -78,12 +78,9 @@ JEngine目前正在维护的版本
 
 #### 本次更新
 
-- 【新增】打热更包时自动收集Shader及其变种并自动生成保留文件到主包
-- 【新增】全部UGUI编辑器下事件支持注册带Enum参数的方法
-- 【新增】支持运行时Inspector下查看主工程Enum字段并修改
-- 【新增】支持ClassBind赋值Enum对象（主工程热更工程的都支持）
-- 【同步】开源版7月15日至10月8日全部更新
-- 【更新】ILRuntime至v2.1.0正式版
+- 【同步】开源版2022年10月8日至2023年5月24日全部更新
+  - 具体内容可以直接参考开源版0.8.0f5的更新日志
+  - Pro版本功能将于6月底进行性能优化
 
 #### [快速开始 →](/zh/documents/pro/)
 
