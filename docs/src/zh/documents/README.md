@@ -20,7 +20,7 @@ JEngine目前正在维护的版本
 
 
 
-### [最新版本](/zh/documents/0.8/) <Badge type="tip" text="v0.8.x" vertical="middle" />
+### [开源版本](/zh/documents/0.8/) <Badge type="tip" text="v0.8.x" vertical="middle" />
 
 ::: tip 
 
@@ -125,3 +125,17 @@ JEngine历史版本，不再维护，使用需谨慎，建议更新到稳定版�
 #### [快速开始 →](/documents/0.5/)
 
 :::
+
+
+
+
+
+
+
+## 为什么要更新到最新版
+
+<img src="https://s1.ax1x.com/2023/05/27/p9LCGdK.png" alt="p9LCGdK.png" style="zoom:50%;" />
+
+因为老用户升级后发现性能大幅度提升了。
+
+如果您正在使用老版本，同时正在为性能优化发愁，升级到最新版是最好的选择！
