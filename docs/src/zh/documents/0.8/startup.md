@@ -12,7 +12,7 @@
 
 - U3D工程.net环境： .Net Framework 4.x / .Net 4.x / .Net Framework
 
-- 热更工程.net环境： .Net Framework 4.x
+- 热更工程.net环境： .Net Framework 4.7.1 +
 
 - 开发系统：MacOS 13.0.1
 
