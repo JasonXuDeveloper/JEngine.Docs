@@ -86,7 +86,7 @@ function generateDynamicRobotsTxt(siteConfig: any): string {
 
   return `User-agent: *
 Allow: /
-# Algolia-Crawler-Verif: 57F88FFB4400A38A
+
 # Sitemap
 Sitemap: ${baseUrl}/sitemap.xml
 
@@ -552,9 +552,9 @@ export default withPwa(defineConfig({
     search: {
       provider: 'algolia',
       options: {
-        appId: 'JBM26KEULR',
-        apiKey: '50021a9511cb4aaf30ecbbb54de14f26',
-        indexName: 'xgamedev',
+        appId: 'WENHCHYVXD',
+        apiKey: '76c6db7d7f76141f6b785c515a93e296',
+        indexName: 'jengine doc',
         placeholder: '搜索文档'
       }
     },
