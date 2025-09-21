@@ -20,7 +20,7 @@ JEngine目前正在维护的版本
 
 
 
-### [最新版本](/zh/v1.0/) <Badge type="tip" text="v1.0.0" vertical="middle" />
+### [最新版本](/zh/documents/1.0/) <Badge type="tip" text="v1.0.0" vertical="middle" />
 
 ::: tip 
 
@@ -30,8 +30,13 @@ JEngine目前正在维护的版本
 
 #### V1.0更新日志
 
+- **AssetBundle加密** 支持（XOR、AES、ChaCha20）
+- **代码混淆** 支持，使用Obfuz保护几乎所有代码
+- **大幅提升** 热更代码执行性能，迁移至HybridCLR
+- **增强** 游戏开发体验（编写热更代码时无需额外操作）
+- **小游戏** 支持微信、抖音、支付宝和TapTap
 
-#### [快速开始 →](/zh/v1.0/)
+#### [快速开始 →](/zh/documents/1.0/)
 
 :::
 
@@ -43,9 +48,9 @@ JEngine目前正在维护的版本
 JEngine历史版本，不再维护，使用需谨慎，建议更新到稳定版本
 
 
-### [专业版本](/zh/documents/pro/) <Badge type="tip" text="PRO v1.6" vertical="middle" />
+### [专业版本](/zh/documents/pro/) <Badge type="warning" text="PRO v1.6" vertical="middle" />
 
-::: tip 
+::: warning 
 
 > 该版本对应的是JEngine Pro的master分支
 
@@ -61,9 +66,9 @@ JEngine历史版本，不再维护，使用需谨慎，建议更新到稳定版�
 
 :::
 
-### [0.8.x版本](/zh/documents/0.8/) <Badge type="warning" text="v0.7.x" vertical="middle" />
+### [0.8.x版本](/zh/documents/0.8/) <Badge type="danger" text="v0.8.x" vertical="middle" />
 
-::: warning
+::: danger
 
 > 该版本对应的是JEngine的0.8.x分支
 
@@ -75,9 +80,9 @@ JEngine历史版本，不再维护，使用需谨慎，建议更新到稳定版�
 
 
 
-### [0.7.x版本](/zh/documents/0.7/) <Badge type="warning" text="v0.7.x" vertical="middle" />
+### [0.7.x版本](/zh/documents/0.7/) <Badge type="danger" text="v0.7.x" vertical="middle" />
 
-::: warning
+::: danger
 
 > 该版本对应的是JEngine的0.7.x分支
 
@@ -87,8 +92,8 @@ JEngine历史版本，不再维护，使用需谨慎，建议更新到稳定版�
 
 :::
 
-### [0.6.x版本](/zh/documents/0.6/) <Badge type="warning" text="v0.6.x" vertical="middle" />
-::: warning
+### [0.6.x版本](/zh/documents/0.6/) <Badge type="danger" text="v0.6.x" vertical="middle" />
+::: danger
 > 该版本对应的是JEngine的0.6.x分支
 
 0.6.x版本目前部分商业项目正在使用，内容完善，文档视频充足，需要注意这个版本不是LTS版本，不会再进行任何更新或维护，建议使用[最新版本](#最新版本)。

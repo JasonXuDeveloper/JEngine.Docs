@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /en/v1.0/
+      link: /en/documents/1.0/
     - theme: alt
       text: View on GitHub
       link: https://github.com/JasonXuDeveloper/JEngine

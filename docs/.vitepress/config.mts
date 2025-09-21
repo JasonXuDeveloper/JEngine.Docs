@@ -231,7 +231,7 @@ export default withPwa(defineConfig({
         if (item.url === '/' || item.url === '/en/' || item.url === '/zh/') {
           return { ...item, priority: 1.0, changefreq: 'weekly' }
         }
-        if (item.url.includes('/v1.0/')) {
+        if (item.url.includes('/documents/1.0/')) {
           return { ...item, priority: 0.9, changefreq: 'weekly' }
         }
         if (item.url.includes('/documents/0.8/')) {

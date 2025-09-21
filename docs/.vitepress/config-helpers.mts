@@ -136,7 +136,7 @@ export function generateNav(locale: 'en' | 'zh'): DefaultTheme.NavItem[] {
       {
         text: 'Documentation',
         items: [
-          { text: 'v1.0 (Latest)', link: '/en/v1.0/' }
+          { text: 'v1.0 (Latest)', link: '/en/documents/1.0/' }
         ]
       }
     ]
@@ -147,7 +147,7 @@ export function generateNav(locale: 'en' | 'zh'): DefaultTheme.NavItem[] {
         text: '文档',
         items: [
           { text: '文档总览', link: '/zh/documents/' },
-          { text: 'v1.0 (最新)', link: '/zh/v1.0/' },
+          { text: 'v1.0 (最新)', link: '/zh/documents/1.0/' },
           { text: 'v0.8.x', link: '/zh/documents/0.8/' },
           { text: 'v0.7.x', link: '/zh/documents/0.7/' },
           { text: 'v0.6.x', link: '/zh/documents/0.6/' },
@@ -185,8 +185,52 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
   let customSidebar: SidebarConfig = {}
 
   if (isEnglish) {
-    // English sidebars (minimal for now)
-    customSidebar = generateSidebar(docsPath, 'en')
+    // English sidebars (structured)
+    customSidebar = {
+      '/en/documents/1.0/': [
+        {
+          text: 'v1.0 Documentation',
+          collapsed: false,
+          items: [
+            { text: 'Overview', link: '/en/documents/1.0/' },
+            {
+              text: 'Getting Started',
+              collapsed: false,
+              items: [
+                { text: 'Quick Start', link: '/en/documents/1.0/startup' },
+                { text: 'Installation Guide', link: '/en/documents/1.0/installation' },
+                { text: 'Core Concepts', link: '/en/documents/1.0/concepts' }
+              ]
+            },
+            {
+              text: 'Core Features',
+              collapsed: false,
+              items: [
+                { text: 'Asset Management', link: '/en/documents/1.0/assetmgr' },
+                { text: 'Hot Update', link: '/en/documents/1.0/hotupdate' },
+                { text: 'Build & Deploy', link: '/en/documents/1.0/build' }
+              ]
+            },
+            {
+              text: 'Tools & Extensions',
+              collapsed: false,
+              items: [
+                { text: 'Editor Tools', link: '/en/documents/1.0/editor-tools' },
+                { text: 'Debugging', link: '/en/documents/1.0/debugging' },
+                { text: 'Performance Optimization', link: '/en/documents/1.0/optimization' }
+              ]
+            },
+            {
+              text: 'Migration Guide',
+              collapsed: false,
+              items: [
+                { text: 'From v0.8.x', link: '/en/documents/1.0/migrate-from-0.8' }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   } else {
     // Chinese sidebars (hardcoded structured)
     customSidebar = {
@@ -423,6 +467,49 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
             { text: '定价', link: '/zh/pro/price' },
             { text: '购买', link: '/zh/pro/purchase' },
             { text: '文档', link: '/zh/documents/pro/' }
+          ]
+        }
+      ],
+      '/zh/documents/1.0/': [
+        {
+          text: 'v1.0文档',
+          collapsed: false,
+          items: [
+            { text: '概述', link: '/zh/documents/1.0/' },
+            {
+              text: '入门教程',
+              collapsed: false,
+              items: [
+                { text: '快速开始', link: '/zh/documents/1.0/startup' },
+                { text: '安装指南', link: '/zh/documents/1.0/installation' },
+                { text: '基本概念', link: '/zh/documents/1.0/concepts' }
+              ]
+            },
+            {
+              text: '核心功能',
+              collapsed: false,
+              items: [
+                { text: '资源管理', link: '/zh/documents/1.0/assetmgr' },
+                { text: '热更新', link: '/zh/documents/1.0/hotupdate' },
+                { text: '构建部署', link: '/zh/documents/1.0/build' }
+              ]
+            },
+            {
+              text: '工具与扩展',
+              collapsed: false,
+              items: [
+                { text: '编辑器工具', link: '/zh/documents/1.0/editor-tools' },
+                { text: '调试工具', link: '/zh/documents/1.0/debugging' },
+                { text: '性能优化', link: '/zh/documents/1.0/optimization' }
+              ]
+            },
+            {
+              text: '升级指南',
+              collapsed: false,
+              items: [
+                { text: '从v0.8.x迁移', link: '/zh/documents/1.0/migrate-from-0.8' }
+              ]
+            }
           ]
         }
       ],
