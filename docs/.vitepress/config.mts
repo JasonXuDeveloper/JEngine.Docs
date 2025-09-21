@@ -3,6 +3,7 @@ import { withPwa } from '@vite-pwa/vitepress'
 import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
+import { generateThemeConfig } from './config-helpers.mts'
 
 // Favicon generation function using Sharp
 async function generateFavicons() {
@@ -61,9 +62,13 @@ function generateDynamicRobotsTxt(siteConfig: any): string {
     extractPathsFromNav(siteConfig.userConfig.themeConfig.nav, allowedPaths)
   }
 
-  // Discover paths from sidebar
-  if (siteConfig.userConfig?.themeConfig?.sidebar) {
-    extractPathsFromSidebar(siteConfig.userConfig.themeConfig.sidebar, allowedPaths)
+  // Discover paths from sidebar for all locales
+  if (siteConfig.userConfig?.locales) {
+    Object.values(siteConfig.userConfig.locales).forEach((locale: any) => {
+      if (locale.themeConfig?.sidebar) {
+        extractPathsFromSidebar(locale.themeConfig.sidebar, allowedPaths)
+      }
+    })
   }
 
   // Always block build artifacts and private paths
@@ -147,13 +152,37 @@ function extractPathsFromSidebarItems(items: any[], allowedPaths: Set<string>) {
   })
 }
 
+// Get the docs path
+const docsPath = path.resolve('./docs')
+
 // https://vitepress.dev/reference/site-config
 export default withPwa(defineConfig({
   title: 'JEngine',
-  description: '使Unity开发的游戏支持热更新的解决方案',
-  lang: 'zh-CN',
+  description: 'Unity Hot Update Solution - Enable hot updates for Unity games with runtime support',
 
+  // Multi-language configuration
+  locales: {
+    en: {
+      label: 'English',
+      lang: 'en-US',
+      title: 'JEngine',
+      description: 'Unity Hot Update Solution - Enable hot updates for Unity games with runtime support',
+      themeConfig: {
+        ...generateThemeConfig('en', docsPath)
+      }
+    },
+    zh: {
+      label: '简体中文',
+      lang: 'zh-CN',
+      title: 'JEngine',
+      description: '使Unity开发的游戏支持热更新的解决方案',
+      themeConfig: {
+        ...generateThemeConfig('zh', docsPath)
+      }
+    }
+  },
 
+  // Default to English
   head: [
     ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
@@ -161,9 +190,8 @@ export default withPwa(defineConfig({
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
     ['meta', { name: 'msapplication-TileColor', content: '#3eaf7c' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:locale', content: 'zh_CN' }],
-    ['meta', { property: 'og:title', content: 'JEngine - Unity热更新解决方案' }],
-    ['meta', { property: 'og:description', content: '使Unity开发的游戏支持热更新的解决方案' }],
+    ['meta', { property: 'og:title', content: 'JEngine - Unity Hot Update Solution' }],
+    ['meta', { property: 'og:description', content: 'Enable hot updates for Unity games with runtime support' }],
     ['meta', { property: 'og:site_name', content: 'JEngine Documentation' }],
     ['meta', { property: 'og:image', content: 'https://jengine.xgamedev.net/logo.png' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
@@ -194,14 +222,17 @@ export default withPwa(defineConfig({
     return faviconLinks
   },
 
-  // Sitemap generation
+  // Sitemap generation with locale support
   sitemap: {
     hostname: 'https://jengine.xgamedev.net',
     transformItems: (items) => {
       // Add custom priority and changefreq for different sections
       return items.map((item) => {
-        if (item.url === '/') {
+        if (item.url === '/' || item.url === '/en/' || item.url === '/zh/') {
           return { ...item, priority: 1.0, changefreq: 'weekly' }
+        }
+        if (item.url.includes('/v1.0/')) {
+          return { ...item, priority: 0.9, changefreq: 'weekly' }
         }
         if (item.url.includes('/documents/0.8/')) {
           return { ...item, priority: 0.8, changefreq: 'monthly' }
@@ -220,9 +251,104 @@ export default withPwa(defineConfig({
     }
   },
 
+  // Common theme configuration
+  themeConfig: {
+    logo: '/logo.png',
+    search: {
+      provider: 'algolia',
+      options: {
+        appId: 'WENHCHYVXD',
+        apiKey: '76c6db7d7f76141f6b785c515a93e296',
+        indexName: 'jengine-doc',
+        locales: {
+          en: {
+            placeholder: 'Search documentation',
+            translations: {
+              button: {
+                buttonText: 'Search',
+                buttonAriaLabel: 'Search'
+              },
+              modal: {
+                searchBox: {
+                  clearButtonTitle: 'Clear search',
+                  clearButtonAriaLabel: 'Clear search',
+                  closeButtonText: 'Cancel',
+                  closeButtonAriaLabel: 'Cancel'
+                },
+                startScreen: {
+                  recentSearchesTitle: 'Recent searches',
+                  noRecentSearchesText: 'No recent searches',
+                  saveRecentSearchButtonTitle: 'Save this search',
+                  removeRecentSearchButtonTitle: 'Remove this search from history',
+                  favoriteSearchesTitle: 'Favorites',
+                  removeFavoriteSearchButtonTitle: 'Remove this search from favorites'
+                },
+                errorScreen: {
+                  titleText: 'Unable to fetch results',
+                  helpText: 'You might want to check your network connection.'
+                },
+                footer: {
+                  selectText: 'to select',
+                  navigateText: 'to navigate',
+                  closeText: 'to close'
+                },
+                noResultsScreen: {
+                  noResultsText: 'No results for',
+                  suggestedQueryText: 'Try searching for',
+                  reportMissingResultsText: 'Believe this query should return results?',
+                  reportMissingResultsLinkText: 'Let us know.'
+                }
+              }
+            }
+          },
+          zh: {
+            placeholder: '搜索文档',
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                searchBox: {
+                  clearButtonTitle: '清除查询条件',
+                  clearButtonAriaLabel: '清除查询条件',
+                  closeButtonText: '取消',
+                  closeButtonAriaLabel: '取消'
+                },
+                startScreen: {
+                  recentSearchesTitle: '搜索历史',
+                  noRecentSearchesText: '没有搜索历史',
+                  saveRecentSearchButtonTitle: '保存至搜索历史',
+                  removeRecentSearchButtonTitle: '从搜索历史中移除',
+                  favoriteSearchesTitle: '收藏',
+                  removeFavoriteSearchButtonTitle: '从收藏中移除'
+                },
+                errorScreen: {
+                  titleText: '无法获取结果',
+                  helpText: '你可能需要检查你的网络连接'
+                },
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换',
+                  closeText: '关闭'
+                },
+                noResultsScreen: {
+                  noResultsText: '无法找到相关结果',
+                  suggestedQueryText: '你可以尝试查询',
+                  reportMissingResultsText: '你认为该查询应该有结果？',
+                  reportMissingResultsLinkText: '点击反馈'
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
   // Enable last updated timestamps
   lastUpdated: true,
-  cleanUrls: true, 
+  cleanUrls: true,
 
   // Build hooks
   buildEnd: async (siteConfig) => {
@@ -237,362 +363,6 @@ export default withPwa(defineConfig({
     console.log('Generated dynamic robots.txt with auto-discovered paths')
 
     console.log('✅ SEO files generated successfully!')
-  },
-
-  themeConfig: {
-    logo: '/logo.png',
-
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: '主页', link: '/' },
-      {
-        text: '文档',
-        items: [
-          { text: '文档总览', link: '/documents/' },
-          { text: 'v0.8.x', link: '/documents/0.8/' },
-          { text: 'v0.7.x', link: '/documents/0.7/' },
-          { text: 'v0.6.x', link: '/documents/0.6/' },
-          { text: 'v0.5.x', link: '/documents/0.5/' },
-          { text: 'Pro版本', link: '/documents/pro/' }
-        ]
-      },
-      {
-        text: '交流',
-        items: [
-          {
-            text: 'JEngine官方QQ群',
-            items: [
-              { text: '921271552', link: 'https://jq.qq.com/?_wv=1027&k=cF4hODjW' }
-            ]
-          }
-        ]
-      },
-      {
-        text: '订阅版',
-        items: [
-          { text: 'Pro', link: '/pro/' },
-          { text: '定价', link: '/pro/price' },
-          { text: '购买', link: '/pro/purchase' }
-        ]
-      }
-    ],
-
-    sidebar: {
-      '/documents/': [
-        {
-          text: '框架文档',
-          collapsed: false,
-          items: [
-            { text: '概述', link: '/documents/' }
-          ]
-        }
-      ],
-      '/documents/0.8/': [
-        {
-          text: 'v0.8.x文档',
-          collapsed: false,
-          items: [
-            { text: '概述', link: '/documents/0.8/' },
-            {
-              text: '入门教程',
-              collapsed: false,
-              items: [
-                { text: '快速开始', link: '/documents/0.8/startup' },
-                { text: '资源包管理', link: '/documents/0.8/ab' },
-                { text: '部署', link: '/documents/0.8/deploy' },
-                { text: '更新器', link: '/documents/0.8/updater' },
-                { text: '常见问题', link: '/documents/0.8/FAQ' },
-                { text: 'YooAsset文档', link: 'https://www.yooasset.com/' },
-                { text: 'ILRuntime文档', link: 'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html' }
-              ]
-            },
-            {
-              text: '升级指南',
-              collapsed: false,
-              items: [
-                { text: '迁移指南', link: '/documents/0.8/migrate' }
-              ]
-            },
-            {
-              text: '核心功能',
-              collapsed: false,
-              items: [
-                { text: '资源管理器', link: '/documents/0.8/assetmgr' },
-                { text: '协程管理器', link: '/documents/0.8/coroutinemgr' },
-                { text: '加密管理器', link: '/documents/0.8/cryptomgr' },
-                { text: '生命周期管理器', link: '/documents/0.8/lifecyclemgr' }
-              ]
-            }
-          ]
-        }
-      ],
-      '/documents/0.7/': [
-        {
-          text: 'v0.7.x文档',
-          collapsed: false,
-          items: [
-            { text: '概述', link: '/documents/0.7/' },
-            {
-              text: '入门教程',
-              collapsed: false,
-              items: [
-                { text: '快速开始', link: '/documents/0.7/startup' },
-                { text: '热更新', link: '/documents/0.7/Update' },
-                { text: '构建AB包', link: '/documents/0.7/BuildAB' },
-                { text: '更新器', link: '/documents/0.7/Updater' },
-                { text: '初始化JEngine', link: '/documents/0.7/InitJEngine' },
-                { text: '原理', link: '/documents/0.7/Principle' },
-                { text: '常见问题', link: '/documents/0.7/FAQ' },
-                { text: '限制', link: '/documents/0.7/limits' },
-                { text: 'ILRuntime文档', link: 'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html' }
-              ]
-            },
-            {
-              text: '框架核心',
-              collapsed: false,
-              items: [
-                { text: '资源管理器', link: '/documents/0.7/AssetMgr' },
-                { text: '类绑定', link: '/documents/0.7/ClassBind' },
-                { text: '扩展', link: '/documents/0.7/Extension' },
-                { text: '加密结构', link: '/documents/0.7/CryptoStruct' },
-                { text: 'JAction', link: '/documents/0.7/JAction' },
-                { text: 'JBehaviour', link: '/documents/0.7/JBehaviour' },
-                { text: 'JSaver', link: '/documents/0.7/JSaver' },
-                { text: '单例', link: '/documents/0.7/Singleton' },
-                { text: 'JEvent', link: '/documents/0.7/JEvent' },
-                { text: '可绑定', link: '/documents/0.7/Bindable' },
-                { text: 'JPrefab', link: '/documents/0.7/JPrefab' },
-                { text: 'JValidation', link: '/documents/0.7/JValidation' },
-                { text: 'StringifyHelper', link: '/documents/0.7/StringifyHelper' },
-                { text: 'JGameObjectPool', link: '/documents/0.7/JGameObjectPool' },
-                { text: '本地化', link: '/documents/0.7/Localization' },
-                { text: 'JWebSocket', link: '/documents/0.7/JWebSocket' }
-              ]
-            },
-            {
-              text: '编辑器工具',
-              collapsed: false,
-              items: [
-                { text: 'JEngine面板', link: '/documents/0.7/JEnginePanel' },
-                { text: 'ILRuntime工具', link: '/documents/0.7/ILRuntimeTools' },
-                { text: 'Proto工具', link: '/documents/0.7/ProtoTools' }
-              ]
-            },
-            {
-              text: 'UI功能',
-              collapsed: false,
-              items: [
-                { text: 'JUI', link: '/documents/0.7/Jui' },
-                { text: 'MetaJUI', link: 'https://github.com/Meta404Dev/MetaJUI' }
-              ]
-            },
-            {
-              text: '额外插件',
-              collapsed: false,
-              items: [
-                { text: 'Unity GUI Redis', link: 'https://github.com/JasonXuDeveloper/Unity-GUI-Redis' }
-              ]
-            }
-          ]
-        }
-      ],
-      '/documents/0.6/': [
-        {
-          text: 'v0.6.x文档',
-          collapsed: false,
-          items: [
-            { text: '概述', link: '/documents/0.6/' },
-            {
-              text: '入门教程',
-              collapsed: false,
-              items: [
-                { text: '快速开始', link: '/documents/0.6/startup' },
-                { text: '项目结构', link: '/documents/0.6/structure' },
-                { text: '热更新', link: '/documents/0.6/hotupdate' },
-                { text: '类绑定', link: '/documents/0.6/classbind' },
-                { text: '指南', link: '/documents/0.6/guide' },
-                { text: '限制', link: '/documents/0.6/limits' },
-                { text: 'ILRuntime文档', link: 'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html' }
-              ]
-            },
-            {
-              text: '框架核心',
-              collapsed: false,
-              items: [
-                { text: 'JBehaviour', link: '/documents/0.6/jbehaviour' },
-                { text: 'JResource', link: '/documents/0.6/jresource' },
-                { text: 'JAction', link: '/documents/0.6/jaction' },
-                { text: 'JSaver', link: '/documents/0.6/jsaver' },
-                { text: 'JEvent', link: '/documents/0.6/jevent' },
-                { text: '本地化', link: '/documents/0.6/localization' },
-                { text: '加密结构', link: '/documents/0.6/crypto-struct' },
-                { text: '游戏对象池', link: '/documents/0.6/gameobject-pool' },
-                { text: 'ILRuntime工具', link: '/documents/0.6/ilruntime-tools' },
-                { text: 'Proto工具', link: '/documents/0.6/proto-tools' },
-                { text: 'JEngine面板', link: '/documents/0.6/jengine-panel' }
-              ]
-            },
-            {
-              text: 'UI框架',
-              collapsed: false,
-              items: [
-                { text: 'JUI', link: '/documents/0.6/jui' },
-                { text: '可绑定', link: '/documents/0.6/bindable' }
-              ]
-            },
-            {
-              text: '额外插件',
-              collapsed: false,
-              items: [
-                { text: 'Unity GUI Redis', link: 'https://github.com/JasonXuDeveloper/Unity-GUI-Redis' }
-              ]
-            }
-          ]
-        }
-      ],
-      '/documents/0.5/': [
-        {
-          text: 'v0.5.x文档',
-          collapsed: false,
-          items: [
-            { text: '概述', link: '/documents/0.5/' },
-            {
-              text: '入门教程',
-              collapsed: false,
-              items: [
-                { text: '快速开始', link: '/documents/0.5/startup' },
-                { text: '项目结构', link: '/documents/0.5/structure' },
-                { text: '热更新', link: '/documents/0.5/hotupdate' },
-                { text: '类绑定', link: '/documents/0.5/classbind' },
-                { text: '指南', link: '/documents/0.5/guide' },
-                { text: '限制', link: '/documents/0.5/limits' },
-                { text: 'ILRuntime文档', link: 'https://ourpalm.github.io/ILRuntime/public/v1/guide/tutorial.html' }
-              ]
-            },
-            {
-              text: '框架核心',
-              collapsed: false,
-              items: [
-                { text: 'JBehaviour', link: '/documents/0.5/jbehaviour' },
-                { text: 'JResource', link: '/documents/0.5/jresource' },
-                { text: 'JAction', link: '/documents/0.5/jaction' },
-                { text: 'JSaver', link: '/documents/0.5/jsaver' },
-                { text: '本地化', link: '/documents/0.5/localization' },
-                { text: '加密结构', link: '/documents/0.5/crypto-struct' },
-                { text: '游戏对象池', link: '/documents/0.5/gameobject-pool' },
-                { text: 'ILRuntime工具', link: '/documents/0.5/ilruntime-tools' },
-                { text: 'Proto工具', link: '/documents/0.5/proto-tools' }
-              ]
-            },
-            {
-              text: 'UI框架',
-              collapsed: false,
-              items: [
-                { text: 'JUI', link: '/documents/0.5/jui' },
-                { text: '可绑定', link: '/documents/0.5/bindable' }
-              ]
-            },
-            {
-              text: '额外插件',
-              collapsed: false,
-              items: [
-                { text: 'Unity GUI Redis', link: 'https://github.com/JasonXuDeveloper/Unity-GUI-Redis' }
-              ]
-            }
-          ]
-        }
-      ],
-      '/pro/': [
-        {
-          text: 'JEngine Pro',
-          collapsed: false,
-          items: [
-            { text: '概述', link: '/pro/' },
-            { text: '定价', link: '/pro/price' },
-            { text: '购买', link: '/pro/purchase' },
-            { text: '文档', link: '/documents/pro/' }
-          ]
-        }
-      ],
-      '/documents/pro/': [
-        {
-          text: 'Pro最新版文档',
-          collapsed: false,
-          items: [
-            { text: '概述', link: '/documents/pro/' },
-            {
-              text: '快速上手',
-              collapsed: false,
-              items: [
-                { text: '开始使用', link: '/documents/pro/StartUp' }
-              ]
-            },
-            {
-              text: '功能列表',
-              collapsed: false,
-              items: [
-                { text: '热重载', link: '/documents/pro/HotReload' },
-                { text: '类绑定', link: '/documents/pro/ClassBind' },
-                { text: 'HotButton', link: '/documents/pro/HotButton' },
-                { text: 'HotSlider', link: '/documents/pro/HotSlider' },
-                { text: 'HotInputField', link: '/documents/pro/HotInputField' },
-                { text: 'HotDropdown', link: '/documents/pro/HotDropdown' },
-                { text: 'HotToggle', link: '/documents/pro/HotToggle' },
-                { text: 'HotEventTrigger', link: '/documents/pro/HotEventTrigger' },
-                { text: 'JAction监视器编辑器', link: '/documents/pro/JActionMonitorEditor' },
-                { text: 'ILRuntime适配器编辑器', link: '/documents/pro/ILRuntimeAdapterEditor' },
-                { text: '类绑定依赖编辑器', link: '/documents/pro/ClassBindDependentEditor' },
-                { text: '自定义运行时序列化', link: '/documents/pro/CustomRuntimeSerialization' }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-
-    search: {
-      provider: 'algolia',
-      options: {
-        appId: 'WENHCHYVXD',
-        apiKey: '76c6db7d7f76141f6b785c515a93e296',
-        indexName: 'jengine-doc',
-        placeholder: '搜索文档'
-      }
-    },
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/JasonXuDeveloper/JEngine' }
-    ],
-
-    footer: {
-      message: 'MIT Licensed',
-      copyright: 'Copyright © 2020-present JasonXuDeveloper'
-    },
-
-    editLink: {
-      pattern: 'https://github.com/JasonXuDeveloper/JEngine.Docs/edit/main/vitepress-docs/docs/:path',
-      text: '在 GitHub 上编辑此页'
-    },
-
-    lastUpdated: {
-      text: '上次更新时间'
-    },
-
-    docFooter: {
-      prev: '上一页',
-      next: '下一页'
-    },
-
-    outline: {
-      label: '页面导航',
-      level: [2, 3]
-    },
-
-    returnToTopLabel: '回到顶部',
-    sidebarMenuLabel: '菜单',
-    darkModeSwitchLabel: '主题',
-    lightModeSwitchTitle: '切换到浅色模式',
-    darkModeSwitchTitle: '切换到深色模式'
   },
 
   // PWA Configuration
@@ -611,13 +381,13 @@ export default withPwa(defineConfig({
     manifest: {
       name: 'JEngine Documentation',
       short_name: 'JEngine Docs',
-      description: '使Unity开发的游戏支持热更新的解决方案',
+      description: 'Unity Hot Update Solution - Enable hot updates for Unity games',
       theme_color: '#3eaf7c',
       background_color: '#ffffff',
       display: 'standalone',
       orientation: 'portrait',
       start_url: '/',
-      lang: 'zh-CN',
+      lang: 'en-US',
       categories: ['developer', 'productivity', 'utilities'],
       icons: [
         {
