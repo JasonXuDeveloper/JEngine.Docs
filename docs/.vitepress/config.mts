@@ -222,6 +222,7 @@ export default withPwa(defineConfig({
 
   // Enable last updated timestamps
   lastUpdated: true,
+  cleanUrls: true, 
 
   // Build hooks
   buildEnd: async (siteConfig) => {
@@ -554,7 +555,7 @@ export default withPwa(defineConfig({
       options: {
         appId: 'WENHCHYVXD',
         apiKey: '76c6db7d7f76141f6b785c515a93e296',
-        indexName: 'jengine doc',
+        indexName: 'jengine-doc',
         placeholder: '搜索文档'
       }
     },
