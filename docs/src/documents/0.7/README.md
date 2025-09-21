@@ -1,12 +1,12 @@
 # v0.7.x
 
 ::: tip
-目前```0.7.x```是最新的版本，**会持续更新，持续维护**
+目前```0.7.x```已停止维护，建议使用```v0.8.x```
 :::
 
 ### 仓库
 
-[在GitHub查看 →](https://github.com/JasonXuDeveloper/JEngine/tree/master)
+[在GitHub查看 →](https://github.com/JasonXuDeveloper/JEngine/tree/0.7.x)
 
 
 

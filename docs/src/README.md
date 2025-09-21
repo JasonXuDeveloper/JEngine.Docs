@@ -1,20 +1,20 @@
 ---
-title: JEngine - The solution that allows unity games update in runtime.
+title: JEngine - 使Unity开发的游戏支持热更新的解决方案
 home: true
-lang: en-US
+lang: zh-CN
 heroImage: /logo.png
 heroText: JEngine
-tagline: The solution that allows unity games update in runtime.
+tagline: 使Unity开发的游戏支持热更新的解决方案
 actions:
-  - text: Get Started →
+  - text: 快速开始 →
     link: /documents/
     type: primary
 features:
-- title: OOTB
-  details: An out-of-the-box framework designed for Unity developers instantly allows beginners to create games that can be updated hotly.
-- title: Powerful
-  details: There is no need to explore how hot update works as the framework was well done integrated the corresponding module.
-- title: Lightweight
-  details: Just download the framework and start building your own game with no additional requirements.
+- title: 易用
+  details: 仅需下载并打开框架，就可以开始制作可热更新的游戏，无额外硬性要求。
+- title: 强大
+  details: 框架进行了集成以及完善的封装，无需关注热更原理即可使用强大的功能。
+- title: 轻量
+  details: 麻雀虽小五脏俱全，框架只有基础流程需强制遵循，其他功能可按需使用。
 footer: MIT Licensed | Copyright © 2020-present JasonXuDeveloper
 ---
