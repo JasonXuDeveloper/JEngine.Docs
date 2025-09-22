@@ -1,149 +1,156 @@
-# 快速开始
+# 开始使用 
 
-本文将指导您如何开始使用 JEngine v1.0 进行热更新 Unity 游戏开发。
+该文章将告诉您如何初步使用JEngine
 
 [[toc]]
 
-## 环境要求
 
-### Unity 版本要求
-- **Unity 版本**：2021.3 LTS 或更高版本（推荐使用 2022.3 LTS）
-- **API 兼容级别**：.NET Framework / .NET Standard 2.1
 
-### 开发环境
-- **.NET 版本**：.NET Framework 4.7.1+ 或 .NET 6.0+
-- **开发系统**：Windows 10/11, macOS 10.15+, Ubuntu 18.04+
-- **IDE 推荐**：Visual Studio 2022, JetBrains Rider, 或 Visual Studio Code
+## 版本要求
 
-## 项目设置
+Unity2022.3及以上
 
-### 1. 启用 Unsafe Code
-在 Unity PlayerSettings 中找到 `Allow Unsafe Code` 并启用（勾选）。
 
-### 2. 配置 .NET 版本
-在 Unity PlayerSettings 中：
-- 将 `API Compatibility Level` 设置为 `.NET Framework` 或 `.NET Standard 2.1`
-- 确保不使用 `.NET Standard 2.0`
 
-## 项目结构
+## 下载JEngine
 
-JEngine v1.0 采用了优化的目录结构：
+请[在此](https://github.com/JasonXuDeveloper/JEngine/tree/master)下载JEngine后解压并在Unity Hub内使用符合版本要求的Unity打开`UnityProject`
 
-### Unity 工程结构
-```
-Assets/
-├── Dependencies/           # 核心模块
-│   ├── ILRuntime/         # ILRuntime 模块
-│   ├── YooAsset/          # 资源管理模块
-│   └── JEngine.Core/      # JEngine 核心
-├── HotUpdateResources/    # 热更新资源
-│   ├── Main/              # 主包资源
-│   │   ├── Common/        # 通用资源
-│   │   ├── Scenes/        # 场景资源
-│   │   ├── Scripts/       # 热更新脚本 DLL
-│   │   └── Shaders/       # 着色器资源
-│   └── DLC/               # DLC 分包（可选）
-├── Scripts/               # 本地脚本
-│   ├── Helpers/           # 辅助类
-│   ├── Adapters/          # ILRuntime 适配器
-│   └── Examples/          # 示例代码
-└── Scenes/
-    └── Init.unity         # 启动场景
-```
 
-### 热更新代码结构
-```
-HotUpdateScripts/
-├── Program.cs             # 程序入口点
-├── JEngine/               # JEngine 框架代码
-│   ├── Core/              # 核心功能
-│   ├── Examples/          # 示例代码
-│   └── UI/                # UI 系统
-└── Game/                  # 您的游戏代码
-    ├── Logic/             # 游戏逻辑
-    ├── UI/                # 游戏界面
-    └── Data/              # 数据模型
-```
 
-## 快速开始指南
+## 项目主要结构
 
-### 步骤 1：获取 JEngine
-1. 从 [GitHub Releases](https://github.com/JasonXuDeveloper/JEngine/releases) 下载最新的 v1.0 版本
-2. 解压下载的文件
+下面会描述JEngine相关的目录和文件，一般**不建议**删除下面提到的文件/目录
 
-### 步骤 2：打开项目
-1. 使用 Unity 打开 `UnityProject` 目录
-2. 首次打开时会自动生成配置文件
-3. 检查控制台是否有错误信息
+**JEngine**：下载下来的目录
 
-### 步骤 3：配置热更新密码
-1. 首次运行时会弹出密码设置对话框
-2. 输入 16 位字符的加密密码（用于 DLL 加密）
-3. 记住此密码，后续可在 JEngine 面板中修改
+- **UnityProject**：Unity工程
 
-### 步骤 4：运行示例
-1. 打开 `Init` 场景
-2. 点击播放按钮运行游戏
-3. 观察控制台输出，确认框架正常运行
+  - **Bundles**：打包的热更资源的目录
 
-### 步骤 5：开始热更新开发
-1. 打开热更新代码项目：`UnityProject/HotUpdateScripts/`
-2. 使用 IDE 打开 `.sln` 文件
-3. 在 `Program.cs` 的 `RunGame` 方法中添加您的代码
-4. 编译项目（Ctrl+Shift+B 或使用 IDE 的构建功能）
+    - **{Platform}**：打包出来的热更资源对应的平台（如Android, WebGL等）
+      - **main**：打包出来的主分包
+        - **{PackageVersion}**：打包出来的主分包的版本
+      - **{OtherPackage}**：打包出来的其他分包
+        - **{PackageVersion}**：打包出来的其他分包的版本
 
-### 步骤 6：测试热更新
-1. 修改热更新代码并编译
-2. 返回 Unity 编辑器
-3. 再次运行游戏，观察修改是否生效
+  - **HybridCLRData**：HybridCLR所需的用来编译的目录（需要在Unity内自己安装，后续会提到）
 
-## 开发流程
+  - **Packages**：使用的第三方库
 
-### 1. 代码开发流程
-```mermaid
-graph TD
-    A[修改热更新代码] --> B[编译热更新项目]
-    B --> C[Unity 自动检测变化]
-    C --> D[运行游戏测试]
-    D --> E{是否符合预期?}
-    E -->|否| A
-    E -->|是| F[继续开发]
-```
+    - **com.code-philosophy.hybridclr@8.5.1**：HybridCLR，因为需要兼容Obfuz所以自己复制了一份到这个目录，如需更新HybridCLR的话可以[参考这里](https://www.obfuz.com/docs/beginner/work-with-hybridclr)
+    - **com.jasonxudeveloper.jengine.core**：JEngine核心代码（热更相关运行时和编辑器代码）
+    - **manifest.json**：清单文件，包含其他JEngine依赖的库（UniTask、YooAsset、Obfuz、Nino等）
 
-### 2. 资源开发流程
-1. 将资源放入 `HotUpdateResources` 目录
-2. 使用 JEngine 面板进行资源构建
-3. 测试资源加载功能
+  - **ProjectSettings**：包含各种项目配置，只推荐在Unity（Project Settings面板）下按需修改
 
-## 常见问题
+  - **yoo**：编辑器下模拟运行模式下载并使用热更资源时用来缓存已下载热更资源的目录，删掉后则需要在运行时重新下载
 
-### Q: 编译热更新代码失败
-**A:** 检查以下项：
-- 确保 .NET 版本正确
-- 检查代码语法错误
-- 确认所有依赖项已正确引用
+  - **Assets**：Unity项目资源目录
 
-### Q: 热更新不生效
-**A:** 可能的原因：
-- 编译失败，检查编译输出
-- DLL 文件未正确生成或复制
-- 加密密码错误
+    - **Samples**：包含YooAsset的插件（UniTask插件、小游戏插件）
 
-### Q: Unity 控制台报错
-**A:** 常见解决方案：
-- 重新导入 JEngine 包
-- 检查 Unity 版本兼容性
-- 清理并重新构建项目
+    - **StreamingAssets**：首包资源，打包主包热更资源时会自动复制文件到该目录，用于App Store等应用市场审核
 
-## 下一步
+    - **HybridCLRGenerate**：包含编译热更代码时生成的桥接函数和防Unity裁剪文件，可以删（但没意义），编译热更代码时会自动生成
 
-现在您已经成功设置了 JEngine v1.0 开发环境，可以：
+    - **Obfuz**：混淆相关的生成代码，包含生成的垃圾代码和用于[还原被混淆堆栈](https://www.obfuz.com/docs/manual/deobfuscate-stacktrace)的文件
 
-1. 阅读核心概念了解框架原理（即将推出）
-2. 查看资源管理学习资源系统（即将推出）
-3. 探索示例项目获取实践经验（即将推出）
-4. 参考 API 文档深入了解接口（即将推出）
+    - **TextMesh Pro**：一般项目现在都用这个来实现UI文本了，JEngine顺手把这个安装了（同时JEngine的Demo会用这个）
 
----
+    - **Resources**：非热更资源目录，存放了一些配置和预制体，**更改这里面的东西需要重新出包（指打包应用出来提交到平台）**
 
-**恭喜！您已经完成了 JEngine v1.0 的快速开始设置。开始构建您的热更新游戏吧！**
+      - **EncryptConfigs**：各种热更资源加密方式对应的配置文件，可以在里面配置不同加密方式所用到的密钥
+      - **Obfuz**：解密混淆代码的静态密钥
+      - **Animations/Shaders/UI/Prefabs**：JEngine的弹窗功能（**MessageBox**）用到的动画/特效/图片/预制体，可以修改，但`MessageBox.prefab`里面的控件的结构和名字不能改
+
+    - **Editor**：编辑器工具配置（YooAsset、JEngine）存放在这里，通常不需要去管里面的东西
+
+    - **HotUpdate**：热更资源（含代码）目录
+
+      - **Compiled**：编译并混淆后的热更代码和用于[补充AOT泛型的DLL](https://www.hybridclr.cn/docs/basic/aotgeneric)存放在这里，不用管，编译热更代码的时候会自动把文件写入这个目录
+      - **Obfuz**：解密混淆代码的动态密钥（可修改Obfuz配置后重新生成改密钥然后热更）
+      - **Main**：主热更资源包
+      - **AddOn1**：热更资源分包测试（可删，[需在YooAsset配置移除该分包](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector)）
+      - **Raw**：热更原生包测试（可删，[需在YooAsset配置移除该分包](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector)）
+      - **Code**：热更代码
+        - **EntryPoint.cs**热更代码的函数入口
+
+      ::: tip
+
+      你可以在`HotUpdate/{分包}`里随意根据你的规范去放置热更资源，但如果有添加新的目录或没在现有的目录里添加文件（例如在`HotUpdate/Main/`添加了文件或新目录）， 需要参考[YooAsset文档](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector)去配置新添加的`文件/目录`到对应的热更资源包
+
+      :::
+
+      
+
+      ::: danger
+
+      热更代码里不能使用Unity项目里非Plugin、非Packages、非dll、非asmdef的代码，即Assembly-CSharp工程内的代码无法在热更工程使用。
+
+      
+
+      如果想要在热更代码里使用任何主工程的代码，对应的主工程代码必须使用[`asmdef`](https://docs.unity3d.com/6000.2/Documentation/Manual/cus-asmdef.html)去分离出来一个工程，然后再到`HotUpdate/Code/HotUpdate.Code.asmdef`里添加对另一个主工程asmdef的引用，大部分Unity插件应该都有做这个（例如YooAsset, UniTask, ZLinq, LitMotion等）；如果某些Unity插件是提供的`dll`，例如Nino，则不需要做任何操作。
+
+      
+
+      这一段非常重要，如果是新手或者不懂这一块机制，可以把这一段话复制到LLM（DeepSeek、GPT等）里让AI进行解释和举例
+
+      :::
+
+
+
+## 安装HybridCLR
+
+用正确的Unity版本打开`UnityProject`后，在顶部菜单栏，点击`HybridCLR/Installer..`，然后点击`Install`即可，会卡一会，后续安装完了的话面板会显示`Installed Version: xxxx`，就代表安装完成（同时`UnityProject/HybridCLRData`目录会被生成，里面会有很多文件）
+
+> 这一步遇到错误可以看[这里](https://www.hybridclr.cn/docs/help/commonerrors)
+
+
+
+
+
+## 模拟运行项目
+
+这一步我们可以在编辑器下使用JEngine的开发模式去模拟热更流程：
+
+1. 进入`Init`场景
+2. 在`Hierarchy`点击`Bootstrap`对象
+3. 在`Inspector`的`Development Settings`区域内看`Editor Mode`是否为`Editor Dev Mode`（红色），如果不是就点一下按钮
+4. 编辑器下运行游戏
+5. 点`Start`会加载热更代码并进入主热更场景
+6. 点`AddOnDemo`后会加载`AddOn1`分包并进入该分包内的场景
+
+
+
+## 通用开发流程
+
+1. 修改热更代码/热更资源
+2. 打开JEngine面板（顶部菜单栏，点击`JEngine Panel`）
+3. 面板内的`Package Settings`下，`Package Name`选择需要打包热更资源的分包（通常是主分包`main`），`Build Target`点`Set to Current Active Target`
+4. 面板内的`Build Options`下选择需要的加密模式，通常推荐`XOR`（速度快），但`AES`和`ChaCha20`安全性更高
+5. 如果修改了热更代码或Obfuz配置，点`Build All Hot Update Res (Code + Assets)`（只有主分包需要点这个），然后等待即可，如果出现错误可以结合控制台错误查阅[YooAsset文档](https://www.yooasset.com/docs/FAQ)、[HybridCLR文档](https://www.hybridclr.cn/docs/help/commonerrors)和[Obfuz文档](https://www.obfuz.com/docs/help/faq)
+6. 如果修改了热更资源（如场景），且没有执行上一步，则点击`Build Hot Update Assets Only`，然后等待即可
+7. 做了前两个步骤的任意一步之后，如果打包成功，则会有个日志提到版本号，进入到`UnityProject/Bundles/{第四步设置的平台}/{第三步选择的分包}/{版本号}`目录，这个就是打包好的热更资源
+8. 在服务器/资源桶里，创建`{第四步设置的平台}/{第三步选择的分包}`目录，将上一步目录里的东西复制进来，例如在`https://cdn.domain.com/WebGL/main/`目录下存放你上一步打包出来的全部资源（前提是你也是WebGL平台）
+9. 进入`Init`场景
+10. 点击`Hierarchy`下的`Bootstrap`对象
+11. `Inspector`里的`Editor Mode`切换到`Host Play Mode`
+12. `Inspector`里的`Server Settings`区域的`Default Host Server`输入你第八步部署资源的地址，例如`https://cdn.domain.com`或`http://127.0.0.1`，注意不要包平台或分包写进链接里，如果你把资源目录放到了某个其他路径内，则该地址需要包含其他路径，例如你把资源放到了`wwwroot/cdn.domain.com/something/`下，那你的地址就填`https://cdn.domain.com/something`
+13. `Inspector`里的`Security Settings`内的`Encryption Option`选你对**主包**加密的模式
+14. `Inspector`里的`Asset Settings`内的`Target Platform`选择对应平台，`Regular`是常规平台，其他是对应的小游戏的平台
+15. 运行游戏，然后和模拟运行体验应该类似，但这次会有弹窗让你下载资源（主包不一定有因为会把资源拷贝到`Streaming Assets`），还会显示下载进度之类的
+16. 常规开发基本就是这么个`修改代码/资源->打包热更资源->上传热更资源->测试`的流程，更详细的框架功能会在后续的文章里具体介绍
+
+
+
+
+
+## 代码混淆
+
+上面提到了，我们会对大部分代码（含热更代码）进行混淆，需要注意的是，如果`Assets/Obfuz`目录下的代码（`GeneratedEncryptionVirtualMachine.cs`或垃圾代码）或`Assets/Resources/Obfuz/StaticSecretKey.bytes`发生了变动，则需要重新打包项目并提交到不同的平台做版本更新，推荐使用`git`或`svn`工具去判断有没有遇到这个问题。
+
+通常不修改Obfuz配置或不重新生成垃圾代码的话，不会遇到这个问题。
+
+具体的Obfuz配置需要[查看Obfuz文档](https://www.obfuz.com/docs/intro)，**强烈推荐大家看一下这个文档然后修改各种用来混淆的密钥**，**用默认的密钥不安全**
+
