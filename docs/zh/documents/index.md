@@ -54,7 +54,7 @@ JEngine历史版本，不再维护，使用需谨慎，建议更新到稳定版�
 
 > 该版本对应的是JEngine Pro的master分支
 
-专业版是针对JEngine开源版设计的加强版本，[点击了解详情](/zh/pro/)
+专业版是针对JEngine开源版设计的加强版本，[点击了解详情](/zh/documents/pro/)
 
 #### 本次更新
 
