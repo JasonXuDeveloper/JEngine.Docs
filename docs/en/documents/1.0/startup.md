@@ -2,7 +2,6 @@
 
 This article will guide you through the initial setup and usage of JEngine
 
-[[toc]]
 
 ## Version Requirements
 

@@ -2,7 +2,6 @@
 
 This page collects frequently asked questions and solutions when using JEngine v1.0.
 
-[[toc]]
 
 ## Installation and Configuration
 

@@ -2,7 +2,6 @@
 
 This guide helps you migrate from older JEngine versions to v1.0.
 
-[[toc]]
 
 ## Upgrading from v1.0.x
 
