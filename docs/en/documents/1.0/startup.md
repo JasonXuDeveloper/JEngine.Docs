@@ -103,6 +103,14 @@ In this step, we can use JEngine's development mode to simulate the hot update p
 5. Click `Start` to load hot update code and enter the main hot update scene
 6. Click `AddOnDemo` to load the `AddOn1` package and enter its scene
 
+
+
+> In the Init scene there's a GameObject called `IngameDebugConsole`, it is used for **collecting logs in runtime (Windows/iOS/Android) without the need of external tools**, feel free to delete it if you don't need it
+
+
+
+
+
 ## General Development Workflow
 
 1. Modify hot update code/resources

@@ -198,33 +198,27 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
               collapsed: false,
               items: [
                 { text: 'Quick Start', link: '/en/documents/1.0/startup' },
-                { text: 'Installation Guide', link: '/en/documents/1.0/installation' },
-                { text: 'Core Concepts', link: '/en/documents/1.0/concepts' }
+                { text: 'Editor Panel', link: '/en/documents/1.0/editor-panel' },
+                { text: 'Runtime Panel', link: '/en/documents/1.0/runtime-panel' }
               ]
             },
             {
               text: 'Core Features',
               collapsed: false,
               items: [
-                { text: 'Asset Management', link: '/en/documents/1.0/assetmgr' },
-                { text: 'Hot Update', link: '/en/documents/1.0/hotupdate' },
-                { text: 'Build & Deploy', link: '/en/documents/1.0/build' }
+                { text: 'Package Manager', link: '/en/documents/1.0/package-manager' },
+                { text: 'MessageBox', link: '/en/documents/1.0/messagebox' }
               ]
             },
             {
-              text: 'Tools & Extensions',
+              text: 'Help & Resources',
               collapsed: false,
               items: [
-                { text: 'Editor Tools', link: '/en/documents/1.0/editor-tools' },
-                { text: 'Debugging', link: '/en/documents/1.0/debugging' },
-                { text: 'Performance Optimization', link: '/en/documents/1.0/optimization' }
-              ]
-            },
-            {
-              text: 'Migration Guide',
-              collapsed: false,
-              items: [
-                { text: 'From v0.8.x', link: '/en/documents/1.0/migrate-from-0.8' }
+                { text: 'FAQ', link: '/en/documents/1.0/faq' },
+                { text: 'Migration Guide', link: '/en/documents/1.0/migration' },
+                { text: 'YooAsset Docs', link: 'https://www.yooasset.com/docs/Introduce' },
+                { text: 'HybridCLR Docs', link: 'https://www.hybridclr.cn/docs/intro' },
+                { text: 'Obfuz Docs', link: 'https://www.obfuz.com/docs/intro' }
               ]
             }
           ]
@@ -481,33 +475,27 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
               collapsed: false,
               items: [
                 { text: '快速开始', link: '/zh/documents/1.0/startup' },
-                { text: '安装指南', link: '/zh/documents/1.0/installation' },
-                { text: '基本概念', link: '/zh/documents/1.0/concepts' }
+                { text: '编辑器面板', link: '/zh/documents/1.0/editor-panel' },
+                { text: '运行时面板', link: '/zh/documents/1.0/runtime-panel' }
               ]
             },
             {
               text: '核心功能',
               collapsed: false,
               items: [
-                { text: '资源管理', link: '/zh/documents/1.0/assetmgr' },
-                { text: '热更新', link: '/zh/documents/1.0/hotupdate' },
-                { text: '构建部署', link: '/zh/documents/1.0/build' }
+                { text: '热更包管理', link: '/zh/documents/1.0/package-manager' },
+                { text: '弹窗提示框', link: '/zh/documents/1.0/messagebox' }
               ]
             },
             {
-              text: '工具与扩展',
+              text: '帮助相关',
               collapsed: false,
               items: [
-                { text: '编辑器工具', link: '/zh/documents/1.0/editor-tools' },
-                { text: '调试工具', link: '/zh/documents/1.0/debugging' },
-                { text: '性能优化', link: '/zh/documents/1.0/optimization' }
-              ]
-            },
-            {
-              text: '升级指南',
-              collapsed: false,
-              items: [
-                { text: '从v0.8.x迁移', link: '/zh/documents/1.0/migrate-from-0.8' }
+                { text: '常见问题', link: '/zh/documents/1.0/faq' },
+                { text: '老版本迁移', link: '/zh/documents/1.0/migration' },
+                { text: 'YooAsset文档', link: 'https://www.yooasset.com/docs/Introduce' },
+                { text: 'HybridCLR文档', link: 'https://www.hybridclr.cn/docs/intro' },
+                { text: 'Obfuz文档', link: 'https://www.obfuz.com/docs/intro' }
               ]
             }
           ]
