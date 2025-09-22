@@ -55,13 +55,46 @@ Bundles/
 
 ## Core API Methods
 
-### Create or Get Resource Package
+### CreateOrGetPackage Method
+```csharp
+public static ResourcePackage CreateOrGetPackage(string packageName)
+```
+
+**Parameters:**
+- `packageName` - Resource package name (e.g., "main", "AddOn1")
+
+**Return Value:**
+- `ResourcePackage` - YooAsset resource package instance
+
+**Usage Example:**
 ```csharp
 // Create or get resource package
 var package = Bootstrap.CreateOrGetPackage("AddOn1");
 ```
 
-### Update Resource Package
+### UpdatePackage Method
+```csharp
+public static async UniTask<bool> UpdatePackage(ResourcePackage package, PackageInitializationCallbacks callbacks, EncryptionOption encryptionOption)
+```
+
+**Parameters:**
+- `package` - Resource package instance to update
+- `callbacks` - Package initialization callback structure
+- `encryptionOption` - Encryption option (Xor/Aes/ChaCha20)
+
+**Return Value:**
+- `UniTask<bool>` - Whether the update was successful
+
+**PackageInitializationCallbacks Parameters:**
+- `OnStatusUpdate` - `Action<PackageInitializationStatus>` - Status update callback
+- `OnVersionUpdate` - `Action<string>` - Version information callback
+- `OnDownloadProgress` - `DownloaderOperation.DownloadUpdate` - Download progress callback
+- `OnDownloadPrompt` - `Func<int, long, UniTask<bool>>` - Download confirmation callback
+- `OnDownloadStart` - `Action` - Download start callback
+- `OnDownloadComplete` - `Action` - Download complete callback
+- `OnError` - `Func<Exception, UniTask>` - Error handling callback
+
+**Usage Example:**
 ```csharp
 // Configure callbacks
 var callbacks = new PackageInitializationCallbacks
@@ -98,7 +131,26 @@ bool success = await Bootstrap.UpdatePackage(
 );
 ```
 
-### Hot Update Scene Loading
+### LoadHotUpdateScene Method
+```csharp
+public static async UniTask<SceneHandle> LoadHotUpdateScene(ResourcePackage package, string sceneName, SceneLoadCallbacks callbacks, LoadSceneMode loadMode = LoadSceneMode.Single)
+```
+
+**Parameters:**
+- `package` - Resource package instance
+- `sceneName` - Scene name
+- `callbacks` - Scene load callback structure
+- `loadMode` - Load mode (default Single)
+
+**Return Value:**
+- `UniTask<SceneHandle>` - YooAsset scene handle
+
+**SceneLoadCallbacks Parameters:**
+- `OnStatusUpdate` - `Action<SceneLoadStatus>` - Scene load status callback
+- `OnProgressUpdate` - `Action<float>` - Load progress callback (0.0-1.0)
+- `OnError` - `Func<Exception, UniTask>` - Error handling callback
+
+**Usage Example:**
 ```csharp
 // Configure scene load callbacks
 var sceneCallbacks = new SceneLoadCallbacks
@@ -120,11 +172,23 @@ SceneHandle sceneHandle = await Bootstrap.LoadHotUpdateScene(
     mainPackage,                 // ResourcePackage instance
     "GameScene",                 // Scene name
     sceneCallbacks,              // Callbacks
-    LoadSceneMode.Single         // Loading mode (optional)
+    LoadSceneMode.Single         // Loading mode
 );
 ```
 
-### Clear Resource Package Cache
+### DeletePackageCache Method
+```csharp
+public static async UniTask<bool> DeletePackageCache(ResourcePackage package, Func<Exception, UniTask> onError = null)
+```
+
+**Parameters:**
+- `package` - Resource package instance to clear cache for
+- `onError` - Error handling callback (optional)
+
+**Return Value:**
+- `UniTask<bool>` - Whether the cleanup was successful
+
+**Usage Example:**
 ```csharp
 // Clear specific package cache
 var package = Bootstrap.CreateOrGetPackage("AddOn1");
@@ -137,7 +201,7 @@ bool deleted = await Bootstrap.DeletePackageCache(
 
 // Clear main package cache
 var mainPackage = Bootstrap.CreateOrGetPackage("main");
-await Bootstrap.DeletePackageCache(mainPackage);
+bool success = await Bootstrap.DeletePackageCache(mainPackage);
 ```
 
 ## Resource Loading

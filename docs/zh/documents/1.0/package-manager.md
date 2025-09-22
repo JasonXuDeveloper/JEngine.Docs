@@ -55,13 +55,46 @@ Bundles/
 
 ## 核心API方法
 
-### 创建或获取资源包
+### CreateOrGetPackage 方法
+```csharp
+public static ResourcePackage CreateOrGetPackage(string packageName)
+```
+
+**参数说明：**
+- `packageName` - 资源包名称（如 "main", "AddOn1"）
+
+**返回值：**
+- `ResourcePackage` - YooAsset 资源包实例
+
+**使用示例：**
 ```csharp
 // 创建或获取资源包
 var package = Bootstrap.CreateOrGetPackage("AddOn1");
 ```
 
-### 更新资源包
+### UpdatePackage 方法
+```csharp
+public static async UniTask<bool> UpdatePackage(ResourcePackage package, PackageInitializationCallbacks callbacks, EncryptionOption encryptionOption)
+```
+
+**参数说明：**
+- `package` - 要更新的资源包实例
+- `callbacks` - 包初始化回调结构体
+- `encryptionOption` - 加密选项（Xor/Aes/ChaCha20）
+
+**返回值：**
+- `UniTask<bool>` - 更新是否成功
+
+**PackageInitializationCallbacks 回调参数：**
+- `OnStatusUpdate` - `Action<PackageInitializationStatus>` - 状态更新回调
+- `OnVersionUpdate` - `Action<string>` - 版本信息回调
+- `OnDownloadProgress` - `DownloaderOperation.DownloadUpdate` - 下载进度回调
+- `OnDownloadPrompt` - `Func<int, long, UniTask<bool>>` - 下载确认回调
+- `OnDownloadStart` - `Action` - 下载开始回调
+- `OnDownloadComplete` - `Action` - 下载完成回调
+- `OnError` - `Func<Exception, UniTask>` - 错误处理回调
+
+**使用示例：**
 ```csharp
 // 配置回调
 var callbacks = new PackageInitializationCallbacks
@@ -94,11 +127,30 @@ var callbacks = new PackageInitializationCallbacks
 bool success = await Bootstrap.UpdatePackage(
     package,                     // ResourcePackage 实例
     callbacks,                   // 回调
-    EncryptionOption.Xor         // 加密选项（Xor/Aes/ChaCha20）
+    EncryptionOption.Xor         // 加密选项
 );
 ```
 
-### 热更场景加载
+### LoadHotUpdateScene 方法
+```csharp
+public static async UniTask<SceneHandle> LoadHotUpdateScene(ResourcePackage package, string sceneName, SceneLoadCallbacks callbacks, LoadSceneMode loadMode = LoadSceneMode.Single)
+```
+
+**参数说明：**
+- `package` - 资源包实例
+- `sceneName` - 场景名称
+- `callbacks` - 场景加载回调结构体
+- `loadMode` - 加载模式（默认 Single）
+
+**返回值：**
+- `UniTask<SceneHandle>` - YooAsset 场景句柄
+
+**SceneLoadCallbacks 回调参数：**
+- `OnStatusUpdate` - `Action<SceneLoadStatus>` - 场景加载状态回调
+- `OnProgressUpdate` - `Action<float>` - 加载进度回调 (0.0-1.0)
+- `OnError` - `Func<Exception, UniTask>` - 错误处理回调
+
+**使用示例：**
 ```csharp
 // 配置场景加载回调
 var sceneCallbacks = new SceneLoadCallbacks
@@ -120,11 +172,23 @@ SceneHandle sceneHandle = await Bootstrap.LoadHotUpdateScene(
     mainPackage,                 // ResourcePackage 实例
     "GameScene",                 // 场景名称
     sceneCallbacks,              // 回调
-    LoadSceneMode.Single         // 加载模式（可选）
+    LoadSceneMode.Single         // 加载模式
 );
 ```
 
-### 清理资源包缓存
+### DeletePackageCache 方法
+```csharp
+public static async UniTask<bool> DeletePackageCache(ResourcePackage package, Func<Exception, UniTask> onError = null)
+```
+
+**参数说明：**
+- `package` - 要清理缓存的资源包实例
+- `onError` - 错误处理回调（可选）
+
+**返回值：**
+- `UniTask<bool>` - 清理是否成功
+
+**使用示例：**
 ```csharp
 // 清理指定包缓存
 var package = Bootstrap.CreateOrGetPackage("AddOn1");
@@ -137,7 +201,7 @@ bool deleted = await Bootstrap.DeletePackageCache(
 
 // 清理主包缓存
 var mainPackage = Bootstrap.CreateOrGetPackage("main");
-await Bootstrap.DeletePackageCache(mainPackage);
+bool success = await Bootstrap.DeletePackageCache(mainPackage);
 ```
 
 ## 资源加载
