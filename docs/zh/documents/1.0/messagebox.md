@@ -38,6 +38,8 @@ bool result = await MessageBox.Show("提示", "操作完成！", "确定");
 ## 完整 API
 
 ### Show 方法
+显示一个模态弹窗对话框，支持自定义标题、内容和按钮文本。
+
 ```csharp
 public static UniTask<bool> Show(string title, string content, string ok = "OK", string no = "Cancel")
 ```
@@ -53,13 +55,17 @@ public static UniTask<bool> Show(string title, string content, string ok = "OK",
 
 ## 管理方法
 
-### 关闭所有弹窗
+### CloseAll 方法
+强制关闭所有当前显示的弹窗，通常用于场景切换或紧急情况。
+
 ```csharp
 // 强制关闭所有当前显示的弹窗
 MessageBox.CloseAll();
 ```
 
-### 清理资源
+### Dispose 方法
+清理所有弹窗实例和对象池，释放相关资源，通常在应用程序退出时调用。
+
 ```csharp
 // 清理所有弹窗实例和对象池
 MessageBox.Dispose();
@@ -67,14 +73,18 @@ MessageBox.Dispose();
 
 ## 状态查询
 
-### 获取活跃数量
+### ActiveCount 属性
+获取当前正在显示的弹窗数量，用于调试和状态监控。
+
 ```csharp
 // 获取当前显示的弹窗数量
 int activeCount = MessageBox.ActiveCount;
 Debug.Log($"当前有 {activeCount} 个弹窗正在显示");
 ```
 
-### 获取池化数量
+### PooledCount 属性
+获取对象池中缓存的弹窗实例数量，用于性能分析和内存管理。
+
 ```csharp
 // 获取对象池中的弹窗数量
 int pooledCount = MessageBox.PooledCount;

@@ -56,6 +56,8 @@ Bundles/
 ## 核心API方法
 
 ### CreateOrGetPackage 方法
+创建新的资源包实例或获取已存在的资源包实例，用于管理不同的热更新资源分包。
+
 ```csharp
 public static ResourcePackage CreateOrGetPackage(string packageName)
 ```
@@ -73,6 +75,8 @@ var package = Bootstrap.CreateOrGetPackage("AddOn1");
 ```
 
 ### UpdatePackage 方法
+检查并更新指定的资源包，包括版本检查、资源下载和初始化过程，支持完整的回调机制。
+
 ```csharp
 public static async UniTask<bool> UpdatePackage(ResourcePackage package, PackageInitializationCallbacks callbacks, EncryptionOption encryptionOption)
 ```
@@ -132,6 +136,8 @@ bool success = await Bootstrap.UpdatePackage(
 ```
 
 ### LoadHotUpdateScene 方法
+从指定的资源包中异步加载热更新场景，支持加载进度回调和错误处理。
+
 ```csharp
 public static async UniTask<SceneHandle> LoadHotUpdateScene(ResourcePackage package, string sceneName, SceneLoadCallbacks callbacks, LoadSceneMode loadMode = LoadSceneMode.Single)
 ```
@@ -177,6 +183,8 @@ SceneHandle sceneHandle = await Bootstrap.LoadHotUpdateScene(
 ```
 
 ### DeletePackageCache 方法
+删除指定资源包的本地缓存文件，用于清理磁盘空间或强制重新下载资源。
+
 ```csharp
 public static async UniTask<bool> DeletePackageCache(ResourcePackage package, Func<Exception, UniTask> onError = null)
 ```

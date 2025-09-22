@@ -42,6 +42,18 @@ Dropdown selection box to choose hot update resource encryption method:
 - **AES** - AES encryption (high security)
 - **ChaCha20** - ChaCha20 encryption (highest security)
 
+#### Manifest Config
+Configuration object for resource manifest:
+- System automatically reads corresponding configuration from `Resources/EncryptConfigs/` directory based on selected encryption mode
+- Manages version information and encryption parameters for resource packages
+- Usually no manual modification needed
+
+#### Bundle Config
+Configuration object for resource bundles:
+- System automatically reads corresponding configuration from `Resources/EncryptConfigs/` directory based on selected encryption mode
+- Defines loading, caching and decryption strategies for resource packages
+- Associated with encryption key configuration for selected encryption mode
+
 ### Hot Update Scenes
 - Shows scene list in `Assets/HotUpdate/Scenes` directory
 - Supports pagination browsing

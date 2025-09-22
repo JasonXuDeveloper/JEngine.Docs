@@ -56,6 +56,8 @@ Bundles/
 ## Core API Methods
 
 ### CreateOrGetPackage Method
+Create a new resource package instance or get an existing resource package instance for managing different hot update resource sub-packages.
+
 ```csharp
 public static ResourcePackage CreateOrGetPackage(string packageName)
 ```
@@ -73,6 +75,8 @@ var package = Bootstrap.CreateOrGetPackage("AddOn1");
 ```
 
 ### UpdatePackage Method
+Check and update the specified resource package, including version checking, resource downloading, and initialization process, with full callback mechanism support.
+
 ```csharp
 public static async UniTask<bool> UpdatePackage(ResourcePackage package, PackageInitializationCallbacks callbacks, EncryptionOption encryptionOption)
 ```
@@ -132,6 +136,8 @@ bool success = await Bootstrap.UpdatePackage(
 ```
 
 ### LoadHotUpdateScene Method
+Asynchronously load hot update scenes from the specified resource package, with support for loading progress callbacks and error handling.
+
 ```csharp
 public static async UniTask<SceneHandle> LoadHotUpdateScene(ResourcePackage package, string sceneName, SceneLoadCallbacks callbacks, LoadSceneMode loadMode = LoadSceneMode.Single)
 ```
@@ -177,6 +183,8 @@ SceneHandle sceneHandle = await Bootstrap.LoadHotUpdateScene(
 ```
 
 ### DeletePackageCache Method
+Delete local cache files for the specified resource package, used for cleaning disk space or forcing resource re-download.
+
 ```csharp
 public static async UniTask<bool> DeletePackageCache(ResourcePackage package, Func<Exception, UniTask> onError = null)
 ```

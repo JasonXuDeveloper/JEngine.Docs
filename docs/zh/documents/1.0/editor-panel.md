@@ -42,6 +42,18 @@ JEngine 提供了一个编辑器面板，用于管理热更新资源的构建和
 - **AES** - AES 加密（安全性高）
 - **ChaCha20** - ChaCha20 加密（安全性最高）
 
+#### Manifest Config（清单配置）
+资源清单的配置对象：
+- 系统会根据选择的加密模式自动从 `Resources/EncryptConfigs/` 目录读取对应配置
+- 管理资源包的版本信息和加密参数
+- 通常无需手动修改
+
+#### Bundle Config（包配置）
+资源包的配置对象：
+- 系统会根据选择的加密模式自动从 `Resources/EncryptConfigs/` 目录读取对应配置
+- 定义资源包的加载、缓存和解密策略
+- 与所选加密模式的密钥配置关联
+
 ### Hot Update Scenes（热更新场景）
 - 显示 `Assets/HotUpdate/Scenes` 目录下的场景列表
 - 支持分页浏览

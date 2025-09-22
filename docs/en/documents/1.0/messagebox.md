@@ -38,6 +38,8 @@ bool result = await MessageBox.Show("Notice", "Operation completed!", "OK");
 ## Complete API
 
 ### Show Method
+Display a modal dialog box with customizable title, content, and button text.
+
 ```csharp
 public static UniTask<bool> Show(string title, string content, string ok = "OK", string no = "Cancel")
 ```
@@ -53,13 +55,17 @@ public static UniTask<bool> Show(string title, string content, string ok = "OK",
 
 ## Management Methods
 
-### Close All MessageBoxes
+### CloseAll Method
+Force close all currently displayed message boxes, typically used for scene transitions or emergency situations.
+
 ```csharp
 // Force close all currently displayed message boxes
 MessageBox.CloseAll();
 ```
 
-### Dispose Resources
+### Dispose Method
+Clean up all message box instances and object pool, release related resources, typically called when application exits.
+
 ```csharp
 // Clean up all message box instances and object pool
 MessageBox.Dispose();
@@ -68,6 +74,8 @@ MessageBox.Dispose();
 ## Status Query
 
 ### Get Active Count
+Get the number of currently displayed message boxes, used for debugging and status monitoring.
+
 ```csharp
 // Get the number of currently displayed message boxes
 int activeCount = MessageBox.ActiveCount;
@@ -75,6 +83,8 @@ Debug.Log($"Currently {activeCount} message boxes are displayed");
 ```
 
 ### Get Pooled Count
+Get the number of message box instances cached in the object pool, used for performance analysis and memory management.
+
 ```csharp
 // Get the number of message boxes in object pool
 int pooledCount = MessageBox.PooledCount;
