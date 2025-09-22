@@ -136,7 +136,7 @@ export function generateNav(locale: 'en' | 'zh'): DefaultTheme.NavItem[] {
       {
         text: 'Documentation',
         items: [
-          { text: 'v1.0 (Latest)', link: '/en/documents/1.0/' }
+          { text: 'v1.0.x (Latest)', link: '/en/documents/1.0/' }
         ]
       }
     ]
@@ -147,7 +147,7 @@ export function generateNav(locale: 'en' | 'zh'): DefaultTheme.NavItem[] {
         text: '文档',
         items: [
           { text: '文档总览', link: '/zh/documents/' },
-          { text: 'v1.0 (最新)', link: '/zh/documents/1.0/' },
+          { text: 'v1.0.x (最新)', link: '/zh/documents/1.0/' },
           { text: 'v0.8.x', link: '/zh/documents/0.8/' },
           { text: 'v0.7.x', link: '/zh/documents/0.7/' },
           { text: 'v0.6.x', link: '/zh/documents/0.6/' },
@@ -165,14 +165,6 @@ export function generateNav(locale: 'en' | 'zh'): DefaultTheme.NavItem[] {
             ]
           }
         ]
-      },
-      {
-        text: '订阅版',
-        items: [
-          { text: 'Pro', link: '/zh/pro/' },
-          { text: '定价', link: '/zh/pro/price' },
-          { text: '购买', link: '/zh/pro/purchase' }
-        ]
       }
     ]
   }
@@ -189,7 +181,7 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
     customSidebar = {
       '/en/documents/1.0/': [
         {
-          text: 'v1.0 Documentation',
+          text: 'v1.0.x Documentation',
           collapsed: false,
           items: [
             { text: 'Overview', link: '/en/documents/1.0/' },
@@ -452,21 +444,9 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
           ]
         }
       ],
-      '/zh/pro/': [
-        {
-          text: 'JEngine Pro',
-          collapsed: false,
-          items: [
-            { text: '概述', link: '/zh/pro/' },
-            { text: '定价', link: '/zh/pro/price' },
-            { text: '购买', link: '/zh/pro/purchase' },
-            { text: '文档', link: '/zh/documents/pro/' }
-          ]
-        }
-      ],
       '/zh/documents/1.0/': [
         {
-          text: 'v1.0文档',
+          text: 'v1.0.x文档',
           collapsed: false,
           items: [
             { text: '概述', link: '/zh/documents/1.0/' },
@@ -506,7 +486,15 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
           text: 'Pro最新版文档',
           collapsed: false,
           items: [
-            { text: '概述', link: '/zh/documents/pro/' },
+            {
+              text: '概述',
+              collapsed: false,
+              items: [
+                { text: '概述', link: '/zh/documents/pro/' },
+                { text: '定价', link: '/zh/documents/pro/price' },
+                { text: '购买', link: '/zh/documents/pro/purchase' },
+              ]
+            },
             {
               text: '快速上手',
               collapsed: false,
