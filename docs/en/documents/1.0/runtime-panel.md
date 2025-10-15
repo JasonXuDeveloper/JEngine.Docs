@@ -79,6 +79,10 @@ Configuration for hot update methods:
 - Defines entry method for hot update code
 - Works with hot update classes
 
+::: warning
+Must be static method, the return type can be one of `void`, `ValueTask`, `Task`, `UniTask`. JEngine will execute the latter three types of methods asynchronously.
+:::
+
 ### AOT DLL List
 AOT (Ahead-of-Time) compiled DLL list file:
 - Used for HybridCLR AOT generic supplementation

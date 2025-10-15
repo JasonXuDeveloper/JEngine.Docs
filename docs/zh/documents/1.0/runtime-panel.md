@@ -79,6 +79,10 @@
 - 定义热更代码的入口方法
 - 与热更类配合使用
 
+::: warning
+必须是静态函数，可以是`void`, `ValueTask`, `Task`, `UniTask`，后三种返回类型会以异步方式调用
+:::
+
 ### AOT DLL List（AOT DLL 列表）
 AOT（Ahead-of-Time）编译的 DLL 列表文件：
 - 用于 HybridCLR 的 AOT 泛型补充
