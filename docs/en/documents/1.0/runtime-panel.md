@@ -35,6 +35,10 @@ Backup server address that automatically switches when the primary server connec
 - Only visible when fallback server is enabled
 - Provides redundancy protection to improve resource download success rate
 
+### Append Time Ticks
+This is used to avoid caching issues on the server where hot update resources are stored. A timestamp will be passed when requesting resources. It is generally recommended to keep this enabled.
+- **Note**: Some CDNs require disabling the automatic timestamp, for example, [UOS provided by Unity](https://www.yooasset.com/docs/MiniGame#%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%AE%BF%E4%B8%BB).
+
 ## Asset Settings
 
 ### Target Platform
@@ -44,6 +48,10 @@ Select the target platform for application runtime:
 - **Douyin** - Douyin Mini Game platform
 - **Alipay** - Alipay Mini Game platform
 - **TapTap** - TapTap Mini Game platform
+
+::: warning
+Mini-game platforms require switching to the `WebGL` build platform in Unity.
+:::
 
 ### Package Name
 Main hot update package name:

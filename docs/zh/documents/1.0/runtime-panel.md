@@ -35,6 +35,10 @@
 - 只有在启用备用服务器后才显示此选项
 - 提供冗余保障，提高资源下载成功率
 
+### Append Time Ticks（请求资源添加的时间戳）
+用于避免存放热更资源的服务器出现缓存问题，会在请求资源的时候传入时间戳，一般情况开启即可
+- **注意**：某些CDN需要关闭自动添加的时间戳，例如[Unity提供的UOS](https://www.yooasset.com/docs/MiniGame#%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%AE%BF%E4%B8%BB)
+
 ## Asset Settings（资源设置）
 
 ### Target Platform（目标平台）
@@ -44,6 +48,10 @@
 - **Douyin** - 抖音小游戏平台
 - **Alipay** - 支付宝小游戏平台
 - **TapTap** - TapTap 小游戏平台
+  
+::: warning
+小游戏平台需要在Unity下切换到`WebGL`构建平台
+:::
 
 ### Package Name（包名称）
 主热更包的名称：

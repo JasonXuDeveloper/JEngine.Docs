@@ -20,7 +20,7 @@ JEngine目前正在维护的版本
 
 
 
-### [最新版本](/zh/documents/1.0/) <Badge type="tip" text="v1.0.1" vertical="middle" />
+### [最新版本](/zh/documents/1.0/) <Badge type="tip" text="v1.0.4" vertical="middle" />
 
 ::: tip 
 
@@ -28,15 +28,9 @@ JEngine目前正在维护的版本
 
 最新版本是开发者认为的可以正常使用，不会有太大问题的最新版本，建议使用，功能最为强大，同时修复了老版本的bug。
 
-#### v1.0.1更新日志
+#### v1.0.4更新日志
 
-- **AssetBundle加密** 支持（XOR、AES、ChaCha20）
-- **代码混淆** 支持，使用Obfuz保护几乎所有代码
-- **大幅提升** 热更代码执行性能，迁移至HybridCLR
-- **增强** 游戏开发体验（编写热更代码时无需额外操作）
-- **小游戏** 支持微信、抖音、支付宝和TapTap
-> 小更新:
-> - 更新 **HybridCLR** 到 v8.6.0 （解决新版Xcode打包问题）
+- **修复**编辑器下 `AddComponent<T>` 和 `GetComponent<T>` 问题
 
 #### [快速开始 →](/zh/documents/1.0/)
 

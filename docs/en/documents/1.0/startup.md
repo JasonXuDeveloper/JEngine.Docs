@@ -31,7 +31,7 @@ The following describes JEngine-related directories and files. It's generally **
 
   - **Packages**: Third-party libraries used
 
-    - **com.code-philosophy.hybridclr@8.5.1**: HybridCLR, copied to this directory for Obfuz compatibility. To update HybridCLR, [refer here](https://www.obfuz.com/docs/beginner/work-with-hybridclr)
+    - **com.code-philosophy.hybridclr@8.6.0**: HybridCLR, copied to this directory for Obfuz compatibility. To update HybridCLR, [refer here](https://www.obfuz.com/docs/beginner/work-with-hybridclr)
     - **com.jasonxudeveloper.jengine.core**: JEngine core code (hot update-related runtime and editor code)
     - **manifest.json**: Manifest file containing other JEngine dependencies (UniTask, YooAsset, Obfuz, Nino, etc.)
 

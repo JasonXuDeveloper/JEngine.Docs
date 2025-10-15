@@ -37,7 +37,7 @@ Unity2022.3及以上
 
   - **Packages**：使用的第三方库
 
-    - **com.code-philosophy.hybridclr@8.5.1**：HybridCLR，因为需要兼容Obfuz所以自己复制了一份到这个目录，如需更新HybridCLR的话可以[参考这里](https://www.obfuz.com/docs/beginner/work-with-hybridclr)
+    - **com.code-philosophy.hybridclr@8.6.0**：HybridCLR，因为需要兼容Obfuz所以自己复制了一份到这个目录，如需更新HybridCLR的话可以[参考这里](https://www.obfuz.com/docs/beginner/work-with-hybridclr)
     - **com.jasonxudeveloper.jengine.core**：JEngine核心代码（热更相关运行时和编辑器代码）
     - **manifest.json**：清单文件，包含其他JEngine依赖的库（UniTask、YooAsset、Obfuz、Nino等）
 
