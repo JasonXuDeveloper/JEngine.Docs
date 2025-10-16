@@ -127,6 +127,16 @@ Main project (Assembly-CSharp) code requires:
 - Check HybridCLR or Obfuz documentation based on logs
 - If it is reflection code, [refer to this](https://www.obfuz.com/docs/manual/reflection)
 
+### Q: Why do `typeof(Type).Name` or `nameof(member)` cause errors on device?
+**A:** This can happen if you use the string from `typeof(Type).Name` or `nameof(member)` for things like loading hot-update resources by path. JEngine uses Obfuz to obfuscate hot-update code, which changes class and member names. This causes errors on the actual device (but not in the editor).
+
+- **Solution 1:** Get the real name by following the [Obfuz reflection documentation](https://www.obfuz.com/docs/manual/reflection). Note that this method won't work for `nameof(member)`.
+- **Solution 2:** Use the `ObfuzIgnoreAttribute` to individually prevent the obfuscation of class names, field names, method names, etc. You can find more details in the [Obfuz custom attributes documentation](https://www.obfuz.com/docs/manual/customattributes).
+
+::: tip
+We recommend using `ObfuzIgnoreAttribute` (Solution 2) as it is more convenient and flexible.
+:::
+
 ## Performance Optimization
 
 ### Q: Game startup is slow?

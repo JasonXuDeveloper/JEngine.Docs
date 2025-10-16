@@ -127,6 +127,16 @@
 - 根据日志查看HybridCLR或Obfuz文档
 - 如果是反射代码，[参考这里](https://www.obfuz.com/docs/manual/reflection)
 
+### Q: 为何 `typeof(Type).Name` 或 `nameof(成员)` 在真机上引发错误？
+**A:** 如果您使用 `typeof(Type).Name` 或 `nameof(成员)` 生成的字符串来拼接路径加载热更新资源，可能会在真机（非编辑器）上遇到错误。这是因为 JEngine 使用了 Obfuz 来混淆热更新代码，导致类名和成员名被更改。
+
+- **解决方案一：** 遵循 [Obfuz 反射文档](https://www.obfuz.com/docs/manual/reflection) 的方法来获取真实的类型名称。请注意，此方法无法还原 `nameof(成员)` 的结果。
+- **解决方案二：** 使用 `ObfuzIgnoreAttribute` 可以让你单独不会混淆类名/字段名/函数名等。更多详情请参阅 [Obfuz 自定义属性文档](https://www.obfuz.com/docs/manual/customattributes)。
+
+::: tip
+我们推荐使用 `ObfuzIgnoreAttribute` (解决方案二)，该方法更方便灵活。
+:::
+
 
 ## 性能优化
 
