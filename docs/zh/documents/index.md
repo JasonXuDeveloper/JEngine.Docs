@@ -20,7 +20,7 @@ JEngine目前正在维护的版本
 
 
 
-### [最新版本](/zh/documents/1.0/) <Badge type="tip" text="v1.0.4" vertical="middle" />
+### [最新版本](/zh/documents/1.0/) <Badge type="tip" text="v1.0.5" vertical="middle" />
 
 ::: tip 
 
@@ -28,9 +28,10 @@ JEngine目前正在维护的版本
 
 最新版本是开发者认为的可以正常使用，不会有太大问题的最新版本，建议使用，功能最为强大，同时修复了老版本的bug。
 
-#### v1.0.4更新日志
+#### v1.0.5更新日志
 
-- **修复**编辑器下 `AddComponent<T>` 和 `GetComponent<T>` 问题
+- **修复**丢失热更MonoBehaviour问题
+- **支持**单机模式
 
 #### [快速开始 →](/zh/documents/1.0/)
 

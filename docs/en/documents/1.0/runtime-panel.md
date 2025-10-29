@@ -21,6 +21,10 @@ Switch between different runtime modes:
 
 ## Server Settings
 
+::: tip
+When using **Standalone** mode, server configuration is not required, resources will be loaded from StreamingAssets directory
+:::
+
 ### Default Host Server
 Set the primary download address for hot update resources:
 - **Format**: `https://cdn.domain.com` or `http://127.0.0.1`
@@ -44,6 +48,7 @@ This is used to avoid caching issues on the server where hot update resources ar
 ### Target Platform
 Select the target platform for application runtime:
 - **Regular** - Standard platforms (iOS, Android, Windows, MacOS, WebGL)
+- **Standalone** - Standalone mode, resources loaded from StreamingAssets, no server configuration needed
 - **WeChat** - WeChat Mini Game platform
 - **Douyin** - Douyin Mini Game platform
 - **Alipay** - Alipay Mini Game platform
@@ -144,6 +149,14 @@ UI button that starts the hot update process when user clicks.
 4. Select corresponding Target Platform
 5. Run the game
 6. System automatically checks version, downloads and loads hot update resources
+
+### Standalone Mode Flow
+1. Set Editor Mode to **Host Play Mode**
+2. Set Target Platform to **Standalone**
+3. Ensure hot update resource packages are built (resources exist in StreamingAssets directory)
+4. No need to configure server address
+5. Run the game
+6. System directly loads hot update resources from StreamingAssets
 
 ## Best Practices
 

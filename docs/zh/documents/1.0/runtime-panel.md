@@ -21,6 +21,10 @@
 
 ## Server Settings（服务器设置）
 
+::: tip
+使用 **Standalone** 模式时，无需配置服务器，资源将从 StreamingAssets 目录加载
+:::
+
 ### Default Host Server（默认主机服务器）
 设置热更资源的主要下载地址：
 - **格式**：`https://cdn.domain.com` 或 `http://127.0.0.1`
@@ -44,11 +48,12 @@
 ### Target Platform（目标平台）
 选择应用运行的目标平台：
 - **Regular** - 常规平台（iOS、Android、Windows、MacOS、WebGL）
+- **Standalone** - 单机模式，资源从StreamingAssets加载，无需配置服务器
 - **WeChat** - 微信小游戏平台
 - **Douyin** - 抖音小游戏平台
 - **Alipay** - 支付宝小游戏平台
 - **TapTap** - TapTap 小游戏平台
-  
+
 ::: warning
 小游戏平台需要在Unity下切换到`WebGL`构建平台
 :::
@@ -144,6 +149,14 @@ Init 场景中已经默认配置了 UI 组件，通常无需修改。如需自�
 4. 选择对应的 Target Platform
 5. 运行游戏
 6. 系统自动检查版本、下载并加载热更资源
+
+### 单机模式流程
+1. 设置 Editor Mode 为 **Host Play Mode**
+2. 设置 Target Platform 为 **Standalone**
+3. 确保已构建热更资源包（StreamingAssets 目录下有资源）
+4. 无需配置服务器地址
+5. 运行游戏
+6. 系统直接从 StreamingAssets 加载热更资源
 
 ## 最佳实践
 
