@@ -1,0 +1,316 @@
+# JObjectPool 对象池
+
+线程安全的泛型对象池，用于高效的对象复用和减少垃圾回收。
+
+## 概述
+
+JObjectPool 为 Unity 提供高性能、线程安全的对象池解决方案。主要特性：
+
+- **泛型支持** - 可以池化任何引用类型
+- **线程安全** - 使用无锁 CAS 操作实现并发访问
+- **可配置回调** - 自定义创建、租借和归还行为
+- **共享池** - 内置每种类型的共享池实例
+- **预热** - 预分配对象以避免运行时分配
+
+## 安装
+
+### 通过 OpenUPM CLI
+
+```bash
+openupm add com.jasonxudeveloper.jengine.util
+```
+
+### 通过 Unity Package Manager
+
+如需通过 Unity 的 Package Manager 手动安装，请访问 [OpenUPM 页面](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/) 并按照说明操作。
+
+### 命名空间
+
+```csharp
+using JEngine.Util;
+```
+
+## 创建对象池
+
+### 基本构造函数
+
+```csharp
+// 使用默认构造函数的简单池
+var pool = new JObjectPool<MyClass>();
+```
+
+### 带自定义回调
+
+```csharp
+var pool = new JObjectPool<Bullet>(
+    createFunc: () => new Bullet(),           // 池为空时调用
+    onRent: bullet => bullet.Activate(),      // 租借时调用
+    onReturn: bullet => bullet.Deactivate()   // 归还时调用
+);
+```
+
+### 构造函数参数
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `createFunc` | `Func<T>` | 创建新实例的工厂函数（默认：`Activator.CreateInstance<T>()`） |
+| `onRent` | `Action<T>` | 从池中租借对象时的回调 |
+| `onReturn` | `Action<T>` | 将对象归还到池中时的回调 |
+
+## 核心 API
+
+### Rent
+
+从池中获取对象。如果池为空则创建新实例。
+
+```csharp
+var bullet = pool.Rent();
+```
+
+### Return
+
+将对象归还到池中以供复用。
+
+```csharp
+pool.Return(bullet);
+```
+
+### Clear
+
+移除池中的所有对象。
+
+```csharp
+pool.Clear();
+```
+
+### Prewarm
+
+预分配对象以避免运行时分配峰值。
+
+```csharp
+// 预创建 50 个子弹
+pool.Prewarm(50);
+```
+
+### Count
+
+获取池中当前可用对象的数量。
+
+```csharp
+int available = pool.Count;
+```
+
+## 共享池
+
+JObjectPool 为方便起见提供了每种类型的共享池实例：
+
+```csharp
+// 从共享池获取
+var bullet = JObjectPool.Shared<Bullet>().Rent();
+
+// 归还到共享池
+JObjectPool.Shared<Bullet>().Return(bullet);
+```
+
+::: tip
+共享池使用默认构造。如需自定义回调，请创建自己的池实例。
+:::
+
+## 线程安全
+
+JObjectPool 使用无锁 CAS（Compare-And-Swap）操作实现线程安全：
+
+- 可以从多个线程安全调用 `Rent()` 和 `Return()`
+- 高性能场景无锁开销
+- 适用于 Job System 和异步操作
+
+```csharp
+// 可以跨线程安全使用
+Parallel.For(0, 100, i =>
+{
+    var obj = pool.Rent();
+    // ... 使用对象
+    pool.Return(obj);
+});
+```
+
+## 使用示例
+
+### 子弹池
+
+```csharp
+public class BulletManager : MonoBehaviour
+{
+    private JObjectPool<Bullet> _bulletPool;
+
+    void Awake()
+    {
+        _bulletPool = new JObjectPool<Bullet>(
+            createFunc: () => {
+                var bullet = new Bullet();
+                bullet.Initialize();
+                return bullet;
+            },
+            onRent: b => b.SetActive(true),
+            onReturn: b => {
+                b.SetActive(false);
+                b.Reset();
+            }
+        );
+
+        // 预分配 100 个子弹
+        _bulletPool.Prewarm(100);
+    }
+
+    public Bullet SpawnBullet(Vector3 position)
+    {
+        var bullet = _bulletPool.Rent();
+        bullet.Position = position;
+        return bullet;
+    }
+
+    public void DespawnBullet(Bullet bullet)
+    {
+        _bulletPool.Return(bullet);
+    }
+}
+```
+
+### UI 元素回收
+
+```csharp
+public class ItemListUI : MonoBehaviour
+{
+    private JObjectPool<ItemSlotUI> _slotPool;
+
+    void Awake()
+    {
+        _slotPool = new JObjectPool<ItemSlotUI>(
+            createFunc: () => Instantiate(_slotPrefab),
+            onRent: slot => slot.gameObject.SetActive(true),
+            onReturn: slot => {
+                slot.Clear();
+                slot.gameObject.SetActive(false);
+            }
+        );
+    }
+
+    public void PopulateList(List<Item> items)
+    {
+        // 归还所有现有的槽位
+        foreach (var slot in _activeSlots)
+            _slotPool.Return(slot);
+        _activeSlots.Clear();
+
+        // 为新物品租借槽位
+        foreach (var item in items)
+        {
+            var slot = _slotPool.Rent();
+            slot.SetItem(item);
+            _activeSlots.Add(slot);
+        }
+    }
+}
+```
+
+### 网络消息池
+
+```csharp
+public static class MessagePool
+{
+    private static readonly JObjectPool<NetworkMessage> _pool =
+        new JObjectPool<NetworkMessage>(
+            onReturn: msg => msg.Clear()
+        );
+
+    public static NetworkMessage Rent() => _pool.Rent();
+    public static void Return(NetworkMessage msg) => _pool.Return(msg);
+}
+
+// 使用
+var msg = MessagePool.Rent();
+msg.WriteInt(playerId);
+msg.WriteString(action);
+SendMessage(msg);
+MessagePool.Return(msg);
+```
+
+## 最佳实践
+
+### 1. 在加载时预热
+
+在场景加载期间预分配对象，以避免游戏过程中的分配峰值：
+
+```csharp
+void OnSceneLoaded()
+{
+    _bulletPool.Prewarm(100);
+    _particlePool.Prewarm(50);
+    _audioPool.Prewarm(20);
+}
+```
+
+### 2. 归还时重置对象
+
+归还时始终重置对象状态以防止数据泄漏：
+
+```csharp
+var pool = new JObjectPool<Enemy>(
+    onReturn: enemy => {
+        enemy.Health = 0;
+        enemy.Target = null;
+        enemy.State = EnemyState.None;
+    }
+);
+```
+
+### 3. 适当调整池大小
+
+监控池使用情况并调整预热量：
+
+```csharp
+// 定期记录池统计信息
+Debug.Log($"池数量: {pool.Count}");
+```
+
+### 4. 简单情况使用共享池
+
+对于不需要特殊初始化的简单值对象：
+
+```csharp
+// 简单用例 - 共享池即可
+var list = JObjectPool.Shared<List<int>>().Rent();
+list.Clear();
+// ... 使用列表
+JObjectPool.Shared<List<int>>().Return(list);
+```
+
+### 5. 复杂对象创建自定义池
+
+对于需要特定初始化或清理的对象：
+
+```csharp
+// 复杂用例 - 带回调的自定义池
+private readonly JObjectPool<ParticleSystem> _particlePool =
+    new JObjectPool<ParticleSystem>(
+        createFunc: CreateParticle,
+        onRent: ps => ps.Play(),
+        onReturn: ps => {
+            ps.Stop();
+            ps.Clear();
+        }
+    );
+```
+
+## 与 Unity ObjectPool 比较
+
+| 特性 | JObjectPool | Unity ObjectPool |
+|------|-------------|------------------|
+| 线程安全 | 是（无锁） | 是（有锁） |
+| 泛型 | 是 | 是 |
+| 共享池 | 内置 | 手动 |
+| 回调 | Create, Rent, Return | Create, Get, Release, Destroy |
+| 最大容量 | 无限制 | 可配置 |
+| 命名空间 | JEngine.Util | UnityEngine.Pool |
+
+JObjectPool 针对高频操作进行了优化，采用无锁实现，适用于频繁创建/销毁对象的游戏场景。

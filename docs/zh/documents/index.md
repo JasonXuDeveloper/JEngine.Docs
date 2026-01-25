@@ -20,18 +20,19 @@ JEngine目前正在维护的版本
 
 
 
-### [最新版本](/zh/documents/1.0/) <Badge type="tip" text="v1.0.5" vertical="middle" />
+### [最新版本](/zh/documents/1.0/) <Badge type="tip" text="v1.0.9" vertical="middle" />
 
-::: tip 
+::: tip
 
 > 该版本对应的是JEngine的master分支
 
 最新版本是开发者认为的可以正常使用，不会有太大问题的最新版本，建议使用，功能最为强大，同时修复了老版本的bug。
 
-#### v1.0.5更新日志
+#### v1.0.9更新日志
 
-- **修复**丢失热更MonoBehaviour问题
-- **支持**单机模式
+- **新增** [JEngine.Util](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/) 工具包 (v1.0.3)
+  - **JAction** - 链式任务框架，支持零GC异步执行
+  - **JObjectPool** - 线程安全的泛型对象池
 
 #### [快速开始 →](/zh/documents/1.0/)
 

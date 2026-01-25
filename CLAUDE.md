@@ -4,84 +4,55 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This repository contains the documentation website for JEngine, a Unity framework that enables runtime hot updates for Unity games. The documentation is built using **VitePress v2** with **pnpm** as the package manager, Chinese as the primary language, and includes modern PWA capabilities.
+Documentation website for JEngine, a Unity framework that enables runtime hot updates for Unity games. Built with **VitePress v2** and **pnpm**.
+
+## Quick Reference
+
+| Task | Guide |
+|------|-------|
+| Updating for new release | [Release Update Guide](.claude/release-update-guide.md) |
+| Finding source code | [JEngine Source Reference](.claude/jengine-source-reference.md) |
+| Writing documentation | [Documentation Guidelines](.claude/documentation-guidelines.md) |
 
 ## Development Commands
 
 ```bash
-# Install dependencies (using pnpm)
-pnpm install
-
-# Run development server
-pnpm run docs:dev
-
-# Build documentation for production
-pnpm run docs:build
-
-# Preview built documentation
-pnpm run docs:preview
+pnpm install          # Install dependencies
+pnpm run docs:dev     # Run development server
+pnpm run docs:build   # Build for production
+pnpm run docs:preview # Preview built docs
 ```
 
 ## Repository Structure
 
-- `/docs/` - VitePress documentation source files
-  - `/.vitepress/` - VitePress configuration and theme customization
-    - `/config.mts` - Main VitePress configuration file with TypeScript support and build hooks
-    - `/dist/` - Built documentation output (generated)
-  - `/public/` - Static assets (logo, images, favicons)
-  - `/documents/` - Documentation organized by version (0.5, 0.6, 0.7, 0.8, pro) in Chinese
-  - `/pro/` - JEngine Pro version documentation
-  - `index.md` - Homepage with VitePress home layout
-- `/node_modules/` - Dependencies (managed by pnpm)
-- `package.json` - Project dependencies and scripts (VitePress + pnpm)
-- `pnpm-lock.yaml` - pnpm lockfile
-- `CLAUDE.md` - This guidance file
+```
+/docs/
+├── .vitepress/          # VitePress config
+│   └── config-helpers.mts  # Sidebar configuration
+├── en/documents/1.0/    # English docs (latest)
+├── zh/documents/1.0/    # Chinese docs (latest)
+└── public/              # Static assets
+```
 
-## Architecture Notes
+## Key Points
 
-### Documentation Versioning
-The documentation maintains multiple versions:
-- **0.8.x** - Latest open-source version (master branch)
-- **0.7.x** - Previous stable version
-- **0.6.x** - Legacy version
-- **0.5.x** - Oldest maintained version
-- **Pro** - Professional edition documentation
+- **Bilingual**: Always update both `/en/` and `/zh/` versions
+- **Sidebar**: Edit `config-helpers.mts` to add navigation items
+- **Build check**: Run `pnpm run docs:build` before committing
+- **Source code**: See [JEngine Source Reference](.claude/jengine-source-reference.md) for Unity project paths
 
-### Language Configuration
-- Primary language: Chinese (zh-CN)
-- All documentation content is in Chinese
-- The site is configured with Chinese UI labels and navigation
+## Documentation Versions
 
-### VitePress Configuration
-The site has been **migrated from VuePress to VitePress v2** and uses advanced features:
-- **Theme**: VitePress default theme with Chinese localization
-- **Search**: Algolia DocSearch integration (configured with appId, apiKey, indexName)
-- **PWA**: Progressive Web App capabilities with @vite-pwa/vitepress
-- **SEO & Assets**:
-  - Automatic sitemap generation with custom priority mapping
-  - **Smart robots.txt generation** - automatically discovers allowed paths from navigation and sidebar configuration during build
-  - Automated favicon generation from logo.png using Sharp image processing
-  - Dynamic favicon links injection via transformHead hook
-  - Comprehensive meta tags for social media (Open Graph, Twitter Cards)
-- **Build Features**:
-  - Modern TypeScript configuration
-  - Build hooks for asset processing
-  - Optimized PWA asset handling
-  - Automatic last updated timestamps
+| Version | Status | Branch |
+|---------|--------|--------|
+| **1.0.x** | Active | master |
+| 0.8.x | Legacy | 0.8.x |
+| 0.7.x | Legacy | 0.7.x |
+| Pro | Separate | pro |
 
-### Content Organization
-Documentation is organized hierarchically:
-- 入门教程 (Getting Started guides)
-- 框架核心 (Core Framework features)
-- UI功能 (UI Components)
-- 编辑器工具 (Editor Tools)
-- 额外插件 (Additional Plugins and Libraries)
+## VitePress Features
 
-Each version maintains consistency in structure but may have different features based on the JEngine version capabilities.
-
-### PWA Configuration
-The site includes Progressive Web App features:
-- Service worker for offline capability
-- App manifest for installability
-- Automatic asset caching
-- Optimized for mobile experience
+- Algolia DocSearch for search
+- PWA for offline capability
+- Auto sitemap generation
+- Chinese as primary language with English support

@@ -203,6 +203,15 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
               ]
             },
             {
+              text: 'Utility Package',
+              collapsed: false,
+              items: [
+                { text: 'JAction', link: '/en/documents/1.0/jaction' },
+                { text: 'JObjectPool', link: '/en/documents/1.0/jobjectpool' },
+                { text: 'OpenUPM ↗', link: 'https://openupm.com/packages/com.jasonxudeveloper.jengine.util/' }
+              ]
+            },
+            {
               text: 'Help & Resources',
               collapsed: false,
               items: [
@@ -465,6 +474,15 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
               items: [
                 { text: '热更包管理', link: '/zh/documents/1.0/package-manager' },
                 { text: '弹窗提示框', link: '/zh/documents/1.0/messagebox' }
+              ]
+            },
+            {
+              text: '工具包',
+              collapsed: false,
+              items: [
+                { text: 'JAction 链式任务', link: '/zh/documents/1.0/jaction' },
+                { text: 'JObjectPool 对象池', link: '/zh/documents/1.0/jobjectpool' },
+                { text: 'OpenUPM ↗', link: 'https://openupm.com/packages/com.jasonxudeveloper.jengine.util/' }
               ]
             },
             {

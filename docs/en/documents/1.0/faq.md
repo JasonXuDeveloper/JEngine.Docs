@@ -137,6 +137,41 @@ Main project (Assembly-CSharp) code requires:
 We recommend using `ObfuzIgnoreAttribute` (Solution 2) as it is more convenient and flexible.
 :::
 
+## JEngine.Util Package
+
+### Q: How do I install the JEngine.Util package?
+**A:** Install via OpenUPM CLI:
+```bash
+openupm add com.jasonxudeveloper.jengine.util
+```
+Or visit the [OpenUPM page](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/) for manual installation via Unity Package Manager.
+
+### Q: What's the difference between JAction state overloads and closures?
+**A:** State overloads avoid heap allocation by passing state as a parameter instead of capturing it in a closure:
+```csharp
+// Closure (allocates)
+player => player.TakeDamage(10)
+
+// State overload (zero allocation)
+static (p) => p.TakeDamage(10), player
+```
+**Important:** State overloads only work with reference types (classes). For value types (int, float, struct), use closures.
+
+### Q: Why does my JAction state overload not work with int/float?
+**A:** State overloads only work with **reference types** (classes, arrays). Value types (int, float, bool, struct) get boxed, defeating the purpose. For value types, use closures or wrap them in a class.
+
+### Q: What's the difference between JObjectPool and Unity's ObjectPool?
+**A:** JObjectPool uses lock-free CAS operations for better performance in high-frequency scenarios. It also provides built-in shared pools per type via `JObjectPool.Shared<T>()`.
+
+### Q: When should I use JAction vs coroutines?
+**A:** JAction provides:
+- Chainable fluent API for better readability
+- Zero-GC async execution with `ExecuteAsync()`
+- Built-in object pooling
+- State overloads for performance-critical code
+
+Use coroutines for simple delays; use JAction for complex sequences or when GC matters.
+
 ## Performance Optimization
 
 ### Q: Game startup is slow?

@@ -1,11 +1,13 @@
 {
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
-    "@vite-pwa/vitepress": "^1.0.1",
-    "sharp": "^0.34.4",
+    "@vite-pwa/vitepress": "^1.1.0",
+    "sharp": "^0.34.5",
     "sitemap": "^9.0.0",
-    "vite-plugin-pwa": "^1.1.0",
-    "vitepress": "2.0.0-alpha.12"
+    "vite-plugin-pwa": "^1.2.0",
+    "vitepress": "2.0.0-alpha.12",
+    "workbox-build": "^7.4.0",
+    "workbox-window": "^7.4.0"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",

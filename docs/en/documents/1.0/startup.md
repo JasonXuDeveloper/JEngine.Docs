@@ -91,6 +91,31 @@ After opening `UnityProject` with the correct Unity version, in the top menu bar
 
 > If you encounter errors at this step, check [here](https://www.hybridclr.cn/docs/help/commonerrors)
 
+## Optional: Install JEngine.Util Package
+
+JEngine provides an optional utility package with high-performance tools:
+
+- **JAction** - Chainable action framework with zero-GC async execution
+- **JObjectPool** - Thread-safe generic object pool
+
+### Via OpenUPM CLI
+
+```bash
+openupm add com.jasonxudeveloper.jengine.util
+```
+
+### Via Unity Package Manager
+
+1. Open Unity Package Manager (Window > Package Manager)
+2. Click "+" button and select "Add package by name..."
+3. Enter: `com.jasonxudeveloper.jengine.util`
+
+For detailed manual installation steps, visit the [OpenUPM page](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/).
+
+::: tip
+After installation, use `using JEngine.Util;` to access JAction and JObjectPool classes. See [JAction documentation](./jaction.md) and [JObjectPool documentation](./jobjectpool.md) for usage details.
+:::
+
 ## Simulate Project Execution
 
 In this step, we can use JEngine's development mode to simulate the hot update process in the editor:

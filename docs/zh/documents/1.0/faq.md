@@ -138,6 +138,41 @@
 :::
 
 
+## JEngine.Util 工具包
+
+### Q: 如何安装 JEngine.Util 包？
+**A:** 通过 OpenUPM CLI 安装：
+```bash
+openupm add com.jasonxudeveloper.jengine.util
+```
+或访问 [OpenUPM 页面](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/) 通过 Unity Package Manager 手动安装。
+
+### Q: JAction 状态重载和闭包有什么区别？
+**A:** 状态重载通过将状态作为参数传递而不是在闭包中捕获来避免堆分配：
+```csharp
+// 闭包（会分配内存）
+player => player.TakeDamage(10)
+
+// 状态重载（零分配）
+static (p) => p.TakeDamage(10), player
+```
+**重要：** 状态重载仅适用于引用类型（类）。对于值类型（int、float、struct），请使用闭包。
+
+### Q: 为什么我的 JAction 状态重载对 int/float 无效？
+**A:** 状态重载仅适用于**引用类型**（类、数组）。值类型（int、float、bool、struct）会被装箱，这违背了避免分配的目的。对于值类型，请使用闭包或将其封装到类中。
+
+### Q: JObjectPool 和 Unity 的 ObjectPool 有什么区别？
+**A:** JObjectPool 使用无锁 CAS 操作，在高频场景中性能更好。它还通过 `JObjectPool.Shared<T>()` 为每种类型提供内置的共享池。
+
+### Q: 什么时候应该使用 JAction 而不是协程？
+**A:** JAction 提供：
+- 链式流畅 API，可读性更好
+- 通过 `ExecuteAsync()` 实现零GC异步执行
+- 内置对象池
+- 用于性能关键代码的状态重载
+
+简单延迟使用协程；复杂序列或需要关注 GC 时使用 JAction。
+
 ## 性能优化
 
 ### Q: 游戏启动很慢？

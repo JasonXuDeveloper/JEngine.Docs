@@ -105,6 +105,31 @@ Unity2022.3及以上
 
 > 这一步遇到错误可以看[这里](https://www.hybridclr.cn/docs/help/commonerrors)
 
+## 可选：安装 JEngine.Util 包
+
+JEngine 提供一个可选的工具包，包含高性能工具：
+
+- **JAction** - 支持零GC异步执行的链式操作框架
+- **JObjectPool** - 线程安全的泛型对象池
+
+### 通过 OpenUPM CLI
+
+```bash
+openupm add com.jasonxudeveloper.jengine.util
+```
+
+### 通过 Unity Package Manager
+
+1. 打开 Unity Package Manager（Window > Package Manager）
+2. 点击 "+" 按钮并选择 "Add package by name..."
+3. 输入：`com.jasonxudeveloper.jengine.util`
+
+详细的手动安装步骤，请访问 [OpenUPM 页面](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/)。
+
+::: tip
+安装后，使用 `using JEngine.Util;` 来访问 JAction 和 JObjectPool 类。详细用法请参见 [JAction 文档](./jaction.md) 和 [JObjectPool 文档](./jobjectpool.md)。
+:::
+
 
 
 

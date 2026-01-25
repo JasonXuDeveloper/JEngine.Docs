@@ -62,6 +62,33 @@ JEngine's design philosophy has always been to allow users (usually those withou
 
   - Obfuscated code decryption key
 
+### v1.0.9 Release Notes
+
+::: info New Package: JEngine.Util
+This release introduces the **JEngine.Util** package (v1.0.3) - a collection of high-performance utility classes.
+:::
+
+**Installation:**
+```bash
+openupm add com.jasonxudeveloper.jengine.util
+```
+
+Or install via [OpenUPM Package Manager UI](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/).
+
+**New Features:**
+
+- **[JAction](./jaction.md)** - Chainable action framework with zero-GC async execution
+  - Fluent API for building action sequences
+  - Zero-allocation state overloads for performance-critical code
+  - Custom `JActionAwaitable` struct for GC-free async/await
+  - Built-in object pooling (max 32 instances)
+
+- **[JObjectPool](./jobjectpool.md)** - Thread-safe generic object pool
+  - Lock-free CAS operations for high performance
+  - Configurable create, rent, and return callbacks
+  - Built-in shared pool per type
+  - Prewarm support for allocation-free gameplay
+
 ### Repository
 
 [View on GitHub →](https://github.com/JasonXuDeveloper/JEngine/tree/master)
