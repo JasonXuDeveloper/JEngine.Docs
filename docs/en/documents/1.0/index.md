@@ -62,6 +62,11 @@ JEngine's design philosophy has always been to allow users (usually those withou
 
   - Obfuscated code decryption key
 
+### v1.0.10 Release Notes
+
+**Bug Fixes:**
+- Fixed `SceneHandle` ambiguous reference error when using Unity 6 ([#589](https://github.com/JasonXuDeveloper/JEngine/pull/589))
+
 ### v1.0.9 Release Notes
 
 ::: info New Package: JEngine.Util
