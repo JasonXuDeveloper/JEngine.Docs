@@ -217,6 +217,7 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
               items: [
                 { text: 'FAQ', link: '/en/documents/1.0/faq' },
                 { text: 'Migration Guide', link: '/en/documents/1.0/migration' },
+                { text: 'Changelog', link: '/en/documents/1.0/changelog' },
                 { text: 'YooAsset Docs', link: 'https://www.yooasset.com/docs/Introduce' },
                 { text: 'HybridCLR Docs', link: 'https://www.hybridclr.cn/docs/intro' },
                 { text: 'Obfuz Docs', link: 'https://www.obfuz.com/docs/intro' }
@@ -491,6 +492,7 @@ export function generateThemeConfig(locale: 'en' | 'zh', docsPath: string) {
               items: [
                 { text: '常见问题', link: '/zh/documents/1.0/faq' },
                 { text: '老版本迁移', link: '/zh/documents/1.0/migration' },
+                { text: '更新日志', link: '/zh/documents/1.0/changelog' },
                 { text: 'YooAsset文档', link: 'https://www.yooasset.com/docs/Introduce' },
                 { text: 'HybridCLR文档', link: 'https://www.hybridclr.cn/docs/intro' },
                 { text: 'Obfuz文档', link: 'https://www.obfuz.com/docs/intro' }

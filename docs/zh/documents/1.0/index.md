@@ -70,37 +70,12 @@ JEngine的设计思路一直是让（通常是无热更新基础的）用户可�
 
 
 
-### v1.0.10 更新说明
+### 最新版本：v1.0.10
 
 **Bug 修复：**
 - 修复在 Unity 6 中使用时 `SceneHandle` 产生歧义引用的错误 ([#589](https://github.com/JasonXuDeveloper/JEngine/pull/589))
 
-### v1.0.9 更新说明
-
-::: info 新包：JEngine.Util
-本次更新引入 **JEngine.Util** 包（v1.0.3）- 一系列高性能工具类集合。
-:::
-
-**安装方式：**
-```bash
-openupm add com.jasonxudeveloper.jengine.util
-```
-
-或通过 [OpenUPM Package Manager UI](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/) 安装。
-
-**新功能：**
-
-- **[JAction 链式任务](./jaction.md)** - 支持零GC异步执行的链式操作框架
-  - 流畅的 API 用于构建操作序列
-  - 零GC的状态重载，适用于性能关键代码
-  - 自定义 `JActionAwaitable` 结构体实现无GC的 async/await
-  - 内置对象池（最多 32 个实例）
-
-- **[JObjectPool 对象池](./jobjectpool.md)** - 线程安全的泛型对象池
-  - 无锁 CAS 操作实现高性能
-  - 可配置的创建、租借和归还回调
-  - 每种类型内置共享池
-  - 支持预热以实现无GC的游戏运行
+[查看完整更新日志 →](./changelog.md)
 
 ### 仓库
 

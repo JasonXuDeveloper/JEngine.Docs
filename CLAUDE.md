@@ -41,6 +41,22 @@ pnpm run docs:preview # Preview built docs
 - **Build check**: Run `pnpm run docs:build` before committing
 - **Source code**: See [JEngine Source Reference](.claude/jengine-source-reference.md) for Unity project paths
 
+## Changelog Management
+
+When documenting new releases, update the **dedicated changelog pages** (not inline in overview pages):
+
+| Language | Changelog Location |
+|----------|-------------------|
+| English | `/docs/en/documents/1.0/changelog.md` |
+| Chinese | `/docs/zh/documents/1.0/changelog.md` |
+
+**Workflow for new releases:**
+1. Read `CHANGE.md` from the [JEngine repo](https://github.com/JasonXuDeveloper/JEngine) for release notes
+2. Add new version section at the **top** of both changelog files
+3. Filter out CI/infrastructure changes - only document user-facing changes
+4. Translate English changelog to Chinese
+5. Update version badge in `/docs/zh/documents/index.md` if needed
+
 ## Documentation Versions
 
 | Version | Status | Branch |

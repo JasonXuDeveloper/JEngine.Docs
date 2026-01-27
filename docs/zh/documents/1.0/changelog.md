@@ -1,0 +1,76 @@
+# 更新日志
+
+JEngine v1.0.x 的所有重要更新记录在此。
+
+完整更新日志（包含旧版本）请参阅 [GitHub CHANGE.md](https://github.com/JasonXuDeveloper/JEngine/blob/master/CHANGE.md)。
+
+## v1.0.10 (2026年1月27日)
+
+**Bug 修复：**
+- 修复在 Unity 6 中使用时 `SceneHandle` 产生歧义引用的错误 ([#589](https://github.com/JasonXuDeveloper/JEngine/pull/589))
+
+## v1.0.9 (2026年1月25日)
+
+**新功能：**
+- 新增 [JEngine.Util](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/) 工具包 (v1.0.3) ([#543](https://github.com/JasonXuDeveloper/JEngine/pull/543))
+  - **JAction** - 链式任务框架，支持零GC异步执行
+  - **JObjectPool** - 线程安全的泛型对象池
+
+**Bug 修复：**
+- 修复 C# 9.0 编译错误 ([#548](https://github.com/JasonXuDeveloper/JEngine/pull/548))
+- 修复构建错误处理并重构 Panel.cs ([#552](https://github.com/JasonXuDeveloper/JEngine/pull/552))
+- 修复 Play Mode 测试问题 ([#550](https://github.com/JasonXuDeveloper/JEngine/pull/550), [#551](https://github.com/JasonXuDeveloper/JEngine/pull/551))
+
+**依赖更新：**
+- 更新 YooAsset samples 至 2.3.18 ([#544](https://github.com/JasonXuDeveloper/JEngine/pull/544))
+- 更新 HybridCLR 至 8.9.0 ([#542](https://github.com/JasonXuDeveloper/JEngine/pull/542))
+
+## v1.0.5 (2025年10月29日)
+
+**Bug 修复：**
+- 修复热更新 MonoBehaviour 丢失问题
+
+**新功能：**
+- 支持 Standalone 模式
+
+## v1.0.4 (2025年10月15日)
+
+**Bug 修复：**
+- 修复编辑器下 `AddComponent<T>` 和 `GetComponent<T>` 的问题
+
+## v1.0.3 (2025年10月15日)
+
+**新功能：**
+- 支持 Unity CDN (UOS)
+- 优化 WebGL 资源加载吞吐量
+
+## v1.0.2 (2025年10月15日)
+
+**Bug 修复：**
+- 修复开发模式和服务器设置保存问题
+
+**改进：**
+- 允许在 Unity 编辑器中加载热更代码的 PDB 文件以进行调试
+- 更新 Nino 至最新版本
+- 更新 Unity 至最新 2022 LTS（修复 CVE）
+
+## v1.0.1 (2025年9月28日)
+
+**新功能：**
+- AssetBundle 加密支持（XOR、AES、ChaCha20）
+- 使用 Obfuz 进行代码混淆保护
+- 小游戏平台支持（微信、抖音、支付宝、TapTap）
+
+**改进：**
+- 迁移至 HybridCLR，大幅提升热更代码执行性能
+- 增强游戏开发体验（编写热更代码无需额外步骤）
+- 升级 HybridCLR 至 v8.6.0（解决最新 Xcode 构建问题）
+
+## v1.0.0 (2025年9月21日)
+
+**v1.0 初始版本：**
+- AssetBundle 加密支持（XOR、AES、ChaCha20）
+- 使用 Obfuz 进行代码混淆保护
+- 迁移至 HybridCLR，大幅提升热更代码执行性能
+- 增强游戏开发体验
+- 小游戏平台支持（微信、抖音、支付宝、TapTap）

@@ -28,11 +28,7 @@ JEngine目前正在维护的版本
 
 最新版本是开发者认为的可以正常使用，不会有太大问题的最新版本，建议使用，功能最为强大，同时修复了老版本的bug。
 
-#### v1.0.10更新日志
-
-- **修复** 在 Unity 6 中使用时 `SceneHandle` 产生歧义引用的错误 ([#589](https://github.com/JasonXuDeveloper/JEngine/pull/589))
-
-#### [快速开始 →](/zh/documents/1.0/)
+#### [快速开始 →](/zh/documents/1.0/) | [更新日志 →](/zh/documents/1.0/changelog)
 
 :::
 

@@ -12,29 +12,36 @@ Checklist and file locations for updating JEngine documentation on new releases.
 - Chinese sidebar: Search for `/zh/documents/1.0/`
 - Add new pages to appropriate sections
 
-### 2. Version Overview Pages
+### 2. Changelog Pages (Primary for Release Updates)
 
 | File | Purpose |
 |------|---------|
-| `/docs/en/documents/1.0/index.md` | English overview with release notes |
-| `/docs/zh/documents/1.0/index.md` | Chinese overview with release notes |
-| `/docs/zh/documents/index.md` | Main documents page with version badge and changelog |
+| `/docs/en/documents/1.0/changelog.md` | English changelog - add new versions here |
+| `/docs/zh/documents/1.0/changelog.md` | Chinese changelog - add translated versions here |
 
-### 3. Getting Started Guides
+### 3. Version Overview Pages
+
+| File | Purpose |
+|------|---------|
+| `/docs/en/documents/1.0/index.md` | English overview (links to changelog) |
+| `/docs/zh/documents/1.0/index.md` | Chinese overview (links to changelog) |
+| `/docs/zh/documents/index.md` | Main documents page with version badge |
+
+### 4. Getting Started Guides
 
 | File | Purpose |
 |------|---------|
 | `/docs/en/documents/1.0/startup.md` | English startup guide |
 | `/docs/zh/documents/1.0/startup.md` | Chinese startup guide |
 
-### 4. FAQ Pages
+### 5. FAQ Pages
 
 | File | Purpose |
 |------|---------|
 | `/docs/en/documents/1.0/faq.md` | English FAQ |
 | `/docs/zh/documents/1.0/faq.md` | Chinese FAQ |
 
-### 5. New Feature Documentation
+### 6. New Feature Documentation
 
 Create as needed:
 - `/docs/en/documents/1.0/{feature}.md`
@@ -44,7 +51,8 @@ Create as needed:
 
 ```
 /docs/en/documents/1.0/
-├── index.md          # Version overview & release notes
+├── index.md          # Version overview (links to changelog)
+├── changelog.md      # Full version history
 ├── startup.md        # Getting started guide
 ├── editor-panel.md   # Editor panel documentation
 ├── runtime-panel.md  # Runtime panel documentation
@@ -56,7 +64,8 @@ Create as needed:
 └── migration.md     # Migration guide from older versions
 
 /docs/zh/documents/1.0/
-├── index.md          # 版本概述和更新日志
+├── index.md          # 版本概述（链接到更新日志）
+├── changelog.md      # 完整版本历史
 ├── startup.md        # 快速开始指南
 ├── editor-panel.md   # 编辑器面板文档
 ├── runtime-panel.md  # 运行时面板文档
@@ -92,10 +101,12 @@ When a new JEngine package is released:
 
 ## Version Update Workflow
 
-1. Check GitHub releases for changelog
-2. Check local source for new packages/features
-3. Update version badges in overview pages
-4. Create/update feature documentation
-5. Update sidebars
-6. Run `pnpm run docs:build` to verify
-7. Commit with descriptive message
+1. Read `CHANGE.md` from [JEngine repo](https://github.com/JasonXuDeveloper/JEngine) for release notes
+2. Add new version section at **top** of changelog files (EN and ZH)
+3. Filter out CI/infrastructure changes - only document user-facing changes
+4. Update version badge in `/docs/zh/documents/index.md`
+5. Update overview pages if latest release info changed
+6. Create/update feature documentation for new features
+7. Update sidebars if new pages added
+8. Run `pnpm run docs:build` to verify
+9. Commit with descriptive message
