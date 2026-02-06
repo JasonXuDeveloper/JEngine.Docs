@@ -43,14 +43,23 @@ export default async function Layout({ children, params }: LayoutProps) {
   const versionTree = getVersionTree(fullTree, version);
 
   // Create sidebar tabs filtered by locale
+  const descriptions: Record<string, Record<string, string>> = {
+    en: {
+      'v1.0': 'Latest version with HybridCLR',
+      pro: 'JEngine Pro features',
+      _default: 'Legacy version',
+    },
+    zh: {
+      'v1.0': '基于 HybridCLR 的最新版本',
+      pro: 'JEngine Pro 功能',
+      _default: '旧版本',
+    },
+  };
+  const desc = descriptions[lang] ?? descriptions.en;
+
   const tabs = availableVersions.map((v) => ({
     title: v === 'pro' ? 'Pro' : v,
-    description:
-      v === 'v1.0'
-        ? 'Latest version with HybridCLR'
-        : v === 'pro'
-          ? 'JEngine Pro features'
-          : 'Legacy version',
+    description: desc[v] ?? desc._default,
     url: `/${lang}/docs/${v}`,
   }));
 
@@ -60,6 +69,7 @@ export default async function Layout({ children, params }: LayoutProps) {
       {...baseOptions(lang)}
       sidebar={{
         tabs,
+        hideLinks: true,
       }}
     >
       {children}
