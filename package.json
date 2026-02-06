@@ -9,7 +9,7 @@
     "dev": "next dev",
     "start": "next start",
     "preview": "bun run prebuild && opennextjs-cloudflare build && bun run search:sync && opennextjs-cloudflare preview",
-    "deploy": "bun run prebuild && opennextjs-cloudflare build && bun run search:sync && opennextjs-cloudflare deploy",
+    "deploy": "bun run prebuild && opennextjs-cloudflare build && bun run search:sync && opennextjs-cloudflare deploy && bun run indexnow",
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
     "postinstall": "fumadocs-mdx",
     "lint": "biome check",
@@ -17,6 +17,7 @@
     "search:sync": "bun run ./scripts/sync-algolia.ts",
     "favicons": "bun run ./scripts/generate-favicons.ts",
     "optimize-images": "bun run ./scripts/optimize-images.ts",
+    "indexnow": "bun run ./scripts/submit-indexnow.ts",
     "format": "biome format --write"
   },
   "dependencies": {
