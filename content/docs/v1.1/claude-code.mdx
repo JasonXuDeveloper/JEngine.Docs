@@ -46,20 +46,22 @@ The `.claude-plugin/` directory is included in the JEngine repo. If you cloned J
 
 ## Available Skills
 
+Skills are **auto-triggered** — when you describe a task, Claude automatically activates the relevant skill based on keywords. No slash commands needed.
+
 ### JEngine.Util (Runtime)
 
-| Skill | Command | What It Covers |
-|-------|---------|---------------|
-| **JAction** | `/jaction` | Chainable actions, zero-allocation patterns, parallel execution |
-| **JObjectPool** | `/jobjectpool` | Thread-safe object pooling with proper lifecycle management |
-| **Game Patterns** | `/game-patterns` | Zero-GC game patterns — spawners, cooldowns, combat systems, DoT, health regen |
+| Skill | Triggers On | What It Covers |
+|-------|-------------|---------------|
+| **JAction** | sequential tasks, delay, timer, repeat loop, async workflow, polling condition | Chainable actions, zero-allocation patterns, parallel execution |
+| **JObjectPool** | object pool, GC optimization, bullet pool, spawn pool, Rent/Return pattern | Thread-safe object pooling with proper lifecycle management |
+| **Game Patterns** | game loop, spawner, cooldown, ability timer, DoT, health regen, combat system | Zero-GC game patterns using JAction and JObjectPool |
 
 ### JEngine.UI (Runtime + Editor)
 
-| Skill | Command | What It Covers |
-|-------|---------|---------------|
-| **MessageBox** | `/messagebox` | Async modal dialogs with pooling |
-| **Editor UI** | `/editor-ui` | Building editor tools with JEngine UI components (JButton, JStack, Tokens, etc.) |
+| Skill | Triggers On | What It Covers |
+|-------|-------------|---------------|
+| **MessageBox** | confirmation dialog, modal popup, prompt, alert, yes/no dialog | Async modal dialogs with pooling |
+| **Editor UI** | custom inspector, editor window, JButton, JStack, JCard, design tokens | Building editor tools with JEngine UI components |
 
 ## Workflow
 
