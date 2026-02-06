@@ -46,12 +46,12 @@ export default async function Layout({ children, params }: LayoutProps) {
   const descriptions: Record<string, Record<string, string>> = {
     en: {
       'v1.0': 'Latest version with HybridCLR',
-      pro: 'JEngine Pro features',
+      pro: 'Legacy Pro version',
       _default: 'Legacy version',
     },
     zh: {
       'v1.0': '基于 HybridCLR 的最新版本',
-      pro: 'JEngine Pro 功能',
+      pro: 'Pro 旧版本',
       _default: '旧版本',
     },
   };
@@ -69,7 +69,6 @@ export default async function Layout({ children, params }: LayoutProps) {
       {...baseOptions(lang)}
       sidebar={{
         tabs,
-        hideLinks: true,
       }}
     >
       {children}

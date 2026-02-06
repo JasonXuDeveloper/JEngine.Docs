@@ -11,6 +11,7 @@ export function baseOptions(lang: Locale = 'en'): BaseLayoutProps {
       url: `/${lang}/docs/v1.0`,
       icon: <BookOpen />,
       active: 'nested-url',
+      on: 'nav',
     },
     // Chinese-only communication dropdown
     ...(lang === 'zh'
@@ -19,6 +20,7 @@ export function baseOptions(lang: Locale = 'en'): BaseLayoutProps {
             type: 'menu' as const,
             text: '交流',
             icon: <MessageCircle />,
+            on: 'nav' as const,
             items: [
               {
                 type: 'main' as const,
