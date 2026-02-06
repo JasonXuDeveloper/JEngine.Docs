@@ -9,34 +9,57 @@ const inter = Inter({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s | JEngine',
-    default: 'JEngine - Unity Hot Update Solution',
-  },
-  description:
-    'Enable hot updates for Unity games with runtime support. The lightweight framework for developing hot-updatable Unity games.',
-  metadataBase: new URL('https://jengine.xgamedev.net'),
-  robots: {
-    index: true,
-    follow: true,
-    'max-snippet': -1,
-    'max-image-preview': 'large',
-  },
-  openGraph: {
+const meta: Record<Locale, { title: string; description: string }> = {
+  en: {
     title: 'JEngine - Unity Hot Update Solution',
-    description: 'Enable hot updates for Unity games with runtime support',
-    siteName: 'JEngine Documentation',
-    images: ['/logo.png'],
+    description: 'Enable hot updates for Unity games with runtime support. The lightweight framework for developing hot-updatable Unity games.',
   },
-  twitter: {
-    card: 'summary_large_image',
-    images: ['/logo.png'],
-  },
-  other: {
-    'article:author': 'Jason Xu',
+  zh: {
+    title: 'JEngine - Unity 热更新框架',
+    description: '轻量级 Unity 热更新框架，支持运行时代码和资源热更新，全面支持 Unity 所有平台。',
   },
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: Locale }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const t = meta[lang] ?? meta.en;
+
+  return {
+    title: {
+      template: '%s | JEngine',
+      default: t.title,
+    },
+    description: t.description,
+    metadataBase: new URL('https://jengine.xgamedev.net'),
+    robots: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+    },
+    openGraph: {
+      title: t.title,
+      description: t.description,
+      siteName: 'JEngine Documentation',
+      images: ['/logo.png'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t.title,
+      description: t.description,
+      images: ['/logo.png'],
+    },
+    alternates: {
+      languages: {
+        en: `/en`,
+        zh: `/zh`,
+      },
+    },
+    other: {
+      'article:author': 'Jason Xu',
+    },
+  };
+}
 
 export function generateStaticParams() {
   return locales.map((l) => ({ lang: l.locale }));

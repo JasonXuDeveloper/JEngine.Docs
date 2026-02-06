@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import type { Locale } from '@/lib/i18n';
 import { cn } from '@/lib/cn';
 import { ArrowRight, Flame, Zap, Shield, Gauge } from 'lucide-react';
@@ -82,6 +83,39 @@ const translations: Record<
 
 interface PageProps {
   params: Promise<{ lang: Locale }>;
+}
+
+const pageMeta: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'JEngine - Unity Hot Update Framework',
+    description: 'Ship game updates without shipping a build. JEngine enables runtime hot updates across all Unity platforms with built-in encryption, code obfuscation, and superior performance via HybridCLR.',
+  },
+  zh: {
+    title: 'JEngine - Unity 热更新框架',
+    description: '无需重新打包即可推送游戏更新。JEngine 支持全 Unity 平台运行时热更新，内置加密、代码混淆，基于 HybridCLR 实现卓越运行时性能。',
+  },
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { lang } = await params;
+  const t = pageMeta[lang] ?? pageMeta.en;
+
+  return {
+    title: t.title,
+    description: t.description,
+    alternates: {
+      languages: {
+        en: '/en',
+        zh: '/zh',
+        'x-default': '/en',
+      },
+    },
+    openGraph: {
+      title: t.title,
+      description: t.description,
+      locale: lang === 'zh' ? 'zh_CN' : 'en_US',
+    },
+  };
 }
 
 export default async function HomePage({ params }: PageProps) {

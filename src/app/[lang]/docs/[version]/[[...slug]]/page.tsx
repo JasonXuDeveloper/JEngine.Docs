@@ -101,7 +101,13 @@ export async function generateMetadata({
       languages: {
         en: `/en${pathWithoutLang}`,
         zh: `/zh${pathWithoutLang}`,
+        'x-default': `/en${pathWithoutLang}`,
       },
+    },
+    openGraph: {
+      title: data.title,
+      description: data.description,
+      locale: lang === 'zh' ? 'zh_CN' : 'en_US',
     },
   };
 }
