@@ -134,7 +134,8 @@ icon: LucideIconName     # Optional, from lucide-react
 
 | Version | Status | Directory | Languages |
 |---------|--------|-----------|-----------|
-| **v1.0** | Active (default) | `content/docs/v1.0/` | EN + ZH |
+| **v1.1** | Active (default) | `content/docs/v1.1/` | EN + ZH |
+| v1.0 | Stable | `content/docs/v1.0/` | EN + ZH |
 | v0.8 | Legacy | `content/docs/v0.8/` | ZH only |
 | v0.7 | Legacy | `content/docs/v0.7/` | ZH only |
 | v0.6 | Legacy | `content/docs/v0.6/` | ZH only |

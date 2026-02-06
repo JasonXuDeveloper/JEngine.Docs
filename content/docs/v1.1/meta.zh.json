@@ -1,0 +1,25 @@
+{
+  "title": "v1.1",
+  "pages": [
+    "index",
+    "---快速开始---",
+    "startup",
+    "editor-panel",
+    "runtime-panel",
+    "---JEngine Core---",
+    "package-manager",
+    "prompt",
+    "---JEngine UI---",
+    "messagebox",
+    "ui-components",
+    "---JEngine Util---",
+    "jaction",
+    "jobjectpool",
+    "---Claude Code 插件---",
+    "claude-code",
+    "---参考文档---",
+    "migration",
+    "faq",
+    "changelog"
+  ]
+}

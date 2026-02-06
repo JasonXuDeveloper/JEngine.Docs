@@ -1,0 +1,99 @@
+---
+title: Claude Code Plugin
+description: AI-assisted development with purpose-built skills for JEngine
+icon: Bot
+---
+
+<Callout type="info" title="New in v1.1">
+JEngine ships with a Claude Code plugin that provides AI-assisted development skills for building hot-updatable games.
+</Callout>
+
+## Overview
+
+The JEngine Claude Code plugin is a `.claude-plugin/` directory in the JEngine repository that provides specialized skills for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). These skills teach Claude how to write idiomatic JEngine code — zero-GC patterns, proper object pooling, MessageBox usage, editor UI components, and more.
+
+## Installation
+
+### Prerequisites
+
+- [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed
+- JEngine v1.1 project set up
+
+### Install from Marketplace
+
+```bash
+# Add JEngine marketplace (one-time)
+claude plugin marketplace add JasonXuDeveloper/JEngine
+
+# Install plugin
+claude plugin install jengine@jengine-marketplace
+```
+
+### Enable Auto-Updates (Recommended)
+
+Third-party plugins require manual opt-in for auto-updates:
+
+1. Run `/plugin` in Claude Code
+2. Go to **Marketplaces** tab
+3. Select **jengine-marketplace**
+4. Toggle **Enable auto-update**
+
+Once enabled, the plugin updates automatically when Claude Code starts.
+
+### Manual Setup
+
+The `.claude-plugin/` directory is included in the JEngine repo. If you cloned JEngine, the skills are already available — Claude Code detects them automatically.
+
+## Available Skills
+
+### JEngine.Util (Runtime)
+
+| Skill | Command | What It Covers |
+|-------|---------|---------------|
+| **JAction** | `/jaction` | Chainable actions, zero-allocation patterns, parallel execution |
+| **JObjectPool** | `/jobjectpool` | Thread-safe object pooling with proper lifecycle management |
+| **Game Patterns** | `/game-patterns` | Zero-GC game patterns — spawners, cooldowns, combat systems, DoT, health regen |
+
+### JEngine.UI (Runtime + Editor)
+
+| Skill | Command | What It Covers |
+|-------|---------|---------------|
+| **MessageBox** | `/messagebox` | Async modal dialogs with pooling |
+| **Editor UI** | `/editor-ui` | Building editor tools with JEngine UI components (JButton, JStack, Tokens, etc.) |
+
+## Workflow
+
+<Steps>
+<Step>
+### Describe What You Want
+Tell Claude what gameplay feature or editor tool you need in plain language.
+</Step>
+
+<Step>
+### Review Generated Code
+Claude produces JEngine-idiomatic code using the correct packages, namespaces, and patterns.
+</Step>
+
+<Step>
+### Build and Push
+Compile the hot-update assembly and push to players — no rebuild required.
+</Step>
+</Steps>
+
+## Example
+
+```
+You: "Create a retry system that attempts to connect to the server
+      every 2 seconds, with a 30-second timeout"
+
+Claude generates a JAction-based solution using:
+- Static lambdas for zero allocation
+- RepeatUntil with proper timeout
+- OnCancel for failure handling
+- using pattern for auto-dispose
+```
+
+<Cards>
+  <Card title="JAction" href="/en/docs/v1.1/jaction" description="Chainable action framework" />
+  <Card title="JObjectPool" href="/en/docs/v1.1/jobjectpool" description="Object pooling system" />
+</Cards>

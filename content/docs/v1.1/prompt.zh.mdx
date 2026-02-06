@@ -1,0 +1,79 @@
+---
+title: Prompt
+description: 对话框抽象层，解耦 UI 与核心
+icon: MessageCircle
+---
+
+<Callout type="info" title="v1.1 新功能">
+`Prompt` 抽象层将对话框 UI 从核心包中解耦，允许使用任意对话框实现。
+</Callout>
+
+## 概述
+
+在 v1.0 中，`Bootstrap` 直接调用 `MessageBox.Show()` 显示确认对话框。在 v1.1 中，改为基于委托的 `Prompt` 抽象。这意味着：
+
+- **核心不再依赖 UI** — `jengine.core` 不引用 `jengine.ui`
+- **可插拔的对话框提供者** — 使用 MessageBox、自定义 UI 或完全跳过对话框
+- **线程安全** — 委托在启动时设置一次即可
+
+## API
+
+```csharp
+namespace JEngine.Core
+{
+    public static class Prompt
+    {
+        /// <summary>
+        /// 显示对话框，用户点击确认返回 true，否则返回 false。
+        /// 参数：title, content, okText, noText
+        /// 默认：记录错误并返回 false。
+        /// </summary>
+        public static Func<string, string, string, string, UniTask<bool>> ShowDialogAsync { get; set; }
+    }
+}
+```
+
+## 默认配置
+
+JEngine 附带 `PromptInitializer`，将 `Prompt.ShowDialogAsync` 连接到 `MessageBox.Show`：
+
+```csharp
+using JEngine.Core;
+using JEngine.UI;
+
+public static class PromptInitializer
+{
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void Initialize()
+    {
+        Prompt.ShowDialogAsync = MessageBox.Show;
+    }
+}
+```
+
+此文件位于 `Assets/Scripts/`，自动运行。如果安装了 `jengine.ui` 包，无需额外配置。
+
+## 自定义对话框
+
+要使用自定义对话框系统，替换委托即可：
+
+```csharp
+[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+private static void Initialize()
+{
+    Prompt.ShowDialogAsync = async (title, content, ok, no) =>
+    {
+        // 你的自定义对话框实现
+        return await MyDialogSystem.Show(title, content, ok, no);
+    };
+}
+```
+
+## 无对话框模式
+
+如果不需要对话框提示（如无头构建），保持默认即可。默认行为会记录错误并返回 `false`，Bootstrap 将跳过需要确认的操作。
+
+<Cards>
+  <Card title="MessageBox" href="/zh/docs/v1.1/messagebox" description="默认对话框实现（jengine.ui）" />
+  <Card title="迁移指南" href="/zh/docs/v1.1/migration" description="从 v1.0 升级到 v1.1" />
+</Cards>

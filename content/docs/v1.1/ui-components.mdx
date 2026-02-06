@@ -1,0 +1,139 @@
+---
+title: Editor UI Components
+description: Monochrome editor UI component library for JEngine
+icon: LayoutGrid
+---
+
+<Callout type="info" title="New in v1.1">
+The `jengine.ui` package includes a full editor UI component library with a shadcn-inspired monochrome design system.
+</Callout>
+
+## Overview
+
+JEngine UI provides a set of editor UI components built on Unity's UIToolkit (UI Elements). These are used internally by JEngine's editor panels (Bootstrap inspector, JEngine Panel) and are available for your own editor tools.
+
+## Installation
+
+<Tabs items={['OpenUPM CLI', 'Unity Package Manager']}>
+<Tab value="OpenUPM CLI">
+```bash
+openupm add com.jasonxudeveloper.jengine.ui
+```
+</Tab>
+<Tab value="Unity Package Manager">
+For manual installation through Unity's Package Manager, visit the [OpenUPM page](https://openupm.com/packages/com.jasonxudeveloper.jengine.ui/) and follow the instructions.
+</Tab>
+</Tabs>
+
+### Dependencies
+
+- `com.cysharp.unitask` >= 2.5.10
+- `com.unity.textmeshpro` >= 3.0.6
+
+## Design System
+
+The component library follows a **monochrome design** inspired by shadcn/ui:
+
+- **True color inversion** between light and dark themes (dark Primary = light Secondary)
+- **Design tokens** for consistent spacing, font sizes, border radius, and transitions
+- **USS stylesheets** (`base.uss`, `components.uss`, `tokens.uss`) for theming
+
+### Tokens
+
+The `Tokens` class provides design constants:
+
+| Category | Examples |
+|----------|---------|
+| **Colors** | Primary, Secondary, Muted, Border, Accent |
+| **Spacing** | Xs (2px), Sm (4px), Md (8px), Lg (16px), Xl (24px) |
+| **FontSize** | Xs (10px), Sm (12px), Base (14px), Lg (16px) |
+| **BorderRadius** | Sm (4px), Md (6px), Lg (8px), Full (9999px) |
+
+## Components
+
+### Base
+
+| Component | Description |
+|-----------|-------------|
+| `JComponent` | Base class for all UI components |
+
+### Buttons
+
+| Component | Description |
+|-----------|-------------|
+| `JButton` | Standard button with monochrome styling |
+| `JButtonGroup` | Group of buttons in a row |
+| `JIconButton` | Icon-only button |
+| `JToggleButton` | Toggle on/off button |
+
+### Form Controls
+
+| Component | Description |
+|-----------|-------------|
+| `JDropdown` | Dropdown selector (with `ForEnum<T>()` factory) |
+| `JFormField` | Labeled form field wrapper |
+| `JObjectField` | Unity Object reference field |
+| `JTextField` | Text input field |
+| `JToggle` | Toggle switch with dynamic thumb colors |
+
+### Feedback
+
+| Component | Description |
+|-----------|-------------|
+| `JLogView` | Scrollable log display |
+| `JProgressBar` | Progress indicator |
+| `JStatusBar` | Status text display |
+
+### Layout
+
+| Component | Description |
+|-----------|-------------|
+| `JCard` | Card container with border and padding |
+| `JContainer` | Responsive container with max-width constraints |
+| `JRow` | Horizontal layout row |
+| `JSection` | Section with header |
+| `JStack` | Vertical stack layout |
+
+### Navigation
+
+| Component | Description |
+|-----------|-------------|
+| `JBreadcrumb` | Breadcrumb navigation |
+
+## JContainer
+
+Added in v1.1.5, `JContainer` provides responsive max-width constraints following Tailwind/Bootstrap patterns:
+
+```csharp
+// Create a container with medium max-width
+var container = new JContainer()
+    .WithSize(ContainerSize.Md)       // 768px max-width
+    .WithHorizontalPadding(Tokens.Spacing.Lg);
+
+// Available sizes
+public enum ContainerSize
+{
+    Xs = 480,
+    Sm = 640,
+    Md = 768,
+    Lg = 1024,
+    Xl = 1280,
+    Full = 0   // No max-width limit
+}
+```
+
+## Theming
+
+The `JTheme` class applies consistent theming:
+
+```csharp
+// Apply theme to a root element
+JTheme.Apply(rootVisualElement);
+```
+
+Dark theme uses true grayscale inversion — Primary in light mode becomes Secondary in dark mode and vice versa.
+
+<Cards>
+  <Card title="MessageBox" href="/en/docs/v1.1/messagebox" description="Dialog system (also in jengine.ui)" />
+  <Card title="Editor Panel" href="/en/docs/v1.1/editor-panel" description="JEngine's editor tools" />
+</Cards>

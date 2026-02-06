@@ -39,6 +39,9 @@ export function Providers({ children, locale, locales }: ProvidersProps) {
       search={{
         SearchDialog,
       }}
+      theme={{
+        disableTransitionOnChange: false,
+      }}
     >
       {children}
     </RootProvider>

@@ -1,0 +1,79 @@
+---
+title: Prompt
+description: Dialog abstraction layer for decoupling UI from core
+icon: MessageCircle
+---
+
+<Callout type="info" title="New in v1.1">
+The `Prompt` abstraction decouples dialog UI from the core package, allowing you to use any dialog provider.
+</Callout>
+
+## Overview
+
+In v1.0, `Bootstrap` called `MessageBox.Show()` directly for confirmation dialogs. In v1.1, this is replaced by a delegate-based `Prompt` abstraction in the core package. This means:
+
+- **Core no longer depends on UI** — `jengine.core` doesn't reference `jengine.ui`
+- **Pluggable dialog provider** — Use MessageBox, your own UI, or skip dialogs entirely
+- **Thread-safe** — The delegate can be set once at startup
+
+## API
+
+```csharp
+namespace JEngine.Core
+{
+    public static class Prompt
+    {
+        /// <summary>
+        /// Show a dialog and return true if user clicks OK, false otherwise.
+        /// Parameters: title, content, okText, noText
+        /// Default: logs error and returns false.
+        /// </summary>
+        public static Func<string, string, string, string, UniTask<bool>> ShowDialogAsync { get; set; }
+    }
+}
+```
+
+## Default Setup
+
+JEngine ships with a `PromptInitializer` that wires `Prompt.ShowDialogAsync` to `MessageBox.Show`:
+
+```csharp
+using JEngine.Core;
+using JEngine.UI;
+
+public static class PromptInitializer
+{
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void Initialize()
+    {
+        Prompt.ShowDialogAsync = MessageBox.Show;
+    }
+}
+```
+
+This file is in `Assets/Scripts/` and runs automatically. If you have the `jengine.ui` package installed, everything works out of the box.
+
+## Custom Dialog Provider
+
+To use your own dialog system, replace the delegate:
+
+```csharp
+[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+private static void Initialize()
+{
+    Prompt.ShowDialogAsync = async (title, content, ok, no) =>
+    {
+        // Your custom dialog implementation
+        return await MyDialogSystem.Show(title, content, ok, no);
+    };
+}
+```
+
+## Without Any Dialog
+
+If you don't want dialog prompts at all (e.g., headless builds), leave the default. It logs an error and returns `false`, which tells Bootstrap to skip confirmation-required operations.
+
+<Cards>
+  <Card title="MessageBox" href="/en/docs/v1.1/messagebox" description="Default dialog provider (jengine.ui)" />
+  <Card title="Migration Guide" href="/en/docs/v1.1/migration" description="Upgrading from v1.0 to v1.1" />
+</Cards>

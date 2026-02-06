@@ -1,5 +1,6 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import type { Locale } from './i18n';
+import { defaultVersion } from './versions';
 import Image from 'next/image';
 import { BookOpen, MessageCircle } from 'lucide-react';
 
@@ -8,7 +9,7 @@ export function baseOptions(lang: Locale = 'en'): BaseLayoutProps {
     {
       type: 'main',
       text: lang === 'zh' ? '文档' : 'Docs',
-      url: `/${lang}/docs/v1.0`,
+      url: `/${lang}/docs/${defaultVersion}`,
       icon: <BookOpen />,
       active: 'nested-url',
       on: 'nav',

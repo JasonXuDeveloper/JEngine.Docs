@@ -1,0 +1,139 @@
+---
+title: 编辑器 UI 组件
+description: JEngine 单色编辑器 UI 组件库
+icon: LayoutGrid
+---
+
+<Callout type="info" title="v1.1 新功能">
+`jengine.ui` 包包含完整的编辑器 UI 组件库，采用 shadcn 风格的单色设计系统。
+</Callout>
+
+## 概述
+
+JEngine UI 提供一套基于 Unity UIToolkit（UI Elements）构建的编辑器 UI 组件。这些组件在 JEngine 内部编辑器面板（Bootstrap 检视面板、JEngine Panel）中使用，也可用于你自己的编辑器工具。
+
+## 安装
+
+<Tabs items={['OpenUPM CLI', 'Unity Package Manager']}>
+<Tab value="OpenUPM CLI">
+```bash
+openupm add com.jasonxudeveloper.jengine.ui
+```
+</Tab>
+<Tab value="Unity Package Manager">
+通过 Unity 包管理器手动安装，请访问 [OpenUPM 页面](https://openupm.com/packages/com.jasonxudeveloper.jengine.ui/)，按照说明操作。
+</Tab>
+</Tabs>
+
+### 依赖
+
+- `com.cysharp.unitask` >= 2.5.10
+- `com.unity.textmeshpro` >= 3.0.6
+
+## 设计系统
+
+组件库遵循 **单色设计** 风格，灵感来自 shadcn/ui：
+
+- **真正的颜色反转** — 浅色主题的 Primary 在深色主题中变为 Secondary
+- **设计令牌** — 统一的间距、字号、圆角和过渡
+- **USS 样式表** — `base.uss`、`components.uss`、`tokens.uss`
+
+### 令牌
+
+`Tokens` 类提供设计常量：
+
+| 类别 | 示例 |
+|------|------|
+| **颜色** | Primary、Secondary、Muted、Border、Accent |
+| **间距** | Xs (2px)、Sm (4px)、Md (8px)、Lg (16px)、Xl (24px) |
+| **字号** | Xs (10px)、Sm (12px)、Base (14px)、Lg (16px) |
+| **圆角** | Sm (4px)、Md (6px)、Lg (8px)、Full (9999px) |
+
+## 组件
+
+### 基础
+
+| 组件 | 说明 |
+|------|------|
+| `JComponent` | 所有 UI 组件的基类 |
+
+### 按钮
+
+| 组件 | 说明 |
+|------|------|
+| `JButton` | 标准按钮，单色样式 |
+| `JButtonGroup` | 按钮组，水平排列 |
+| `JIconButton` | 仅图标按钮 |
+| `JToggleButton` | 开关切换按钮 |
+
+### 表单控件
+
+| 组件 | 说明 |
+|------|------|
+| `JDropdown` | 下拉选择器（含 `ForEnum<T>()` 工厂方法） |
+| `JFormField` | 带标签的表单字段包装器 |
+| `JObjectField` | Unity Object 引用字段 |
+| `JTextField` | 文本输入字段 |
+| `JToggle` | 开关，带动态滑块颜色 |
+
+### 反馈
+
+| 组件 | 说明 |
+|------|------|
+| `JLogView` | 可滚动的日志显示 |
+| `JProgressBar` | 进度条 |
+| `JStatusBar` | 状态文本显示 |
+
+### 布局
+
+| 组件 | 说明 |
+|------|------|
+| `JCard` | 卡片容器，带边框和内边距 |
+| `JContainer` | 响应式容器，最大宽度约束 |
+| `JRow` | 水平布局行 |
+| `JSection` | 带标题的区段 |
+| `JStack` | 垂直堆叠布局 |
+
+### 导航
+
+| 组件 | 说明 |
+|------|------|
+| `JBreadcrumb` | 面包屑导航 |
+
+## JContainer
+
+v1.1.5 新增，`JContainer` 提供响应式最大宽度约束，遵循 Tailwind/Bootstrap 模式：
+
+```csharp
+// 创建中等宽度的容器
+var container = new JContainer()
+    .WithSize(ContainerSize.Md)       // 768px 最大宽度
+    .WithHorizontalPadding(Tokens.Spacing.Lg);
+
+// 可用尺寸
+public enum ContainerSize
+{
+    Xs = 480,
+    Sm = 640,
+    Md = 768,
+    Lg = 1024,
+    Xl = 1280,
+    Full = 0   // 无最大宽度限制
+}
+```
+
+## 主题
+
+`JTheme` 类应用统一主题：
+
+```csharp
+// 对根元素应用主题
+JTheme.Apply(rootVisualElement);
+```
+
+深色主题使用真正的灰度反转 — 浅色模式的 Primary 在深色模式变为 Secondary，反之亦然。
+
+<Cards>
+  <Card title="MessageBox" href="/zh/docs/v1.1/messagebox" description="对话框系统（同属 jengine.ui）" />
+  <Card title="编辑器面板" href="/zh/docs/v1.1/editor-panel" description="JEngine 编辑器工具" />
+</Cards>

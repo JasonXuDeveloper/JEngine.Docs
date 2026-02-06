@@ -1,0 +1,175 @@
+---
+title: 运行时面板
+description: 通过 Bootstrap Inspector 配置 JEngine 运行时设置
+icon: Play
+---
+
+运行时面板是 JEngine 的核心配置界面，通过 `Bootstrap` 对象的 Inspector 面板进行设置。
+
+<Callout type="info" title="jengine.ui 增强 UI">
+安装 `jengine.ui` 包后，Bootstrap 检视面板会自动替换为基于单色设计系统的增强 UI。以下字段名称为增强版本。
+</Callout>
+
+## 访问面板
+
+1. 打开 `Init` 场景
+2. 在 Hierarchy 中选择 `Bootstrap` 对象
+3. 在 Inspector 中查看和配置各项设置
+
+## 设置概览
+
+<Accordions>
+<Accordion title="Development Settings（开发设置）">
+**Editor Mode** - 切换运行模式：
+| 模式 | 说明 | 使用场景 |
+|------|------|----------|
+| **Editor Dev Mode** | 直接使用本地热更资源 | 开发调试 |
+| **Host Play Mode** | 从服务器下载热更资源 | 测试和发布 |
+</Accordion>
+
+<Accordion title="Server Settings（服务器设置）">
+<Callout type="info">
+Standalone 模式无需配置服务器，资源从 StreamingAssets 加载。
+</Callout>
+
+| 字段 | 说明 |
+|------|------|
+| **Host Server** | 主要下载地址（如 `https://cdn.domain.com`），不要包含平台/分包路径 |
+| **Fallback Mode** | 切换使用默认服务器或自定义服务器作为备用 |
+| **Fallback Server** | 自定义备用服务器地址（Fallback Mode 设为自定义时可见） |
+| **Append Time Ticks** | 添加时间戳避免 CDN 缓存问题（[UOS](https://www.yooasset.com/docs/MiniGame#%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%AE%BF%E4%B8%BB) 需关闭） |
+</Accordion>
+
+<Accordion title="Asset Settings（资源设置）">
+**Platform（平台）：**
+| 平台 | 说明 |
+|------|------|
+| **Regular** | iOS、Android、Windows、MacOS、WebGL |
+| **Standalone** | 从 StreamingAssets 加载，无需服务器 |
+| **WeChat/Douyin/Alipay/TapTap** | 小游戏平台（需要 WebGL 构建） |
+
+**其他字段：**
+- **Package** - 主热更包名称（默认：`main`）
+- **Code Assembly** - 热更代码程序集（asmdef）
+- **Scene** - 热更场景（下拉选择）
+- **Entry Class** - 入口类（默认：`EntryPoint`）
+- **Entry Method** - 入口方法（必须是 `static`，可返回 `void`/`ValueTask`/`Task`/`UniTask`）
+- **AOT DLL List** - 用于 HybridCLR AOT 泛型补充
+</Accordion>
+
+<Accordion title="Security Settings（安全设置）">
+| 字段 | 说明 |
+|------|------|
+| **Secret Key** | 解密密钥文件（通常在 `Assets/HotUpdate/Obfuz/`） |
+| **Encryption** | 必须与编辑器面板打包时一致（Xor/Aes/ChaCha20） |
+| **Manifest Config** | 从 `Resources/EncryptConfigs/` 自动配置 |
+| **Bundle Config** | 根据加密模式自动配置 |
+</Accordion>
+
+<Accordion title="UI Settings（界面设置）">
+Init 场景已有默认 UI 组件，如需自定义可调整：
+- **Version Text** - 显示当前版本
+- **Update Status Text** - 显示 "检查更新中..."、"下载中..." 等状态
+- **Progress Text** - 下载进度百分比文本
+- **Progress Bar** - 实时下载进度条
+- **Start Button** - 触发热更流程
+</Accordion>
+</Accordions>
+
+## 运行流程
+
+<Tabs items={['开发模式', '发布模式', '单机模式']}>
+<Tab value="开发模式">
+<Steps>
+<Step>设置 Editor Mode 为 **Editor Dev Mode**</Step>
+<Step>运行游戏</Step>
+<Step>系统直接加载本地 `Assets/HotUpdate/` 目录下的资源</Step>
+<Step>无需网络连接，快速进入热更场景</Step>
+</Steps>
+</Tab>
+
+<Tab value="发布模式">
+<Steps>
+<Step>设置 Editor Mode 为 **Host Play Mode**</Step>
+<Step>配置 Host Server（必需）</Step>
+<Step>设置正确的 Encryption（与打包时一致）</Step>
+<Step>选择对应的 Platform</Step>
+<Step>运行游戏</Step>
+<Step>系统自动检查版本、下载并加载热更资源</Step>
+</Steps>
+</Tab>
+
+<Tab value="单机模式">
+<Steps>
+<Step>设置 Editor Mode 为 **Host Play Mode**</Step>
+<Step>设置 Platform 为 **Standalone**</Step>
+<Step>确保已构建热更资源包（StreamingAssets 目录下有资源）</Step>
+<Step>无需配置服务器地址</Step>
+<Step>运行游戏</Step>
+<Step>系统直接从 StreamingAssets 加载热更资源</Step>
+</Steps>
+</Tab>
+</Tabs>
+
+## 最佳实践
+
+<Tabs items={['开发阶段', '测试阶段', '生产发布']}>
+<Tab value="开发阶段">
+1. 使用 Editor Dev Mode 进行快速迭代
+2. 定期切换到 Host Play Mode 测试完整流程
+3. 使用本地服务器进行网络功能测试
+</Tab>
+<Tab value="测试阶段">
+1. 配置与生产环境相同的加密选项
+2. 测试备用服务器的切换功能
+3. 验证不同平台的资源加载
+</Tab>
+<Tab value="生产发布">
+1. 确保服务器地址配置正确
+2. 启用适当级别的加密保护
+3. 配置备用服务器提高可靠性
+4. 设置用户友好的 UI 反馈
+</Tab>
+</Tabs>
+
+## 常见问题
+
+<Accordions>
+<Accordion title="资源下载失败怎么办？">
+检查以下项目：
+- 服务器地址是否正确且可访问
+- 资源是否已正确上传到服务器
+- 加密模式是否与打包时一致
+- 网络连接是否稳定
+- Package 是否与服务器上的包名称匹配
+</Accordion>
+
+<Accordion title="Editor Dev Mode 和 Host Play Mode 有什么区别？">
+| 模式 | 说明 | 使用场景 |
+|------|-------------|----------|
+| **Editor Dev Mode** | 直接使用本地资源，不进行网络下载 | 开发调试 |
+| **Host Play Mode** | 从服务器下载资源，模拟真实运行环境 | 测试和发布 |
+</Accordion>
+
+<Accordion title="如何配置备用服务器？">
+<Steps>
+<Step>将 "Fallback Mode" 设置为使用自定义备用服务器</Step>
+<Step>在 "Fallback Server" 字段中输入备用服务器地址</Step>
+<Step>确保备用服务器上的资源与主服务器保持同步</Step>
+</Steps>
+</Accordion>
+
+<Accordion title="小游戏平台需要特殊配置吗？">
+- 选择对应的 Platform（WeChat/Douyin/Alipay/TapTap）
+- 注意各平台对资源大小和网络请求的限制
+- 某些平台可能需要特殊的域名白名单配置
+</Accordion>
+</Accordions>
+
+<Callout type="warn" title="注意事项">
+- 服务器地址不要以 `/` 结尾
+- Encryption 必须与编辑器面板打包时保持一致
+- Package 必须与服务器上部署的包名称完全匹配
+- 小游戏平台有特殊的资源加载限制和安全要求
+- 动态密钥文件的路径必须正确，否则可能导致解密失败
+</Callout>

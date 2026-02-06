@@ -1,0 +1,91 @@
+---
+title: 简介
+description: JEngine v1.1 - 模块化包、编辑器 UI 与并行 JAction
+icon: BookOpen
+---
+
+<Callout type="info" title="v1.1 — 模块化架构，可安装包体系">
+JEngine v1.1 引入模块化包体系。MessageBox 迁移至新的 `jengine.ui` 包，JAction 支持并行执行，Claude Code 插件提供 AI 辅助开发。
+</Callout>
+
+## v1.1 新增内容
+
+<Cards>
+  <Card title="JEngine UI 包" href="/zh/docs/v1.1/ui-components" description="新包 — 编辑器 UI 组件库，单色设计系统" />
+  <Card title="Prompt 抽象层" href="/zh/docs/v1.1/prompt" description="将对话框从核心解耦 — 可替换自定义对话框" />
+  <Card title="JAction 并行执行" href="/zh/docs/v1.1/jaction" description="并发执行，支持逐次取消和任务快照隔离" />
+  <Card title="Claude Code 插件" href="/zh/docs/v1.1/claude-code" description="AI 辅助开发，内置 JEngine 专用技能" />
+</Cards>
+
+### 破坏性变更
+
+<Callout type="warn" title="MessageBox 命名空间变更">
+`MessageBox` 从 `JEngine.Core.Misc` 迁移至 `JEngine.UI`，现位于独立的 `jengine.ui` 包中。详见[迁移指南](/zh/docs/v1.1/migration)。
+</Callout>
+
+---
+
+JEngine 的设计思路一直是让（通常是无热更新基础的）用户可以下载本框架后就能做支持热更新的游戏。v1.0+ 系列基于 HybridCLR 实现原生 C# 性能。
+
+## 包体系架构
+
+v1.1 将 JEngine 组织为三个可安装的包：
+
+| 包 | ID | 用途 |
+|---|-----|------|
+| **Core** | `com.jasonxudeveloper.jengine.core` | 热更新运行时、Bootstrap、资源管理 |
+| **UI** | `com.jasonxudeveloper.jengine.ui` | MessageBox、编辑器 UI 组件、主题系统 |
+| **Util** | `com.jasonxudeveloper.jengine.util` | JAction、JObjectPool |
+
+## 为什么选择 HybridCLR？
+
+<Cards>
+  <Card title="10倍性能提升" description="值类型计算性能提升最高 10 倍" />
+  <Card title="无需注册函数" description="告别繁琐的函数注册流程" />
+  <Card title="无需适配器" description="无需手写跨域适配器" />
+  <Card title="完整插件支持" description="任何 Unity 插件都可在热更代码中使用" />
+</Cards>
+
+## 核心特性
+
+<Tabs items={['轻量核心', '编辑器工具', '运行时配置']}>
+<Tab value="轻量核心">
+仅需下载框架即可开发可热更的游戏。核心功能：
+
+- 打包热更资源
+- 下载热更资源
+- 进入热更场景
+- 删除本地分包缓存
+</Tab>
+
+<Tab value="编辑器工具">
+一键操作：
+
+- 编译热更代码
+- 生成 [AOT 泛型](https://www.hybridclr.cn/docs/basic/aotgeneric)
+- 混淆代码（[Obfuz](https://www.obfuz.com/docs/beginner/configuration)）
+- 加密资源（XOR、AES、ChaCha20）
+- 生成[分包](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector)
+- 自动收集 Shader
+</Tab>
+
+<Tab value="运行时配置">
+通过运行时工具配置：
+
+| 设置 | 选项 |
+|------|------|
+| **运行模式** | 编辑器、常规（iOS/Android/Windows/MacOS/WebGL）、单机、小游戏 |
+| **资源设置** | 下载地址、首包资源、加密方式 |
+| **入口配置** | 热更程序入口、初始场景 |
+| **安全设置** | 混淆解密密钥 |
+
+<Callout type="info">
+**单机模式**从 StreamingAssets 加载资源，无需服务器 - 适用于单机游戏，且未来可随时启用热更新。
+</Callout>
+</Tab>
+</Tabs>
+
+<Cards>
+  <Card title="快速开始" href="/zh/docs/v1.1/startup" description="快速入门指南" />
+  <Card title="更新日志" href="/zh/docs/v1.1/changelog" description="查看所有版本" />
+</Cards>

@@ -1,0 +1,91 @@
+---
+title: Introduction
+description: JEngine v1.1 - Modular packages, editor UI, and parallel JAction
+icon: BookOpen
+---
+
+<Callout type="info" title="v1.1 — Modular architecture with installable packages">
+JEngine v1.1 introduces a modular package system. MessageBox moves to the new `jengine.ui` package, JAction gains parallel execution, and a Claude Code plugin enables AI-assisted development.
+</Callout>
+
+## What's New in v1.1
+
+<Cards>
+  <Card title="JEngine UI Package" href="/en/docs/v1.1/ui-components" description="New package — editor UI component library with monochrome design system" />
+  <Card title="Prompt Abstraction" href="/en/docs/v1.1/prompt" description="Decouple dialogs from core — bring your own dialog provider" />
+  <Card title="JAction Parallel" href="/en/docs/v1.1/jaction" description="Concurrent execution with per-execution cancellation and task snapshot isolation" />
+  <Card title="Claude Code Plugin" href="/en/docs/v1.1/claude-code" description="AI-assisted development with purpose-built skills for JEngine" />
+</Cards>
+
+### Breaking Changes
+
+<Callout type="warn" title="MessageBox namespace changed">
+`MessageBox` moved from `JEngine.Core.Misc` to `JEngine.UI` and is now in the separate `jengine.ui` package. See the [Migration Guide](/en/docs/v1.1/migration) for details.
+</Callout>
+
+---
+
+JEngine's design philosophy has always been to allow users (usually those without hot update experience) to download the framework and immediately start developing hot-updatable games. The v1.0+ series is built on HybridCLR for native C# performance.
+
+## Package Architecture
+
+v1.1 organizes JEngine into three installable packages:
+
+| Package | ID | Purpose |
+|---------|-----|---------|
+| **Core** | `com.jasonxudeveloper.jengine.core` | Hot update runtime, bootstrap, resource management |
+| **UI** | `com.jasonxudeveloper.jengine.ui` | MessageBox, editor UI components, theming |
+| **Util** | `com.jasonxudeveloper.jengine.util` | JAction, JObjectPool |
+
+## Why HybridCLR?
+
+<Cards>
+  <Card title="10x Performance" description="Value type calculations achieve up to 10x improvement" />
+  <Card title="No Registration" description="No need to manually write registration functions" />
+  <Card title="No Adapters" description="No need to write cross-domain adapters" />
+  <Card title="Full Plugin Support" description="Any Unity plugin works in hot update code" />
+</Cards>
+
+## Key Features
+
+<Tabs items={['Lightweight Core', 'Editor Tools', 'Runtime Configuration']}>
+<Tab value="Lightweight Core">
+Simply download the framework to develop hot-updatable games. Core functionality:
+
+- Package hot update resources
+- Download hot update resources
+- Enter hot update scenes
+- Delete local package cache
+</Tab>
+
+<Tab value="Editor Tools">
+One-click operations:
+
+- Compile hot update code
+- Generate [AOT generics](https://www.hybridclr.cn/docs/basic/aotgeneric)
+- Obfuscate code with [Obfuz](https://www.obfuz.com/docs/beginner/configuration)
+- Encrypt resources (XOR, AES, ChaCha20)
+- Generate packages with [subpackaging](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector)
+- Auto shader collection
+</Tab>
+
+<Tab value="Runtime Configuration">
+Configure through runtime tools:
+
+| Setting | Options |
+|---------|---------|
+| **Run modes** | Editor, Regular (iOS/Android/Windows/MacOS/WebGL), Standalone, Mini-games |
+| **Resources** | Download URL, first package, encryption method |
+| **Entry** | Hot update entry point, initial scene |
+| **Security** | Obfuscation decryption key |
+
+<Callout type="info">
+**Standalone** mode loads resources from StreamingAssets without a server - ideal for offline/single-player games that may need hot updates later.
+</Callout>
+</Tab>
+</Tabs>
+
+<Cards>
+  <Card title="Get Started" href="/en/docs/v1.1/startup" description="Quick start guide" />
+  <Card title="Changelog" href="/en/docs/v1.1/changelog" description="View all releases" />
+</Cards>

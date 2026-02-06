@@ -1,0 +1,99 @@
+---
+title: Claude Code 插件
+description: 使用 JEngine 专用技能进行 AI 辅助开发
+icon: Bot
+---
+
+<Callout type="info" title="v1.1 新功能">
+JEngine 附带 Claude Code 插件，为构建可热更新的游戏提供 AI 辅助开发技能。
+</Callout>
+
+## 概述
+
+JEngine Claude Code 插件是 JEngine 仓库中的 `.claude-plugin/` 目录，为 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 提供专用技能。这些技能让 Claude 能编写符合 JEngine 惯用模式的代码——零 GC 模式、正确的对象池用法、MessageBox 使用、编辑器 UI 组件等。
+
+## 安装
+
+### 前置条件
+
+- 已安装 [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code)
+- 已配置 JEngine v1.1 项目
+
+### 从市场安装
+
+```bash
+# 添加 JEngine 市场（一次性操作）
+claude plugin marketplace add JasonXuDeveloper/JEngine
+
+# 安装插件
+claude plugin install jengine@jengine-marketplace
+```
+
+### 启用自动更新（推荐）
+
+第三方插件需要手动启用自动更新：
+
+1. 在 Claude Code 中运行 `/plugin`
+2. 进入 **Marketplaces** 标签
+3. 选择 **jengine-marketplace**
+4. 开启 **Enable auto-update**
+
+启用后，Claude Code 启动时会自动更新插件。
+
+### 手动配置
+
+`.claude-plugin/` 目录已包含在 JEngine 仓库中。如果你克隆了 JEngine，技能已经可用——Claude Code 会自动检测并加载。
+
+## 可用技能
+
+### JEngine.Util（运行时）
+
+| 技能 | 命令 | 覆盖内容 |
+|------|------|---------|
+| **JAction** | `/jaction` | 链式操作、零分配模式、并行执行 |
+| **JObjectPool** | `/jobjectpool` | 线程安全的对象池及正确的生命周期管理 |
+| **游戏模式** | `/game-patterns` | 零GC游戏模式 — 生成器、冷却系统、战斗系统、持续伤害、生命回复 |
+
+### JEngine.UI（运行时 + 编辑器）
+
+| 技能 | 命令 | 覆盖内容 |
+|------|------|---------|
+| **MessageBox** | `/messagebox` | 带对象池的异步模态对话框 |
+| **编辑器 UI** | `/editor-ui` | 使用 JEngine UI 组件构建编辑器工具（JButton、JStack、Tokens 等） |
+
+## 工作流
+
+<Steps>
+<Step>
+### 描述你的需求
+用自然语言告诉 Claude 你需要什么游戏功能或编辑器工具。
+</Step>
+
+<Step>
+### 审查生成的代码
+Claude 使用正确的包、命名空间和模式生成 JEngine 惯用代码。
+</Step>
+
+<Step>
+### 编译并推送
+编译热更新程序集，即时推送给玩家——无需重新打包。
+</Step>
+</Steps>
+
+## 示例
+
+```
+你："创建一个重试系统，每 2 秒尝试连接服务器，
+     超时时间 30 秒"
+
+Claude 生成基于 JAction 的解决方案：
+- 使用静态 lambda 实现零分配
+- 使用 RepeatUntil 和适当的超时
+- 使用 OnCancel 处理失败
+- 使用 using 模式自动释放
+```
+
+<Cards>
+  <Card title="JAction" href="/zh/docs/v1.1/jaction" description="链式操作框架" />
+  <Card title="JObjectPool" href="/zh/docs/v1.1/jobjectpool" description="对象池系统" />
+</Cards>

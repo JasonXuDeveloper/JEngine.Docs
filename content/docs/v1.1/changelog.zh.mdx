@@ -1,0 +1,49 @@
+---
+title: 更新日志
+description: JEngine v1.1.x 版本发布说明和版本历史
+icon: History
+---
+
+JEngine v1.1.x 的所有重要更新记录在此。
+
+完整更新日志（包含旧版本）请参阅 [GitHub CHANGE.md](https://github.com/JasonXuDeveloper/JEngine/blob/master/CHANGE.md)。
+
+<Accordions>
+<Accordion title="v1.1.5 (2026年2月1日)">
+**新功能：**
+- 新增 `JContainer` 组件，支持响应式最大宽度约束，遵循 Tailwind/Bootstrap 模式 ([#613](https://github.com/JasonXuDeveloper/JEngine/pull/613))
+
+**包版本：** Core v1.1.5, Util v1.1.3, UI v1.1.3
+</Accordion>
+
+<Accordion title="v1.1.4 (2026年1月30日)">
+**Bug 修复：**
+- 修复 `BuildManager` 误报错误 — 在 `GeneratePolymorphicCodes` 步骤过滤 YooAsset 目录错误后重置错误基线 ([#610](https://github.com/JasonXuDeveloper/JEngine/pull/610))
+</Accordion>
+
+<Accordion title="v1.1.3 (2026年1月30日)">
+**新功能：**
+- 新增 JAction 并行执行，包含 `JActionExecution`、`JActionExecutionHandle` 和任务快照隔离 ([#607](https://github.com/JasonXuDeveloper/JEngine/pull/607))
+
+**包版本：** Core v1.1.3, Util v1.1.3, UI v1.1.3
+</Accordion>
+
+<Accordion title="v1.1.0 (2026年1月29日)">
+**新功能：**
+- **新包：`jengine.ui`** — 编辑器 UI 组件库，采用单色设计系统 ([#592](https://github.com/JasonXuDeveloper/JEngine/pull/592))
+- 将 MessageBox 从 core 提取到 `jengine.ui` 包，使用新命名空间 `JEngine.UI` ([#590](https://github.com/JasonXuDeveloper/JEngine/pull/590))
+- 新增 `Prompt` 抽象层 — 基于委托的对话框，与核心解耦 ([#590](https://github.com/JasonXuDeveloper/JEngine/pull/590))
+- 新增 Claude Code 插件，支持 AI 辅助开发 ([#598](https://github.com/JasonXuDeveloper/JEngine/pull/598))
+- 改进主题系统，增加光标支持和悬停效果 ([#596](https://github.com/JasonXuDeveloper/JEngine/pull/596))
+
+**Bug 修复：**
+- 修复 CS0311 编译错误 — 将 `AsyncOperation` 转换为 `UniTask` 以兼容 Unity 6 ([#595](https://github.com/JasonXuDeveloper/JEngine/pull/595))
+
+**破坏性变更：**
+- MessageBox 命名空间从 `JEngine.Core.Misc` 变更为 `JEngine.UI`
+- MessageBox 迁移至独立的 `jengine.ui` 包（需执行 `openupm add com.jasonxudeveloper.jengine.ui` — [OpenUPM](https://openupm.com/packages/com.jasonxudeveloper.jengine.ui/)）
+- Bootstrap 现使用 `Prompt.ShowDialogAsync` 委托，而非直接调用 `MessageBox.Show()`
+
+**包版本：** Core v1.1.0, Util v1.1.0, UI v1.1.0
+</Accordion>
+</Accordions>

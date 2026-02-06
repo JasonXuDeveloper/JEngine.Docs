@@ -45,12 +45,14 @@ export default async function Layout({ children, params }: LayoutProps) {
   // Create sidebar tabs filtered by locale
   const descriptions: Record<string, Record<string, string>> = {
     en: {
-      'v1.0': 'Latest version with HybridCLR',
+      'v1.1': 'Latest — AI workflow + UI system',
+      'v1.0': 'Stable with HybridCLR',
       pro: 'Legacy Pro version',
       _default: 'Legacy version',
     },
     zh: {
-      'v1.0': '基于 HybridCLR 的最新版本',
+      'v1.1': '最新版 — AI 工作流 + UI 系统',
+      'v1.0': '基于 HybridCLR 的稳定版本',
       pro: 'Pro 旧版本',
       _default: '旧版本',
     },

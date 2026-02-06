@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import type { Locale } from '@/lib/i18n';
+import { defaultVersion } from '@/lib/versions';
 import { cn } from '@/lib/cn';
-import { ArrowRight, Flame, Zap, Shield, Gauge } from 'lucide-react';
+import { ArrowRight, Flame, Zap, Shield, Package } from 'lucide-react';
 
 const translations: Record<
   Locale,
@@ -20,10 +21,10 @@ const translations: Record<
   }
 > = {
   en: {
-    tagline: 'The Unity Hot Update Framework',
+    tagline: 'Unity Hot Update Framework · AI Enhanced',
     headline: ['Ship game updates', 'without shipping a build.'],
     description:
-      'JEngine lets you push code, assets, and logic to players at runtime — across all Unity-supported platforms including minigames. Built on HybridCLR with encryption and obfuscation out of the box.',
+      'Runtime hot updates for all platforms — push code, assets, and logic without rebuilding. Modular package ecosystem with Claude Code AI integration. Powered by HybridCLR with built-in encryption and obfuscation.',
     getStarted: 'Get Started',
     viewOnGithub: 'View on GitHub',
     highlights: [
@@ -33,27 +34,27 @@ const translations: Record<
         text: 'No code required — configure and get hot update capability instantly',
       },
       {
+        icon: Zap,
+        label: 'Native C# via HybridCLR',
+        text: 'Full AOT support with zero interpretation overhead',
+      },
+      {
         icon: Shield,
         label: 'Secure by Default',
         text: 'Built-in encryption (XOR/AES/ChaCha20) and code obfuscation',
       },
       {
-        icon: Gauge,
-        label: 'Superior Performance',
-        text: 'Outperforms other hot update frameworks at runtime',
-      },
-      {
-        icon: Zap,
-        label: 'Native C# via HybridCLR',
-        text: 'Full AOT support with zero interpretation overhead',
+        icon: Package,
+        label: 'Modular Packages',
+        text: 'Install only what you need — UI, utilities, and an AI-powered Claude Code plugin',
       },
     ],
   },
   zh: {
-    tagline: 'Unity 热更新框架',
+    tagline: 'Unity 热更新框架 · AI 赋能',
     headline: ['线上热更，', '即时生效。'],
     description:
-      'JEngine 让运行时热更新变得简单——代码、资源、逻辑一键推送到玩家手中，全面支持 Unity 所有平台（含小游戏）。无需重新打包，无需重新提审。基于 HybridCLR，内置加密与代码混淆。',
+      '全平台运行时热更新——无需重新打包，即可推送代码、资源和逻辑。模块化包生态，集成 Claude Code AI 工作流。基于 HybridCLR，内置加密与混淆。',
     getStarted: '快速开始',
     viewOnGithub: '在 GitHub 查看',
     highlights: [
@@ -63,19 +64,19 @@ const translations: Record<
         text: '无需编写任何代码，配置即可获得热更新能力',
       },
       {
+        icon: Zap,
+        label: '原生 C# · HybridCLR',
+        text: '完整 AOT 支持，零解释执行开销',
+      },
+      {
         icon: Shield,
         label: '安全开箱即用',
         text: '内置加密（XOR/AES/ChaCha20）与代码混淆',
       },
       {
-        icon: Gauge,
-        label: '卓越运行时性能',
-        text: '运行时性能优于同类热更框架',
-      },
-      {
-        icon: Zap,
-        label: '原生 C# · HybridCLR',
-        text: '完整 AOT 支持，零解释执行开销',
+        icon: Package,
+        label: '模块化包体系',
+        text: '按需安装——UI、工具类，还有 AI 驱动的 Claude Code 插件',
       },
     ],
   },
@@ -88,11 +89,11 @@ interface PageProps {
 const pageMeta: Record<Locale, { title: string; description: string }> = {
   en: {
     title: 'JEngine - Unity Hot Update Framework',
-    description: 'Ship game updates without shipping a build. JEngine enables runtime hot updates across all Unity platforms with built-in encryption, code obfuscation, and superior performance via HybridCLR.',
+    description: 'Ship game updates without shipping a build. JEngine enables runtime hot updates across all Unity platforms with built-in encryption, code obfuscation, and superior performance via HybridCLR. Modular packages with AI-ready tooling.',
   },
   zh: {
     title: 'JEngine - Unity 热更新框架',
-    description: '无需重新打包即可推送游戏更新。JEngine 支持全 Unity 平台运行时热更新，内置加密、代码混淆，基于 HybridCLR 实现卓越运行时性能。',
+    description: '无需重新打包即可推送游戏更新。JEngine 支持全 Unity 平台运行时热更新，内置加密、代码混淆，基于 HybridCLR 实现卓越运行时性能。模块化包体系，开箱支持 AI 辅助开发。',
   },
 };
 
@@ -125,13 +126,13 @@ export default async function HomePage({ params }: PageProps) {
   return (
     <main className="flex flex-1 flex-col items-center">
       {/* Hero */}
-      <section className="relative flex w-full flex-col items-center px-6 pt-16 pb-12 md:pt-24 md:pb-16">
+      <section className="relative flex w-full flex-col items-center px-6 pt-10 pb-8 md:pt-16 md:pb-10">
         {/* Subtle gradient */}
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,_var(--tw-gradient-stops))] from-fd-primary/8 to-transparent" />
 
         <div className="flex max-w-3xl flex-col items-center text-center">
           {/* Badge */}
-          <span className="mb-6 rounded-full border border-fd-border bg-fd-secondary/50 px-3 py-1 text-xs font-medium text-fd-muted-foreground">
+          <span className="mb-4 rounded-full border border-fd-border bg-fd-secondary/50 px-3 py-1 text-xs font-medium text-fd-muted-foreground">
             {t.tagline}
           </span>
 
@@ -145,14 +146,14 @@ export default async function HomePage({ params }: PageProps) {
           </h1>
 
           {/* Description */}
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-fd-muted-foreground md:text-lg">
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-fd-muted-foreground md:text-lg">
             {t.description}
           </p>
 
           {/* CTA */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
             <Link
-              href={`/${lang}/docs/v1.0`}
+              href={`/${lang}/docs/${defaultVersion}`}
               className={cn(
                 'inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-colors',
                 'bg-fd-primary text-fd-primary-foreground hover:bg-fd-primary/90',
@@ -180,8 +181,8 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* Highlights — 2x2 grid */}
-      <section className="w-full border-t px-6 py-12">
-        <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-2">
+      <section className="w-full border-t px-6 py-8">
+        <div className="mx-auto grid max-w-3xl gap-5 sm:grid-cols-2">
           {t.highlights.map((h) => (
             <div key={h.label} className="flex items-start gap-3">
               <div className="mt-0.5 shrink-0 rounded-md bg-fd-primary/10 p-2 text-fd-primary">
