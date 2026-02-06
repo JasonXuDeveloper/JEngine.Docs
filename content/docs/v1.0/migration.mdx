@@ -1,0 +1,291 @@
+---
+title: Migration Guide
+description: Migrate from older JEngine versions to v1.0
+icon: ArrowRightLeft
+---
+
+This guide helps you migrate from older JEngine versions to v1.0.
+
+
+## Upgrading from v1.0.x
+
+Simply delete `Packages/com.jasonxudeveloper.jengine.core` and [refer here](https://openupm.com/packages/com.jasonxudeveloper.jengine.core/?subPage=readme) to update via UPM.
+
+> The directory structure will basically not change, and there will be no additional files/directories under Assets. If there are, they will be specifically listed here.
+
+
+## Version Comparison
+
+### Major Changes
+| Feature | Old Versions (0.8.x and below) | v1.0 |
+|---------|--------------------------------|------|
+| Hot Update Solution | ILRuntime | HybridCLR |
+| Performance | Average | Excellent (10x improvement for value types) |
+| Cross-Domain Inheritance | Requires adapters | No adapters needed |
+| Function Registration | Manual registration required | No registration needed |
+| Code Restrictions | Many | Very few |
+| Unity Plugin Compatibility | Partial | Full |
+| Code Protection | Chunked decryption | Obfuz obfuscation |
+| Platform Support | Major platforms | Major platforms + Mini-games |
+
+## Migration Preparation
+
+<Steps>
+<Step>
+### Backup Project
+Before migration, backup: complete project files, hot update code, resource files, and configuration files.
+</Step>
+
+<Step>
+### Environment Requirements
+- Upgrade Unity to 2022.3 or higher
+- Upgrade .NET Framework to 4.7.1+
+- Install necessary Unity modules
+</Step>
+
+<Step>
+### Assess Workload
+Check your project for: ILRuntime-specific code (adapters, registration), custom framework extensions, and third-party plugin compatibility.
+</Step>
+</Steps>
+
+## Migration from Old Versions (below v1.0.x)
+
+<Steps>
+<Step>
+### Create New Project
+Download JEngine v1.0, open with Unity 2022.3+, and install HybridCLR.
+</Step>
+
+<Step>
+### Migrate Hot Update Code
+
+<Accordions>
+<Accordion title="Remove ILRuntime Related Code">
+Delete: CLR binding code, adapter code, delegate registration, and value type binding.
+</Accordion>
+
+<Accordion title="Code Structure Adjustment">
+<Tabs items={['Old Version', 'New Version']}>
+<Tab value="Old Version">
+```csharp
+// ILRuntime required registration
+app.DelegateManager.RegisterMethodDelegate<int>();
+app.DelegateManager.RegisterFunctionDelegate<int, string>();
+
+// Cross-domain inheritance needs adapter
+public class MonoBehaviourAdapter : CrossBindingAdaptor { /* ... */ }
+```
+</Tab>
+<Tab value="New Version">
+```csharp
+// Direct use, no registration or adapters needed
+public class MyBehaviour : MonoBehaviour
+{
+    // Direct inheritance, no adapter needed
+}
+```
+</Tab>
+</Tabs>
+</Accordion>
+
+<Accordion title="Modify Entry Code">
+Old version may have `Init.cs` or `Main.cs`, new version uses `EntryPoint.cs`:
+```csharp
+public class EntryPoint
+{
+    public static void Main() => InitGame();
+    private static async void InitGame() { await LoadResources(); EnterMainScene(); }
+}
+```
+</Accordion>
+</Accordions>
+</Step>
+
+<Step>
+### Migrate Resources
+
+<Tabs items={['Old Structure', 'New Structure']}>
+<Tab value="Old Structure">
+<Files>
+  <Folder name="Assets/HotUpdateResources" defaultOpen>
+    <Folder name="Dll" />
+    <Folder name="Material" />
+    <Folder name="Prefab" />
+    <Folder name="Scene" />
+  </Folder>
+</Files>
+</Tab>
+<Tab value="New Structure">
+<Files>
+  <Folder name="Assets/HotUpdate" defaultOpen>
+    <Folder name="Main" defaultOpen>
+      <Folder name="Prefabs" />
+      <Folder name="Scenes" />
+      <Folder name="Materials" />
+    </Folder>
+    <Folder name="Code" />
+    <Folder name="AddOn1 (optional)" />
+  </Folder>
+</Files>
+</Tab>
+</Tabs>
+
+Then configure YooAsset: Open `YooAsset/AssetBundle Collector` → Configure resource collection rules → Set packaging parameters.
+</Step>
+
+<Step>
+### Migrate Configuration
+
+<Accordions>
+<Accordion title="Encryption Configuration">
+Old version uses chunked decryption, new version uses overall encryption:
+1. Choose encryption method (XOR/AES/ChaCha20)
+2. Configure encryption keys
+3. Update `Resources/EncryptConfigs/` configuration
+</Accordion>
+
+<Accordion title="Server Configuration">
+```csharp
+DefaultHostServer = "https://cdn.yourdomain.com";
+EncryptionOption = EncryptOption.XOR;
+TargetPlatform = PlatformType.Regular;
+```
+</Accordion>
+</Accordions>
+</Step>
+
+<Step>
+### API Migration
+
+<Accordions>
+<Accordion title="ClassBind & Events">
+Remove ClassBind - just drag MonoBehaviour from hot update to hot update scene. Register Button/UI/Timeline events in code, not in Unity's panel.
+</Accordion>
+
+<Accordion title="Resource Loading">
+| Old | New |
+|-----|-----|
+| `JResource.LoadRes<T>("path")` | `YooAsset.LoadAsset<T>("Assets/HotUpdate/...")` |
+</Accordion>
+
+<Accordion title="Scene Loading">
+| Old | New |
+|-----|-----|
+| `JResource.LoadScene("Name")` | `await Bootstrap.LoadHotUpdateScene("Name")` |
+</Accordion>
+
+<Accordion title="UI System">
+| Old | New |
+|-----|-----|
+| `JUI.CreatePanel<T>()` | `Instantiate(panelPrefab)` |
+</Accordion>
+</Accordions>
+</Step>
+
+<Step>
+### Test and Verify
+
+<Tabs items={['Function Tests', 'Performance Tests']}>
+<Tab value="Function Tests">
+- [ ] Hot update code loads normally
+- [ ] Resources load normally
+- [ ] Scene switching works
+- [ ] UI displays correctly
+- [ ] Network communication works
+- [ ] Data storage works
+</Tab>
+<Tab value="Performance Tests">
+- [ ] Compare startup time
+- [ ] Compare memory usage
+- [ ] Compare runtime FPS
+- [ ] Verify hot update process
+</Tab>
+</Tabs>
+</Step>
+</Steps>
+
+## Common Migration Issues
+
+<Accordions>
+<Accordion title="How to handle existing ILRuntime adapters?">
+Delete them all. HybridCLR doesn't need adapters.
+</Accordion>
+
+<Accordion title="Delegates and events not working?">
+Check for leftover ILRuntime registration code. HybridCLR can use them directly without registration.
+</Accordion>
+
+<Accordion title="Reflection code errors?">
+HybridCLR fully supports reflection. Check for ILRuntime-specific reflection code. Note that Obfuz may obfuscate class names or method names, so you need to [refer here](https://www.obfuz.com/docs/manual/reflection).
+</Accordion>
+
+<Accordion title="Performance not improved?">
+- Confirm using HybridCLR instead of ILRuntime
+- Check if performance bottlenecks are elsewhere
+- Use Profiler to analyze specific issues
+</Accordion>
+
+<Accordion title="Third-party plugins incompatible?">
+- Most plugins work directly with HybridCLR
+- Check if plugins have ILRuntime-specific code
+- Update to latest plugin versions
+</Accordion>
+</Accordions>
+
+## Post-Migration Optimization
+
+<Accordions>
+<Accordion title="Code Optimization">
+- Remove all ILRuntime-related code
+- Simplify cross-domain call logic
+- Optimize hot update loading process
+</Accordion>
+
+<Accordion title="Resource Optimization">
+- Reorganize resource structure
+- Optimize resource packaging strategy
+- Configure reasonable sub-packaging scheme
+</Accordion>
+
+<Accordion title="Performance Optimization">
+- Leverage HybridCLR's performance advantages
+- Optimize value type usage
+- Reduce unnecessary boxing/unboxing
+</Accordion>
+</Accordions>
+
+## Rollback Plan
+
+<Callout type="info">
+If migration encounters unsolvable problems:
+1. **Keep old version branch** - Can switch back anytime
+2. **Progressive migration** - Migrate parts first
+3. **Parallel development** - New features use v1.0, old features temporarily retained
+4. **Seek help** - Ask in community or contact technical support
+</Callout>
+
+## Migration Benefits
+
+<Cards>
+  <Card title="Performance" description="10x value type improvement, faster startup, lower memory" />
+  <Card title="Development" description="No adapters, no delegate registration, easier debugging" />
+  <Card title="Compatibility" description="All Unity plugins, complete C# features, mini-game support" />
+  <Card title="Maintainability" description="Cleaner code, fewer errors, easier upgrades" />
+</Cards>
+
+## Technical Support
+
+<Cards>
+  <Card title="FAQ" href="/en/docs/v1.0/faq" description="Common questions and solutions" />
+  <Card title="Example Project" href="https://github.com/JasonXuDeveloper/JEngine/tree/master/UnityProject" description="Reference implementation" />
+  <Card title="GitHub Issues" href="https://github.com/JasonXuDeveloper/JEngine/issues" description="Ask for help" />
+</Cards>
+
+## Related Documentation
+
+<Cards>
+  <Card title="HybridCLR Migration" href="https://www.hybridclr.cn/docs/basic/migration" />
+  <Card title="YooAsset Upgrade" href="https://www.yooasset.com/docs/guide-upgrade" />
+  <Card title="Obfuz Configuration" href="https://www.obfuz.com/docs/beginner/configuration" />
+</Cards>

@@ -1,0 +1,70 @@
+---
+title: 简介
+description: JEngine v1.0 - 采用 HybridCLR 的最新版本
+icon: BookOpen
+---
+
+<Callout type="info" title="最新版本，强烈推荐">
+JEngine v1.0 采用 HybridCLR，提供卓越的热更新性能。
+</Callout>
+
+JEngine 的设计思路一直是让（通常是无热更新基础的）用户可以下载本框架后就能做支持热更新的游戏。老版本中因为使用的方案的问题导致用户经常遇到一些问题（如需要注册函数、需要写适配器、部分插件无法使用），**于是我们推出了全新的 v1.0 版本：**
+
+## 为什么选择 HybridCLR？
+
+<Cards>
+  <Card title="10倍性能提升" description="值类型计算性能提升最高 10 倍" />
+  <Card title="无需注册函数" description="告别繁琐的函数注册流程" />
+  <Card title="无需适配器" description="无需手写跨域适配器" />
+  <Card title="完整插件支持" description="任何 Unity 插件都可在热更代码中使用" />
+</Cards>
+
+## 核心特性
+
+<Tabs items={['轻量核心', '编辑器工具', '运行时配置']}>
+<Tab value="轻量核心">
+仅需下载框架即可开发可热更的游戏。核心功能：
+
+- 打包热更资源
+- 下载热更资源
+- 进入热更场景
+- 删除本地分包缓存
+</Tab>
+
+<Tab value="编辑器工具">
+一键操作：
+
+- 编译热更代码
+- 生成 [AOT 泛型](https://www.hybridclr.cn/docs/basic/aotgeneric)
+- 混淆代码（[Obfuz](https://www.obfuz.com/docs/beginner/configuration)）
+- 加密资源（XOR、AES、ChaCha20）
+- 生成[分包](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector)
+- 自动收集 Shader
+</Tab>
+
+<Tab value="运行时配置">
+通过运行时工具配置：
+
+| 设置 | 选项 |
+|------|------|
+| **运行模式** | 编辑器、常规（iOS/Android/Windows/MacOS/WebGL）、单机、小游戏 |
+| **资源设置** | 下载地址、首包资源、加密方式 |
+| **入口配置** | 热更程序入口、初始场景 |
+| **安全设置** | 混淆解密密钥 |
+
+<Callout type="info">
+**单机模式**从 StreamingAssets 加载资源，无需服务器 - 适用于单机游戏，且未来可随时启用热更新。
+</Callout>
+</Tab>
+</Tabs>
+
+## 最新版本
+
+### v1.0.10
+
+- 修复在 Unity 6 中 `SceneHandle` 歧义引用的错误 ([#589](https://github.com/JasonXuDeveloper/JEngine/pull/589))
+
+<Cards>
+  <Card title="快速开始" href="/zh/docs/v1.0/startup" description="快速入门指南" />
+  <Card title="更新日志" href="/zh/docs/v1.0/changelog" description="查看所有版本" />
+</Cards>

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Documentation website for JEngine, a Unity framework that enables runtime hot updates for Unity games. Built with **VitePress v2** and **pnpm**.
+Documentation website for JEngine, a Unity framework that enables runtime hot updates for Unity games. Built with **Fumadocs** (Next.js) and **Bun**. Hosted on **Cloudflare** (Pages or Workers).
 
 ## Quick Reference
 
@@ -17,58 +17,151 @@ Documentation website for JEngine, a Unity framework that enables runtime hot up
 ## Development Commands
 
 ```bash
-pnpm install          # Install dependencies
-pnpm run docs:dev     # Run development server
-pnpm run docs:build   # Build for production
-pnpm run docs:preview # Preview built docs
+bun install          # Install dependencies
+bun run dev          # Run development server
+bun run build        # Build for production (Next.js)
 ```
 
 ## Repository Structure
 
 ```
-/docs/
-├── .vitepress/          # VitePress config
-│   └── config-helpers.mts  # Sidebar configuration
-├── en/documents/1.0/    # English docs (latest)
-├── zh/documents/1.0/    # Chinese docs (latest)
-└── public/              # Static assets
+/
+├── content/docs/            # All documentation content
+│   ├── v1.0/                # Version 1.0 (active, default)
+│   │   ├── meta.json        # English sidebar config
+│   │   ├── meta.zh.json     # Chinese sidebar config
+│   │   ├── *.mdx            # English doc pages
+│   │   └── *.zh.mdx         # Chinese doc pages
+│   ├── v0.8/, v0.7/, v0.6/, v0.5/  # Legacy versions (Chinese only)
+│   └── pro/                 # Pro version docs (Chinese only)
+├── public/                  # Static assets (images, logo)
+│   └── images/              # Downloaded legacy doc images
+├── src/
+│   ├── app/                 # Next.js app router
+│   │   ├── [lang]/          # Locale-prefixed routes
+│   │   │   ├── (home)/      # Home page layout
+│   │   │   └── docs/[version]/  # Docs layout with version
+│   │   ├── llms.mdx/        # LLM markdown endpoint
+│   │   ├── llms.txt/        # LLM page listing
+│   │   └── llms-full.txt/   # Full LLM content
+│   ├── components/          # React components
+│   │   └── ai/              # AI/LLM page actions (Copy Markdown, etc.)
+│   └── lib/                 # Shared utilities
+│       ├── source.ts        # Fumadocs source loader
+│       ├── i18n.ts          # i18n config (en, zh)
+│       └── layout.shared.tsx # Shared layout config (nav, logo)
+├── source.config.ts         # Fumadocs MDX config (remarkImage, plugins)
+├── next.config.mjs          # Next.js config (rewrites for .mdx URLs)
+└── package.json
 ```
 
-## Key Points
+## Key Architecture
 
-- **Bilingual**: Always update both `/en/` and `/zh/` versions
-- **Sidebar**: Edit `config-helpers.mts` to add navigation items
-- **Build check**: Run `pnpm run docs:build` before committing
-- **Source code**: See [JEngine Source Reference](.claude/jengine-source-reference.md) for Unity project paths
+- **Framework**: Fumadocs (Next.js App Router, Turbopack)
+- **Package Manager**: Bun
+- **MDX Processing**: fumadocs-mdx with remarkImage plugin
+- **i18n**: Fumadocs built-in i18n with dot notation (`page.mdx` = English, `page.zh.mdx` = Chinese)
+- **Multi-version**: Version directories under `content/docs/` — controlled by source loader
+- **Hosting**: Cloudflare (Pages or Workers)
+
+## Content Conventions
+
+### File Naming
+
+- English: `feature-name.mdx`
+- Chinese: `feature-name.zh.mdx`
+- Always provide both for v1.0+ docs
+- Legacy versions (v0.5–v0.8, pro) are Chinese-only with a minimal English index
+
+### Sidebar Configuration
+
+Each version has `meta.json` (English) and `meta.zh.json` (Chinese) at its root:
+
+```json
+{
+  "title": "v1.0",
+  "pages": [
+    "index",
+    "---Section Title---",
+    "page-slug",
+    "another-page"
+  ]
+}
+```
+
+Use `---Section Title---` for sidebar section separators.
+
+### Frontmatter
+
+```yaml
+---
+title: Page Title
+description: Brief description
+icon: LucideIconName     # Optional, from lucide-react
+---
+```
+
+### MDX Components Available
+
+- `<Callout type="info|warn|error" title="...">` — Callout boxes
+- `<Cards>` / `<Card title="" href="" description="">` — Card grid
+- `<Tabs items={[...]}>` / `<Tab value="">` — Tabbed content
+- `<Steps>` / `<Step>` — Step-by-step guides
+- `<Files>` / `<Folder>` / `<File>` — File tree display
+- `<Accordions>` / `<Accordion title="">` — Collapsible sections
+
+### Images
+
+- Store in `public/images/` with descriptive kebab-case names
+- Reference as `![alt](/images/descriptive-name.png)` in MDX
+- remarkImage plugin resolves `/images/*` from `public/` directory
+- External images are disabled (`external: false` in source.config.ts)
 
 ## Changelog Management
 
-When documenting new releases, update the **dedicated changelog pages** (not inline in overview pages):
-
 | Language | Changelog Location |
 |----------|-------------------|
-| English | `/docs/en/documents/1.0/changelog.md` |
-| Chinese | `/docs/zh/documents/1.0/changelog.md` |
+| English | `content/docs/v1.0/changelog.mdx` |
+| Chinese | `content/docs/v1.0/changelog.zh.mdx` |
 
 **Workflow for new releases:**
 1. Read `CHANGE.md` from the [JEngine repo](https://github.com/JasonXuDeveloper/JEngine) for release notes
 2. Add new version section at the **top** of both changelog files
-3. Filter out CI/infrastructure changes - only document user-facing changes
+3. Filter out CI/infrastructure changes — only document user-facing changes
 4. Translate English changelog to Chinese
-5. Update version badge in `/docs/zh/documents/index.md` if needed
 
 ## Documentation Versions
 
-| Version | Status | Branch |
-|---------|--------|--------|
-| **1.0.x** | Active | master |
-| 0.8.x | Legacy | 0.8.x |
-| 0.7.x | Legacy | 0.7.x |
-| Pro | Separate | pro |
+| Version | Status | Directory | Languages |
+|---------|--------|-----------|-----------|
+| **v1.0** | Active (default) | `content/docs/v1.0/` | EN + ZH |
+| v0.8 | Legacy | `content/docs/v0.8/` | ZH only |
+| v0.7 | Legacy | `content/docs/v0.7/` | ZH only |
+| v0.6 | Legacy | `content/docs/v0.6/` | ZH only |
+| v0.5 | Legacy | `content/docs/v0.5/` | ZH only |
+| Pro | Legacy | `content/docs/pro/` | ZH only |
 
-## VitePress Features
+## Adding New Versions
 
-- Algolia DocSearch for search
-- PWA for offline capability
-- Auto sitemap generation
-- Chinese as primary language with English support
+When releasing a new major version (e.g., v1.1):
+
+1. Update version config in `src/lib/source.ts` or wherever versions are defined
+2. Create directory: `content/docs/v1.1/`
+3. Add `meta.json` and `meta.zh.json` sidebar configs
+4. Create `index.mdx` and `index.zh.mdx` landing pages
+5. Add doc pages as `*.mdx` (English) and `*.zh.mdx` (Chinese)
+6. Run `bun run build` to verify
+
+## LLM Endpoints
+
+- `/llms.txt` — Page listing (add `?lang=zh` for Chinese)
+- `/llms-full.txt` — Full content dump (add `?lang=zh` for Chinese)
+- `/{lang}/docs/{version}/{page}.mdx` — Individual page markdown (via rewrite)
+
+## Build & Deploy
+
+```bash
+bun run build        # Production build
+```
+
+The site is deployed to Cloudflare. Run `bun run build` before committing to catch errors.

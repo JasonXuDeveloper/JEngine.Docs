@@ -1,0 +1,241 @@
+---
+title: Getting Started
+description: Initial setup and configuration of JEngine
+icon: Rocket
+---
+
+This guide will walk you through the initial setup and usage of JEngine.
+
+## Version Requirements
+
+Unity 2022.3 or higher
+
+## Download JEngine
+
+Please [download JEngine here](https://github.com/JasonXuDeveloper/JEngine/tree/master), extract it, and open `UnityProject` in Unity Hub using a Unity version that meets the requirements.
+
+## Main Project Structure
+
+The following describes JEngine-related directories and files. It's generally **not recommended** to delete these.
+
+<Files>
+  <Folder name="JEngine (downloaded)" defaultOpen>
+    <Folder name="UnityProject" defaultOpen>
+      <Folder name="Bundles (packaged hot update resources)">
+        <Folder name="{Platform} (Android, WebGL, etc.)">
+          <Folder name="main">
+            <Folder name="{PackageVersion}" />
+          </Folder>
+          <Folder name="{OtherPackage}" />
+        </Folder>
+      </Folder>
+      <Folder name="HybridCLRData (auto-generated after install)" />
+      <Folder name="Packages (third-party libraries)">
+        <Folder name="com.code-philosophy.hybridclr" />
+        <Folder name="com.jasonxudeveloper.jengine.core" />
+        <File name="manifest.json" />
+      </Folder>
+      <Folder name="ProjectSettings" />
+      <Folder name="yoo (editor cache, can delete)" />
+      <Folder name="Assets" defaultOpen>
+        <Folder name="Samples (YooAsset plugins)" />
+        <Folder name="StreamingAssets (first package)" />
+        <Folder name="HybridCLRGenerate (auto-generated)" />
+        <Folder name="Obfuz (obfuscation output)" />
+        <Folder name="TextMesh Pro" />
+        <Folder name="Resources (non-hot update)" defaultOpen>
+          <Folder name="EncryptConfigs (encryption keys)" />
+          <Folder name="Obfuz (static decrypt key)" />
+          <Folder name="Animations, Shaders, UI, Prefabs" />
+        </Folder>
+        <Folder name="Editor (tool configs)" />
+        <Folder name="HotUpdate (hot update resources)" defaultOpen>
+          <Folder name="Compiled (auto-generated DLLs)" />
+          <Folder name="Obfuz (dynamic decrypt key)" />
+          <Folder name="Main (main package)" />
+          <Folder name="AddOn1 (example subpackage)" />
+          <Folder name="Raw (example raw package)" />
+          <Folder name="Code" defaultOpen>
+            <File name="EntryPoint.cs (entry point)" />
+          </Folder>
+        </Folder>
+      </Folder>
+    </Folder>
+  </Folder>
+</Files>
+
+<Accordions>
+<Accordion title="Key directories explained">
+| Directory | Description |
+|-----------|-------------|
+| **Bundles** | Packaged hot update resources output |
+| **HybridCLRData** | Generated after HybridCLR installation |
+| **Packages** | Contains HybridCLR, JEngine core, and dependencies (UniTask, YooAsset, Obfuz, Nino) |
+| **yoo** | Editor cache for downloaded resources |
+| **Resources** | Non-hot update assets - **changes require app rebuild** |
+| **HotUpdate** | Hot update code and resources |
+</Accordion>
+
+<Accordion title="Resources directory details">
+- **EncryptConfigs** - Encryption key configurations for different methods
+- **Obfuz** - Static key for decrypting obfuscated code
+- **Animations/Shaders/UI/Prefabs** - MessageBox assets (modifiable, but keep `MessageBox.prefab` structure)
+</Accordion>
+
+<Accordion title="HotUpdate directory details">
+- **Compiled** - Auto-generated obfuscated DLLs and [AOT generic supplements](https://www.hybridclr.cn/docs/basic/aotgeneric)
+- **Obfuz** - Dynamic decrypt key (can hot update by regenerating)
+- **Main** - Main hot update package
+- **AddOn1/Raw** - Example packages ([removable via YooAsset config](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector))
+- **Code/EntryPoint.cs** - Hot update code entry point
+</Accordion>
+</Accordions>
+
+<Callout type="info" title="HotUpdate Directory Note">
+You can place hot update resources in `HotUpdate/{package}` according to your standards, but if you add new directories or don't add files in existing directories (e.g., adding files or new directories in `HotUpdate/Main/`), you need to refer to [YooAsset documentation](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector) to configure newly added `files/directories` to corresponding hot update resource packages.
+</Callout>
+
+<Callout type="error" title="Hot Update Code Restrictions">
+Hot update code cannot use code from Unity project that is not Plugin, Packages, dll, or asmdef. Code within Assembly-CSharp project cannot be used in hot update project.
+
+If you want to use any main project code in hot update code, the corresponding main project code must use [`asmdef`](https://docs.unity3d.com/6000.2/Documentation/Manual/cus-asmdef.html) to separate into a project, then add a reference to that main project asmdef in `HotUpdate/Code/HotUpdate.Code.asmdef`. Most Unity plugins should have this (e.g., YooAsset, UniTask, ZLinq, LitMotion); if some Unity plugins provide `dll`, like Nino, no action is needed.
+
+This section is very important. If you're new or unfamiliar with this mechanism, you can copy this paragraph to an LLM (DeepSeek, GPT, etc.) for AI explanation and examples.
+</Callout>
+
+## Install HybridCLR
+
+After opening `UnityProject` with the correct Unity version, in the top menu bar, click `HybridCLR/Installer..`, then click `Install`. It will freeze for a moment. Once installed, the panel will show `Installed Version: xxxx`, indicating successful installation (the `UnityProject/HybridCLRData` directory will be generated with many files).
+
+> If you encounter errors at this step, check [here](https://www.hybridclr.cn/docs/help/commonerrors)
+
+## Optional: Install JEngine.Util Package
+
+JEngine provides an optional utility package with high-performance tools:
+
+- **JAction** - Chainable action framework with zero-GC async execution
+- **JObjectPool** - Thread-safe generic object pool
+
+<Tabs items={['OpenUPM CLI', 'Unity Package Manager']}>
+<Tab value="OpenUPM CLI">
+```bash
+openupm add com.jasonxudeveloper.jengine.util
+```
+</Tab>
+<Tab value="Unity Package Manager">
+1. Open Unity Package Manager (Window > Package Manager)
+2. Click "+" button and select "Add package by name..."
+3. Enter: `com.jasonxudeveloper.jengine.util`
+
+For detailed manual installation steps, visit the [OpenUPM page](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/).
+</Tab>
+</Tabs>
+
+<Callout type="info">
+After installation, use `using JEngine.Util;` to access JAction and JObjectPool classes. See [JAction documentation](./jaction) and [JObjectPool documentation](./jobjectpool) for usage details.
+</Callout>
+
+## Simulate Project Execution
+
+Use JEngine's development mode to simulate the hot update process in the editor:
+
+<Steps>
+<Step>
+### Open Init Scene
+Enter the `Init` scene in Unity.
+</Step>
+
+<Step>
+### Configure Development Mode
+1. Click the `Bootstrap` object in `Hierarchy`
+2. In `Inspector`'s `Development Settings`, ensure `Editor Mode` is set to `Editor Dev Mode` (red button)
+</Step>
+
+<Step>
+### Run and Test
+1. Run the game in the editor
+2. Click `Start` to load hot update code and enter the main scene
+3. Click `AddOnDemo` to test loading the `AddOn1` subpackage
+</Step>
+</Steps>
+
+<Callout type="info" title="Debug Console">
+The `IngameDebugConsole` GameObject in the Init scene collects logs at runtime (Windows/iOS/Android) without external tools. Delete it if not needed.
+</Callout>
+
+
+
+
+
+## General Development Workflow
+
+<Steps>
+<Step>
+### Modify Code/Resources
+Make changes to your hot update code or resources in the `HotUpdate` directory.
+</Step>
+
+<Step>
+### Open JEngine Panel
+In the top menu bar, click `JEngine Panel` to open the build panel.
+</Step>
+
+<Step>
+### Configure Package Settings
+- Select the package to build for `Package Name` (usually `main`)
+- Click `Set to Current Active Target` for `Build Target`
+</Step>
+
+<Step>
+### Select Encryption Mode
+In `Build Options`, select the desired encryption mode:
+- **XOR** - Fast, recommended for most cases
+- **AES** / **ChaCha20** - More secure options
+</Step>
+
+<Step>
+### Build Hot Update Resources
+- If **code or Obfuz config** changed: Click `Build All Hot Update Res (Code + Assets)`
+- If only **assets** changed: Click `Build Hot Update Assets Only`
+
+<Callout type="warn">
+If errors occur, first check the [FAQ - Packaging and Publishing](/en/docs/v1.0/faq#packaging-and-publishing) and [FAQ - Troubleshooting](/en/docs/v1.0/faq#troubleshooting) sections. You can also refer to [YooAsset docs](https://www.yooasset.com/docs/FAQ), [HybridCLR docs](https://www.hybridclr.cn/docs/help/commonerrors), or [Obfuz docs](https://www.obfuz.com/docs/help/faq).
+</Callout>
+</Step>
+
+<Step>
+### Deploy to Server/CDN
+After successful packaging, copy the files **inside** `UnityProject/Bundles/{platform}/{package}/{version}/` to your server/CDN at `{platform}/{package}/`.
+
+<Callout type="warn">
+Do **NOT** include the version folder itself - only copy its contents. Example: copy files from `.../main/24120115300/` to `https://cdn.domain.com/WebGL/main/`
+</Callout>
+</Step>
+
+<Step>
+### Configure Runtime Settings
+1. Enter the `Init` scene
+2. Select the `Bootstrap` object
+3. Switch `Editor Mode` to `Host Play Mode`
+4. In `Server Settings`, enter your CDN URL (e.g., `https://cdn.domain.com`)
+5. In `Security Settings`, select the encryption mode used
+6. In `Asset Settings`, select the target platform
+</Step>
+
+<Step>
+### Test
+Run the game. Resources will be downloaded from your server with progress displayed.
+</Step>
+</Steps>
+
+<Callout type="info">
+Regular development follows: **modify → package → upload → test**
+</Callout>
+
+## Code Obfuscation
+
+As mentioned above, we obfuscate most code (including hot update code). Note that if the code in the `Assets/Obfuz` directory (`GeneratedEncryptionVirtualMachine.cs` or garbage code) or `Assets/Resources/Obfuz/StaticSecretKey.bytes` changes, you need to rebuild the project and submit version updates to different platforms. It's recommended to use `git` or `svn` tools to check if you've encountered this issue.
+
+Usually, if you don't modify Obfuz configuration or regenerate garbage code, you won't encounter this problem.
+
+For specific Obfuz configuration, please [check the Obfuz documentation](https://www.obfuz.com/docs/intro). **It's strongly recommended to read this documentation and modify various keys used for obfuscation**. **Using default keys is not secure**

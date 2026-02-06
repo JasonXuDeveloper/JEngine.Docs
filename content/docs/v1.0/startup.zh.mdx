@@ -1,0 +1,257 @@
+---
+title: 开始使用
+description: 学习如何初步配置和使用 JEngine
+icon: Rocket
+---
+
+该文章将告诉您如何初步使用JEngine
+
+
+
+
+## 版本要求
+
+Unity2022.3及以上
+
+
+
+## 下载JEngine
+
+请[在此](https://github.com/JasonXuDeveloper/JEngine/tree/master)下载JEngine后解压并在Unity Hub内使用符合版本要求的Unity打开`UnityProject`
+
+
+
+## 项目主要结构
+
+下面会描述 JEngine 相关的目录和文件，一般**不建议**删除这些内容。
+
+<Files>
+  <Folder name="JEngine（下载目录）" defaultOpen>
+    <Folder name="UnityProject" defaultOpen>
+      <Folder name="Bundles（打包的热更资源）">
+        <Folder name="{Platform}（Android、WebGL 等）">
+          <Folder name="main">
+            <Folder name="{PackageVersion}" />
+          </Folder>
+          <Folder name="{OtherPackage}" />
+        </Folder>
+      </Folder>
+      <Folder name="HybridCLRData（安装后自动生成）" />
+      <Folder name="Packages（第三方库）">
+        <Folder name="com.code-philosophy.hybridclr" />
+        <Folder name="com.jasonxudeveloper.jengine.core" />
+        <File name="manifest.json" />
+      </Folder>
+      <Folder name="ProjectSettings" />
+      <Folder name="yoo（编辑器缓存，可删）" />
+      <Folder name="Assets" defaultOpen>
+        <Folder name="Samples（YooAsset 插件）" />
+        <Folder name="StreamingAssets（首包资源）" />
+        <Folder name="HybridCLRGenerate（自动生成）" />
+        <Folder name="Obfuz（混淆输出）" />
+        <Folder name="TextMesh Pro" />
+        <Folder name="Resources（非热更资源）" defaultOpen>
+          <Folder name="EncryptConfigs（加密密钥）" />
+          <Folder name="Obfuz（静态解密密钥）" />
+          <Folder name="Animations、Shaders、UI、Prefabs" />
+        </Folder>
+        <Folder name="Editor（工具配置）" />
+        <Folder name="HotUpdate（热更资源）" defaultOpen>
+          <Folder name="Compiled（自动生成的 DLL）" />
+          <Folder name="Obfuz（动态解密密钥）" />
+          <Folder name="Main（主分包）" />
+          <Folder name="AddOn1（示例分包）" />
+          <Folder name="Raw（示例原生包）" />
+          <Folder name="Code" defaultOpen>
+            <File name="EntryPoint.cs（入口点）" />
+          </Folder>
+        </Folder>
+      </Folder>
+    </Folder>
+  </Folder>
+</Files>
+
+<Accordions>
+<Accordion title="关键目录说明">
+| 目录 | 说明 |
+|------|------|
+| **Bundles** | 打包的热更资源输出目录 |
+| **HybridCLRData** | HybridCLR 安装后生成 |
+| **Packages** | 包含 HybridCLR、JEngine 核心和依赖（UniTask、YooAsset、Obfuz、Nino） |
+| **yoo** | 编辑器下载资源的缓存 |
+| **Resources** | 非热更资源 - **修改需要重新出包** |
+| **HotUpdate** | 热更代码和资源 |
+</Accordion>
+
+<Accordion title="Resources 目录详情">
+- **EncryptConfigs** - 不同加密方式的密钥配置
+- **Obfuz** - 解密混淆代码的静态密钥
+- **Animations/Shaders/UI/Prefabs** - MessageBox 资源（可修改，但保持 `MessageBox.prefab` 结构）
+</Accordion>
+
+<Accordion title="HotUpdate 目录详情">
+- **Compiled** - 自动生成的混淆 DLL 和 [AOT 泛型补充](https://www.hybridclr.cn/docs/basic/aotgeneric)
+- **Obfuz** - 动态解密密钥（可重新生成后热更）
+- **Main** - 主热更资源包
+- **AddOn1/Raw** - 示例包（[可在 YooAsset 配置中移除](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector)）
+- **Code/EntryPoint.cs** - 热更代码入口点
+</Accordion>
+</Accordions>
+
+<Callout type="info" title="HotUpdate 目录说明">
+你可以在`HotUpdate/{分包}`里随意根据你的规范去放置热更资源，但如果有添加新的目录或没在现有的目录里添加文件（例如在`HotUpdate/Main/`添加了文件或新目录）， 需要参考[YooAsset文档](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector)去配置新添加的`文件/目录`到对应的热更资源包。
+</Callout>
+
+<Callout type="error" title="热更代码限制">
+热更代码里不能使用Unity项目里非Plugin、非Packages、非dll、非asmdef的代码，即Assembly-CSharp工程内的代码无法在热更工程使用。
+
+如果想要在热更代码里使用任何主工程的代码，对应的主工程代码必须使用[`asmdef`](https://docs.unity3d.com/6000.2/Documentation/Manual/cus-asmdef.html)去分离出来一个工程，然后再到`HotUpdate/Code/HotUpdate.Code.asmdef`里添加对另一个主工程asmdef的引用，大部分Unity插件应该都有做这个（例如YooAsset, UniTask, ZLinq, LitMotion等）；如果某些Unity插件是提供的`dll`，例如Nino，则不需要做任何操作。
+
+这一段非常重要，如果是新手或者不懂这一块机制，可以把这一段话复制到LLM（DeepSeek、GPT等）里让AI进行解释和举例。
+</Callout>
+
+
+
+## 安装HybridCLR
+
+用正确的Unity版本打开`UnityProject`后，在顶部菜单栏，点击`HybridCLR/Installer..`，然后点击`Install`即可，会卡一会，后续安装完了的话面板会显示`Installed Version: xxxx`，就代表安装完成（同时`UnityProject/HybridCLRData`目录会被生成，里面会有很多文件）
+
+> 这一步遇到错误可以看[这里](https://www.hybridclr.cn/docs/help/commonerrors)
+
+## 可选：安装 JEngine.Util 包
+
+JEngine 提供一个可选的工具包，包含高性能工具：
+
+- **JAction** - 支持零GC异步执行的链式操作框架
+- **JObjectPool** - 线程安全的泛型对象池
+
+<Tabs items={['OpenUPM CLI', 'Unity Package Manager']}>
+<Tab value="OpenUPM CLI">
+```bash
+openupm add com.jasonxudeveloper.jengine.util
+```
+</Tab>
+<Tab value="Unity Package Manager">
+1. 打开 Unity Package Manager（Window > Package Manager）
+2. 点击 "+" 按钮并选择 "Add package by name..."
+3. 输入：`com.jasonxudeveloper.jengine.util`
+
+详细的手动安装步骤，请访问 [OpenUPM 页面](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/)。
+</Tab>
+</Tabs>
+
+<Callout type="info">
+安装后，使用 `using JEngine.Util;` 来访问 JAction 和 JObjectPool 类。详细用法请参见 [JAction 文档](./jaction) 和 [JObjectPool 文档](./jobjectpool)。
+</Callout>
+
+
+
+
+
+## 模拟运行项目
+
+这一步我们可以在编辑器下使用JEngine的开发模式去模拟热更流程：
+
+<Steps>
+<Step>
+### 打开 Init 场景
+在 Unity 中进入 `Init` 场景
+</Step>
+
+<Step>
+### 配置开发模式
+1. 在 `Hierarchy` 点击 `Bootstrap` 对象
+2. 在 `Inspector` 的 `Development Settings` 区域内确保 `Editor Mode` 为 `Editor Dev Mode`（红色按钮）
+</Step>
+
+<Step>
+### 运行测试
+1. 编辑器下运行游戏
+2. 点 `Start` 会加载热更代码并进入主热更场景
+3. 点 `AddOnDemo` 后会加载 `AddOn1` 分包
+</Step>
+</Steps>
+
+<Callout type="info" title="调试控制台">
+Init 场景有个 `IngameDebugConsole` 对象，用于在运行环境（Windows/iOS/Android）下不使用额外工具获取日志。如果用不到可以删除该对象。
+</Callout>
+
+
+
+## 通用开发流程
+
+<Steps>
+<Step>
+### 修改代码/资源
+在 `HotUpdate` 目录下修改热更代码或资源
+</Step>
+
+<Step>
+### 打开 JEngine 面板
+在顶部菜单栏，点击 `JEngine Panel` 打开构建面板
+</Step>
+
+<Step>
+### 配置打包设置
+- `Package Name` 选择需要打包的分包（通常是 `main`）
+- `Build Target` 点 `Set to Current Active Target`
+</Step>
+
+<Step>
+### 选择加密模式
+在 `Build Options` 下选择加密模式：
+- **XOR** - 速度快，推荐
+- **AES** / **ChaCha20** - 安全性更高
+</Step>
+
+<Step>
+### 构建热更资源
+- **代码或 Obfuz 配置有变化**：点 `Build All Hot Update Res (Code + Assets)`
+- **仅资源变化**：点 `Build Hot Update Assets Only`
+
+<Callout type="warn">
+如果出现错误，请先查阅 [常见问题 - 打包和发布](/zh/docs/v1.0/faq#打包和发布) 章节。也可以参考 [YooAsset 文档](https://www.yooasset.com/docs/FAQ)、[HybridCLR 文档](https://www.hybridclr.cn/docs/help/commonerrors) 和 [Obfuz 文档](https://www.obfuz.com/docs/help/faq)。
+</Callout>
+</Step>
+
+<Step>
+### 部署到服务器/CDN
+打包成功后，将 `UnityProject/Bundles/{平台}/{分包}/{版本号}/` 目录**内的文件**复制到服务器的 `{平台}/{分包}/` 目录。
+
+<Callout type="warn">
+**不要**把版本号目录本身复制过去，只复制其内容。例如：将 `.../main/24120115300/` 内的文件复制到 `https://cdn.domain.com/WebGL/main/`
+</Callout>
+</Step>
+
+<Step>
+### 配置运行时设置
+1. 进入 `Init` 场景
+2. 选择 `Bootstrap` 对象
+3. `Editor Mode` 切换到 `Host Play Mode`
+4. `Server Settings` 中输入 CDN 地址（如 `https://cdn.domain.com`）
+5. `Security Settings` 中选择打包时使用的加密模式
+6. `Asset Settings` 中选择目标平台
+</Step>
+
+<Step>
+### 测试
+运行游戏，资源会从服务器下载并显示下载进度
+</Step>
+</Steps>
+
+<Callout type="info">
+常规开发流程：**修改 → 打包 → 上传 → 测试**
+</Callout>
+
+
+
+
+
+## 代码混淆
+
+上面提到了，我们会对大部分代码（含热更代码）进行混淆，需要注意的是，如果`Assets/Obfuz`目录下的代码（`GeneratedEncryptionVirtualMachine.cs`或垃圾代码）或`Assets/Resources/Obfuz/StaticSecretKey.bytes`发生了变动，则需要重新打包项目并提交到不同的平台做版本更新，推荐使用`git`或`svn`工具去判断有没有遇到这个问题。
+
+通常不修改Obfuz配置或不重新生成垃圾代码的话，不会遇到这个问题。
+
+具体的Obfuz配置需要[查看Obfuz文档](https://www.obfuz.com/docs/intro)，**强烈推荐大家看一下这个文档然后修改各种用来混淆的密钥**，**用默认的密钥不安全**
+

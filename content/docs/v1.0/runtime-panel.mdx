@@ -1,0 +1,170 @@
+---
+title: Runtime Panel
+description: Configure JEngine runtime settings through the Bootstrap Inspector
+icon: Play
+---
+
+The runtime panel is JEngine's core configuration interface, accessed through the `Bootstrap` object's Inspector panel.
+
+## Accessing the Panel
+
+1. Open the `Init` scene
+2. Select the `Bootstrap` object in the Hierarchy
+3. View and configure various settings in the Inspector
+
+## Settings Overview
+
+<Accordions>
+<Accordion title="Development Settings">
+**Editor Mode** - Switch between runtime modes:
+| Mode | Description | Use Case |
+|------|-------------|----------|
+| **Editor Dev Mode (Red)** | Uses local hot update resources | Development & debugging |
+| **Host Play Mode (Green)** | Downloads from server | Testing & release |
+</Accordion>
+
+<Accordion title="Server Settings">
+<Callout type="info">
+Standalone mode doesn't require server configuration - resources load from StreamingAssets.
+</Callout>
+
+| Field | Description |
+|-------|-------------|
+| **Default Host Server** | Primary download URL (e.g., `https://cdn.domain.com`). Don't include platform/package paths. |
+| **Enable Fallback Host Server** | Toggle to enable backup server |
+| **Fallback Host Server** | Backup URL for automatic failover |
+| **Append Time Ticks** | Add timestamp to avoid CDN caching issues (disable for [UOS](https://www.yooasset.com/docs/MiniGame#%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%AE%BF%E4%B8%BB)) |
+</Accordion>
+
+<Accordion title="Asset Settings">
+**Target Platform:**
+| Platform | Description |
+|----------|-------------|
+| **Regular** | iOS, Android, Windows, MacOS, WebGL |
+| **Standalone** | Load from StreamingAssets, no server needed |
+| **WeChat/Douyin/Alipay/TapTap** | Mini-game platforms (requires WebGL build) |
+
+**Other Fields:**
+- **Package Name** - Main package name (default: `main`)
+- **Hot Update Assemblies** - Assembly list for hot update code
+- **Hot Update Scenes** - Scene configuration (linked to YooAsset)
+- **Hot Update Classes** - Entry class (default: `EntryPoint`)
+- **Hot Update Methods** - Entry method (must be `static`, can return `void`/`ValueTask`/`Task`/`UniTask`)
+- **AOT DLL List** - For HybridCLR AOT generic supplementation
+</Accordion>
+
+<Accordion title="Security Settings">
+| Field | Description |
+|-------|-------------|
+| **Dynamic Secret Key** | Decrypt key file (usually in `Assets/HotUpdate/Obfuz/`) |
+| **Encryption Option** | Must match editor panel packaging (Xor/Aes/ChaCha20) |
+| **Manifest Config** | Auto-configured from `Resources/EncryptConfigs/` |
+| **Bundle Config** | Auto-configured based on encryption mode |
+</Accordion>
+
+<Accordion title="UI Settings">
+The Init scene has default UI components configured. Customize if needed:
+- **Version Text** - Displays current version
+- **Update Status Text** - Shows "Checking...", "Downloading..." status
+- **Download Progress Bar** - Real-time download progress
+- **Start Button** - Triggers hot update process
+</Accordion>
+</Accordions>
+
+## Runtime Flow
+
+<Tabs items={['Development Mode', 'Release Mode', 'Standalone Mode']}>
+<Tab value="Development Mode">
+<Steps>
+<Step>Set Editor Mode to **Editor Dev Mode**</Step>
+<Step>Run the game</Step>
+<Step>System directly loads resources from local `Assets/HotUpdate/` directory</Step>
+<Step>No network connection required, quickly enters hot update scene</Step>
+</Steps>
+</Tab>
+
+<Tab value="Release Mode">
+<Steps>
+<Step>Set Editor Mode to **Host Play Mode**</Step>
+<Step>Configure Default Host Server (required)</Step>
+<Step>Set correct Encryption Option (consistent with packaging)</Step>
+<Step>Select corresponding Target Platform</Step>
+<Step>Run the game</Step>
+<Step>System automatically checks version, downloads and loads hot update resources</Step>
+</Steps>
+</Tab>
+
+<Tab value="Standalone Mode">
+<Steps>
+<Step>Set Editor Mode to **Host Play Mode**</Step>
+<Step>Set Target Platform to **Standalone**</Step>
+<Step>Ensure hot update resource packages are built (resources exist in StreamingAssets directory)</Step>
+<Step>No need to configure server address</Step>
+<Step>Run the game</Step>
+<Step>System directly loads hot update resources from StreamingAssets</Step>
+</Steps>
+</Tab>
+</Tabs>
+
+## Best Practices
+
+<Tabs items={['Development', 'Testing', 'Production']}>
+<Tab value="Development">
+1. Use Editor Dev Mode for rapid iteration
+2. Regularly switch to Host Play Mode to test complete workflow
+3. Use local server for network functionality testing
+</Tab>
+<Tab value="Testing">
+1. Configure encryption options same as production environment
+2. Test fallback server switching functionality
+3. Verify resource loading on different platforms
+</Tab>
+<Tab value="Production">
+1. Ensure server address is configured correctly
+2. Enable appropriate level of encryption protection
+3. Configure fallback server to improve reliability
+4. Set up user-friendly UI feedback
+</Tab>
+</Tabs>
+
+## Common Issues
+
+<Accordions>
+<Accordion title="Resource download failed, what to do?">
+Check the following items:
+- Whether server address is correct and accessible
+- Whether resources have been correctly uploaded to server
+- Whether encryption mode matches the packaging settings
+- Whether network connection is stable
+- Whether Package Name matches the package name on server
+</Accordion>
+
+<Accordion title="What's the difference between Editor Dev Mode and Host Play Mode?">
+| Mode | Description | Use Case |
+|------|-------------|----------|
+| **Editor Dev Mode** | Directly uses local resources, no network download | Development debugging |
+| **Host Play Mode** | Downloads resources from server, simulates real environment | Testing and release |
+</Accordion>
+
+<Accordion title="How to configure fallback server?">
+<Steps>
+<Step>Check "Enable Fallback Host Server"</Step>
+<Step>Enter backup server address in the displayed "Fallback Host Server" field</Step>
+<Step>Ensure resources on backup server stay synchronized with main server</Step>
+</Steps>
+</Accordion>
+
+<Accordion title="Do mini game platforms require special configuration?">
+- Select corresponding Target Platform (WeChat/Douyin/Alipay/TapTap)
+- Pay attention to each platform's limitations on resource size and network requests
+- Some platforms may require special domain whitelist configuration
+</Accordion>
+</Accordions>
+
+<Callout type="warn" title="Important Notes">
+- Server address should not end with `/`
+- Encryption option must match the editor panel packaging settings
+- Package Name must exactly match the package name deployed on server
+- Mini game platforms have special resource loading limitations and security requirements
+- Dynamic key file path must be correct, otherwise decryption may fail
+</Callout>

@@ -1,0 +1,191 @@
+---
+title: Editor Panel
+description: Manage hot update resource building and packaging
+icon: Settings
+---
+
+JEngine provides an editor panel for managing hot update resource building and packaging.
+
+## Opening the Panel
+
+In the Unity editor's top menu bar, click `JEngine/JEngine Panel` to open the editor panel.
+
+## Panel Field Settings
+
+<Accordions>
+<Accordion title="JEngine Settings">
+**Startup Scene Settings**
+- **Startup Scene** - Dropdown to set the project's initialization scene
+- **Jump to Start up Scene** - Toggle automatic jump to startup scene
+
+When enabled, running a non-initialization scene will automatically jump to the specified startup scene and execute the complete hot update process: load hot update code → enter hot update scene → call hot update code.
+</Accordion>
+
+<Accordion title="Package Settings">
+**Package Name** - Select package to build:
+| Package | Description |
+|---------|-------------|
+| **main** | Main package (contains hot update code) |
+| **AddOn1** | Example package (can be deleted) |
+| **Raw** | Example raw resource package (can be deleted) |
+
+**Build Target** - Click `Set to Current Active Target` to match current platform (Android, iOS, Windows, MacOS, WebGL, etc.)
+</Accordion>
+
+<Accordion title="Build Options">
+**Encryption Mode:**
+| Mode | Description |
+|------|-------------|
+| **XOR** | XOR encryption (recommended, fast) |
+| **AES** | AES encryption (high security) |
+| **ChaCha20** | ChaCha20 encryption (highest security) |
+
+**Manifest Config / Bundle Config** - Auto-configured from `Resources/EncryptConfigs/` based on encryption mode. Usually no manual modification needed.
+</Accordion>
+
+<Accordion title="Hot Update Scenes">
+- Shows scene list in `Assets/HotUpdate/Scenes` directory
+- Supports pagination browsing
+- Double-click scenes to quickly open in Unity
+</Accordion>
+</Accordions>
+
+## Build Buttons
+
+<Accordions>
+<Accordion title="Build All Hot Update Res (Code + Assets)">
+**When to click:** Code or Obfuz config modified, or first-time build
+
+**Process:**
+1. Compile hot update code (`Assets/HotUpdate/Code`)
+2. Generate AOT generic supplement DLL
+3. Apply code obfuscation (if Obfuz enabled)
+4. Package resources into AssetBundles
+5. Generate version number: `(year-2000)*10000000 + month*100000 + day*1000 + hour*100 + minute*10 + second/6`
+</Accordion>
+
+<Accordion title="Build Hot Update Assets Only">
+**When to click:** Only resources (scenes, prefabs, materials) modified, no code changes
+
+**Process:**
+1. Analyze resource dependencies
+2. Package changed resources into AssetBundles
+3. Update resource version information
+</Accordion>
+
+<Accordion title="Clean Built Packages">
+**When to click:** Build issues or preparing fresh build
+
+**Process:**
+1. Delete build artifacts in `UnityProject/Bundles`
+2. Clear temporary build files
+</Accordion>
+</Accordions>
+
+## Build Status Monitoring
+
+The panel provides real-time build status feedback:
+- **Progress Bar**: Shows overall progress of current build
+- **Status Label**: Shows specific step being executed
+- **Log Area**: Shows detailed build process information, error hints, and success confirmations
+
+## Output Results
+
+After successful build, resources are output to:
+```
+UnityProject/Bundles/{Platform}/{PackageName}/{Version}/
+```
+
+Example:
+```
+UnityProject/Bundles/WebGL/main/1.0.0/
+```
+
+The panel displays complete output path and version information in the log, facilitating subsequent upload to CDN server.
+
+## Resource Deployment
+
+### Upload Path Structure
+Deploy resources on server/CDN with the following structure:
+
+<Files>
+  <Folder name="cdn.domain.com" defaultOpen>
+    <Folder name="WebGL" defaultOpen>
+      <Folder name="main" defaultOpen>
+        <File name="PackageManifest_main.version" />
+        <File name="PackageManifest_main.hash" />
+        <File name="[other resource files]" />
+      </Folder>
+      <Folder name="AddOn1">
+        <File name="PackageManifest_AddOn1.version" />
+        <File name="[other resource files]" />
+      </Folder>
+      <Folder name="Raw" />
+      <Folder name="MyFeature" />
+      <Folder name="DLC1" />
+    </Folder>
+    <Folder name="Android" />
+    <Folder name="iOS" />
+  </Folder>
+</Files>
+
+### Deployment Steps
+
+<Steps>
+<Step>
+### Navigate to Build Output
+After build completion, navigate to `UnityProject/Bundles/{Platform}/{Package}/{Version}/` directory
+</Step>
+
+<Step>
+### Copy Files to Server
+Copy all files **inside** the version folder directly to `{Platform}/{Package}/` on your server.
+
+<Callout type="warn" title="Important: Skip the version folder">
+Do **NOT** include the `{Version}` folder itself. Copy only its **contents** to the remote storage.
+
+**Local:** `Bundles/WebGL/main/24120115300/` contains files
+**Remote:** Copy files to `https://cdn.domain.com/WebGL/main/` (not `.../main/24120115300/`)
+</Callout>
+</Step>
+
+<Step>
+### Verify Configuration
+Ensure server address is configured correctly, e.g., `https://cdn.domain.com`
+
+<Callout type="info">
+Server address should not include platform or package paths - the system will automatically append them.
+</Callout>
+</Step>
+</Steps>
+
+## Usage Workflow
+
+<Steps>
+<Step>
+### Select Package
+Usually choose `main` for the main package
+</Step>
+
+<Step>
+### Set Platform
+Click `Set to Current Active Target` to set the build platform
+</Step>
+
+<Step>
+### Choose Encryption
+Select appropriate encryption mode (XOR, AES, or ChaCha20)
+</Step>
+
+<Step>
+### Build Resources
+Select corresponding build button based on your modifications:
+- **Code changed**: Click `Build All Hot Update Res (Code + Assets)`
+- **Assets only**: Click `Build Hot Update Assets Only`
+</Step>
+
+<Step>
+### Verify and Deploy
+Observe log to confirm successful build, then upload generated resources to server following the path structure above
+</Step>
+</Steps>

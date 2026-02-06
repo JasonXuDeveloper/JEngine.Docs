@@ -1,0 +1,26 @@
+{
+  "title": "Pro",
+  "pages": [
+    "index",
+    "---概述---",
+    "price",
+    "purchase",
+    "---快速上手---",
+    "StartUp",
+    "---核心功能---",
+    "HotReload",
+    "ClassBind",
+    "---UI组件---",
+    "HotButton",
+    "HotSlider",
+    "HotInputField",
+    "HotDropdown",
+    "HotToggle",
+    "HotEventTrigger",
+    "---编辑器工具---",
+    "JActionMonitorEditor",
+    "ILRuntimeAdapterEditor",
+    "ClassBindDependentEditor",
+    "CustomRuntimeSerialization"
+  ]
+}

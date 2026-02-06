@@ -1,0 +1,20 @@
+{
+  "title": "v1.0",
+  "pages": [
+    "index",
+    "---Getting Started---",
+    "startup",
+    "editor-panel",
+    "runtime-panel",
+    "---Core Features---",
+    "package-manager",
+    "messagebox",
+    "---Utilities---",
+    "jaction",
+    "jobjectpool",
+    "---Reference---",
+    "migration",
+    "faq",
+    "changelog"
+  ]
+}

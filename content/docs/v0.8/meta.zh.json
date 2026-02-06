@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "index",
+    "---入门教程---",
+    "startup",
+    "init",
+    "ab",
+    "updater",
+    "build",
+    "deploy",
+    "---核心功能---",
+    "lifecyclemgr",
+    "---工具类---",
+    "assetmgr",
+    "coroutinemgr",
+    "cryptomgr",
+    "---参考---",
+    "migrate",
+    "FAQ"
+  ]
+}

@@ -1,0 +1,191 @@
+---
+title: 编辑器面板
+description: 管理热更新资源的构建和打包
+icon: Settings
+---
+
+JEngine 提供了一个编辑器面板，用于管理热更新资源的构建和打包。
+
+## 打开面板
+
+在 Unity 编辑器的顶部菜单栏，点击 `JEngine/JEngine Panel` 即可打开编辑器面板。
+
+## 面板字段设置
+
+<Accordions>
+<Accordion title="JEngine Settings（JEngine 设置）">
+**启动场景设置**
+- **Startup Scene** - 下拉选择框，设置项目的初始化场景
+- **Jump to Start up Scene** - 开关按钮，控制是否自动跳转到启动场景
+
+开启后，在 Unity 开发环境下运行非初始化场景时会自动跳转到指定的启动场景，并走完整的热更流程：加载热更代码 → 进入热更场景 → 调用热更代码。
+</Accordion>
+
+<Accordion title="Package Settings（包设置）">
+**Package Name** - 选择打包的分包：
+| 分包 | 说明 |
+|------|------|
+| **main** | 主分包（包含热更代码） |
+| **AddOn1** | 示例分包（可删除） |
+| **Raw** | 示例原生资源包（可删除） |
+
+**Build Target** - 点击 `Set to Current Active Target` 设置当前平台（Android、iOS、Windows、MacOS、WebGL 等）
+</Accordion>
+
+<Accordion title="Build Options（构建选项）">
+**加密模式：**
+| 模式 | 说明 |
+|------|------|
+| **XOR** | 异或加密（推荐，速度快） |
+| **AES** | AES 加密（安全性高） |
+| **ChaCha20** | ChaCha20 加密（安全性最高） |
+
+**Manifest Config / Bundle Config** - 根据加密模式自动从 `Resources/EncryptConfigs/` 目录读取配置，通常无需手动修改。
+</Accordion>
+
+<Accordion title="Hot Update Scenes（热更新场景）">
+- 显示 `Assets/HotUpdate/Scenes` 目录下的场景列表
+- 支持分页浏览
+- 双击场景可快速在 Unity 中打开
+</Accordion>
+</Accordions>
+
+## 构建按钮
+
+<Accordions>
+<Accordion title="Build All Hot Update Res (Code + Assets)">
+**什么时候点击：** 修改了热更代码或 Obfuz 配置，或首次构建
+
+**执行流程：**
+1. 编译热更代码（`Assets/HotUpdate/Code`）
+2. 生成 AOT 泛型补充 DLL
+3. 应用代码混淆（如果启用 Obfuz）
+4. 打包资源为 AssetBundle
+5. 生成版本号：`(year-2000)*10000000 + month*100000 + day*1000 + hour*100 + minute*10 + second/6`
+</Accordion>
+
+<Accordion title="Build Hot Update Assets Only">
+**什么时候点击：** 只修改了资源（场景、预制体、材质等），代码没有变化
+
+**执行流程：**
+1. 分析资源依赖关系
+2. 打包变更的资源为 AssetBundle
+3. 更新资源版本信息
+</Accordion>
+
+<Accordion title="Clean Built Packages">
+**什么时候点击：** 遇到构建问题或准备全新构建
+
+**执行流程：**
+1. 删除 `UnityProject/Bundles` 目录下的构建产物
+2. 清理构建过程中的临时文件
+</Accordion>
+</Accordions>
+
+## 构建状态监控
+
+面板提供实时的构建状态反馈：
+- **进度条**：显示当前构建的整体进度
+- **状态标签**：显示正在执行的具体步骤
+- **日志区域**：显示详细的构建过程信息、错误提示和成功确认
+
+## 输出结果
+
+构建成功后，资源输出到：
+```
+UnityProject/Bundles/{平台}/{分包名}/{版本号}/
+```
+
+例如：
+```
+UnityProject/Bundles/WebGL/main/1.0.0/
+```
+
+面板会在日志中显示完整的输出路径和版本信息，便于后续将资源上传到 CDN 服务器。
+
+## 资源部署
+
+### 上传路径结构
+需要在服务器/CDN 上按以下结构部署资源：
+
+<Files>
+  <Folder name="cdn.domain.com" defaultOpen>
+    <Folder name="WebGL" defaultOpen>
+      <Folder name="main" defaultOpen>
+        <File name="PackageManifest_main.version" />
+        <File name="PackageManifest_main.hash" />
+        <File name="[其他资源文件]" />
+      </Folder>
+      <Folder name="AddOn1">
+        <File name="PackageManifest_AddOn1.version" />
+        <File name="[其他资源文件]" />
+      </Folder>
+      <Folder name="Raw" />
+      <Folder name="MyFeature" />
+      <Folder name="DLC1" />
+    </Folder>
+    <Folder name="Android" />
+    <Folder name="iOS" />
+  </Folder>
+</Files>
+
+### 部署步骤
+
+<Steps>
+<Step>
+### 进入构建输出目录
+构建完成后，进入 `UnityProject/Bundles/{平台}/{分包}/{版本号}/` 目录
+</Step>
+
+<Step>
+### 复制文件到服务器
+将版本目录**内的文件**直接复制到服务器的 `{平台}/{分包}/` 目录下。
+
+<Callout type="warn" title="重要：不要包含版本号目录">
+**不要**把 `{版本号}` 目录本身复制过去，只复制其**内容**到远程存储。
+
+**本地：** `Bundles/WebGL/main/24120115300/` 包含文件
+**远程：** 复制文件到 `https://cdn.domain.com/WebGL/main/`（不是 `.../main/24120115300/`）
+</Callout>
+</Step>
+
+<Step>
+### 验证配置
+确保服务器地址配置正确，如 `https://cdn.domain.com`
+
+<Callout type="info">
+服务器地址不要包含平台或分包路径，系统会自动拼接。
+</Callout>
+</Step>
+</Steps>
+
+## 使用流程
+
+<Steps>
+<Step>
+### 选择分包
+通常选择 `main` 主分包
+</Step>
+
+<Step>
+### 设置平台
+点击 `Set to Current Active Target` 设置构建平台
+</Step>
+
+<Step>
+### 选择加密模式
+选择合适的加密模式（XOR、AES 或 ChaCha20）
+</Step>
+
+<Step>
+### 构建资源
+根据修改内容选择对应的构建按钮：
+- **代码有变化**：点击 `Build All Hot Update Res (Code + Assets)`
+- **仅资源变化**：点击 `Build Hot Update Assets Only`
+</Step>
+
+<Step>
+### 验证并部署
+观察日志确认构建成功，然后按照上述路径结构将生成的资源上传到服务器
+</Step>
+</Steps>

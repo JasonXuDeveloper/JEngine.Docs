@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "index",
+    "---入门教程---",
+    "startup",
+    "structure",
+    "hotupdate",
+    "---核心功能---",
+    "jbehaviour",
+    "jaction",
+    "classbind",
+    "bindable",
+    "jprefab",
+    "---工具类---",
+    "jresource",
+    "jsaver",
+    "gameobject-pool",
+    "localization",
+    "crypto-struct",
+    "---UI---",
+    "jui",
+    "---编辑器工具---",
+    "ilruntime-tools",
+    "proto-tools",
+    "---参考---",
+    "limits"
+  ]
+}

@@ -1,0 +1,353 @@
+---
+title: FAQ
+description: Frequently asked questions and solutions for JEngine v1.0
+icon: Info
+---
+
+This page collects frequently asked questions and solutions when using JEngine v1.0.
+
+## Installation and Configuration
+
+<Accordions>
+<Accordion title="What are the Unity version requirements?">
+JEngine v1.0 requires Unity 2022.3 or higher. Unity 2022.3 LTS is recommended for best stability.
+</Accordion>
+
+<Accordion title="HybridCLR installation failed?">
+1. Ensure Unity version meets requirements
+2. Check network connection (may need VPN)
+3. Manually clean `HybridCLRData` directory and reinstall
+4. Check [HybridCLR Common Errors](https://www.hybridclr.cn/docs/help/commonerrors)
+</Accordion>
+
+<Accordion title="Errors when first opening the project?">
+- Check if extraction is complete (incomplete extraction may cause missing files)
+- Confirm Unity version meets requirements
+- Try deleting the `Library` directory and reopening the project
+- Check if antivirus software deleted DLL files
+</Accordion>
+</Accordions>
+
+## Hot Update Code
+
+<Accordions>
+<Accordion title="Hot update code cannot access main project code?">
+Hot update code can only access:
+- Code in Packages
+- Code in Plugins
+- Existing DLL files
+- Assemblies defined with asmdef
+
+Main project (Assembly-CSharp) code requires:
+1. Create asmdef file to separate into independent assembly
+2. Add reference in `HotUpdate/Code/HotUpdate.Code.asmdef`
+</Accordion>
+
+<Accordion title="Hot update code compilation failed?">
+Common causes:
+- **Syntax errors**: Check for compilation errors in hot update code
+- **Reference errors**: Ensure all referenced libraries are properly configured
+- **HybridCLR not installed**: Install HybridCLR first
+- **Obfuz or HybridCLR issues**: Check corresponding documentation
+</Accordion>
+
+<Accordion title="Cannot debug after code obfuscation?">
+- Disable obfuscation in Obfuz configuration during development
+- Use [Stack Trace Deobfuscation Tool](https://www.obfuz.com/docs/manual/deobfuscate-stacktrace)
+- Keep obfuscation mapping files for debugging
+</Accordion>
+</Accordions>
+
+## Resource Management
+
+<Accordions>
+<Accordion title="Resource loading failed?">
+Check the following:
+1. Is the resource path correct (needs full path)?
+2. Is the resource in YooAsset configuration?
+3. Is the package configuration correct?
+4. Was the resource successfully packaged?
+5. Is the package properly loaded?
+</Accordion>
+
+<Accordion title="How to add new resource directories?">
+1. Create directory under `HotUpdate/`
+2. Open `YooAsset/AssetBundle Collector`
+3. Add collection rules for new directory (refer to YooAsset documentation)
+4. Repackage resources
+</Accordion>
+
+<Accordion title="Resource download is slow?">
+- Use CDN acceleration
+- Enable resource compression
+- Properly divide resource package sizes
+</Accordion>
+</Accordions>
+
+## Packaging and Publishing
+
+<Accordions>
+<Accordion title="Build package failed?">
+First, check the Unity Editor's **Console** window for **error messages** (not info or warning).
+
+Common solutions:
+1. **Missing Scriptable Build Pipeline**: Ensure `Packages/manifest.json` contains exactly this version:
+   ```json
+   "com.unity.scriptablebuildpipeline": "1.21.25"
+   ```
+   The version **must be 1.21.25**. See [YooAsset FAQ](https://www.yooasset.com/docs/FAQ) for details.
+
+2. **Missing IL2CPP**: If building for a platform that requires IL2CPP (iOS, Android, etc.), install the IL2CPP module for that platform via Unity Hub, then **restart Unity Editor**.
+
+3. **Other errors**: Search the error message in [YooAsset FAQ](https://www.yooasset.com/docs/FAQ) or [HybridCLR Common Errors](https://www.hybridclr.cn/docs/help/commonerrors).
+</Accordion>
+
+<Accordion title="Packaging failed with encryption error?">
+- Check if encryption key configuration is correct
+- Ensure key length meets requirements (16/32 bits)
+- Check configuration files in `Resources/EncryptConfigs/`
+</Accordion>
+
+<Accordion title="WebGL platform packaging failed?">
+- Check if Unity WebGL module is installed
+- Ensure no unsupported APIs are used
+- Check if memory settings are reasonable
+</Accordion>
+
+<Accordion title="Mini-game platform limitations?">
+Different platforms have different limitations:
+| Platform | First Package | Total |
+|----------|---------------|-------|
+| WeChat Mini Game | ≤4MB | ≤20MB |
+| ByteDance Mini Game | ≤4MB | - |
+| Alipay Mini Game | ≤5MB | - |
+
+Recommend using sub-packages and CDN.
+</Accordion>
+</Accordions>
+
+## Runtime Errors
+
+<Accordions>
+<Accordion title="Button/UI/Timeline events not working?">
+Unity doesn't support adding hot update type functions to events in the editor. You need to register events manually in code.
+</Accordion>
+
+<Accordion title="Version mismatch error?">
+- Clear local cache: `yoo` directory
+- Ensure server resources are up to date
+- Check if version configuration is correct
+</Accordion>
+
+<Accordion title="Hot update manifest or resources cannot load?">
+- Check if decryption method matches encryption method
+- Check if decryption key is configured correctly
+</Accordion>
+
+<Accordion title="Hot update scene cannot load?">
+- Confirm scene is in Build Settings
+- Check if scene is in hot update resource package
+- Verify scene name is correct (case-sensitive)
+</Accordion>
+
+<Accordion title="MessageBox not showing?">
+- Check if MessageBox prefab exists
+- Confirm related resources exist in Resources directory
+- Check if other UI is blocking
+</Accordion>
+
+<Accordion title="Hot update code execution error?">
+- Check HybridCLR or Obfuz documentation based on logs
+- If it is reflection code, [refer to this](https://www.obfuz.com/docs/manual/reflection)
+</Accordion>
+
+<Accordion title="Why do typeof(Type).Name or nameof(member) cause errors on device?">
+This happens when you use the string from `typeof(Type).Name` or `nameof(member)` for loading hot-update resources by path. JEngine uses Obfuz to obfuscate hot-update code, which changes class and member names.
+
+**Solutions:**
+1. Get the real name by following the [Obfuz reflection documentation](https://www.obfuz.com/docs/manual/reflection)
+2. Use `ObfuzIgnoreAttribute` to prevent obfuscation of specific names ([docs](https://www.obfuz.com/docs/manual/customattributes))
+
+<Callout type="info">
+We recommend using `ObfuzIgnoreAttribute` (Solution 2) as it is more convenient and flexible.
+</Callout>
+</Accordion>
+</Accordions>
+
+## JEngine.Util Package
+
+<Accordions>
+<Accordion title="How do I install the JEngine.Util package?">
+<Tabs items={['OpenUPM CLI', 'Unity Package Manager']}>
+<Tab value="OpenUPM CLI">
+```bash
+openupm add com.jasonxudeveloper.jengine.util
+```
+</Tab>
+<Tab value="Unity Package Manager">
+Visit the [OpenUPM page](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/) for manual installation steps.
+</Tab>
+</Tabs>
+</Accordion>
+
+<Accordion title="What's the difference between JAction state overloads and closures?">
+State overloads avoid heap allocation by passing state as a parameter:
+
+```csharp
+// Closure (allocates)
+player => player.TakeDamage(10)
+
+// State overload (zero allocation)
+static (p) => p.TakeDamage(10), player
+```
+
+<Callout type="warn">
+State overloads only work with **reference types** (classes). For value types (int, float, struct), use closures.
+</Callout>
+</Accordion>
+
+<Accordion title="What's the difference between JObjectPool and Unity's ObjectPool?">
+JObjectPool uses lock-free CAS operations for better performance in high-frequency scenarios. It also provides built-in shared pools per type via `JObjectPool.Shared<T>()`.
+</Accordion>
+
+<Accordion title="When should I use JAction vs coroutines?">
+JAction provides:
+- Chainable fluent API for better readability
+- Zero-GC async execution with `ExecuteAsync()`
+- Built-in object pooling
+- State overloads for performance-critical code
+
+Use coroutines for simple delays; use JAction for complex sequences or when GC matters.
+</Accordion>
+</Accordions>
+
+## Performance Optimization
+
+<Accordions>
+<Accordion title="Game startup is slow?">
+- Reduce first package resource size
+- Use asynchronous loading
+- Optimize initial scene
+- Pre-download common resources
+</Accordion>
+
+<Accordion title="High memory usage?">
+- Promptly unload unused resource packages
+- Use object pool management
+- Regularly clean cache
+- Optimize texture sizes
+</Accordion>
+
+<Accordion title="Poor hot update code performance?">
+v1.0 uses HybridCLR with greatly improved performance:
+- Value type calculations improved up to 10x
+- Use profiling tools to locate bottlenecks
+- Check if it's your own issue (e.g., frequent memory allocation causing GC)
+</Accordion>
+</Accordions>
+
+## Development Tips
+
+<Accordions>
+<Accordion title="How to debug quickly?">
+- Use Editor Dev Mode to skip packaging
+- Enable IngameDebugConsole to view logs
+- Use conditional compilation to distinguish environments
+- Keep detailed log output
+</Accordion>
+
+<Accordion title="How to handle platform differences?">
+```csharp
+#if UNITY_EDITOR
+    // Editor code
+#elif UNITY_ANDROID
+    // Android platform code
+#elif UNITY_IOS
+    // iOS platform code
+#endif
+```
+</Accordion>
+
+<Accordion title="Problems after update?">
+Emergency handling process:
+1. Immediately rollback server resources
+2. Notify users to clear cache
+3. Republish after fixing issues
+4. Consider forced update mechanism
+</Accordion>
+</Accordions>
+
+## Best Practices
+
+<Accordions>
+<Accordion title="How to organize code structure?">
+Recommended structure:
+<Files>
+  <Folder name="HotUpdate/Code" defaultOpen>
+    <Folder name="Game">
+      <File name="GameManager.cs" />
+    </Folder>
+    <Folder name="UI">
+      <File name="UIManager.cs" />
+    </Folder>
+    <Folder name="Data">
+      <File name="DataModels.cs" />
+    </Folder>
+    <Folder name="Network">
+      <File name="NetworkManager.cs" />
+    </Folder>
+    <Folder name="Utils">
+      <File name="Helpers.cs" />
+    </Folder>
+  </Folder>
+</Files>
+</Accordion>
+
+<Accordion title="How to manage configuration files?">
+- Use ScriptableObject to store configuration
+- Place JSON/XML files in Resources or hot update package
+- Use encryption for sensitive configuration
+- Support remote configuration hot updates
+</Accordion>
+
+<Accordion title="How to handle multiple languages?">
+- Use JEngine's localization system
+- Place text configuration in hot update package
+- Support dynamic language switching
+- Package image resources by language
+</Accordion>
+</Accordions>
+
+## Troubleshooting
+
+<Accordions>
+<Accordion title="How to locate crash causes?">
+1. Check device logs (use IngameDebugConsole)
+2. Check stack trace before obfuscation
+3. Use try-catch to capture exceptions
+4. Add logs at critical locations
+</Accordion>
+
+<Accordion title="How to resolve compatibility issues?">
+- Test mainstream devices and OS versions
+- Avoid using experimental APIs
+- Handle permissions and privacy compliance
+- Prepare degradation plans
+</Accordion>
+</Accordions>
+
+## Related Resources
+
+<Cards>
+  <Card title="YooAsset FAQ" href="https://www.yooasset.com/docs/FAQ" />
+  <Card title="HybridCLR Errors" href="https://www.hybridclr.cn/docs/help/commonerrors" />
+  <Card title="Obfuz Help" href="https://www.obfuz.com/docs/help/faq" />
+</Cards>
+
+## Getting Help
+
+If the above content doesn't solve your problem:
+
+1. Search or ask on [GitHub Issues](https://github.com/JasonXuDeveloper/JEngine/issues)
+2. Check [GitHub Discussions](https://github.com/JasonXuDeveloper/JEngine/discussions)
+3. Provide detailed error information and reproduction steps

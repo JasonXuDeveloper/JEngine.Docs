@@ -1,0 +1,82 @@
+---
+title: Changelog
+description: Release notes and version history for JEngine v1.0.x
+icon: History
+---
+
+All notable changes to JEngine v1.0.x are documented here.
+
+For the complete changelog including older versions, see the [GitHub CHANGE.md](https://github.com/JasonXuDeveloper/JEngine/blob/master/CHANGE.md).
+
+<Accordions>
+<Accordion title="v1.0.10 (January 27, 2026)">
+**Bug Fixes:**
+- Fixed `SceneHandle` ambiguous reference error when using Unity 6 ([#589](https://github.com/JasonXuDeveloper/JEngine/pull/589))
+</Accordion>
+
+<Accordion title="v1.0.9 (January 25, 2026)">
+**New Features:**
+- Added [JEngine.Util](https://openupm.com/packages/com.jasonxudeveloper.jengine.util/) package (v1.0.3) ([#543](https://github.com/JasonXuDeveloper/JEngine/pull/543))
+  - **JAction** - Chainable action framework with zero-GC async execution
+  - **JObjectPool** - Thread-safe generic object pool
+
+**Bug Fixes:**
+- Fixed C# 9.0 compilation errors ([#548](https://github.com/JasonXuDeveloper/JEngine/pull/548))
+- Fixed build error handling and refactored Panel.cs ([#552](https://github.com/JasonXuDeveloper/JEngine/pull/552))
+- Fixed play mode test issues ([#550](https://github.com/JasonXuDeveloper/JEngine/pull/550), [#551](https://github.com/JasonXuDeveloper/JEngine/pull/551))
+
+**Dependencies:**
+- Updated YooAsset samples to 2.3.18 ([#544](https://github.com/JasonXuDeveloper/JEngine/pull/544))
+- Updated HybridCLR to 8.9.0 ([#542](https://github.com/JasonXuDeveloper/JEngine/pull/542))
+</Accordion>
+
+<Accordion title="v1.0.5 (October 29, 2025)">
+**Bug Fixes:**
+- Fixed missing HotUpdate MonoBehaviour issue
+
+**New Features:**
+- Supported Standalone mode
+</Accordion>
+
+<Accordion title="v1.0.4 (October 15, 2025)">
+**Bug Fixes:**
+- Fixed `AddComponent<T>` and `GetComponent<T>` issue under editor
+</Accordion>
+
+<Accordion title="v1.0.3 (October 15, 2025)">
+**New Features:**
+- Supported Unity CDN (UOS)
+- Optimized WebGL asset loading throughput
+</Accordion>
+
+<Accordion title="v1.0.2 (October 15, 2025)">
+**Bug Fixes:**
+- Fixed development and server setting save issue
+
+**Improvements:**
+- Allowed loading hot code's PDB file for debugging in Unity Editor
+- Updated Nino to the latest version
+- Updated Unity to the latest 2022 LTS (fixing CVE)
+</Accordion>
+
+<Accordion title="v1.0.1 (September 28, 2025)">
+**New Features:**
+- AssetBundle Encryption support (XOR, AES, ChaCha20)
+- Code Obfuscation support using Obfuz
+- MiniGame support for WeChat, TikTok, Alipay and TapTap
+
+**Improvements:**
+- Dramatically improved hot update code execution performance by migrating to HybridCLR
+- Enhanced game development experience (no extra procedures when writing hot update code)
+- Upgraded HybridCLR to v8.6.0 (resolves building issues with latest Xcode)
+</Accordion>
+
+<Accordion title="v1.0.0 (September 21, 2025) - Initial Release">
+**Initial Release of v1.0:**
+- AssetBundle Encryption support (XOR, AES, ChaCha20)
+- Code Obfuscation support using Obfuz to protect code
+- Dramatically improved hot update code execution performance by migrating to HybridCLR
+- Enhanced game development experience
+- MiniGame support for WeChat, TikTok, Alipay and TapTap
+</Accordion>
+</Accordions>

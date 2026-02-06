@@ -1,0 +1,70 @@
+---
+title: Introduction
+description: JEngine v1.0 - The latest version with HybridCLR
+icon: BookOpen
+---
+
+<Callout type="info" title="Latest version, strongly recommended">
+JEngine v1.0 features HybridCLR for superior hot update performance.
+</Callout>
+
+JEngine's design philosophy has always been to allow users (usually those without hot update experience) to download the framework and immediately start developing hot-updatable games. In previous versions, due to technical limitations, users often encountered issues (such as needing to register functions, write adapters, and some plugins being unusable). **Thus, we have launched the brand new v1.0 version:**
+
+## Why HybridCLR?
+
+<Cards>
+  <Card title="10x Performance" description="Value type calculations achieve up to 10x improvement" />
+  <Card title="No Registration" description="No need to manually write registration functions" />
+  <Card title="No Adapters" description="No need to write cross-domain adapters" />
+  <Card title="Full Plugin Support" description="Any Unity plugin works in hot update code" />
+</Cards>
+
+## Key Features
+
+<Tabs items={['Lightweight Core', 'Editor Tools', 'Runtime Configuration']}>
+<Tab value="Lightweight Core">
+Simply download the framework to develop hot-updatable games. Core functionality:
+
+- Package hot update resources
+- Download hot update resources
+- Enter hot update scenes
+- Delete local package cache
+</Tab>
+
+<Tab value="Editor Tools">
+One-click operations:
+
+- Compile hot update code
+- Generate [AOT generics](https://www.hybridclr.cn/docs/basic/aotgeneric)
+- Obfuscate code with [Obfuz](https://www.obfuz.com/docs/beginner/configuration)
+- Encrypt resources (XOR, AES, ChaCha20)
+- Generate packages with [subpackaging](https://www.yooasset.com/docs/guide-editor/AssetBundleCollector)
+- Auto shader collection
+</Tab>
+
+<Tab value="Runtime Configuration">
+Configure through runtime tools:
+
+| Setting | Options |
+|---------|---------|
+| **Run modes** | Editor, Regular (iOS/Android/Windows/MacOS/WebGL), Standalone, Mini-games |
+| **Resources** | Download URL, first package, encryption method |
+| **Entry** | Hot update entry point, initial scene |
+| **Security** | Obfuscation decryption key |
+
+<Callout type="info">
+**Standalone** mode loads resources from StreamingAssets without a server - ideal for offline/single-player games that may need hot updates later.
+</Callout>
+</Tab>
+</Tabs>
+
+## Latest Release
+
+### v1.0.10
+
+- Fixed `SceneHandle` ambiguous reference error in Unity 6 ([#589](https://github.com/JasonXuDeveloper/JEngine/pull/589))
+
+<Cards>
+  <Card title="Get Started" href="/en/docs/v1.0/startup" description="Quick start guide" />
+  <Card title="Changelog" href="/en/docs/v1.0/changelog" description="View all releases" />
+</Cards>
