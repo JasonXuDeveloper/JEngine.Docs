@@ -17,6 +17,7 @@ import {
   type SharedProps,
 } from 'fumadocs-ui/components/dialog/search';
 import type { SortedResult } from 'fumadocs-core/search';
+import { versionsByLocale } from '@/lib/versions';
 
 const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
 const apiKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY;
@@ -83,9 +84,6 @@ function getTagFromPath(pathname: string): string | undefined {
   return undefined;
 }
 
-const VERSIONS = ['v1.0', 'v0.8', 'v0.7', 'v0.6', 'v0.5', 'pro'] as const;
-const LOCALES = ['en', 'zh'] as const;
-
 function AlgoliaSearchDialog(props: SharedProps) {
   const pathname = usePathname();
   const autoTag = useMemo(() => getTagFromPath(pathname), [pathname]);
@@ -145,24 +143,19 @@ function AlgoliaSearchDialog(props: SharedProps) {
     };
   }, [search, tag]);
 
-  const tagOptions = useMemo(() => {
-    const options: { value: string; label: string }[] = [];
-    for (const version of VERSIONS) {
-      for (const locale of LOCALES) {
-        if (version === 'pro' && locale === 'en') continue;
-        if (locale === 'en' && version !== 'v1.0' && version !== 'pro')
-          continue;
+  const currentLocale = useMemo(() => {
+    const m = pathname.match(/^\/(en|zh)\//);
+    return m ? (m[1] as 'en' | 'zh') : 'en';
+  }, [pathname]);
 
-        const localeLabel = locale === 'en' ? 'English' : '中文';
-        const versionLabel = version === 'pro' ? 'Pro' : version;
-        options.push({
-          value: `${version}-${locale}`,
-          label: `${versionLabel} (${localeLabel})`,
-        });
-      }
-    }
-    return options;
-  }, []);
+  const tagOptions = useMemo(() => {
+    const locale = currentLocale;
+    const versions = versionsByLocale[locale] ?? versionsByLocale.en;
+    return versions.map((version) => ({
+      value: `${version}-${locale}`,
+      label: version === 'pro' ? 'Pro' : version,
+    }));
+  }, [currentLocale]);
 
   return (
     <SearchDialog
