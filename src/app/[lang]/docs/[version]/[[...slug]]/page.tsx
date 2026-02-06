@@ -44,7 +44,8 @@ export default async function Page({
 
   // Construct URLs for page actions
   const markdownUrl = `${page.url}.mdx`;
-  const githubUrl = `https://github.com/JasonXuDeveloper/JEngine.Docs/blob/main/content/docs/${fullSlug.join('/')}${lang === 'zh' ? '.zh' : ''}.mdx`;
+  // Use fumadocs page.path (virtualized file path relative to content dir)
+  const githubUrl = `https://github.com/JasonXuDeveloper/JEngine.Docs/blob/main/content/docs/${page.path}`;
 
   return (
     <DocsPage toc={data.toc} full={data.full}>
