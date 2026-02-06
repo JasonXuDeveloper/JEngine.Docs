@@ -45,6 +45,8 @@ async function main() {
 
   console.log(`Optimizing ${images.length} image(s) in public/images/...`);
   let totalSaved = 0;
+  let optimized = 0;
+  let skipped = 0;
 
   for (const entry of images) {
     const fullPath = path.join(entry.parentPath ?? (entry as unknown as { path: string }).path, entry.name);
@@ -56,18 +58,20 @@ async function main() {
     await pipeline.toFile(tempPath);
 
     const newSize = (await fs.stat(tempPath)).size;
+    const rel = path.relative(IMAGES_DIR, fullPath);
     if (newSize < originalSize) {
       await fs.rename(tempPath, fullPath);
       const savings = ((1 - newSize / originalSize) * 100).toFixed(1);
-      const rel = path.relative(IMAGES_DIR, fullPath);
-      console.log(`  ${rel}: ${formatBytes(originalSize)} -> ${formatBytes(newSize)} (-${savings}%)`);
+      console.log(`  ✓ ${rel}: ${formatBytes(originalSize)} -> ${formatBytes(newSize)} (-${savings}%)`);
       totalSaved += originalSize - newSize;
+      optimized++;
     } else {
       await fs.unlink(tempPath);
+      skipped++;
     }
   }
 
-  console.log(`Done. Saved ${formatBytes(totalSaved)} total.`);
+  console.log(`Done. ${optimized} optimized, ${skipped} already optimal. Saved ${formatBytes(totalSaved)} total.`);
 }
 
 main().catch(console.error);
