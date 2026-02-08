@@ -9,6 +9,18 @@ All notable changes to JEngine v1.1.x are documented here.
 For the complete changelog including older versions, see the [GitHub CHANGE.md](https://github.com/JasonXuDeveloper/JEngine/blob/master/CHANGE.md).
 
 <Accordions>
+<Accordion title="v1.1.6 (February 8, 2026)">
+**New Features:**
+- Configurable Bootstrap text — new `BootstrapText` struct with 33 localizable fields for all user-facing strings during the hot update flow ([#624](https://github.com/JasonXuDeveloper/JEngine/pull/624))
+- Added `JTabView` component — tabbed container with configurable `maxTabsPerRow` for organizing editor UI sections ([#624](https://github.com/JasonXuDeveloper/JEngine/pull/624))
+
+**Bug Fixes:**
+- Auto-detect manifest decryption in `PreprocessBuildCatalog` — fixes NullReferenceException when building with encrypted asset manifests ([#626](https://github.com/JasonXuDeveloper/JEngine/pull/626))
+- Bumped Nino to `4.0.0-preview.147` — fixes `ArrayTypeMismatchException` when serializing Dictionary fields under HybridCLR ([#627](https://github.com/JasonXuDeveloper/JEngine/pull/627))
+
+**Packages:** Core v1.1.6, Util v1.1.4, UI v1.1.4
+</Accordion>
+
 <Accordion title="v1.1.5 (February 1, 2026)">
 **New Features:**
 - Added `JContainer` component with responsive max-width constraints following Tailwind/Bootstrap patterns ([#613](https://github.com/JasonXuDeveloper/JEngine/pull/613))

@@ -74,6 +74,88 @@ Init 场景已有默认 UI 组件，如需自定义可调整：
 - **Progress Bar** - 实时下载进度条
 - **Start Button** - 触发热更流程
 </Accordion>
+
+<Accordion title="Text Settings（文本设置）">
+<Callout type="info">
+v1.1.6 新增 — Bootstrap 现在在 Inspector 中暴露 `BootstrapText` 结构体，包含 33 个可配置的字符串字段，覆盖热更流程中所有面向用户的文本。
+</Callout>
+
+覆盖任意字段即可本地化或自定义文本。默认值为英文。字段在 Inspector 中按 6 个标签页组织：
+
+<Tabs items={['Package Init', 'Scene Load', 'Inline Status', 'Dialog Titles', 'Dialog Buttons', 'Dialog Content']}>
+<Tab value="Package Init">
+资源包初始化过程中显示的消息。
+
+| 字段 | 默认值 |
+|------|--------|
+| `initializingPackage` | `"Initializing resource package..."` |
+| `gettingVersion` | `"Getting resource package version..."` |
+| `updatingManifest` | `"Updating resource manifest..."` |
+| `checkingUpdate` | `"Checking resources to download..."` |
+| `downloadingResources` | `"Downloading resources..."` |
+| `packageCompleted` | `"Resource package initialization completed"` |
+| `initializationFailed` | `"Initialization failed"` |
+| `unknownPackageStatus` | `"Unknown status"` |
+</Tab>
+<Tab value="Scene Load">
+热更场景加载过程中显示的消息。
+
+| 字段 | 默认值 |
+|------|--------|
+| `sceneLoading` | `"Loading scene..."` |
+| `sceneCompleted` | `"Scene loading completed"` |
+| `sceneFailed` | `"Scene loading failed"` |
+| `unknownSceneStatus` | `"Unknown status"` |
+</Tab>
+<Tab value="Inline Status">
+进度 UI 中显示的简短状态文本。
+
+| 字段 | 默认值 |
+|------|--------|
+| `initializing` | `"Initializing..."` |
+| `downloading` | `"Downloading..."` |
+| `downloadCompletedLoading` | `"Download completed, loading..."` |
+| `loadingCode` | `"Loading code..."` |
+| `decryptingResources` | `"Decrypting resources..."` |
+| `loadingScene` | `"Loading scene..."` |
+</Tab>
+<Tab value="Dialog Titles">
+热更流程中对话框的标题栏文本。
+
+| 字段 | 默认值 |
+|------|--------|
+| `dialogTitleError` | `"Error"` |
+| `dialogTitleWarning` | `"Warning"` |
+| `dialogTitleNotice` | `"Notice"` |
+</Tab>
+<Tab value="Dialog Buttons">
+对话框中使用的按钮标签。
+
+| 字段 | 默认值 |
+|------|--------|
+| `buttonOk` | `"OK"` |
+| `buttonCancel` | `"Cancel"` |
+| `buttonDownload` | `"Download"` |
+| `buttonRetry` | `"Retry"` |
+| `buttonExit` | `"Exit"` |
+</Tab>
+<Tab value="Dialog Content">
+对话框正文内容。含 `{0}`、`{1}` 等占位符的字段会在运行时填充。
+
+| 字段 | 默认值 |
+|------|--------|
+| `dialogInitFailed` | `"Initialization failed: {0}"` |
+| `dialogDownloadPrompt` | `"Need to download {0} files, total size {1}MB. Start download?"` |
+| `dialogDownloadProgress` | `"Downloading file {0}/{1} ({2}MB/{3}MB)"` |
+| `dialogSceneLoadFailed` | `"Scene loading failed: {0}"` |
+| `dialogInitException` | `"Exception occurred during initialization: {0}"` |
+| `dialogCodeException` | `"Code exception, please contact customer service"` |
+| `dialogFunctionCallFailed` | `"Function call failed: {0}"` |
+</Tab>
+</Tabs>
+
+**使用场景：** 将所有热更文本本地化为任意语言，或自定义措辞以匹配你的游戏。
+</Accordion>
 </Accordions>
 
 ## 运行流程

@@ -99,6 +99,7 @@ The `Tokens` class provides design constants:
 | Component | Description |
 |-----------|-------------|
 | `JBreadcrumb` | Breadcrumb navigation |
+| `JTabView` | Tabbed container with configurable layout |
 
 ## JContainer
 
@@ -121,6 +122,23 @@ public enum ContainerSize
     Full = 0   // No max-width limit
 }
 ```
+
+## JTabView
+
+Added in v1.1.6, `JTabView` provides a tabbed container for organizing editor UI sections with configurable layout:
+
+```csharp
+// Create a tab view with tabs
+var tabView = new JTabView();
+tabView.AddTab("General", generalContent);
+tabView.AddTab("Advanced", advancedContent);
+tabView.AddTab("Debug", debugContent);
+
+// Configure max tabs per row (default: 3)
+var tabView = new JTabView(maxTabsPerRow: 4);
+```
+
+When the number of tabs exceeds `maxTabsPerRow`, tabs automatically wrap to the next row.
 
 ## Theming
 

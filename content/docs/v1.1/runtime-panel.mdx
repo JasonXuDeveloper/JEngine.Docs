@@ -74,6 +74,88 @@ The Init scene has default UI components configured. Customize if needed:
 - **Progress Bar** - Real-time download progress bar
 - **Start Button** - Triggers hot update process
 </Accordion>
+
+<Accordion title="Text Settings">
+<Callout type="info">
+New in v1.1.6 — Bootstrap now exposes a `BootstrapText` struct in the Inspector with 33 configurable string fields for all user-facing text shown during the hot update flow.
+</Callout>
+
+Override any field to localize or customize the text. Default values are in English. Fields are organized into 6 tabs in the Inspector:
+
+<Tabs items={['Package Init', 'Scene Load', 'Inline Status', 'Dialog Titles', 'Dialog Buttons', 'Dialog Content']}>
+<Tab value="Package Init">
+Messages shown during resource package initialization.
+
+| Field | Default |
+|-------|---------|
+| `initializingPackage` | `"Initializing resource package..."` |
+| `gettingVersion` | `"Getting resource package version..."` |
+| `updatingManifest` | `"Updating resource manifest..."` |
+| `checkingUpdate` | `"Checking resources to download..."` |
+| `downloadingResources` | `"Downloading resources..."` |
+| `packageCompleted` | `"Resource package initialization completed"` |
+| `initializationFailed` | `"Initialization failed"` |
+| `unknownPackageStatus` | `"Unknown status"` |
+</Tab>
+<Tab value="Scene Load">
+Messages shown during hot update scene loading.
+
+| Field | Default |
+|-------|---------|
+| `sceneLoading` | `"Loading scene..."` |
+| `sceneCompleted` | `"Scene loading completed"` |
+| `sceneFailed` | `"Scene loading failed"` |
+| `unknownSceneStatus` | `"Unknown status"` |
+</Tab>
+<Tab value="Inline Status">
+Short status text shown in the progress UI.
+
+| Field | Default |
+|-------|---------|
+| `initializing` | `"Initializing..."` |
+| `downloading` | `"Downloading..."` |
+| `downloadCompletedLoading` | `"Download completed, loading..."` |
+| `loadingCode` | `"Loading code..."` |
+| `decryptingResources` | `"Decrypting resources..."` |
+| `loadingScene` | `"Loading scene..."` |
+</Tab>
+<Tab value="Dialog Titles">
+Title bar text for dialogs shown during the hot update flow.
+
+| Field | Default |
+|-------|---------|
+| `dialogTitleError` | `"Error"` |
+| `dialogTitleWarning` | `"Warning"` |
+| `dialogTitleNotice` | `"Notice"` |
+</Tab>
+<Tab value="Dialog Buttons">
+Button labels used in dialogs.
+
+| Field | Default |
+|-------|---------|
+| `buttonOk` | `"OK"` |
+| `buttonCancel` | `"Cancel"` |
+| `buttonDownload` | `"Download"` |
+| `buttonRetry` | `"Retry"` |
+| `buttonExit` | `"Exit"` |
+</Tab>
+<Tab value="Dialog Content">
+Dialog body text. Fields with `{0}`, `{1}` etc. are format placeholders filled at runtime.
+
+| Field | Default |
+|-------|---------|
+| `dialogInitFailed` | `"Initialization failed: {0}"` |
+| `dialogDownloadPrompt` | `"Need to download {0} files, total size {1}MB. Start download?"` |
+| `dialogDownloadProgress` | `"Downloading file {0}/{1} ({2}MB/{3}MB)"` |
+| `dialogSceneLoadFailed` | `"Scene loading failed: {0}"` |
+| `dialogInitException` | `"Exception occurred during initialization: {0}"` |
+| `dialogCodeException` | `"Code exception, please contact customer service"` |
+| `dialogFunctionCallFailed` | `"Function call failed: {0}"` |
+</Tab>
+</Tabs>
+
+**Use case:** Localize all hot update text to any language, or customize the wording for your game.
+</Accordion>
 </Accordions>
 
 ## Runtime Flow

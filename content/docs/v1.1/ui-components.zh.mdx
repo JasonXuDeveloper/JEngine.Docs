@@ -99,6 +99,7 @@ openupm add com.jasonxudeveloper.jengine.ui
 | 组件 | 说明 |
 |------|------|
 | `JBreadcrumb` | 面包屑导航 |
+| `JTabView` | 标签页容器，可配置布局 |
 
 ## JContainer
 
@@ -121,6 +122,23 @@ public enum ContainerSize
     Full = 0   // 无最大宽度限制
 }
 ```
+
+## JTabView
+
+v1.1.6 新增，`JTabView` 提供标签页容器，用于组织编辑器 UI 分区，支持可配置的布局：
+
+```csharp
+// 创建标签页视图
+var tabView = new JTabView();
+tabView.AddTab("General", generalContent);
+tabView.AddTab("Advanced", advancedContent);
+tabView.AddTab("Debug", debugContent);
+
+// 配置每行最大标签数（默认：3）
+var tabView = new JTabView(maxTabsPerRow: 4);
+```
+
+当标签数量超过 `maxTabsPerRow` 时，标签会自动换行到下一行。
 
 ## 主题
 

@@ -9,6 +9,18 @@ JEngine v1.1.x 的所有重要更新记录在此。
 完整更新日志（包含旧版本）请参阅 [GitHub CHANGE.md](https://github.com/JasonXuDeveloper/JEngine/blob/master/CHANGE.md)。
 
 <Accordions>
+<Accordion title="v1.1.6 (2026年2月8日)">
+**新功能：**
+- 可配置的 Bootstrap 文本 — 新增 `BootstrapText` 结构体，包含 33 个可本地化字段，覆盖热更流程中所有面向用户的文本 ([#624](https://github.com/JasonXuDeveloper/JEngine/pull/624))
+- 新增 `JTabView` 组件 — 标签页容器，支持 `maxTabsPerRow` 配置，用于组织编辑器 UI 分区 ([#624](https://github.com/JasonXuDeveloper/JEngine/pull/624))
+
+**Bug 修复：**
+- `PreprocessBuildCatalog` 自动检测清单解密 — 修复使用加密资源清单构建时的 NullReferenceException ([#626](https://github.com/JasonXuDeveloper/JEngine/pull/626))
+- Nino 升级至 `4.0.0-preview.147` — 修复 HybridCLR 下序列化 Dictionary 字段时的 `ArrayTypeMismatchException` ([#627](https://github.com/JasonXuDeveloper/JEngine/pull/627))
+
+**包版本：** Core v1.1.6, Util v1.1.4, UI v1.1.4
+</Accordion>
+
 <Accordion title="v1.1.5 (2026年2月1日)">
 **新功能：**
 - 新增 `JContainer` 组件，支持响应式最大宽度约束，遵循 Tailwind/Bootstrap 模式 ([#613](https://github.com/JasonXuDeveloper/JEngine/pull/613))
