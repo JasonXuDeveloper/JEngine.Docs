@@ -10,7 +10,7 @@ const INDEXNOW_KEY = 'c5f06259d2f7f011aacc287c3f21fda4';
 
 async function main() {
   // Read sitemap from build output
-  const sitemapPath = path.resolve('.next/server/app/sitemap.xml.body');
+  const sitemapPath = path.resolve('build/client/sitemap.xml');
   if (!fs.existsSync(sitemapPath)) {
     console.log('No sitemap build output found, skipping IndexNow submission.');
     return;

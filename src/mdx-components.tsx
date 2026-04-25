@@ -6,7 +6,7 @@ import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { MDXComponents } from 'mdx/types';
 import type { ReactNode } from 'react';
-import { handleBlockFeedback } from '@/app/actions';
+import { handleBlockFeedback } from '@/components/feedback/actions';
 import { FeedbackBlock } from '@/components/feedback/client';
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {

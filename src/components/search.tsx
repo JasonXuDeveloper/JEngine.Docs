@@ -15,13 +15,19 @@ import {
   TagsList,
   TagsListItem,
 } from 'fumadocs-ui/components/dialog/search';
-import { usePathname } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useLocation } from 'react-router';
 import { versionsByLocale } from '@/lib/versions';
 
-const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
-const apiKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY;
-const indexName = process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME;
+const appId =
+  import.meta.env.VITE_ALGOLIA_APP_ID ??
+  import.meta.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
+const apiKey =
+  import.meta.env.VITE_ALGOLIA_SEARCH_API_KEY ??
+  import.meta.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY;
+const indexName =
+  import.meta.env.VITE_ALGOLIA_INDEX_NAME ??
+  import.meta.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME;
 
 const client: LiteClient | null =
   appId && apiKey ? liteClient(appId, apiKey) : null;
@@ -85,7 +91,7 @@ function getTagFromPath(pathname: string): string | undefined {
 }
 
 function AlgoliaSearchDialog(props: SharedProps) {
-  const pathname = usePathname();
+  const { pathname } = useLocation();
   const autoTag = useMemo(() => getTagFromPath(pathname), [pathname]);
   const [manualTag, setManualTag] = useState<string | undefined>(undefined);
   const [search, setSearch] = useState('');

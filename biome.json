@@ -11,6 +11,7 @@
       "**",
       "!node_modules",
       "!.next",
+      "!.react-router",
       "!dist",
       "!build",
       "!.source",
@@ -33,7 +34,6 @@
       "recommended": true
     },
     "domains": {
-      "next": "recommended",
       "react": "recommended"
     }
   },

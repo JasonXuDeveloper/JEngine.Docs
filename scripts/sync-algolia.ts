@@ -1,8 +1,7 @@
 /**
  * Sync search index to Algolia.
  *
- * Reads pre-built search records from .next/server/app/static.json.body
- * (generated during `next build` by src/app/static.json/route.ts).
+ * Reads pre-built search records from build/client/static.json.
  *
  * Usage:
  *   bun run build && bun run search:sync
@@ -13,22 +12,25 @@ import * as path from 'node:path';
 import { algoliasearch } from 'algoliasearch';
 import { type DocumentRecord, sync } from 'fumadocs-core/search/algolia';
 
-const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
+const appId =
+  process.env.VITE_ALGOLIA_APP_ID ?? process.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
 const adminKey = process.env.ALGOLIA_ADMIN_API_KEY;
-const indexName = process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME;
+const indexName =
+  process.env.VITE_ALGOLIA_INDEX_NAME ??
+  process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME;
 
 if (!appId || !adminKey || !indexName) {
   console.error(
-    'Missing env vars. Required: NEXT_PUBLIC_ALGOLIA_APP_ID, ALGOLIA_ADMIN_API_KEY, NEXT_PUBLIC_ALGOLIA_INDEX_NAME',
+    'Missing env vars. Required: VITE_ALGOLIA_APP_ID, ALGOLIA_ADMIN_API_KEY, VITE_ALGOLIA_INDEX_NAME',
   );
   process.exit(1);
 }
 
-const filePath = path.resolve('.next/server/app/static.json.body');
+const filePath = path.resolve('build/client/static.json');
 
 if (!fs.existsSync(filePath)) {
   console.error(
-    `Build output not found at ${filePath}. Run "next build" first.`,
+    `Build output not found at ${filePath}. Run "bun run build" first.`,
   );
   process.exit(1);
 }
