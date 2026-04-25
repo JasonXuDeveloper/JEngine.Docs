@@ -81,6 +81,10 @@ const blockFeedbackResult = z.extend(blockFeedback, {
   response: actionResponse,
 });
 
+function normalizeFeedbackPath(pathname: string) {
+  return pathname.replace(/\/$/, '') || '/';
+}
+
 /**
  * A feedback component to be attached at the end of page
  */
@@ -89,7 +93,8 @@ export function Feedback({
 }: {
   onSendAction: (feedback: PageFeedback) => Promise<ActionResponse>;
 }) {
-  const { pathname: url } = useLocation();
+  const { pathname } = useLocation();
+  const url = normalizeFeedbackPath(pathname);
   const t = useTranslations();
   const { previous, setPrevious } = useSubmissionStorage(url, (v) => {
     const result = pageFeedbackResult.safeParse(v);
@@ -242,7 +247,8 @@ export function FeedbackBlock({
   onSendAction: (feedback: BlockFeedback) => Promise<ActionResponse>;
   children: ReactNode;
 }) {
-  const { pathname: url } = useLocation();
+  const { pathname } = useLocation();
+  const url = normalizeFeedbackPath(pathname);
   const t = useTranslations();
   const blockId = `${url}-${id}`;
   const { previous, setPrevious } = useSubmissionStorage(blockId, (v) => {
