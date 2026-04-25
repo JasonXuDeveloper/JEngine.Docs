@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from 'react-router';
 import SearchDialog from '@/components/search';
 import { locales } from '@/lib/i18n';
@@ -58,8 +59,7 @@ function getLocale(pathname: string) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const pathname =
-    typeof window === 'undefined' ? '/en' : window.location.pathname;
+  const { pathname } = useLocation();
   const locale = getLocale(pathname);
 
   return (

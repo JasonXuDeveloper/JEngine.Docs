@@ -26,8 +26,12 @@ import type { Route } from './+types/docs';
 
 interface ExtendedPageData {
   default: FC<{ components: MDXComponents }>;
+  frontmatter?: {
+    title?: string;
+    description?: string;
+  };
   toc: Array<{ title: string; url: string; depth: number }>;
-  title: string;
+  title?: string;
   description?: string;
   full?: boolean;
 }
@@ -94,7 +98,7 @@ function createClientRelativeLink(pageUrl: string): FC<ComponentProps<'a'>> {
     let resolved = href;
 
     if (href?.startsWith('./') || href?.startsWith('../')) {
-      resolved = new URL(href, `https://docs.local${pageUrl}/`).pathname;
+      resolved = new URL(href, `https://docs.local${pageUrl}`).pathname;
     }
 
     return <a href={resolved} {...props} />;
@@ -156,13 +160,15 @@ const clientLoader = browserCollections.docs.createClientLoader<ContentProps>({
   component(loaded, props) {
     const data = loaded as unknown as ExtendedPageData;
     const MDX = data.default;
+    const title = data.title ?? data.frontmatter?.title;
+    const description = data.description ?? data.frontmatter?.description;
 
     return (
       <DocsPage toc={data.toc} full={data.full}>
-        <title>{data.title}</title>
-        <meta name="description" content={data.description} />
-        <DocsTitle>{data.title}</DocsTitle>
-        <DocsDescription className="mb-0">{data.description}</DocsDescription>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <DocsTitle>{title}</DocsTitle>
+        <DocsDescription className="mb-0">{description}</DocsDescription>
         <div className="flex flex-row gap-2 items-center border-b pt-2 pb-4 mb-4">
           <LLMCopyButton markdownUrl={props.markdownUrl} locale={props.lang} />
           <ViewOptions
