@@ -51,7 +51,7 @@ jobs:
           ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
 
       - name: Deploy to Cloudflare Pages
-        run: wrangler pages deploy build/client --project-name jengine
+        run: bunx wrangler pages deploy build/client --project-name jengine
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
