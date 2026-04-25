@@ -1,6 +1,6 @@
-import { source } from '@/lib/source';
 import type { DocumentRecord } from 'fumadocs-core/search/algolia';
 import { NextResponse } from 'next/server';
+import { source } from '@/lib/source';
 
 // Pre-render at build time
 export const revalidate = false;

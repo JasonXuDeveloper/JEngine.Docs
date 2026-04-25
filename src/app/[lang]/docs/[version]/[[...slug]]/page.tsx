@@ -1,15 +1,20 @@
-import { source } from '@/lib/source';
-import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layouts/docs/page';
-import { notFound } from 'next/navigation';
-import { getMDXComponents } from '@/mdx-components';
-import type { Metadata } from 'next';
+import {
+  DocsBody,
+  DocsDescription,
+  DocsPage,
+  DocsTitle,
+} from 'fumadocs-ui/layouts/docs/page';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import type { Locale } from '@/lib/i18n';
-import type { FC } from 'react';
 import type { MDXComponents } from 'mdx/types';
-import { Feedback } from '@/components/feedback/client';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import type { FC } from 'react';
 import { handlePageFeedback } from '@/app/actions';
 import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions';
+import { Feedback } from '@/components/feedback/client';
+import type { Locale } from '@/lib/i18n';
+import { source } from '@/lib/source';
+import { getMDXComponents } from '@/mdx-components';
 
 interface PageParams {
   lang: Locale;
@@ -53,7 +58,11 @@ export default async function Page({
       <DocsDescription className="mb-0">{data.description}</DocsDescription>
       <div className="flex flex-row gap-2 items-center border-b pt-2 pb-4 mb-4">
         <LLMCopyButton markdownUrl={markdownUrl} locale={lang} />
-        <ViewOptions markdownUrl={markdownUrl} githubUrl={githubUrl} locale={lang} />
+        <ViewOptions
+          markdownUrl={markdownUrl}
+          githubUrl={githubUrl}
+          locale={lang}
+        />
       </div>
       <DocsBody>
         <MDX
@@ -93,7 +102,9 @@ export async function generateMetadata({
 
   const data = page.data as unknown as ExtendedPageData;
 
-  const pathWithoutLang = slug ? `/docs/${version}/${slug.join('/')}` : `/docs/${version}`;
+  const pathWithoutLang = slug
+    ? `/docs/${version}/${slug.join('/')}`
+    : `/docs/${version}`;
 
   return {
     title: data.title,

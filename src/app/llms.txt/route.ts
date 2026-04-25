@@ -13,7 +13,8 @@ export async function GET(req: Request) {
   const grouped: Record<string, typeof pages> = {};
   for (const page of pages) {
     const version = page.slugs[0] ?? 'other';
-    (grouped[version] ??= []).push(page);
+    grouped[version] ??= [];
+    grouped[version].push(page);
   }
 
   const lines = [
@@ -46,7 +47,9 @@ export async function GET(req: Request) {
 
   lines.push('## Full Content');
   lines.push('');
-  lines.push(`For complete documentation in a single file, visit ${BASE_URL}/llms-full.txt`);
+  lines.push(
+    `For complete documentation in a single file, visit ${BASE_URL}/llms-full.txt`,
+  );
 
   return new Response(lines.join('\n'), {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },

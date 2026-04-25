@@ -1,4 +1,9 @@
-import { type FileObject, printErrors, scanURLs, validateFiles } from 'next-validate-link';
+import {
+  type FileObject,
+  printErrors,
+  scanURLs,
+  validateFiles,
+} from 'next-validate-link';
 import { source } from '../src/lib/source';
 
 type Page = ReturnType<typeof source.getPages>[number];

@@ -1,10 +1,20 @@
 'use client';
-import { useEffect, useMemo, useState } from 'react';
-import { Check, ChevronDown, Copy, ExternalLinkIcon, MessageCircleIcon } from 'lucide-react';
-import { cn } from '@/lib/cn';
-import { useCopyButton } from 'fumadocs-ui/utils/use-copy-button';
 import { buttonVariants } from 'fumadocs-ui/components/ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from 'fumadocs-ui/components/ui/popover';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from 'fumadocs-ui/components/ui/popover';
+import { useCopyButton } from 'fumadocs-ui/utils/use-copy-button';
+import {
+  Check,
+  ChevronDown,
+  Copy,
+  ExternalLinkIcon,
+  MessageCircleIcon,
+} from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { cn } from '@/lib/cn';
 
 const translations = {
   en: {
@@ -64,6 +74,7 @@ export function LLMCopyButton({
 
   return (
     <button
+      type="button"
       disabled={isLoading}
       className={cn(
         buttonVariants({
@@ -75,7 +86,10 @@ export function LLMCopyButton({
       onClick={onClick}
     >
       {checked ? <Check /> : <Copy />}
-      {(translations[locale as keyof typeof translations] ?? translations.en).copyMarkdown}
+      {
+        (translations[locale as keyof typeof translations] ?? translations.en)
+          .copyMarkdown
+      }
     </button>
   );
 }
@@ -104,13 +118,15 @@ export function ViewOptions({
     setMounted(true);
   }, []);
 
-  const t = translations[locale as keyof typeof translations] ?? translations.en;
+  const t =
+    translations[locale as keyof typeof translations] ?? translations.en;
 
   const items = useMemo(() => {
     // Use a placeholder during SSR/initial render to avoid hydration mismatch
-    const fullMarkdownUrl = mounted && typeof window !== 'undefined'
-      ? new URL(markdownUrl, window.location.origin).toString()
-      : markdownUrl;
+    const fullMarkdownUrl =
+      mounted && typeof window !== 'undefined'
+        ? new URL(markdownUrl, window.location.origin).toString()
+        : markdownUrl;
     const q = `Read ${fullMarkdownUrl}, I want to ask questions about it.`;
 
     return [
@@ -244,7 +260,10 @@ export function ViewOptions({
           }),
         )}
       >
-        {(translations[locale as keyof typeof translations] ?? translations.en).open}
+        {
+          (translations[locale as keyof typeof translations] ?? translations.en)
+            .open
+        }
         <ChevronDown className="size-3.5 text-fd-muted-foreground" />
       </PopoverTrigger>
       <PopoverContent className="flex flex-col">

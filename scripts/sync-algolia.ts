@@ -7,10 +7,11 @@
  * Usage:
  *   bun run build && bun run search:sync
  */
-import { algoliasearch } from 'algoliasearch';
-import { sync, type DocumentRecord } from 'fumadocs-core/search/algolia';
+
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { algoliasearch } from 'algoliasearch';
+import { type DocumentRecord, sync } from 'fumadocs-core/search/algolia';
 
 const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
 const adminKey = process.env.ALGOLIA_ADMIN_API_KEY;
@@ -26,7 +27,9 @@ if (!appId || !adminKey || !indexName) {
 const filePath = path.resolve('.next/server/app/static.json.body');
 
 if (!fs.existsSync(filePath)) {
-  console.error(`Build output not found at ${filePath}. Run "next build" first.`);
+  console.error(
+    `Build output not found at ${filePath}. Run "next build" first.`,
+  );
   process.exit(1);
 }
 
@@ -37,7 +40,9 @@ const documents: DocumentRecord[] = JSON.parse(content);
 const valid = documents.filter((d) => d.structured);
 const skipped = documents.length - valid.length;
 
-console.log(`Syncing ${valid.length} documents to Algolia index "${indexName}"...`);
+console.log(
+  `Syncing ${valid.length} documents to Algolia index "${indexName}"...`,
+);
 if (skipped > 0) {
   console.log(`  (skipped ${skipped} pages without structured data)`);
 }

@@ -1,11 +1,11 @@
 'use client';
-import { useMemo, useState } from 'react';
-import { Check, ChevronDown, Copy, ExternalLinkIcon } from 'lucide-react';
-import { cn } from '../lib/cn';
+import { cva } from 'class-variance-authority';
 import { useCopyButton } from 'fumadocs-ui/utils/use-copy-button';
+import { Check, ChevronDown, Copy, ExternalLinkIcon } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { cn } from '../lib/cn';
 import { buttonVariants } from './ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { cva } from 'class-variance-authority';
 
 const cache = new Map<string, string>();
 
@@ -42,6 +42,7 @@ export function LLMCopyButton({
 
   return (
     <button
+      type="button"
       disabled={isLoading}
       className={cn(
         buttonVariants({
@@ -78,7 +79,9 @@ export function ViewOptions({
 }) {
   const items = useMemo(() => {
     const fullMarkdownUrl =
-      typeof window !== 'undefined' ? new URL(markdownUrl, window.location.origin) : 'loading';
+      typeof window !== 'undefined'
+        ? new URL(markdownUrl, window.location.origin)
+        : 'loading';
     const q = `Read ${fullMarkdownUrl}, I want to ask questions about it.`;
 
     return [

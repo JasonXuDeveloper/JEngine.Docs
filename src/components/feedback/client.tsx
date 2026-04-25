@@ -1,29 +1,29 @@
 'use client';
-import { cn } from '../../lib/cn';
-import { buttonVariants } from '../ui/button';
+import { cva } from 'class-variance-authority';
+import type { FeedbackBlockProps } from 'fumadocs-core/mdx-plugins/remark-feedback-block';
 import { MessageSquare, ThumbsDown, ThumbsUp } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import {
-  ReactNode,
+  type ReactNode,
   type SyntheticEvent,
   useEffect,
   useEffectEvent,
   useState,
   useTransition,
 } from 'react';
-import { Collapsible, CollapsibleContent } from '../ui/collapsible';
-import { cva } from 'class-variance-authority';
-import { usePathname } from 'next/navigation';
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
-import type { FeedbackBlockProps } from 'fumadocs-core/mdx-plugins/remark-feedback-block';
-import {
-  actionResponse,
-  blockFeedback,
-  pageFeedback,
-  type ActionResponse,
-  type BlockFeedback,
-  type PageFeedback,
-} from './schema';
 import { z } from 'zod/mini';
+import { cn } from '../../lib/cn';
+import { buttonVariants } from '../ui/button';
+import { Collapsible, CollapsibleContent } from '../ui/collapsible';
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import {
+  type ActionResponse,
+  actionResponse,
+  type BlockFeedback,
+  blockFeedback,
+  type PageFeedback,
+  pageFeedback,
+} from './schema';
 
 // i18n translations for feedback component
 const translations = {
@@ -134,6 +134,7 @@ export function Feedback({
       <div className="flex flex-row items-center gap-2">
         <p className="text-sm font-medium pe-2">{t.howIsThisGuide}</p>
         <button
+          type="button"
           disabled={previous !== null}
           className={cn(
             rateButtonVariants({
@@ -148,6 +149,7 @@ export function Feedback({
           {t.good}
         </button>
         <button
+          type="button"
           disabled={previous !== null}
           className={cn(
             rateButtonVariants({
@@ -182,6 +184,7 @@ export function Feedback({
               </a>
 
               <button
+                type="button"
                 className={cn(
                   buttonVariants({
                     color: 'secondary',
@@ -200,7 +203,6 @@ export function Feedback({
         ) : (
           <form className="flex flex-col gap-3" onSubmit={submit}>
             <textarea
-              autoFocus
               required
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -320,6 +322,7 @@ export function FeedbackBlock({
               </a>
 
               <button
+                type="button"
                 className={cn(
                   buttonVariants({
                     color: 'secondary',
@@ -337,7 +340,6 @@ export function FeedbackBlock({
         ) : (
           <form className="flex flex-col gap-2" onSubmit={submit}>
             <textarea
-              autoFocus
               required
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -363,7 +365,10 @@ export function FeedbackBlock({
   );
 }
 
-function useSubmissionStorage<Result>(blockId: string, validate: (v: unknown) => Result | null) {
+function useSubmissionStorage<Result>(
+  blockId: string,
+  validate: (v: unknown) => Result | null,
+) {
   const storageKey = `docs-feedback-${blockId}`;
   const [value, setValue] = useState<Result | null>(null);
   const validateCallback = useEffectEvent(validate);

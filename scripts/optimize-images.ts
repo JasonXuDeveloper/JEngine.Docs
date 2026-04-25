@@ -3,9 +3,10 @@
  *
  * Usage: bun run scripts/optimize-images.ts
  */
-import sharp from 'sharp';
-import path from 'node:path';
+
 import fs from 'node:fs/promises';
+import path from 'node:path';
+import sharp from 'sharp';
 
 const IMAGES_DIR = path.resolve(import.meta.dirname, '../public/images');
 
@@ -31,7 +32,10 @@ async function main() {
     return;
   }
 
-  const entries = await fs.readdir(IMAGES_DIR, { withFileTypes: true, recursive: true });
+  const entries = await fs.readdir(IMAGES_DIR, {
+    withFileTypes: true,
+    recursive: true,
+  });
   const images = entries.filter((e) => {
     if (!e.isFile()) return false;
     const ext = path.extname(e.name).toLowerCase();
@@ -49,7 +53,10 @@ async function main() {
   let skipped = 0;
 
   for (const entry of images) {
-    const fullPath = path.join(entry.parentPath ?? (entry as unknown as { path: string }).path, entry.name);
+    const fullPath = path.join(
+      entry.parentPath ?? (entry as unknown as { path: string }).path,
+      entry.name,
+    );
     const ext = path.extname(entry.name).toLowerCase();
     const originalSize = (await fs.stat(fullPath)).size;
 
@@ -62,7 +69,9 @@ async function main() {
     if (newSize < originalSize) {
       await fs.rename(tempPath, fullPath);
       const savings = ((1 - newSize / originalSize) * 100).toFixed(1);
-      console.log(`  ✓ ${rel}: ${formatBytes(originalSize)} -> ${formatBytes(newSize)} (-${savings}%)`);
+      console.log(
+        `  ✓ ${rel}: ${formatBytes(originalSize)} -> ${formatBytes(newSize)} (-${savings}%)`,
+      );
       totalSaved += originalSize - newSize;
       optimized++;
     } else {
@@ -71,7 +80,9 @@ async function main() {
     }
   }
 
-  console.log(`Done. ${optimized} optimized, ${skipped} already optimal. Saved ${formatBytes(totalSaved)} total.`);
+  console.log(
+    `Done. ${optimized} optimized, ${skipped} already optimal. Saved ${formatBytes(totalSaved)} total.`,
+  );
 }
 
 main().catch(console.error);

@@ -1,10 +1,14 @@
-import { source } from '@/lib/source';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
-import { baseOptions } from '@/lib/layout.shared';
+import { redirect } from 'next/navigation';
 import type { ReactNode } from 'react';
 import type { Locale } from '@/lib/i18n';
-import { getVersionsForLocale, defaultVersion } from '@/lib/versions';
-import { redirect } from 'next/navigation';
+import { baseOptions } from '@/lib/layout.shared';
+import { source } from '@/lib/source';
+import {
+  defaultVersion,
+  getVersionsForLocale,
+  type Version,
+} from '@/lib/versions';
 
 interface LayoutProps {
   children: ReactNode;
@@ -12,10 +16,16 @@ interface LayoutProps {
 }
 
 // Get the page tree for a specific version only
-function getVersionTree(fullTree: ReturnType<typeof source.getPageTree>, version: string) {
+function getVersionTree(
+  fullTree: ReturnType<typeof source.getPageTree>,
+  version: string,
+) {
   // Find the version folder in the tree
   const versionFolder = fullTree.children.find(
-    (child) => child.type === 'folder' && typeof child.name === 'string' && child.name.toLowerCase() === version.toLowerCase()
+    (child) =>
+      child.type === 'folder' &&
+      typeof child.name === 'string' &&
+      child.name.toLowerCase() === version.toLowerCase(),
   );
 
   if (versionFolder && versionFolder.type === 'folder') {
@@ -34,7 +44,7 @@ export default async function Layout({ children, params }: LayoutProps) {
   const availableVersions = getVersionsForLocale(lang);
 
   // Redirect to default version if accessing a version not available for this locale
-  if (!availableVersions.includes(version as any)) {
+  if (!availableVersions.includes(version as Version)) {
     redirect(`/${lang}/docs/${defaultVersion}`);
   }
 

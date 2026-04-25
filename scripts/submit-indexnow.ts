@@ -38,7 +38,9 @@ async function main() {
   });
 
   if (res.ok || res.status === 202) {
-    console.log(`IndexNow: submitted ${urls.length} URLs (status ${res.status})`);
+    console.log(
+      `IndexNow: submitted ${urls.length} URLs (status ${res.status})`,
+    );
   } else {
     console.error(`IndexNow error: ${res.status} ${await res.text()}`);
   }

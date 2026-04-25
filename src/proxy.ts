@@ -1,7 +1,11 @@
 import { createI18nMiddleware } from 'fumadocs-core/i18n/middleware';
 import { isMarkdownPreferred, rewritePath } from 'fumadocs-core/negotiation';
+import {
+  type NextFetchEvent,
+  type NextRequest,
+  NextResponse,
+} from 'next/server';
 import { i18n } from '@/lib/i18n';
-import { NextResponse, type NextRequest, type NextFetchEvent } from 'next/server';
 
 const COOKIE_NAME = 'FD_LOCALE';
 const CN_COUNTRIES = new Set(['CN', 'TW', 'HK', 'MO', 'SG']);
@@ -14,7 +18,7 @@ const { rewrite: rewriteLLM } = rewritePath(
   '/llms.mdx/:lang/docs{/*path}',
 );
 
-export function middleware(request: NextRequest, event: NextFetchEvent) {
+export function proxy(request: NextRequest, event: NextFetchEvent) {
   // Serve markdown to AI agents that send Accept: text/markdown
   if (isMarkdownPreferred(request)) {
     const result = rewriteLLM(request.nextUrl.pathname);
@@ -39,5 +43,7 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
 
 export const config = {
   // Match all routes except api, static files, images, and public assets
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|llms|og|manifest\\.webmanifest|sitemap\\.xml|robots\\.txt|static\\.json|.*\\.png$|.*\\.jpg$|.*\\.svg$|.*\\.ico$).*)'],
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico|llms|og|manifest\\.webmanifest|sitemap\\.xml|robots\\.txt|static\\.json|.*\\.png$|.*\\.jpg$|.*\\.svg$|.*\\.ico$).*)',
+  ],
 };

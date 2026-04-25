@@ -1,7 +1,6 @@
 'use client';
-import { useState, useMemo, useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
-import { liteClient, type LiteClient } from 'algoliasearch/lite';
+import { type LiteClient, liteClient } from 'algoliasearch/lite';
+import type { SortedResult } from 'fumadocs-core/search';
 import {
   SearchDialog,
   SearchDialogClose,
@@ -12,11 +11,12 @@ import {
   SearchDialogInput,
   SearchDialogList,
   SearchDialogOverlay,
+  type SharedProps,
   TagsList,
   TagsListItem,
-  type SharedProps,
 } from 'fumadocs-ui/components/dialog/search';
-import type { SortedResult } from 'fumadocs-core/search';
+import { usePathname } from 'next/navigation';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { versionsByLocale } from '@/lib/versions';
 
 const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
@@ -104,14 +104,22 @@ function AlgoliaSearchDialog(props: SharedProps) {
       return;
     }
 
+    if (!client || !indexName) {
+      setResults(null);
+      setIsLoading(false);
+      return;
+    }
+
     setIsLoading(true);
+    const searchClient = client;
+    const searchIndexName = indexName;
     debounceRef.current = setTimeout(async () => {
       try {
-        const response = await client!.searchForHits<AlgoliaHit>({
+        const response = await searchClient.searchForHits<AlgoliaHit>({
           requests: [
             {
               type: 'default',
-              indexName: indexName!,
+              indexName: searchIndexName,
               query: search,
               distinct: 5,
               hitsPerPage: 20,

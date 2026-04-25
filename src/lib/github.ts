@@ -1,9 +1,9 @@
+import { Octokit } from 'octokit';
 import type {
+  ActionResponse,
   BlockFeedback,
   PageFeedback,
-  ActionResponse,
 } from '@/components/feedback/schema';
-import { Octokit } from 'octokit';
 
 // GitHub Discussion configuration
 const owner = 'JasonXuDeveloper';
@@ -22,7 +22,7 @@ async function getOctokit(): Promise<Octokit> {
 
   if (!appId || !privateKey || !installationId) {
     throw new Error(
-      'GitHub App credentials not configured. Set GITHUB_APP_ID, GITHUB_APP_PRIVATE_KEY, and GITHUB_APP_INSTALLATION_ID environment variables.'
+      'GitHub App credentials not configured. Set GITHUB_APP_ID, GITHUB_APP_PRIVATE_KEY, and GITHUB_APP_INSTALLATION_ID environment variables.',
     );
   }
 
@@ -67,16 +67,16 @@ async function getFeedbackDestination(): Promise<FeedbackDestination> {
           nodes { id name }
         }
       }
-    }`
+    }`,
   );
 
   const category = result.repository.discussionCategories.nodes.find(
-    (node) => node.name === DocsCategory
+    (node) => node.name === DocsCategory,
   );
 
   if (!category) {
     throw new Error(
-      `Discussion category "${DocsCategory}" not found. Please create it in your GitHub repository settings.`
+      `Discussion category "${DocsCategory}" not found. Please create it in your GitHub repository settings.`,
     );
   }
 
@@ -91,7 +91,7 @@ async function getFeedbackDestination(): Promise<FeedbackDestination> {
 async function createDiscussionThread(
   id: string,
   title: string,
-  body: string
+  body: string,
 ): Promise<string | undefined> {
   const octokit = await getOctokit();
   const { repoId, categoryId } = await getFeedbackDestination();
@@ -116,7 +116,7 @@ async function createDiscussionThread(
         }
       }
     }`,
-    { searchQuery }
+    { searchQuery },
   );
 
   const existing = searchResult.search.nodes[0];
@@ -133,7 +133,7 @@ async function createDiscussionThread(
           comment { url }
         }
       }`,
-      { discussionId: existing.id, body }
+      { discussionId: existing.id, body },
     );
 
     return commentResult.addDiscussionComment.comment.url;
@@ -150,7 +150,7 @@ async function createDiscussionThread(
         discussion { url }
       }
     }`,
-    { repoId, categoryId, title, body }
+    { repoId, categoryId, title, body },
   );
 
   return createResult.createDiscussion.discussion.url;
@@ -160,7 +160,7 @@ async function createDiscussionThread(
  * Handle page-level feedback
  */
 export async function onPageFeedbackAction(
-  feedback: PageFeedback
+  feedback: PageFeedback,
 ): Promise<ActionResponse> {
   try {
     const id = `page-feedback:${feedback.url}`;
@@ -187,7 +187,7 @@ ${feedback.message}
  * Handle block-level feedback (paragraph-specific)
  */
 export async function onBlockFeedbackAction(
-  feedback: BlockFeedback
+  feedback: BlockFeedback,
 ): Promise<ActionResponse> {
   try {
     const id = `block-feedback:${feedback.blockId}`;

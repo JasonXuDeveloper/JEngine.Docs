@@ -1,7 +1,7 @@
 import { HomeLayout } from 'fumadocs-ui/layouts/home';
-import { baseOptions } from '@/lib/layout.shared';
 import type { ReactNode } from 'react';
 import type { Locale } from '@/lib/i18n';
+import { baseOptions } from '@/lib/layout.shared';
 
 interface LayoutProps {
   children: ReactNode;

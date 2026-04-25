@@ -2,8 +2,8 @@ import { Inter } from 'next/font/google';
 import '../global.css';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { locales, type Locale } from '@/lib/i18n';
 import { Providers } from '@/components/providers';
+import { type Locale, locales } from '@/lib/i18n';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -12,15 +12,21 @@ const inter = Inter({
 const meta: Record<Locale, { title: string; description: string }> = {
   en: {
     title: 'JEngine - Unity Hot Update Solution',
-    description: 'Enable hot updates for Unity games with runtime support. The lightweight framework for developing hot-updatable Unity games.',
+    description:
+      'Enable hot updates for Unity games with runtime support. The lightweight framework for developing hot-updatable Unity games.',
   },
   zh: {
     title: 'JEngine - Unity 热更新框架',
-    description: '轻量级 Unity 热更新框架，支持运行时代码和资源热更新，全面支持 Unity 所有平台。',
+    description:
+      '轻量级 Unity 热更新框架，支持运行时代码和资源热更新，全面支持 Unity 所有平台。',
   },
 };
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: Locale }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: Locale }>;
+}): Promise<Metadata> {
   const { lang } = await params;
   const t = meta[lang] ?? meta.en;
 
@@ -77,11 +83,26 @@ export default async function LangLayout({ children, params }: LayoutProps) {
     <html lang={lang} className={inter.className} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Static JSON-LD is serialized from hard-coded metadata.
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
@@ -96,6 +117,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
         />
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Static JSON-LD is serialized from hard-coded metadata.
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
@@ -106,7 +128,8 @@ export default async function LangLayout({ children, params }: LayoutProps) {
               description:
                 'Unity framework enabling runtime hot updates for games across all Unity-supported platforms including mobile, PC, console, and minigames, with zero-code configuration, built-in encryption, and HybridCLR native C# support',
               programmingLanguage: 'C#',
-              operatingSystem: 'All Unity-supported platforms (iOS, Android, Windows, macOS, Linux, WebGL, consoles, minigames)',
+              operatingSystem:
+                'All Unity-supported platforms (iOS, Android, Windows, macOS, Linux, WebGL, consoles, minigames)',
               author: { '@type': 'Person', name: 'Jason Xu' },
             }),
           }}

@@ -1,23 +1,20 @@
 'use server';
 
-import {
-  onPageFeedbackAction,
-  onBlockFeedbackAction,
-} from '@/lib/github';
 import type {
-  PageFeedback,
-  BlockFeedback,
   ActionResponse,
+  BlockFeedback,
+  PageFeedback,
 } from '@/components/feedback/schema';
+import { onBlockFeedbackAction, onPageFeedbackAction } from '@/lib/github';
 
 export async function handlePageFeedback(
-  feedback: PageFeedback
+  feedback: PageFeedback,
 ): Promise<ActionResponse> {
   return onPageFeedbackAction(feedback);
 }
 
 export async function handleBlockFeedback(
-  feedback: BlockFeedback
+  feedback: BlockFeedback,
 ): Promise<ActionResponse> {
   return onBlockFeedbackAction(feedback);
 }

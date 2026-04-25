@@ -3,10 +3,11 @@
  *
  * Usage: bun run scripts/generate-favicons.ts
  */
+
+import { writeFile } from 'node:fs/promises';
+import path from 'node:path';
 import sharp from 'sharp';
 import ico from 'sharp-ico';
-import path from 'node:path';
-import { writeFile } from 'node:fs/promises';
 
 const SOURCE = path.resolve(import.meta.dirname, '../public/logo.png');
 const OUTPUT = path.resolve(import.meta.dirname, '../public');
@@ -28,7 +29,10 @@ async function main() {
   await Promise.all(
     PNG_VARIANTS.map(async ({ name, size }) => {
       await sharp(SOURCE)
-        .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+        .resize(size, size, {
+          fit: 'contain',
+          background: { r: 0, g: 0, b: 0, alpha: 0 },
+        })
         .png({ compressionLevel: 9 })
         .toFile(path.join(OUTPUT, name));
       console.log(`  ${name} (${size}x${size})`);
@@ -39,7 +43,10 @@ async function main() {
   const buffers = await Promise.all(
     ICO_SIZES.map((size) =>
       sharp(SOURCE)
-        .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+        .resize(size, size, {
+          fit: 'contain',
+          background: { r: 0, g: 0, b: 0, alpha: 0 },
+        })
         .png()
         .toBuffer(),
     ),

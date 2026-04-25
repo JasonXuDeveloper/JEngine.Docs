@@ -1,8 +1,8 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import { BookOpen, MessageCircle } from 'lucide-react';
+import Image from 'next/image';
 import type { Locale } from './i18n';
 import { defaultVersion } from './versions';
-import Image from 'next/image';
-import { BookOpen, MessageCircle } from 'lucide-react';
 
 export function baseOptions(lang: Locale = 'en'): BaseLayoutProps {
   const links: BaseLayoutProps['links'] = [
@@ -40,7 +40,13 @@ export function baseOptions(lang: Locale = 'en'): BaseLayoutProps {
     nav: {
       title: (
         <div className="flex items-center gap-2">
-          <Image src="/logo.png" alt="JEngine" width={24} height={24} className="rounded-lg" />
+          <Image
+            src="/logo.png"
+            alt="JEngine"
+            width={24}
+            height={24}
+            className="rounded-lg"
+          />
           <span className="font-semibold">JEngine</span>
         </div>
       ),
