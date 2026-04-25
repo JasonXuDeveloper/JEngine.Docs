@@ -1,3 +1,4 @@
+import { createPrivateKey } from 'node:crypto';
 import { Octokit } from 'octokit';
 import type {
   ActionResponse,
@@ -25,9 +26,9 @@ async function getOctokit(env: GitHubEnv = process.env): Promise<Octokit> {
   if (_octokit) return _octokit;
 
   const appId = env.GITHUB_APP_ID ?? env.APP_ID;
-  const privateKey = (
-    env.GITHUB_APP_PRIVATE_KEY ?? env.APP_PRIVATE_KEY
-  )?.replace(/\\n/g, '\n');
+  const privateKey = normalizePrivateKey(
+    env.GITHUB_APP_PRIVATE_KEY ?? env.APP_PRIVATE_KEY,
+  );
   const installationId =
     env.GITHUB_APP_INSTALLATION_ID ?? env.APP_INSTALLATION_ID;
 
@@ -54,6 +55,17 @@ async function getOctokit(env: GitHubEnv = process.env): Promise<Octokit> {
 interface FeedbackDestination {
   repoId: string;
   categoryId: string;
+}
+
+function normalizePrivateKey(privateKey?: string) {
+  const key = privateKey?.replace(/\\n/g, '\n');
+
+  if (!key?.includes('-----BEGIN RSA PRIVATE KEY-----')) return key;
+
+  return createPrivateKey(key).export({
+    format: 'pem',
+    type: 'pkcs8',
+  }) as string;
 }
 
 let _feedbackDestination: FeedbackDestination | undefined;

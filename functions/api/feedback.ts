@@ -44,6 +44,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       ? await onPageFeedbackAction(result.data.feedback, env)
       : await onBlockFeedbackAction(result.data.feedback, env);
 
+  if (!response.githubUrl) {
+    return Response.json(response, { status: 502 });
+  }
+
   return Response.json(response);
 };
 
