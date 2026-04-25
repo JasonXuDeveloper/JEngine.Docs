@@ -11,6 +11,13 @@ export async function getLLMText(
   page: InferPageType<typeof source>,
 ): Promise<string> {
   const data = page.data as unknown as ExtendedPageData;
-  const processed = await data.getText('processed');
-  return `# ${data.title} (${page.url})\n\n${processed}`;
+  let text: string;
+
+  try {
+    text = await data.getText('processed');
+  } catch {
+    text = await data.getText('raw');
+  }
+
+  return `# ${data.title} (${page.url})\n\n${text}`;
 }

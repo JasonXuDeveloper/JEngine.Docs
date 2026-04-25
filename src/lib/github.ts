@@ -10,15 +10,26 @@ const owner = 'JasonXuDeveloper';
 const repo = 'JEngine';
 const DocsCategory = 'Docs Feedback'; // Create this category in your GitHub repo
 
+interface GitHubEnv {
+  GITHUB_APP_ID?: string;
+  GITHUB_APP_PRIVATE_KEY?: string;
+  GITHUB_APP_INSTALLATION_ID?: string;
+  APP_ID?: string;
+  APP_PRIVATE_KEY?: string;
+  APP_INSTALLATION_ID?: string;
+}
+
 let _octokit: Octokit | undefined;
 
-async function getOctokit(): Promise<Octokit> {
+async function getOctokit(env: GitHubEnv = process.env): Promise<Octokit> {
   if (_octokit) return _octokit;
 
-  const appId = process.env.GITHUB_APP_ID;
-  // Handle both multiline and escaped newline formats (for Cloudflare Pages)
-  const privateKey = process.env.GITHUB_APP_PRIVATE_KEY?.replace(/\\n/g, '\n');
-  const installationId = process.env.GITHUB_APP_INSTALLATION_ID;
+  const appId = env.GITHUB_APP_ID ?? env.APP_ID;
+  const privateKey = (
+    env.GITHUB_APP_PRIVATE_KEY ?? env.APP_PRIVATE_KEY
+  )?.replace(/\\n/g, '\n');
+  const installationId =
+    env.GITHUB_APP_INSTALLATION_ID ?? env.APP_INSTALLATION_ID;
 
   if (!appId || !privateKey || !installationId) {
     throw new Error(
@@ -47,10 +58,12 @@ interface FeedbackDestination {
 
 let _feedbackDestination: FeedbackDestination | undefined;
 
-async function getFeedbackDestination(): Promise<FeedbackDestination> {
+async function getFeedbackDestination(
+  env: GitHubEnv = process.env,
+): Promise<FeedbackDestination> {
   if (_feedbackDestination) return _feedbackDestination;
 
-  const octokit = await getOctokit();
+  const octokit = await getOctokit(env);
 
   const result = await octokit.graphql<{
     repository: {
@@ -92,9 +105,10 @@ async function createDiscussionThread(
   id: string,
   title: string,
   body: string,
+  env: GitHubEnv = process.env,
 ): Promise<string | undefined> {
-  const octokit = await getOctokit();
-  const { repoId, categoryId } = await getFeedbackDestination();
+  const octokit = await getOctokit(env);
+  const { repoId, categoryId } = await getFeedbackDestination(env);
 
   // Search for existing discussion
   const searchQuery = `repo:${owner}/${repo} "${id}" in:body`;
@@ -161,6 +175,7 @@ async function createDiscussionThread(
  */
 export async function onPageFeedbackAction(
   feedback: PageFeedback,
+  env: GitHubEnv = process.env,
 ): Promise<ActionResponse> {
   try {
     const id = `page-feedback:${feedback.url}`;
@@ -175,7 +190,7 @@ ${feedback.message}
 ---
 *Feedback ID: ${id}*`;
 
-    const githubUrl = await createDiscussionThread(id, title, body);
+    const githubUrl = await createDiscussionThread(id, title, body, env);
     return { githubUrl };
   } catch (error) {
     console.error('Failed to create GitHub discussion:', error);
@@ -188,6 +203,7 @@ ${feedback.message}
  */
 export async function onBlockFeedbackAction(
   feedback: BlockFeedback,
+  env: GitHubEnv = process.env,
 ): Promise<ActionResponse> {
   try {
     const id = `block-feedback:${feedback.blockId}`;
@@ -205,7 +221,7 @@ ${feedback.message}
 ---
 *Feedback ID: ${id}*`;
 
-    const githubUrl = await createDiscussionThread(id, title, body);
+    const githubUrl = await createDiscussionThread(id, title, body, env);
     return { githubUrl };
   } catch (error) {
     console.error('Failed to create GitHub discussion:', error);

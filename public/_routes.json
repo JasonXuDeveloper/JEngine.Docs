@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "include": ["/", "/docs/*", "/en/docs/*", "/zh/docs/*", "/api/feedback"],
+  "exclude": [
+    "/assets/*",
+    "/images/*",
+    "/*.js",
+    "/*.css",
+    "/*.png",
+    "/*.jpg",
+    "/*.jpeg",
+    "/*.svg",
+    "/*.ico",
+    "/*.woff",
+    "/*.woff2",
+    "/*.map",
+    "/robots.txt",
+    "/sitemap.xml",
+    "/static.json",
+    "/manifest.webmanifest"
+  ]
+}

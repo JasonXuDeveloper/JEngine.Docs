@@ -2,7 +2,6 @@
 import { cva } from 'class-variance-authority';
 import type { FeedbackBlockProps } from 'fumadocs-core/mdx-plugins/remark-feedback-block';
 import { MessageSquare, ThumbsDown, ThumbsUp } from 'lucide-react';
-import { usePathname } from 'next/navigation';
 import {
   type ReactNode,
   type SyntheticEvent,
@@ -11,6 +10,7 @@ import {
   useState,
   useTransition,
 } from 'react';
+import { useLocation } from 'react-router';
 import { z } from 'zod/mini';
 import { cn } from '../../lib/cn';
 import { buttonVariants } from '../ui/button';
@@ -52,7 +52,7 @@ const translations = {
 } as const;
 
 function useLocale() {
-  const pathname = usePathname();
+  const { pathname } = useLocation();
   return pathname.startsWith('/zh') ? 'zh' : 'en';
 }
 
@@ -89,7 +89,7 @@ export function Feedback({
 }: {
   onSendAction: (feedback: PageFeedback) => Promise<ActionResponse>;
 }) {
-  const url = usePathname();
+  const { pathname: url } = useLocation();
   const t = useTranslations();
   const { previous, setPrevious } = useSubmissionStorage(url, (v) => {
     const result = pageFeedbackResult.safeParse(v);
@@ -242,7 +242,7 @@ export function FeedbackBlock({
   onSendAction: (feedback: BlockFeedback) => Promise<ActionResponse>;
   children: ReactNode;
 }) {
-  const url = usePathname();
+  const { pathname: url } = useLocation();
   const t = useTranslations();
   const blockId = `${url}-${id}`;
   const { previous, setPrevious } = useSubmissionStorage(blockId, (v) => {
